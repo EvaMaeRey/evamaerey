@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Evangeline M Reynolds on Evangeline M Reynolds</title>
+    <link>/</link>
+    <description>Recent content in Evangeline M Reynolds on Evangeline M Reynolds</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0200</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Winter Games and Athlete Ages</title>
+      <link>/post/winter-games-and-athlete-ages/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/winter-games-and-athlete-ages/</guid>
+      <description>&lt;p&gt;Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative &lt;a href=&#34;http://www.makeovermonday.co.uk/data/&#34;&gt;#MakeoverMonday&lt;/a&gt;, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.&lt;/p&gt;
+&lt;p&gt;Here is how I created my submission using the R statistical software and the ggplot2 package.&lt;/p&gt;
+&lt;p&gt;First, we load some packages and the data&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)  # for visualization
+library(dplyr)    # for manipulation
+library(forcats)  # for ordering factors
+df = readxl::read_xlsx(&amp;quot;Winter Olympic Medals.xlsx&amp;quot;)
+names(df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Year&amp;quot;                    &amp;quot;Sport&amp;quot;                  
+## [3] &amp;quot;Event&amp;quot;                   &amp;quot;Country&amp;quot;                
+## [5] &amp;quot;Gender&amp;quot;                  &amp;quot;Medal Rank&amp;quot;             
+## [7] &amp;quot;Medal&amp;quot;                   &amp;quot;Name of Athlete or Team&amp;quot;
+## [9] &amp;quot;Age of Athlete&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then I subset the data to sports that have been practiced for a longer period — from 1965.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_individual = df %&amp;gt;% filter(Sport != &amp;quot;Bobsled&amp;quot; &amp;amp;
+                                Sport != &amp;quot;Curling&amp;quot; &amp;amp; 
+                              Sport != &amp;quot;Ice Hockey&amp;quot; &amp;amp;
+                                Sport != &amp;quot;Skeleton&amp;quot; &amp;amp;
+                                Sport != &amp;quot;Freestyle Skiing&amp;quot; &amp;amp;
+                                Sport != &amp;quot;Snowboarding&amp;quot; &amp;amp;
+                                Sport != &amp;quot;Short-Track Speedskating&amp;quot;
+                          )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now the plot. First I’ll show the plot without the ribbon. Then I’ll use free y axis add the ribbon across athletes in their 20s as a guide.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df_individual %&amp;gt;% filter(Year&amp;gt;1945)) + # data will be post WWII period
+  aes(x = Year, y = `Age of Athlete`) +  # scatterplot, year v athlete age
+  scale_color_manual(values = c(&amp;quot;goldenrod3&amp;quot;, &amp;quot;grey40&amp;quot;, &amp;quot;goldenrod4&amp;quot;),
+                     name =&amp;quot;&amp;quot;) +
+  ggtitle(&amp;quot;Young and old at the Winter Olympics: medalists&amp;#39; ages have risen in recent years&amp;quot;, 
+          &amp;quot;Source: Sports-Reference.com | Vis: Gina Reynolds @EvaMaeRey \nIncludes individual sports that have been in Olympic since 1965&amp;quot;) +
+  geom_smooth(col = &amp;quot;grey30&amp;quot;) + 
+  geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
+  theme_bw(base_size = 13) +
+  facet_wrap(~ Sport, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This resulted in some parts of some graphs having&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
+  facet_wrap(~ Sport, scales = &amp;quot;free_y&amp;quot;, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
+  geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &amp;quot;blue&amp;quot;) +
+  geom_hline(yintercept = c(20, 30), lty = 2) +
+  geom_hline(yintercept = c(25), lty = 1) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>First Blogdown blogpost</title>
+      <link>/post/first-blogdown-post/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/first-blogdown-post/</guid>
+      <description>&lt;p&gt;This is my first post. It’s just a test of blogdown.&lt;/p&gt;
+&lt;p&gt;Update:&lt;/p&gt;
+&lt;p&gt;It seems to be working fine! Now I’ll knit in some R code:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x = 5
+x^2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s check out how a graph looks too:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+ggplot(mtcars) +
+  aes(mpg, disp, col = as.factor(cyl)) +
+  geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looks good. I’m very satisfied. Hooray for blogdown!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Example Talk</title>
+      <link>/talk/example-talk/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0100</pubDate>
+      
+      <guid>/talk/example-talk/</guid>
+      <description>&lt;p&gt;Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>External Project</title>
+      <link>/project/example-external-project/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
+      
+      <guid>/project/example-external-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Supranational Law and Compliance</title>
+      <link>/project/deep-learning/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
+      
+      <guid>/project/deep-learning/</guid>
+      <description>&lt;p&gt;Dissertation: Supranational Law and Compliance&lt;/p&gt;
+
+&lt;p&gt;My dissertation project focuses supranational law (law that is not consent-based) and on reputation as a motivation for compliance with International Law. Reputation has been an important explanation for states&amp;rsquo; compliance with international law.  Does reputation motivate states to comply as is purported?  Many studies assert that compliance indeed has a reputational explanation but struggle with problems of endogeneity and selection given that international law is usually consent based. I bring in the less frequent case of non-consent based international law to evaluate the dominant reputational theory.  If a country receives an international obligation as a mandate rather than signing on to the law for itself, it should suffer less of a reputational cost for not complying.  Other countries will observe a violation of an obligation but not a violation of a commitment.  If the reputational theory holds, these observing states should be less reluctant to enter into new cooperative agreements with a country that does not comply with a mandate than with a country that does not comply with a commitment.  Specifically, I leverage several recent Security Council resolutions that create substantial obligations for all UN member states; countries not on the Security Council will see such resolutions as mandates.  I compare compliance behavior of countries that participate in a resolution&amp;rsquo;s approval versus those that receive it as a mandate using a mix of parametric and non-parametric methods in addition to a survey experiment.&lt;/p&gt;
+
+&lt;p&gt;Xinyuan Dai (Chair), Paul Diehl, Brian Gaines, Matthew Winters were my committee members.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Supranational Law and Compliance</title>
+      <link>/project/supranational-law/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
+      
+      <guid>/project/supranational-law/</guid>
+      <description>&lt;p&gt;Dissertation: Supranational Law and Compliance&lt;/p&gt;
+
+&lt;p&gt;My dissertation project focuses supranational law (law that is not consent-based) and on reputation as a motivation for compliance with International Law. Reputation has been an important explanation for states&amp;rsquo; compliance with international law.  Does reputation motivate states to comply as is purported?  Many studies assert that compliance indeed has a reputational explanation but struggle with problems of endogeneity and selection given that international law is usually consent based. I bring in the less frequent case of non-consent based international law to evaluate the dominant reputational theory.  If a country receives an international obligation as a mandate rather than signing on to the law for itself, it should suffer less of a reputational cost for not complying.  Other countries will observe a violation of an obligation but not a violation of a commitment.  If the reputational theory holds, these observing states should be less reluctant to enter into new cooperative agreements with a country that does not comply with a mandate than with a country that does not comply with a commitment.  Specifically, I leverage several recent Security Council resolutions that create substantial obligations for all UN member states; countries not on the Security Council will see such resolutions as mandates.  I compare compliance behavior of countries that participate in a resolution&amp;rsquo;s approval versus those that receive it as a mandate using a mix of parametric and non-parametric methods in addition to a survey experiment.&lt;/p&gt;
+
+&lt;p&gt;Xinyuan Dai (Chair), Paul Diehl, Brian Gaines, Matthew Winters were my committee members.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Academic Hugo and Blogdown</title>
+      <link>/post/getting-started/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
+      
+      <guid>/post/getting-started/</guid>
+      <description>&lt;p&gt;About Academic Hugo from the creator:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Academic&lt;/strong&gt; is a framework to help you create a beautiful website quickly. Perfect for personal sites, blogs, or business/project sites. &lt;a href=&#34;https://themes.gohugo.io/theme/academic/&#34; target=&#34;_blank&#34;&gt;Check out the latest demo&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes. Then head on over to the &lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Quick Start guide&lt;/a&gt; or take a look at the &lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34; target=&#34;_blank&#34;&gt;Release Notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academic/master/academic.png&#34; alt=&#34;Screenshot&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;About Blogdown:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34; target=&#34;_blank&#34;&gt;https://bookdown.org/yihui/blogdown/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://alison.rbind.io/post/up-and-running-with-blogdown/&#34; target=&#34;_blank&#34;&gt;https://alison.rbind.io/post/up-and-running-with-blogdown/&lt;/a&gt; (very helpful step-by-step instructions)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Foreign aid funnel? A placebo-based assessment of aid flows to non-permanent United Nations Security Council members</title>
+      <link>/publication/person-re-identification/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/person-re-identification/</guid>
+      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Attitudes toward Consent-Based and Non-Consent-Based International Law in a Regional Power Context</title>
+      <link>/publication/clothing-search/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/clothing-search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

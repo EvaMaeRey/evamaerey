@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Evangeline M Reynolds</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Evangeline M Reynolds</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Winter Games and Athlete Ages</title>
+      <link>/post/winter-games-and-athlete-ages/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/winter-games-and-athlete-ages/</guid>
+      <description>Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative #MakeoverMonday, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.
+Here is how I created my submission using the R statistical software and the ggplot2 package.
+First, we load some packages and the data</description>
+    </item>
+    
+    <item>
+      <title>First Blogdown blogpost</title>
+      <link>/post/first-blogdown-post/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/first-blogdown-post/</guid>
+      <description>This is my first post. It’s just a test of blogdown.
+Update:
+It seems to be working fine! Now I’ll knit in some R code:
+x = 5 x^2 ## [1] 25 Let’s check out how a graph looks too:
+library(ggplot2) ggplot(mtcars) + aes(mpg, disp, col = as.factor(cyl)) + geom_point() Looks good. I’m very satisfied. Hooray for blogdown!</description>
+    </item>
+    
+    <item>
+      <title>Academic Hugo and Blogdown</title>
+      <link>/post/getting-started/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
+      
+      <guid>/post/getting-started/</guid>
+      <description>About Academic Hugo from the creator:
+Academic is a framework to help you create a beautiful website quickly. Perfect for personal sites, blogs, or business/project sites. Check out the latest demo of what you&amp;rsquo;ll get in less than 10 minutes. Then head on over to the Quick Start guide or take a look at the Release Notes.
+
+About Blogdown:
+https://bookdown.org/yihui/blogdown/
+https://alison.rbind.io/post/up-and-running-with-blogdown/ (very helpful step-by-step instructions)</description>
+    </item>
+    
+  </channel>
+</rss>
