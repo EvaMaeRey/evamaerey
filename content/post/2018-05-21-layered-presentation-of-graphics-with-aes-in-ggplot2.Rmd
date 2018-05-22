@@ -1,0 +1,30 @@
+---
+title: Layered Presentation of Graphics with +aes() in ggplot2
+author: Gina
+date: '2018-05-21'
+slug: layered-presentation-of-graphics-with-aes-in-ggplot2
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+
+```{r}
+library(tidyverse)
+library(gapminder)
+data = gapminder %>% filter(continent == "Americas" & year == 2002)
+ggplot(data, aes(x = gdpPercap))
+
+last_plot() + geom_point(aes(y = lifeExp, alpha = country == "Chile")) + 
+  scale_alpha_discrete(guide = FALSE, range = c(0,0)) 
+
+last_plot() + scale_alpha_discrete(guide = FALSE, range = c(.05,1))
+
+last_plot() + scale_alpha_discrete(guide = FALSE, range = c(1,1))
+# ggsave("p4.png")
+
+```

@@ -1,0 +1,39 @@
+---
+title: Layered Presentation of Graphics with +aes() in ggplot2
+author: Gina
+date: '2018-05-21'
+slug: layered-presentation-of-graphics-with-aes-in-ggplot2
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ────────</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.5
+## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(gapminder)
+data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2002)
+ggplot(data, aes(x = gdpPercap))</code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>last_plot() + geom_point(aes(y = lifeExp, alpha = country == &quot;Chile&quot;)) + 
+  scale_alpha_discrete(guide = FALSE, range = c(0,0)) </code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>last_plot() + scale_alpha_discrete(guide = FALSE, range = c(.05,1))</code></pre>
+<pre><code>## Scale for &#39;alpha&#39; is already present. Adding another scale for &#39;alpha&#39;,
+## which will replace the existing scale.</code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>last_plot() + scale_alpha_discrete(guide = FALSE, range = c(1,1))</code></pre>
+<pre><code>## Scale for &#39;alpha&#39; is already present. Adding another scale for &#39;alpha&#39;,
+## which will replace the existing scale.</code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+<pre class="r"><code># ggsave(&quot;p4.png&quot;)</code></pre>

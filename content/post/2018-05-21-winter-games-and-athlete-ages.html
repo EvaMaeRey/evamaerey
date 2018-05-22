@@ -1,0 +1,57 @@
+---
+title: Winter Games and Athlete Ages
+author: ''
+date: '2018-05-21'
+slug: winter-games-and-athlete-ages
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative <a href="http://www.makeovermonday.co.uk/data/">#MakeoverMonday</a>, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.</p>
+<p>Here is how I created my submission using the R statistical software and the ggplot2 package.</p>
+<p>First, we load some packages and the data</p>
+<pre class="r"><code>library(ggplot2)  # for visualization
+library(dplyr)    # for manipulation
+library(forcats)  # for ordering factors
+df = readxl::read_xlsx(&quot;Winter Olympic Medals.xlsx&quot;)
+names(df)</code></pre>
+<pre><code>## [1] &quot;Year&quot;                    &quot;Sport&quot;                  
+## [3] &quot;Event&quot;                   &quot;Country&quot;                
+## [5] &quot;Gender&quot;                  &quot;Medal Rank&quot;             
+## [7] &quot;Medal&quot;                   &quot;Name of Athlete or Team&quot;
+## [9] &quot;Age of Athlete&quot;</code></pre>
+<p>Then I subset the data to sports that have been practiced for a longer period — from 1965.</p>
+<pre class="r"><code>df_individual = df %&gt;% filter(Sport != &quot;Bobsled&quot; &amp;
+                                Sport != &quot;Curling&quot; &amp; 
+                              Sport != &quot;Ice Hockey&quot; &amp;
+                                Sport != &quot;Skeleton&quot; &amp;
+                                Sport != &quot;Freestyle Skiing&quot; &amp;
+                                Sport != &quot;Snowboarding&quot; &amp;
+                                Sport != &quot;Short-Track Speedskating&quot;
+                          )</code></pre>
+<p>Now the plot. First I’ll show the plot without the ribbon. Then I’ll use free y axis add the ribbon across athletes in their 20s as a guide.</p>
+<pre class="r"><code>ggplot(df_individual %&gt;% filter(Year&gt;1945)) + # data will be post WWII period
+  aes(x = Year, y = `Age of Athlete`) +  # scatterplot, year v athlete age
+  scale_color_manual(values = c(&quot;goldenrod3&quot;, &quot;grey40&quot;, &quot;goldenrod4&quot;),
+                     name =&quot;&quot;) +
+  ggtitle(&quot;Young and old at the Winter Olympics: medalists&#39; ages have risen in recent years&quot;, 
+          &quot;Source: Sports-Reference.com | Vis: Gina Reynolds @EvaMaeRey \nIncludes individual sports that have been in Olympic since 1965&quot;) +
+  geom_smooth(col = &quot;grey30&quot;) + 
+  geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
+  theme_bw(base_size = 13) +
+  facet_wrap(~ Sport, nrow = 2)  </code></pre>
+<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+<p>This resulted in some parts of some graphs having</p>
+<pre class="r"><code>last_plot() +
+  facet_wrap(~ Sport, scales = &quot;free_y&quot;, nrow = 2)  </code></pre>
+<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<pre class="r"><code>last_plot() +
+  geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &quot;blue&quot;) +
+  geom_hline(yintercept = c(20, 30), lty = 2) +
+  geom_hline(yintercept = c(25), lty = 1) </code></pre>
+<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>

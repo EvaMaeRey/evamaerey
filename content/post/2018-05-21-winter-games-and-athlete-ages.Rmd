@@ -1,0 +1,80 @@
+---
+title: Winter Games and Athlete Ages
+author: ''
+date: '2018-05-21'
+slug: winter-games-and-athlete-ages
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/), which is primarily an activity of Tableau enthusiasts practicing data visualization techniques.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually. 
+
+Here is how I created my submission using the R statistical software and the ggplot2 package.  
+
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = F, warning = F)
+```
+
+First, we load some packages and the data
+
+```{r}
+library(ggplot2)  # for visualization
+library(dplyr)    # for manipulation
+library(forcats)  # for ordering factors
+df = readxl::read_xlsx("Winter Olympic Medals.xlsx")
+names(df)
+```
+
+Then I subset the data to sports that have been practiced for a longer period --- from 1965.  
+
+```{r}
+df_individual = df %>% filter(Sport != "Bobsled" &
+                                Sport != "Curling" & 
+                              Sport != "Ice Hockey" &
+                                Sport != "Skeleton" &
+                                Sport != "Freestyle Skiing" &
+                                Sport != "Snowboarding" &
+                                Sport != "Short-Track Speedskating"
+                          )
+```
+
+
+Now the plot. First I'll show the plot without the ribbon.  Then I'll use free y axis add the ribbon across athletes in their 20s as a guide.
+
+```{r , fig.width=10, fig.height=6}
+
+ggplot(df_individual %>% filter(Year>1945)) + # data will be post WWII period
+  aes(x = Year, y = `Age of Athlete`) +  # scatterplot, year v athlete age
+  scale_color_manual(values = c("goldenrod3", "grey40", "goldenrod4"),
+                     name ="") +
+  ggtitle("Young and old at the Winter Olympics: medalists' ages have risen in recent years", 
+          "Source: Sports-Reference.com | Vis: Gina Reynolds @EvaMaeRey \nIncludes individual sports that have been in Olympic since 1965") +
+  geom_smooth(col = "grey30") + 
+  geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
+  theme_bw(base_size = 13) +
+  facet_wrap(~ Sport, nrow = 2)  
+```
+
+This resulted in some parts of some graphs having 
+
+```{r, fig.width=10, fig.height=6}
+
+last_plot() +
+  facet_wrap(~ Sport, scales = "free_y", nrow = 2)  
+```
+
+```{r, fig.width=10, fig.height=6}
+
+last_plot() +
+  geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = "blue") +
+  geom_hline(yintercept = c(20, 30), lty = 2) +
+  geom_hline(yintercept = c(25), lty = 1) 
+
+
+```
+
+

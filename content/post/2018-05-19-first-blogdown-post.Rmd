@@ -1,0 +1,34 @@
+---
+title: First Blogdown blogpost
+author: Gina
+date: '2018-05-19'
+slug: first-blogdown-post
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+This is my first post.   It's just a test of blogdown.  
+
+
+Update:  
+
+It seems to be working fine!  Now I'll knit in some R code:
+
+```{r}
+x = 5
+x^2
+```
+
+Let's check out how a graph looks too:
+
+```{r}
+library(ggplot2)
+ggplot(mtcars) +
+  aes(mpg, disp, col = as.factor(cyl)) +
+  geom_point()
+```
+
+Looks good.  I'm very satisfied.  Hooray for blogdown!  
