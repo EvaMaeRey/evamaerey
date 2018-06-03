@@ -10,16 +10,19 @@ header:
   image: ''
 ---
 
-This is my first post.   It's just a test of blogdown.  
+This is my first post just a test of blogdown.  
 
-
-Update:  
-
-It seems to be working fine!  Now I'll knit in some R code:
+It seems to be working fine also with this R code:
 
 ```{r}
 x = 5
 x^2
+```
+
+And this Python code:
+
+```{python}
+print("hello" + "there")
 ```
 
 Let's check out how a graph looks too:

@@ -6,7 +6,9 @@ lastmod = 2018-01-13T00:00:00
 draft = false
 
 tags = ["blogdown", "academic-hugo"]
-summary = "'Create a beautifully simple website or blog in under 10 minutes'?  It took me longer than 10 minutes.  But okay.  I'm using it with blogdown too, so I guess I cannot complain.  The idea of Blogdown is to integrate code and blogging.  I actually haven't blogged, but I do do a lot of coding.  So for me this will be about adding some sentances to the coding and sharing.  I hope that you, reader, are amused by, and perhaps learn a thing or two from the posts.  Is there infrastructure for responding to posts. Probably. And in that case I would love to hear your response. This post is modified from a template post from Academic Hugo.  I retain some of that information so you can check it out.  I provide some links to helpful cites for Blogdown."
+summary = "'Create a beautifully simple website or blog in under 10 minutes'?  It took me longer than 10 minutes.  But okay.  I'm using it with blogdown too, so I guess I cannot complain.  The idea of Blogdown is to allow you to integrate your coding with your blogging.  I actually haven't blogged, but I do do a lot of coding.  So for me this will be about adding some sentences to the coding and sharing.  
+
+This post is modified from a template post from Academic Hugo.  I retain some of that information so you can check it out.  I provide some links to helpful cites for Blogdown."
 
 [header]
 image = "headers/bubbles-wide.jpg"

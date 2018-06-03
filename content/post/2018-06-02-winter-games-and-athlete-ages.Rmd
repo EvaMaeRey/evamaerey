@@ -1,16 +1,16 @@
 ---
-title: Winter Games and Athlete Ages
+title: "Winter Games and Athlete Ages"
 author: ''
-date: '2018-05-21'
-slug: winter-games-and-athlete-ages
-categories: []
-tags: []
+date: '2018-06-02'
 header:
   caption: ''
   image: ''
+slug: winter-games-and-athlete-ages
+tags: []
+categories: []
 ---
 
-Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/), which is primarily an activity of Tableau enthusiasts practicing data visualization techniques.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually. 
+Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/), an activity of Tableau enthusiasts practicing data visualization techniques.  I use it to practice visualization with R.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually which can be good food for thought. 
 
 Here is how I created my submission using the R statistical software and the ggplot2 package.  
 
@@ -59,13 +59,13 @@ ggplot(df_individual %>% filter(Year>1945)) + # data will be post WWII period
   facet_wrap(~ Sport, nrow = 2)  
 ```
 
-This resulted in some parts of some graphs having 
+This resulted in some parts of some graphs having large amount of unused space --- for example in the figure skating plot half of the graph has no points therein. So it is tempting to use the "free_y" option for the scales argument in the facet_wrap function.  I do this: 
 
 ```{r, fig.width=10, fig.height=6}
-
 last_plot() +
   facet_wrap(~ Sport, scales = "free_y", nrow = 2)  
 ```
+But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy.  You have a sense of how much the y distances are stretched or shrunk, and the vertical shift between plots.
 
 ```{r, fig.width=10, fig.height=6}
 
@@ -74,7 +74,7 @@ last_plot() +
   geom_hline(yintercept = c(20, 30), lty = 2) +
   geom_hline(yintercept = c(25), lty = 1) 
 
-
 ```
 
+And there you have it!
 

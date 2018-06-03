@@ -1,18 +1,18 @@
 ---
-title: Winter Games and Athlete Ages
+title: "Winter Games and Athlete Ages"
 author: ''
-date: '2018-05-21'
-slug: winter-games-and-athlete-ages
-categories: []
-tags: []
+date: '2018-06-02'
 header:
   caption: ''
   image: ''
+slug: winter-games-and-athlete-ages
+tags: []
+categories: []
 ---
 
 
 
-<p>Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative <a href="http://www.makeovermonday.co.uk/data/">#MakeoverMonday</a>, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.</p>
+<p>Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative <a href="http://www.makeovermonday.co.uk/data/">#MakeoverMonday</a>, an activity of Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought.</p>
 <p>Here is how I created my submission using the R statistical software and the ggplot2 package.</p>
 <p>First, we load some packages and the data</p>
 <pre class="r"><code>library(ggplot2)  # for visualization
@@ -45,13 +45,14 @@ names(df)</code></pre>
   geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
   theme_bw(base_size = 13) +
   facet_wrap(~ Sport, nrow = 2)  </code></pre>
-<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
-<p>This resulted in some parts of some graphs having</p>
+<p><img src="/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+<p>This resulted in some parts of some graphs having large amount of unused space — for example in the figure skating plot half of the graph has no points therein. So it is tempting to use the “free_y” option for the scales argument in the facet_wrap function. I do this:</p>
 <pre class="r"><code>last_plot() +
   facet_wrap(~ Sport, scales = &quot;free_y&quot;, nrow = 2)  </code></pre>
-<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p><img src="/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png" width="960" /> But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy. You have a sense of how much the y distances are stretched or shrunk, and the vertical shift between plots.</p>
 <pre class="r"><code>last_plot() +
   geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &quot;blue&quot;) +
   geom_hline(yintercept = c(20, 30), lty = 2) +
   geom_hline(yintercept = c(25), lty = 1) </code></pre>
-<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<p><img src="/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<p>And there you have it!</p>
