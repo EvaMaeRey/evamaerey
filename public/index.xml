@@ -16,7 +16,7 @@
       <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/winter-games-and-athlete-ages/</guid>
-      <description>&lt;p&gt;Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative &lt;a href=&#34;http://www.makeovermonday.co.uk/data/&#34;&gt;#MakeoverMonday&lt;/a&gt;, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.&lt;/p&gt;
+      <description>&lt;p&gt;Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative &lt;a href=&#34;http://www.makeovermonday.co.uk/data/&#34;&gt;#MakeoverMonday&lt;/a&gt;, an activity of Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought.&lt;/p&gt;
 &lt;p&gt;Here is how I created my submission using the R statistical software and the ggplot2 package.&lt;/p&gt;
 &lt;p&gt;First, we load some packages and the data&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)  # for visualization
@@ -53,7 +53,7 @@ names(df)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This resulted in some parts of some graphs having large amount of unused space — for example in the figure skating plot half of the graph has no points therein. So it is tempting to use the “free_y” option for the scales argument in the facet_wrap function. I do this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
   facet_wrap(~ Sport, scales = &amp;quot;free_y&amp;quot;, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;960&#34; /&gt; But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;960&#34; /&gt; But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy. You have a sense of how much the y distances are stretched or shrunk, and the vertical shift between plots.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
   geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &amp;quot;blue&amp;quot;) +
   geom_hline(yintercept = c(20, 30), lty = 2) +
@@ -81,7 +81,7 @@ names(df)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(gapminder)
 data = gapminder %&amp;gt;% filter(continent == &amp;quot;Americas&amp;quot; &amp;amp; year == 2002)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Okay, the data is ready and packages loaded. Now for plotting.&lt;/p&gt;
+&lt;p&gt;Okay, the data is ready and packages loaded. Now for plotting:&lt;/p&gt;
 &lt;div id=&#34;step-1-just-x-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 1: Just x-axis (explain it)&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data) +              # declare the data you want to use
@@ -123,7 +123,7 @@ data = gapminder %&amp;gt;% filter(continent == &amp;quot;Americas&amp;quot; &am
       
       <guid>/post/first-blogdown-post/</guid>
       <description>&lt;p&gt;This is my first post just a test of blogdown.&lt;/p&gt;
-&lt;p&gt;It seems to be working fine also with this R code:&lt;/p&gt;
+&lt;p&gt;It seems to be working fine also with this R code.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x = 5
 x^2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;

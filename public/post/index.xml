@@ -18,9 +18,8 @@
       <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/winter-games-and-athlete-ages/</guid>
-      <description>Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative #MakeoverMonday, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.
-Here is how I created my submission using the R statistical software and the ggplot2 package.
-First, we load some packages and the data</description>
+      <description>Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative #MakeoverMonday, an activity of Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought.
+Here is how I created my submission using the R statistical software and the ggplot2 package.</description>
     </item>
     
     <item>
@@ -40,7 +39,7 @@ My best tip on how to give better quantitative presentations is to (a) use more 
       
       <guid>/post/first-blogdown-post/</guid>
       <description>This is my first post just a test of blogdown.
-It seems to be working fine also with this R code:
+It seems to be working fine also with this R code.
 x = 5 x^2 ## [1] 25 And this Python code:
 print(&amp;quot;hello&amp;quot; + &amp;quot;there&amp;quot;) ## hellothere Let’s check out how a graph looks too:
 library(ggplot2) ggplot(mtcars) + aes(mpg, disp, col = as.factor(cyl)) + geom_point() Looks good. I’m very satisfied. Hooray for blogdown!</description>
