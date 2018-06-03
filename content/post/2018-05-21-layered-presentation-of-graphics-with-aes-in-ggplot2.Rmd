@@ -34,7 +34,7 @@ library(gapminder)
 data = gapminder %>% filter(continent == "Americas" & year == 2002)
 ```
 
-Okay, the data is ready and packages loaded. Now for plotting.    
+Okay, the data is ready and packages loaded. Now for plotting:    
 
 
 
@@ -72,7 +72,6 @@ Now we overwrite the alpha levels so that all are observations (countries) are r
 ```{r}
 last_plot() + 
   scale_alpha_discrete(guide = FALSE, range = c(1,1)) 
-
 ```
 
 
