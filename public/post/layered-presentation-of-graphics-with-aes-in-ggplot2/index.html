@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.40.3" />
+  <meta name="generator" content="Hugo 0.41" />
   <meta name="author" content="Evangeline Reynolds">
 
   
@@ -17,7 +17,8 @@
       
     
   
-  <meta name="description" content="library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1 ✔ purrr 0.2.4 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(gapminder) data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2002) ggplot(data, aes(x = gdpPercap)) last_plot() &#43; geom_point(aes(y = lifeExp, alpha = country == &quot;Chile&quot;)) &#43; scale_alpha_discrete(guide = FALSE, range = c(0,0))  last_plot() &#43; scale_alpha_discrete(guide = FALSE, range = c(.">
+  <meta name="description" content="Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
+My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/">
@@ -79,7 +80,8 @@
   <meta property="og:site_name" content="Evangeline M Reynolds">
   <meta property="og:url" content="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/">
   <meta property="og:title" content="Layered Presentation of Graphics with &#43;aes() in ggplot2 | Evangeline M Reynolds">
-  <meta property="og:description" content="library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1 ✔ purrr 0.2.4 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(gapminder) data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2002) ggplot(data, aes(x = gdpPercap)) last_plot() &#43; geom_point(aes(y = lifeExp, alpha = country == &quot;Chile&quot;)) &#43; scale_alpha_discrete(guide = FALSE, range = c(0,0))  last_plot() &#43; scale_alpha_discrete(guide = FALSE, range = c(.">
+  <meta property="og:description" content="Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
+My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-05-21T00:00:00&#43;00:00">
@@ -268,7 +270,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
@@ -328,31 +330,50 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.5
-## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
-## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(gapminder)
-data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2002)
-ggplot(data, aes(x = gdpPercap))</code></pre>
-<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<pre class="r"><code>last_plot() + geom_point(aes(y = lifeExp, alpha = country == &quot;Chile&quot;)) + 
-  scale_alpha_discrete(guide = FALSE, range = c(0,0)) </code></pre>
-<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
-<pre class="r"><code>last_plot() + scale_alpha_discrete(guide = FALSE, range = c(.05,1))</code></pre>
-<pre><code>## Scale for &#39;alpha&#39; is already present. Adding another scale for &#39;alpha&#39;,
-## which will replace the existing scale.</code></pre>
-<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
-<pre class="r"><code>last_plot() + scale_alpha_discrete(guide = FALSE, range = c(1,1))</code></pre>
-<pre><code>## Scale for &#39;alpha&#39; is already present. Adding another scale for &#39;alpha&#39;,
-## which will replace the existing scale.</code></pre>
-<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
-<pre class="r"><code># ggsave(&quot;p4.png&quot;)</code></pre>
+      <p>Here is the post is about how to implement a <em>layered presentation of a graphics</em>. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:<br><br>- Just x-axis (explain it)<br>- Add y-axis (explain it)<br>- Add 1 data point (explain it)<br>- Plot the rest of the data (explain it)</p>&mdash; Matt Blackwell (@matt_blackwell) <a href="https://twitter.com/matt_blackwell/status/991004129198854145?ref_src=twsrc%5Etfw">April 30, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Good ideas!  Very <a href="https://twitter.com/hashtag/ggplot?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot</a>.  A layered presentation of graphics. <a href="https://t.co/M4tRB9bGS5">https://t.co/M4tRB9bGS5</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/991269331257487366?ref_src=twsrc%5Etfw">May 1, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>So then I set out to write an implementation with ggplot. I actually wrote a couple of implementations and what follows is my favorite, which is demonstrated using a year of data from the gapminder data package.</p>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2002)</code></pre>
+<p>Okay, the data is ready and packages loaded. Now for plotting.</p>
+<div id="step-1-just-x-axis-explain-it" class="section level1">
+<h1>Step 1: Just x-axis (explain it)</h1>
+<pre class="r"><code>ggplot(data) +              # declare the data you want to use
+  aes(x = gdpPercap) +      # declare the aesthetic mapping for x
+  theme_bw(base_size = 20)  # we want label sizes to be a bit bigger</code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="step-2-just-y-axis-explain-it" class="section level1">
+<h1>Step 2: Just y-axis (explain it)</h1>
+<pre class="r"><code>last_plot() +      # we just add to the last plot
+  aes(y = lifeExp) # add the aesthetic mapping for y</code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="step-3-add-1-data-point-explain-it" class="section level1">
+<h1>Step 3: Add 1 data point (explain it)</h1>
+<pre class="r"><code>last_plot() + 
+  geom_point() +  # declare the geom to add 
+  aes(alpha = country == &quot;Chile&quot;) +  # alpha is transparency aesthetic
+  scale_alpha_discrete(guide = FALSE, range = c(0,1)) </code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Above, we use an extreme range, so Chile is fully opaque and the rest of the points are fully transparent. So the point for Chile is the only point that will appear.</p>
+</div>
+<div id="step-4-plot-the-rest-of-the-data-explain-it" class="section level1">
+<h1>Step 4: Plot the rest of the data (explain it)</h1>
+<p>Now we overwrite the alpha levels so that all are observations (countries) are represented with a fully opaque point.</p>
+<pre class="r"><code>last_plot() + 
+  scale_alpha_discrete(guide = FALSE, range = c(1,1)) </code></pre>
+<p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Done!</p>
+<p>So, a (big) bonus of this exercise was discovering that you can use aes() to set global aesthetics outside of the ggplot() function. This is not the usual way that ggplot is taught (see the RStudio Cheatsheats for example) but I <em>really</em> like it, because using it gives you even more of that “building-up-the-plot”, step-by-step, layered feel that makes ggplot so attractive!</p>
+</div>
 
     </div>
 

@@ -11,43 +11,9 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Layered Presentation of Graphics with &#43;aes() in ggplot2</title>
-      <link>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</link>
-      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</guid>
-      <description>&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Attaching packages ────────&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.5
-## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
-## ✔ readr   1.1.1     ✔ forcats 0.3.0&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Conflicts ─────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
-data = gapminder %&amp;gt;% filter(continent == &amp;quot;Americas&amp;quot; &amp;amp; year == 2002)
-ggplot(data, aes(x = gdpPercap))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + geom_point(aes(y = lifeExp, alpha = country == &amp;quot;Chile&amp;quot;)) + 
-  scale_alpha_discrete(guide = FALSE, range = c(0,0)) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + scale_alpha_discrete(guide = FALSE, range = c(.05,1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Scale for &amp;#39;alpha&amp;#39; is already present. Adding another scale for &amp;#39;alpha&amp;#39;,
-## which will replace the existing scale.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + scale_alpha_discrete(guide = FALSE, range = c(1,1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Scale for &amp;#39;alpha&amp;#39; is already present. Adding another scale for &amp;#39;alpha&amp;#39;,
-## which will replace the existing scale.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ggsave(&amp;quot;p4.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Winter Games and Athlete Ages</title>
       <link>/post/winter-games-and-athlete-ages/</link>
-      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/winter-games-and-athlete-ages/</guid>
       <description>&lt;p&gt;Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative &lt;a href=&#34;http://www.makeovermonday.co.uk/data/&#34;&gt;#MakeoverMonday&lt;/a&gt;, which is primarily an activity of Tableau enthusiasts practicing data visualization techniques. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually.&lt;/p&gt;
@@ -83,16 +49,70 @@ names(df)&lt;/code&gt;&lt;/pre&gt;
   geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
   theme_bw(base_size = 13) +
   facet_wrap(~ Sport, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This resulted in some parts of some graphs having&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This resulted in some parts of some graphs having large amount of unused space — for example in the figure skating plot half of the graph has no points therein. So it is tempting to use the “free_y” option for the scales argument in the facet_wrap function. I do this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
   facet_wrap(~ Sport, scales = &amp;quot;free_y&amp;quot;, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;960&#34; /&gt; But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
   geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &amp;quot;blue&amp;quot;) +
   geom_hline(yintercept = c(20, 30), lty = 2) +
   geom_hline(yintercept = c(25), lty = 1) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And there you have it!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Layered Presentation of Graphics with &#43;aes() in ggplot2</title>
+      <link>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</link>
+      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</guid>
+      <description>&lt;p&gt;Here is the post is about how to implement a &lt;em&gt;layered presentation of a graphics&lt;/em&gt;. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &amp;gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:&lt;br&gt;&lt;br&gt;- Just x-axis (explain it)&lt;br&gt;- Add y-axis (explain it)&lt;br&gt;- Add 1 data point (explain it)&lt;br&gt;- Plot the rest of the data (explain it)&lt;/p&gt;&amp;mdash; Matt Blackwell (@matt_blackwell) &lt;a href=&#34;https://twitter.com/matt_blackwell/status/991004129198854145?ref_src=twsrc%5Etfw&#34;&gt;April 30, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Good ideas!  Very &lt;a href=&#34;https://twitter.com/hashtag/ggplot?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot&lt;/a&gt;.  A layered presentation of graphics. &lt;a href=&#34;https://t.co/M4tRB9bGS5&#34;&gt;https://t.co/M4tRB9bGS5&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/991269331257487366?ref_src=twsrc%5Etfw&#34;&gt;May 1, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;So then I set out to write an implementation with ggplot. I actually wrote a couple of implementations and what follows is my favorite, which is demonstrated using a year of data from the gapminder data package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(gapminder)
+data = gapminder %&amp;gt;% filter(continent == &amp;quot;Americas&amp;quot; &amp;amp; year == 2002)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Okay, the data is ready and packages loaded. Now for plotting.&lt;/p&gt;
+&lt;div id=&#34;step-1-just-x-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 1: Just x-axis (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data) +              # declare the data you want to use
+  aes(x = gdpPercap) +      # declare the aesthetic mapping for x
+  theme_bw(base_size = 20)  # we want label sizes to be a bit bigger&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-just-y-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 2: Just y-axis (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +      # we just add to the last plot
+  aes(y = lifeExp) # add the aesthetic mapping for y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3-add-1-data-point-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 3: Add 1 data point (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  geom_point() +  # declare the geom to add 
+  aes(alpha = country == &amp;quot;Chile&amp;quot;) +  # alpha is transparency aesthetic
+  scale_alpha_discrete(guide = FALSE, range = c(0,1)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Above, we use an extreme range, so Chile is fully opaque and the rest of the points are fully transparent. So the point for Chile is the only point that will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4-plot-the-rest-of-the-data-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 4: Plot the rest of the data (explain it)&lt;/h1&gt;
+&lt;p&gt;Now we overwrite the alpha levels so that all are observations (countries) are represented with a fully opaque point.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  scale_alpha_discrete(guide = FALSE, range = c(1,1)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Done!&lt;/p&gt;
+&lt;p&gt;So, a (big) bonus of this exercise was discovering that you can use aes() to set global aesthetics outside of the ggplot() function. This is not the usual way that ggplot is taught (see the RStudio Cheatsheats for example) but I &lt;em&gt;really&lt;/em&gt; like it, because using it gives you even more of that “building-up-the-plot”, step-by-step, layered feel that makes ggplot so attractive!&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -102,18 +122,20 @@ names(df)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/first-blogdown-post/</guid>
-      <description>&lt;p&gt;This is my first post. It’s just a test of blogdown.&lt;/p&gt;
-&lt;p&gt;Update:&lt;/p&gt;
-&lt;p&gt;It seems to be working fine! Now I’ll knit in some R code:&lt;/p&gt;
+      <description>&lt;p&gt;This is my first post just a test of blogdown.&lt;/p&gt;
+&lt;p&gt;It seems to be working fine also with this R code:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x = 5
 x^2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And this Python code:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;hello&amp;quot; + &amp;quot;there&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hellothere&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s check out how a graph looks too:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 ggplot(mtcars) +
   aes(mpg, disp, col = as.factor(cyl)) +
   geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Looks good. I’m very satisfied. Hooray for blogdown!&lt;/p&gt;
 </description>
     </item>
@@ -125,29 +147,6 @@ ggplot(mtcars) +
       
       <guid>/talk/example-talk/</guid>
       <description>&lt;p&gt;Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>External Project</title>
-      <link>/project/example-external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
-      
-      <guid>/project/example-external-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Supranational Law and Compliance</title>
-      <link>/project/deep-learning/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0200</pubDate>
-      
-      <guid>/project/deep-learning/</guid>
-      <description>&lt;p&gt;Dissertation: Supranational Law and Compliance&lt;/p&gt;
-
-&lt;p&gt;My dissertation project focuses supranational law (law that is not consent-based) and on reputation as a motivation for compliance with International Law. Reputation has been an important explanation for states&amp;rsquo; compliance with international law.  Does reputation motivate states to comply as is purported?  Many studies assert that compliance indeed has a reputational explanation but struggle with problems of endogeneity and selection given that international law is usually consent based. I bring in the less frequent case of non-consent based international law to evaluate the dominant reputational theory.  If a country receives an international obligation as a mandate rather than signing on to the law for itself, it should suffer less of a reputational cost for not complying.  Other countries will observe a violation of an obligation but not a violation of a commitment.  If the reputational theory holds, these observing states should be less reluctant to enter into new cooperative agreements with a country that does not comply with a mandate than with a country that does not comply with a commitment.  Specifically, I leverage several recent Security Council resolutions that create substantial obligations for all UN member states; countries not on the Security Council will see such resolutions as mandates.  I compare compliance behavior of countries that participate in a resolution&amp;rsquo;s approval versus those that receive it as a mandate using a mix of parametric and non-parametric methods in addition to a survey experiment.&lt;/p&gt;
-
-&lt;p&gt;Xinyuan Dai (Chair), Paul Diehl, Brian Gaines, Matthew Winters were my committee members.&lt;/p&gt;
 </description>
     </item>
     

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.40.3" />
+  <meta name="generator" content="Hugo 0.41" />
   <meta name="author" content="Evangeline Reynolds">
 
   
@@ -86,9 +86,9 @@ Here is how I created my submission using the R statistical software and the ggp
 First, we load some packages and the data">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-05-21T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-06-02T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2018-05-21T00:00:00&#43;00:00">
+  <meta property="article:modified_time" content="2018-06-02T00:00:00&#43;00:00">
   
 
   
@@ -261,8 +261,8 @@ First, we load some packages and the data">
 
   <span class="article-date">
     
-    <time datetime="2018-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      May 21, 2018
+    <time datetime="2018-06-02 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 2, 2018
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -365,16 +365,17 @@ names(df)</code></pre>
   geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
   theme_bw(base_size = 13) +
   facet_wrap(~ Sport, nrow = 2)  </code></pre>
-<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
-<p>This resulted in some parts of some graphs having</p>
+<p><img src="/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+<p>This resulted in some parts of some graphs having large amount of unused space — for example in the figure skating plot half of the graph has no points therein. So it is tempting to use the “free_y” option for the scales argument in the facet_wrap function. I do this:</p>
 <pre class="r"><code>last_plot() +
   facet_wrap(~ Sport, scales = &quot;free_y&quot;, nrow = 2)  </code></pre>
-<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p><img src="/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png" width="960" /> But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy.</p>
 <pre class="r"><code>last_plot() +
   geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &quot;blue&quot;) +
   geom_hline(yintercept = c(20, 30), lty = 2) +
   geom_hline(yintercept = c(25), lty = 1) </code></pre>
-<p><img src="/post/2018-05-21-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<p><img src="/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<p>And there you have it!</p>
 
     </div>
 

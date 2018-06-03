@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.40.3" />
+  <meta name="generator" content="Hugo 0.41" />
   <meta name="author" content="Evangeline Reynolds">
 
   
@@ -476,9 +476,7 @@
 
 
   
-  <a class="btn btn-primary btn-outline btn-xs" href="/project/example-external-project/">
-    Project
-  </a>
+    The `projects` parameter in `content/publication/clothing-search.md` references a project file, `content/project/example-external-project`, which cannot be found. Please either set `projects = []` or fix the reference.
   
 
 
@@ -558,9 +556,7 @@
 
 
   
-  <a class="btn btn-primary btn-outline btn-xs" href="/project/deep-learning/">
-    Project
-  </a>
+    The `projects` parameter in `content/publication/person-re-identification.md` references a project file, `content/project/deep-learning`, which cannot be found. Please either set `projects = []` or fix the reference.
   
 
 
@@ -600,9 +596,7 @@
 
 
   
-  <a class="btn btn-primary btn-outline btn-xs" href="/project/example-external-project/">
-    Project
-  </a>
+    The `projects` parameter in `content/publication/clothing-search.md` references a project file, `content/project/example-external-project`, which cannot be found. Please either set `projects = []` or fix the reference.
   
 
 
@@ -674,9 +668,7 @@
 
 
   
-  <a class="btn btn-primary btn-outline btn-xs" href="/project/deep-learning/">
-    Project
-  </a>
+    The `projects` parameter in `content/talk/example-talk.md` references a project file, `content/project/deep-learning.md`, which cannot be found. Please either set `projects = []` or fix the reference.
   
 
 
@@ -742,79 +734,8 @@
 
   <span class="article-date">
     
-    <time datetime="2018-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      May 21, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Evangeline Reynolds">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" itemprop="url">Layered Presentation of Graphics with &#43;aes() in ggplot2</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1 ✔ purrr 0.2.4 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(gapminder) data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2002) ggplot(data, aes(x = gdpPercap)) last_plot() + geom_point(aes(y = lifeExp, alpha = country == &quot;Chile&quot;)) + scale_alpha_discrete(guide = FALSE, range = c(0,0))  last_plot() + scale_alpha_discrete(guide = FALSE, range = c(.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-        
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-
-      
-      
-        
-        
-          
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      May 21, 2018
+    <time datetime="2018-06-02 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 2, 2018
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -886,6 +807,78 @@ First, we load some packages and the data
 
   <span class="article-date">
     
+    <time datetime="2018-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      May 21, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" itemprop="url">Layered Presentation of Graphics with &#43;aes() in ggplot2</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
+My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+        
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+
+      
+      
+        
+        
+          
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
     <time datetime="2018-05-19 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
       May 19, 2018
     </time>
@@ -921,18 +914,20 @@ First, we load some packages and the data
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    <p>This is my first post. It’s just a test of blogdown.</p>
-<p>Update:</p>
-<p>It seems to be working fine! Now I’ll knit in some R code:</p>
+    <p>This is my first post just a test of blogdown.</p>
+<p>It seems to be working fine also with this R code:</p>
 <pre class="r"><code>x = 5
 x^2</code></pre>
 <pre><code>## [1] 25</code></pre>
+<p>And this Python code:</p>
+<pre class="python"><code>print(&quot;hello&quot; + &quot;there&quot;)</code></pre>
+<pre><code>## hellothere</code></pre>
 <p>Let’s check out how a graph looks too:</p>
 <pre class="r"><code>library(ggplot2)
 ggplot(mtcars) +
   aes(mpg, disp, col = as.factor(cyl)) +
   geom_point()</code></pre>
-<p><img src="/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Looks good. I’m very satisfied. Hooray for blogdown!</p>
 
     
@@ -1088,49 +1083,6 @@ ggplot(mtcars) +
       
       
       
-      
-      
-      
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item demo">
-        <div class="card">
-          
-          <a href="http://example.org" title="" class="card-image hover-overlay"
-             target="_blank">
-            <img src="/img/boards.jpg" alt="" class="img-responsive">
-          </a>
-          
-          <div class="card-text">
-            <h4><a href="http://example.org" target="_blank">External Project</a></h4>
-            <div class="card-desription">
-              <p>An example of linking directly to an external project website using <code>external_link</code>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      
-      
-      
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item international-law">
-        <div class="card">
-          
-          <a href="/project/deep-learning/" title="" class="card-image hover-overlay"
-             >
-            <img src="/img/bubbles.jpg" alt="" class="img-responsive">
-          </a>
-          
-          <div class="card-text">
-            <h4><a href="/project/deep-learning/" >Supranational Law and Compliance</a></h4>
-            <div class="card-desription">
-              <p>&hellip;.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      
-      
-      
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 project-item isotope-item international-law">
         <div class="card">
           
@@ -1248,12 +1200,7 @@ ggplot(mtcars) +
           
           
           
-          <a href="/tags/demo/" style="font-size:0.8rem">demo</a>
-        
-          
-          
-          
-          <a href="/tags/international-law/" style="font-size:1.8725805810714777rem">international-law</a>
+          <a href="/tags/international-law/" style="font-size:0.8rem">international-law</a>
         
       </div>
     
