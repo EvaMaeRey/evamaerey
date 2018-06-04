@@ -10,7 +10,7 @@ tags: []
 categories: []
 ---
 
-In February, I made a plot on athletes ages at the Winter Olympics for the initiative data visualization initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/).  The initiative si mostly Tableau enthusiasts practicing data visualization techniques.  I use it to practice visualization with R.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually which can be good food for thought. 
+In February, I made a plot on athletes ages at the Winter Olympics for the initiative data visualization initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/).  The initiative is mostly Tableau enthusiasts practicing data visualization techniques.  I use it to practice visualization with R.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually which can be good food for thought. 
 My viz had this description (you'll see the figure at the end):  
 
 ```{r, echo = F}
