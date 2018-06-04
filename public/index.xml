@@ -16,9 +16,17 @@
       <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/winter-games-and-athlete-ages/</guid>
-      <description>&lt;p&gt;Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative &lt;a href=&#34;http://www.makeovermonday.co.uk/data/&#34;&gt;#MakeoverMonday&lt;/a&gt;, an activity of Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought.&lt;/p&gt;
+      <description>&lt;p&gt;In February, I made a plot on athletes ages at the Winter Olympics for the initiative data visualization initiative &lt;a href=&#34;http://www.makeovermonday.co.uk/data/&#34;&gt;#MakeoverMonday&lt;/a&gt;. The initiative si mostly Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought. My viz had this description (you’ll see the figure at the end):&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Winter games individual medalists are most likely to be athletes in their twenties. And recently, in their late twenties.  I experimented with free y axis in small multiples plot and using shading to guide viewer to same y-axis region across plots. &lt;a href=&#34;https://twitter.com/hashtag/MakeoverMonday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#MakeoverMonday&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; &lt;a href=&#34;https://t.co/l61HM0Dxfd&#34;&gt;pic.twitter.com/l61HM0Dxfd&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/963777995772190720?ref_src=twsrc%5Etfw&#34;&gt;February 14, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;span class=&#34;citation&#34;&gt;@Staticum&lt;/span&gt;, who I think is a statistical/data science start-up in Chile asked me to share the code.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Nice. Can you share code too?&lt;/p&gt;&amp;mdash; Staticum (@staticum) &lt;a href=&#34;https://twitter.com/staticum/status/963808257256116225?ref_src=twsrc%5Etfw&#34;&gt;February 14, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;At that time, just told them to check out geom_ribbon. Or at least I thought I did. Now going back to the tweet thread, I see I didn’t respond at all! Not polite! But now that I’m using blogdown, it is not too hard to share the entire process, which is better anyway.&lt;/p&gt;
 &lt;p&gt;Here is how I created my submission using the R statistical software and the ggplot2 package.&lt;/p&gt;
-&lt;p&gt;First, we load some packages and the data&lt;/p&gt;
+&lt;p&gt;First, we load some packages and the data:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)  # for visualization
 library(dplyr)    # for manipulation
 library(forcats)  # for ordering factors
@@ -49,17 +57,17 @@ names(df)&lt;/code&gt;&lt;/pre&gt;
   geom_jitter(aes(col = fct_inorder(Medal)), size = 1) +
   theme_bw(base_size = 13) +
   facet_wrap(~ Sport, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This resulted in some parts of some graphs having large amount of unused space — for example in the figure skating plot half of the graph has no points therein. So it is tempting to use the “free_y” option for the scales argument in the facet_wrap function. I do this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
   facet_wrap(~ Sport, scales = &amp;quot;free_y&amp;quot;, nrow = 2)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;960&#34; /&gt; But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy. You have a sense of how much the y distances are stretched or shrunk, and the vertical shift between plots.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;960&#34; /&gt; But then you could worry that a quick look could be misleading, and for that reason I added the ribbons over the range 20-30, which should clue the viewer into the fact that y axis is not the same, and make comparison between the small multiples easy. You have a sense of how much the y distances are stretched or shrunk, and the vertical shift between plots.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
   geom_ribbon(aes(ymin = 20, ymax = 30), alpha = .1, fill = &amp;quot;blue&amp;quot;) +
   geom_hline(yintercept = c(20, 30), lty = 2) +
   geom_hline(yintercept = c(25), lty = 1) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;And there you have it!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;960&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And there you have it! Best wishes &lt;span class=&#34;citation&#34;&gt;@Staticum&lt;/span&gt;!&lt;/p&gt;
 </description>
     </item>
     

@@ -10,16 +10,28 @@ tags: []
 categories: []
 ---
 
-Someone asked me to share my strategy for creating the Winter Olympic Medals plot for the initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/), an activity of Tableau enthusiasts practicing data visualization techniques.  I use it to practice visualization with R.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually which can be good food for thought. 
+In February, I made a plot on athletes ages at the Winter Olympics for the initiative data visualization initiative [#MakeoverMonday](http://www.makeovermonday.co.uk/data/).  The initiative si mostly Tableau enthusiasts practicing data visualization techniques.  I use it to practice visualization with R.  It also serves as a forum for chatting about what works and what doesn't work in communication data visually which can be good food for thought. 
+My viz had this description (you'll see the figure at the end):  
+
+```{r, echo = F}
+blogdown::shortcode('tweet', '963777995772190720')
+```
+
+@Staticum, who I think is a statistical/data science start-up in Chile asked me to share the code.  
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '963808257256116225')
+```
+
+At that time, just told them to check out geom_ribbon.  Or at least I thought I did.  Now going back to the tweet thread, I see I didn't respond at all!  Not polite!  But now that I'm using blogdown, it is not too hard to share the entire process, which is better anyway.
 
 Here is how I created my submission using the R statistical software and the ggplot2 package.  
-
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(message = F, warning = F)
 ```
 
-First, we load some packages and the data
+First, we load some packages and the data:
 
 ```{r}
 library(ggplot2)  # for visualization
@@ -76,5 +88,5 @@ last_plot() +
 
 ```
 
-And there you have it!
+And there you have it!  Best wishes @Staticum! 
 
