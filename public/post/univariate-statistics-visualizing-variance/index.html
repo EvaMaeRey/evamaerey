@@ -272,7 +272,7 @@ I’m most excited about the walk-through of the variance calculation. In prepar
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    5 min read
   </span>
   
 
@@ -334,7 +334,7 @@ I’m most excited about the walk-through of the variance calculation. In prepar
     <div class="article-style" itemprop="articleBody">
       <p>This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.</p>
 <p>This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.</p>
-<p>I’m most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across <a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/">a nice visualization of variance explained</a> but couldn’t find a visualization just focused on explaining the variance itself. So I made one with ggplot(). You’ll find it in the second half of the post!</p>
+<p>I’m most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across <a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/">a nice visualization of variance explained</a> but couldn’t find a visualization just focused on explaining the variance itself. So I made one with ggplot(). You’ll find it in the second half of the post! (I’m going back and forth about whether to include to the code for the plots or not.)</p>
 <p>So first we load the tidyverse, which will load ggplot for data visualization and dplyr which we’ll use for data manipulation.</p>
 <pre class="r"><code>library(tidyverse)
 library(gapminder)
@@ -343,19 +343,6 @@ gapminder_2007_europe &lt;-
   filter(year == 2007) %&gt;% 
   filter(continent == &quot;Europe&quot;)</code></pre>
 <p>Now I prep a very basic plot. It several lines of code, but most of it is styling; you can actually get away with just the first three lines.</p>
-<pre class="r"><code>g &lt;- ggplot(gapminder_2007_europe) +
-  aes(x = lifeExp, y = 0) +
-  geom_point(alpha = .3)  +
-  theme_bw(base_size = 15) +
-  coord_equal() +
-  theme(axis.ticks.y = element_blank(), 
-        axis.text.y = element_blank()) + 
-  labs(y = &quot;&quot;, 
-       title = &quot;Life expectancy for European countries in 2007&quot;, 
-       subtitle = &quot;Vis: Gina Reynolds | Source: Gapminder&quot;,
-       x = &quot;Years&quot;) 
-
-g</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <div id="n" class="section level1">
 <h1>N</h1>
@@ -379,13 +366,8 @@ sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
 <p><span class="math display">\[\mu = \frac{\sum_{i=1}^{n}x_i}{n}\]</span> In R you can use the mean function to compute this value.</p>
 <pre class="r"><code>mean(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 77.6486</code></pre>
-<p>In the following plot, the mean is plotted in red.</p>
-<pre class="r"><code>plot_mean &lt;- g + 
-  annotate(geom = &quot;point&quot;, 
-           x = mean(gapminder_2007_europe$lifeExp), 
-           y = 0, col = &quot;red&quot;, size = 4, alpha = .5)
-plot_mean</code></pre>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>In the following plot, the mean is plotted in red.<br />
+<img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="measures-of-central-tendency-median" class="section level2">
 <h2>Measures of Central Tendency: Median</h2>
@@ -393,11 +375,7 @@ plot_mean</code></pre>
 <p>In R you can comute the median with the function, median().</p>
 <pre class="r"><code>median(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 78.6085</code></pre>
-<p>In the following plot, the median is shown in blue.</p>
-<pre class="r"><code>g +
-  annotate(geom = &quot;point&quot;, x = median(gapminder_2007_europe$lifeExp), 
-           y = 0, col = &quot;blue&quot;, size = 4, alpha = .7)</code></pre>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>In the following plot, the median is shown in blue. <img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 </div>
 <div id="measures-of-spread" class="section level1">
@@ -408,10 +386,6 @@ plot_mean</code></pre>
 <pre class="r"><code>range(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 71.777 81.757</code></pre>
 <p>I add the min and max on the plot.</p>
-<pre class="r"><code>last_plot() +
-  annotate(geom = &quot;point&quot;, 
-           x = range(gapminder_2007_europe$lifeExp), 
-           y = 0, col = &quot;blue&quot;, size = 4, alpha = .5)</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 </div>
@@ -424,11 +398,6 @@ plot_mean</code></pre>
          probs = c(.25,.75))</code></pre>
 <pre><code>##      25%      75% 
 ## 75.02975 79.81225</code></pre>
-<pre class="r"><code>t &lt;- last_plot() +
-  annotate(geom = &quot;point&quot;, 
-           x = quantile(gapminder_2007_europe$lifeExp, c(.25,.75)),
-           y = 0, col = &quot;blue&quot;, size = 4, alpha = .5)
-t </code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 </div>
@@ -437,9 +406,6 @@ t </code></pre>
 </div>
 <div id="boxplot" class="section level1">
 <h1>Boxplot</h1>
-<pre class="r"><code>ggplot(gapminder_2007_europe) + 
-  geom_boxplot(aes(y = lifeExp)) + 
-  coord_flip()</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="measure-of-spread" class="section level1">
@@ -476,40 +442,18 @@ t </code></pre>
 <h1>Variance: Visual walk through</h1>
 <p>Now let’s walk through this formula piece by piece. First we need the mean.</p>
 <p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
-<pre class="r"><code>plot_mean</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.</p>
-<pre class="r"><code>last_plot() + 
-  geom_point(data = gapminder_2007_europe %&gt;% 
-                 filter(country == &quot;Romania&quot;),
-               alpha = .9, col = &quot;green&quot;, size = 3)</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>The difference between and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line.</p>
 <p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span> Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span> </p>
-<pre class="r"><code>last_plot() + aes(xend = mean(gapminder_2007_europe$lifeExp), yend = 0) +
-  geom_segment(data = gapminder_2007_europe %&gt;% 
-                 filter(country == &quot;Romania&quot;),
-               alpha = .7, col = &quot;green&quot;, size = 1)</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Then we need to square that difference. This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy. It is a transparent green square in the plot.</p>
 <p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)^2\)</span> </p>
-<pre class="r"><code>last_plot() + aes(xmin = mean(gapminder_2007_europe$lifeExp),
-                  xmax = lifeExp,
-                  ymin = 0,
-                  ymax = abs(lifeExp - mean(gapminder_2007_europe$lifeExp)),
-                  fill = factor(lifeExp)) +
-  geom_rect(data = gapminder_2007_europe %&gt;% 
-                 filter(country == &quot;Romania&quot;), 
-            alpha = .2) +
-  guides(fill = FALSE)</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png" width="672" height="2in" /></p>
 <p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
-<pre class="r"><code>last_plot() + 
-  aes(fill = factor(lifeExp)) +
-  geom_rect(data = gapminder_2007_europe, alpha = .2, 
-            size = 3) </code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png" width="672" height="2in" /></p>
 <p>The mean for these areas is the variance.</p>
 <p>We sum up all of the resulting areas that are shown in the plot (note that these are overlapping):</p>
@@ -517,16 +461,6 @@ t </code></pre>
 <p>And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>I’m plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square’s area is the average area for all the squares plotted above, and is equal to the variance.</p>
-<pre class="r"><code>plot_mean + 
-  annotate(geom = &quot;rect&quot;, 
-           xmin = mean(gapminder_2007_europe$lifeExp),
-           xmax = mean(gapminder_2007_europe$lifeExp) +
-             var(gapminder_2007_europe$lifeExp)^.5,
-           ymin = 0,
-           ymax = var(gapminder_2007_europe$lifeExp)^.5,
-           alpha = .2,
-           fill = &quot;purple&quot;
-           ) </code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-22-1.png" width="672" height="2in" /></p>
 </div>
 <div id="standard-deviation" class="section level1">
@@ -534,14 +468,6 @@ t </code></pre>
 <p>Now, calculating the standard deviation is straightforward. Take the square root of the variance.</p>
 <p>Standard Deviation: <span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.</p>
-<pre class="r"><code>plot_mean + 
-  annotate(geom = &quot;segment&quot;, 
-           x = mean(gapminder_2007_europe$lifeExp),
-           xend = mean(gapminder_2007_europe$lifeExp) +
-             var(gapminder_2007_europe$lifeExp)^.5,
-           y = 0, yend = 0,
-           size = 2, alpha = .5, col = &quot;purple&quot;
-           ) </code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png" width="672" height="2in" /></p>
 <p>Quiz question:</p>
 <p>What are the units of each?</p>

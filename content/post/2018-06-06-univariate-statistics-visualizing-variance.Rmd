@@ -16,13 +16,14 @@ This post goes back and forth between computing statistics for a single variable
 
 This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.  
 
-I'm most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across [a nice visualization of variance explained](https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/) but couldn't find a visualization just focused on explaining the variance itself.  So I made one with ggplot().  You'll find it in the second half of the post! 
+I'm most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across [a nice visualization of variance explained](https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/) but couldn't find a visualization just focused on explaining the variance itself.  So I made one with ggplot().  You'll find it in the second half of the post! (I'm going back and forth about whether to include to the code for the plots or not.)
 
 
 
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(message = F, warning = F)
+show_code_for_plots = F
 ```
 
 So first we load the tidyverse, which will load ggplot for data visualization and dplyr which we'll use for data manipulation.  
@@ -38,7 +39,7 @@ gapminder_2007_europe <-
 
 Now I prep a very basic plot.  It several lines of code, but most of it is styling; you can actually get away with just the first three lines.  
 
-```{r}
+```{r, echo = show_code_for_plots}
 g <- ggplot(gapminder_2007_europe) +
   aes(x = lifeExp, y = 0) +
   geom_point(alpha = .3)  +
@@ -88,7 +89,7 @@ mean(gapminder_2007_europe$lifeExp)
 ```
 
 In the following plot, the mean is plotted in red.  
-```{r}
+```{r, echo = show_code_for_plots}
 plot_mean <- g + 
   annotate(geom = "point", 
            x = mean(gapminder_2007_europe$lifeExp), 
@@ -110,7 +111,7 @@ median(gapminder_2007_europe$lifeExp)
 ```
 
 In the following plot, the median is shown in blue. 
-```{r}
+```{r, echo = show_code_for_plots}
 g +
   annotate(geom = "point", x = median(gapminder_2007_europe$lifeExp), 
            y = 0, col = "blue", size = 4, alpha = .7)
@@ -130,7 +131,7 @@ range(gapminder_2007_europe$lifeExp)
 
 I add the min and max on the plot.  
 
-```{r}
+```{r, echo = show_code_for_plots}
 last_plot() +
   annotate(geom = "point", 
            x = range(gapminder_2007_europe$lifeExp), 
@@ -149,7 +150,7 @@ quantile(gapminder_2007_europe$lifeExp,
 ```
 
 
-```{r}
+```{r, echo = show_code_for_plots}
 t <- last_plot() +
   annotate(geom = "point", 
            x = quantile(gapminder_2007_europe$lifeExp, c(.25,.75)),
@@ -161,7 +162,7 @@ t
 # Boxplot
 
 
-```{r, fig.height = 3.5}
+```{r, fig.height = 3.5, echo = show_code_for_plots}
 ggplot(gapminder_2007_europe) + 
   geom_boxplot(aes(y = lifeExp)) + 
   coord_flip()
@@ -194,7 +195,7 @@ Now let's walk through this formula piece by piece.  First we need the mean.
 Variance:
 $\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
 
-```{r}
+```{r, echo = show_code_for_plots}
 plot_mean
 ```
 
@@ -202,7 +203,7 @@ plot_mean
 Then we do an operation for each of our observations.  Take the difference of the value for the observation and square it.  Let's just do that for one of our observations. Romania sounds good.  We plot it in green. 
 
 
-```{r}
+```{r, echo = show_code_for_plots}
 last_plot() + 
   geom_point(data = gapminder_2007_europe %>% 
                  filter(country == "Romania"),
@@ -219,7 +220,7 @@ Calculation for Romania:  $(x_{Romania} - \mu)$
 \normalsize
 \bigskip
 
-```{r}
+```{r, echo = show_code_for_plots}
 last_plot() + aes(xend = mean(gapminder_2007_europe$lifeExp), yend = 0) +
   geom_segment(data = gapminder_2007_europe %>% 
                  filter(country == "Romania"),
@@ -242,7 +243,7 @@ Calculation for Romania:
 $(x_{Romania} - \mu)^2$
 \normalsize
 
-```{r, out.height = "2in"}
+```{r, out.height = "2in", echo = show_code_for_plots}
 last_plot() + aes(xmin = mean(gapminder_2007_europe$lifeExp),
                   xmax = lifeExp,
                   ymin = 0,
@@ -266,7 +267,7 @@ Now we need to do the same for all of our observations.  Not just Romania, but a
 
 
 
-```{r, out.height = "2in"}
+```{r, out.height = "2in", echo = show_code_for_plots}
 last_plot() + 
   aes(fill = factor(lifeExp)) +
   geom_rect(data = gapminder_2007_europe, alpha = .2, 
@@ -285,7 +286,7 @@ $\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
 
 I'm plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square's area is the average area for all the squares plotted above, and is equal to the variance. 
 
-```{r, out.height = "2in"}
+```{r, out.height = "2in", echo = show_code_for_plots}
 plot_mean + 
   annotate(geom = "rect", 
            xmin = mean(gapminder_2007_europe$lifeExp),
@@ -308,7 +309,7 @@ $\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
 
 The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.  
 
-```{r, out.height = "2in"}
+```{r, out.height = "2in", echo = show_code_for_plots}
 plot_mean + 
   annotate(geom = "segment", 
            x = mean(gapminder_2007_europe$lifeExp),
