@@ -1,0 +1,310 @@
+---
+title: 'From N to Standard 
+Deviation: Visualizing Univariate Statistics'
+author: Gina Reynolds
+date: '2018-06-06'
+slug: univariate-statistics-visualizing-variance
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+This post goes back and forth between computing statistics for a single variable and visualizing these values.  I'm using a subset of the gapminder dataset --- European countries in 2007, and focusing on the Life Expectancy variable.
+
+
+This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.  
+
+I'm probably most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across [a nice visualization of variance explained](https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/) but couldn't find a visualization just focused on explaining the variance itself.  So I made one with ggplot().  You'll find it in the second half of the post! 
+
+
+
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = F, warning = F)
+```
+
+So first we load the tidyverse, which will load ggplot for data visualization and dplyr which we'll use for data manipulation.  
+
+```{r}
+library(tidyverse)
+library(gapminder)
+gapminder_2007_europe <- 
+  gapminder %>% 
+  filter(year == 2007) %>% 
+  filter(continent == "Europe")
+```
+
+Now I prep a very basic plot.  It several lines of code, but most of it is styling; you can actually get away with just the first three lines.  
+
+```{r}
+g <- ggplot(gapminder_2007_europe) +
+  aes(x = lifeExp, y = 0) +
+  geom_point(alpha = .3)  +
+  theme_bw(base_size = 15) +
+  coord_equal() +
+  theme(axis.ticks.y = element_blank(), 
+        axis.text.y = element_blank()) + 
+  labs(y = "", 
+       title = "Life expectancy for European countries in 2007", 
+       subtitle = "Vis: Gina Reynolds | Source: Gapminder",
+       x = "Years") 
+
+g
+```
+
+# N
+
+You can count the number of observations in your data set using the function, nrow().
+
+```{r}
+nrow(gapminder_2007_europe)
+```
+
+Below is one way to tally the number of observations that are missing (NA) in the variable.  
+
+```{r}
+# how many missing?
+sum(is.na(gapminder_2007_europe$lifeExp))
+
+# how many not missing?
+sum(!is.na(gapminder_2007_europe$lifeExp))
+```
+
+# Measures of Central Tendancy
+
+## Mean
+
+The mean is the sum of the values of a variable divided by the number of values.  It is a measure of "central tendancy."
+
+The mean can also be thought of as a balancing point. It the point that, if the folcrum of a balance, with weights of of equal weight at each of the values of the observations, would result in a balanced scale.
+
+$$\mu = \frac{\sum_{i=1}^{n}x_i}{n}$$
+In R you can use the mean function to compute this value.
+
+```{r}
+mean(gapminder_2007_europe$lifeExp)
+```
+
+In the following plot, the mean is plotted in red.  
+```{r}
+plot_mean <- g + 
+  annotate(geom = "point", 
+           x = mean(gapminder_2007_europe$lifeExp), 
+           y = 0, col = "red", size = 4, alpha = .5)
+plot_mean
+```
+
+
+
+
+## Measures of Central Tendency: Median
+
+Another measure of centrality is the median. The median is the value that has the central position when all the values of are arranged in order. 
+
+In R you can comute the median with the function, median(). 
+
+```{r}
+median(gapminder_2007_europe$lifeExp)
+```
+
+In the following plot, the median is shown in blue. 
+```{r}
+g +
+  annotate(geom = "point", x = median(gapminder_2007_europe$lifeExp), 
+           y = 0, col = "blue", size = 4, alpha = .7)
+```
+
+
+
+# Measures of spread
+## Range
+
+
+The function range() will return the min and max of a variable.
+
+```{r}
+range(gapminder_2007_europe$lifeExp)
+```
+
+I add the min and max on the plot.  
+
+```{r}
+last_plot() +
+  annotate(geom = "point", 
+           x = range(gapminder_2007_europe$lifeExp), 
+           y = 0, col = "blue", size = 4, alpha = .5)
+```
+
+
+# Measures of spread/distribution
+## Range + Median + Innerquartile Range
+
+To find the value at the lower and upper quartile of the data, I usually use quantile, which the argument probs set equal to .25 and .75.
+
+```{r}
+quantile(gapminder_2007_europe$lifeExp, 
+         probs = c(.25,.75))
+```
+
+
+```{r}
+t <- last_plot() +
+  annotate(geom = "point", 
+           x = quantile(gapminder_2007_europe$lifeExp, c(.25,.75)),
+           y = 0, col = "blue", size = 4, alpha = .5)
+t 
+```
+
+# Communicating spread/distribution
+# Boxplot
+
+
+```{r, fig.height = 3.5}
+ggplot(gapminder_2007_europe) + 
+  geom_boxplot(aes(y = lifeExp)) + 
+  coord_flip()
+```
+
+
+# Measure of spread
+## Variance
+
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+
+
+
+You can also use summary to calculate all of these things at once.
+```{r}
+summary(gapminder_2007_europe$lifeExp)
+```
+
+Summary can be used on an entire dataframe too.
+
+```{r}
+summary(gapminder_2007_europe)
+```
+
+______
+# Variance: Visual walk through
+
+Now let's walk through this formula piece by piece.  First we need the mean.  
+
+Variance:
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+
+```{r}
+plot_mean
+```
+
+
+# Variance: Visual walk through
+
+Then we do an operation for each of our observations.  Take the difference of the value for the observation and square it.  Let's just do that for one of our observations. Romania sounds good.  We plot it in green. 
+
+\huge
+Variance:
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+\Large
+Calculation for Romania
+\normalsize
+
+```{r}
+last_plot() + 
+  geom_point(data = gapminder_2007_europe %>% 
+                 filter(country == "Romania"),
+               alpha = .9, col = "green", size = 3)
+```
+
+
+
+The difference between \mu and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line. 
+
+\huge
+Variance:
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+\Large
+Calculation for Romania:  $(x_{Romania} - \mu)$
+\normalsize
+\bigskip
+
+```{r}
+last_plot() + aes(xend = mean(gapminder_2007_europe$lifeExp), yend = 0) +
+  geom_segment(data = gapminder_2007_europe %>% 
+                 filter(country == "Romania"),
+               alpha = .7, col = "green", size = 1)
+```
+
+
+
+
+
+\huge
+Variance:
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+
+
+Then we need to square that difference.  This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy.  It is a transparent green square in the plot. 
+
+\Large
+Calculation for Romania:
+$(x_{Romania} - \mu)^2$
+\normalsize
+
+```{r, out.height = "2in"}
+last_plot() + aes(xmin = mean(gapminder_2007_europe$lifeExp),
+                  xmax = lifeExp,
+                  ymin = 0,
+                  ymax = abs(lifeExp - mean(gapminder_2007_europe$lifeExp)),
+                  fill = factor(lifeExp)) +
+  geom_rect(data = gapminder_2007_europe %>% 
+                 filter(country == "Romania"), 
+            alpha = .2) +
+  guides(fill = FALSE)
+```
+
+
+
+\huge
+Variance:
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+
+Now we need to do the same for all of our observations.  Not just Romania, but also Germany, Italy, Sweden, France, and so on.  
+
+
+
+
+
+```{r, out.height = "2in"}
+last_plot() + 
+  aes(fill = factor(lifeExp)) +
+  geom_rect(data = gapminder_2007_europe, alpha = .2, 
+            size = 3) 
+```
+
+
+
+The mean for these areas is the variance.  
+
+We sum up all of the resulting areas that are shown in the plot (note that these are overlapping): 
+
+$\sum_{i=1}^{n}(x_i - \mu)^2$
+
+And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as $\sigma^2$:
+
+$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+
+# Standard Deviation: 
+
+Now, calculating the standard deviation is straightforward.  Take the square root of the variance.
+
+Standard Deviation: 
+$\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+
+
+What are the units of each?
+
+
+
+

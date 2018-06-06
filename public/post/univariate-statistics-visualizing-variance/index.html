@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.41" />
+  <meta name="author" content="Evangeline Reynolds">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.
+This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.
+I’m probably most excited about the walk-through of the variance calculation.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/univariate-statistics-visualizing-variance/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Evangeline M Reynolds">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Evangeline M Reynolds">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/univariate-statistics-visualizing-variance/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@EvaMaeRey">
+  <meta property="twitter:creator" content="@EvaMaeRey">
+  
+  <meta property="og:site_name" content="Evangeline M Reynolds">
+  <meta property="og:url" content="/post/univariate-statistics-visualizing-variance/">
+  <meta property="og:title" content="From N to Standard Deviation: Visualizing Univariate Statistics | Evangeline M Reynolds">
+  <meta property="og:description" content="This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.
+This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.
+I’m probably most excited about the walk-through of the variance calculation.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-06-06T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-06-06T00:00:00&#43;00:00">
+  
+
+  
+  
+
+  <title>From N to Standard Deviation: Visualizing Univariate Statistics | Evangeline M Reynolds</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Evangeline M Reynolds</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">From N to Standard Deviation: Visualizing Univariate Statistics</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-06 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 6, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=From%20N%20to%20Standard%20Deviation%3a%20Visualizing%20Univariate%20Statistics&amp;url=%2fpost%2funivariate-statistics-visualizing-variance%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2funivariate-statistics-visualizing-variance%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2funivariate-statistics-visualizing-variance%2f&amp;title=From%20N%20to%20Standard%20Deviation%3a%20Visualizing%20Univariate%20Statistics"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2funivariate-statistics-visualizing-variance%2f&amp;title=From%20N%20to%20Standard%20Deviation%3a%20Visualizing%20Univariate%20Statistics"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=From%20N%20to%20Standard%20Deviation%3a%20Visualizing%20Univariate%20Statistics&amp;body=%2fpost%2funivariate-statistics-visualizing-variance%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      <p>This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.</p>
+<p>This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.</p>
+<p>I’m probably most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across <a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/">a nice visualization of variance explained</a> but couldn’t find a visualization just focused on explaining the variance itself. So I made one with ggplot(). You’ll find it in the second half of the post!</p>
+<p>So first we load the tidyverse, which will load ggplot for data visualization and dplyr which we’ll use for data manipulation.</p>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+gapminder_2007_europe &lt;- 
+  gapminder %&gt;% 
+  filter(year == 2007) %&gt;% 
+  filter(continent == &quot;Europe&quot;)</code></pre>
+<p>Now I prep a very basic plot. It several lines of code, but most of it is styling; you can actually get away with just the first three lines.</p>
+<pre class="r"><code>g &lt;- ggplot(gapminder_2007_europe) +
+  aes(x = lifeExp, y = 0) +
+  geom_point(alpha = .3)  +
+  theme_bw(base_size = 15) +
+  coord_equal() +
+  theme(axis.ticks.y = element_blank(), 
+        axis.text.y = element_blank()) + 
+  labs(y = &quot;&quot;, 
+       title = &quot;Life expectancy for European countries in 2007&quot;, 
+       subtitle = &quot;Vis: Gina Reynolds | Source: Gapminder&quot;,
+       x = &quot;Years&quot;) 
+
+g</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div id="n" class="section level1">
+<h1>N</h1>
+<p>You can count the number of observations in your data set using the function, nrow().</p>
+<pre class="r"><code>nrow(gapminder_2007_europe)</code></pre>
+<pre><code>## [1] 30</code></pre>
+<p>Below is one way to tally the number of observations that are missing (NA) in the variable.</p>
+<pre class="r"><code># how many missing?
+sum(is.na(gapminder_2007_europe$lifeExp))</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code># how many not missing?
+sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
+<pre><code>## [1] 30</code></pre>
+</div>
+<div id="measures-of-central-tendancy" class="section level1">
+<h1>Measures of Central Tendancy</h1>
+<div id="mean" class="section level2">
+<h2>Mean</h2>
+<p>The mean is the sum of the values of a variable divided by the number of values. It is a measure of “central tendancy.”</p>
+<p>The mean can also be thought of as a balancing point. It the point that, if the folcrum of a balance, with weights of of equal weight at each of the values of the observations, would result in a balanced scale.</p>
+<p><span class="math display">\[\mu = \frac{\sum_{i=1}^{n}x_i}{n}\]</span> In R you can use the mean function to compute this value.</p>
+<pre class="r"><code>mean(gapminder_2007_europe$lifeExp)</code></pre>
+<pre><code>## [1] 77.6486</code></pre>
+<p>In the following plot, the mean is plotted in red.</p>
+<pre class="r"><code>plot_mean &lt;- g + 
+  annotate(geom = &quot;point&quot;, 
+           x = mean(gapminder_2007_europe$lifeExp), 
+           y = 0, col = &quot;red&quot;, size = 4, alpha = .5)
+plot_mean</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="measures-of-central-tendency-median" class="section level2">
+<h2>Measures of Central Tendency: Median</h2>
+<p>Another measure of centrality is the median. The median is the value that has the central position when all the values of are arranged in order.</p>
+<p>In R you can comute the median with the function, median().</p>
+<pre class="r"><code>median(gapminder_2007_europe$lifeExp)</code></pre>
+<pre><code>## [1] 78.6085</code></pre>
+<p>In the following plot, the median is shown in blue.</p>
+<pre class="r"><code>g +
+  annotate(geom = &quot;point&quot;, x = median(gapminder_2007_europe$lifeExp), 
+           y = 0, col = &quot;blue&quot;, size = 4, alpha = .7)</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>
+<div id="measures-of-spread" class="section level1">
+<h1>Measures of spread</h1>
+<div id="range" class="section level2">
+<h2>Range</h2>
+<p>The function range() will return the min and max of a variable.</p>
+<pre class="r"><code>range(gapminder_2007_europe$lifeExp)</code></pre>
+<pre><code>## [1] 71.777 81.757</code></pre>
+<p>I add the min and max on the plot.</p>
+<pre class="r"><code>last_plot() +
+  annotate(geom = &quot;point&quot;, 
+           x = range(gapminder_2007_europe$lifeExp), 
+           y = 0, col = &quot;blue&quot;, size = 4, alpha = .5)</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
+<div id="measures-of-spreaddistribution" class="section level1">
+<h1>Measures of spread/distribution</h1>
+<div id="range-median-innerquartile-range" class="section level2">
+<h2>Range + Median + Innerquartile Range</h2>
+<p>To find the value at the lower and upper quartile of the data, I usually use quantile, which the argument probs set equal to .25 and .75.</p>
+<pre class="r"><code>quantile(gapminder_2007_europe$lifeExp, 
+         probs = c(.25,.75))</code></pre>
+<pre><code>##      25%      75% 
+## 75.02975 79.81225</code></pre>
+<pre class="r"><code>t &lt;- last_plot() +
+  annotate(geom = &quot;point&quot;, 
+           x = quantile(gapminder_2007_europe$lifeExp, c(.25,.75)),
+           y = 0, col = &quot;blue&quot;, size = 4, alpha = .5)
+t </code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="communicating-spreaddistribution" class="section level1">
+<h1>Communicating spread/distribution</h1>
+</div>
+<div id="boxplot" class="section level1">
+<h1>Boxplot</h1>
+<pre class="r"><code>ggplot(gapminder_2007_europe) + 
+  geom_boxplot(aes(y = lifeExp)) + 
+  coord_flip()</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="measure-of-spread" class="section level1">
+<h1>Measure of spread</h1>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>You can also use summary to calculate all of these things at once.</p>
+<pre class="r"><code>summary(gapminder_2007_europe$lifeExp)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   71.78   75.03   78.61   77.65   79.81   81.76</code></pre>
+<p>Summary can be used on an entire dataframe too.</p>
+<pre class="r"><code>summary(gapminder_2007_europe)</code></pre>
+<pre><code>##                    country      continent       year         lifeExp     
+##  Albania               : 1   Africa  : 0   Min.   :2007   Min.   :71.78  
+##  Austria               : 1   Americas: 0   1st Qu.:2007   1st Qu.:75.03  
+##  Belgium               : 1   Asia    : 0   Median :2007   Median :78.61  
+##  Bosnia and Herzegovina: 1   Europe  :30   Mean   :2007   Mean   :77.65  
+##  Bulgaria              : 1   Oceania : 0   3rd Qu.:2007   3rd Qu.:79.81  
+##  Croatia               : 1                 Max.   :2007   Max.   :81.76  
+##  (Other)               :24                                               
+##       pop             gdpPercap    
+##  Min.   :  301931   Min.   : 5937  
+##  1st Qu.: 4780560   1st Qu.:14812  
+##  Median : 9493598   Median :28054  
+##  Mean   :19536618   Mean   :25054  
+##  3rd Qu.:20849695   3rd Qu.:33818  
+##  Max.   :82400996   Max.   :49357  
+## </code></pre>
+<hr />
+</div>
+</div>
+<div id="variance-visual-walk-through" class="section level1">
+<h1>Variance: Visual walk through</h1>
+<p>Now let’s walk through this formula piece by piece. First we need the mean.</p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<pre class="r"><code>plot_mean</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+<div id="variance-visual-walk-through-1" class="section level1">
+<h1>Variance: Visual walk through</h1>
+<p>Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.</p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span> Calculation for Romania </p>
+<pre class="r"><code>last_plot() + 
+  geom_point(data = gapminder_2007_europe %&gt;% 
+                 filter(country == &quot;Romania&quot;),
+               alpha = .9, col = &quot;green&quot;, size = 3)</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>The difference between and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line.</p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span> Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span> </p>
+<pre class="r"><code>last_plot() + aes(xend = mean(gapminder_2007_europe$lifeExp), yend = 0) +
+  geom_segment(data = gapminder_2007_europe %&gt;% 
+                 filter(country == &quot;Romania&quot;),
+               alpha = .7, col = &quot;green&quot;, size = 1)</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Then we need to square that difference. This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy. It is a transparent green square in the plot.</p>
+<p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)^2\)</span> </p>
+<pre class="r"><code>last_plot() + aes(xmin = mean(gapminder_2007_europe$lifeExp),
+                  xmax = lifeExp,
+                  ymin = 0,
+                  ymax = abs(lifeExp - mean(gapminder_2007_europe$lifeExp)),
+                  fill = factor(lifeExp)) +
+  geom_rect(data = gapminder_2007_europe %&gt;% 
+                 filter(country == &quot;Romania&quot;), 
+            alpha = .2) +
+  guides(fill = FALSE)</code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png" width="672" height="2in" /></p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
+<pre class="r"><code>last_plot() + 
+  aes(fill = factor(lifeExp)) +
+  geom_rect(data = gapminder_2007_europe, alpha = .2, 
+            size = 3) </code></pre>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png" width="672" height="2in" /></p>
+<p>The mean for these areas is the variance.</p>
+<p>We sum up all of the resulting areas that are shown in the plot (note that these are overlapping):</p>
+<p><span class="math inline">\(\sum_{i=1}^{n}(x_i - \mu)^2\)</span></p>
+<p>And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+</div>
+<div id="standard-deviation" class="section level1">
+<h1>Standard Deviation:</h1>
+<p>Now, calculating the standard deviation is straightforward. Take the square root of the variance.</p>
+<p>Standard Deviation: <span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>What are the units of each?</p>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

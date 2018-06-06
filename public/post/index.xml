@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>From N to Standard Deviation: Visualizing Univariate Statistics</title>
+      <link>/post/univariate-statistics-visualizing-variance/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/univariate-statistics-visualizing-variance/</guid>
+      <description>This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.
+This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.
+I’m probably most excited about the walk-through of the variance calculation.</description>
+    </item>
+    
+    <item>
       <title>Winter Games and Athlete Ages</title>
       <link>/post/winter-games-and-athlete-ages/</link>
       <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
