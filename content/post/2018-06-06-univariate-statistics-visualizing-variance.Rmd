@@ -16,7 +16,7 @@ This post goes back and forth between computing statistics for a single variable
 
 This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.  
 
-I'm probably most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across [a nice visualization of variance explained](https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/) but couldn't find a visualization just focused on explaining the variance itself.  So I made one with ggplot().  You'll find it in the second half of the post! 
+I'm most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across [a nice visualization of variance explained](https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/) but couldn't find a visualization just focused on explaining the variance itself.  So I made one with ggplot().  You'll find it in the second half of the post! 
 
 
 
@@ -199,16 +199,8 @@ plot_mean
 ```
 
 
-# Variance: Visual walk through
-
 Then we do an operation for each of our observations.  Take the difference of the value for the observation and square it.  Let's just do that for one of our observations. Romania sounds good.  We plot it in green. 
 
-\huge
-Variance:
-$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
-\Large
-Calculation for Romania
-\normalsize
 
 ```{r}
 last_plot() + 
@@ -216,8 +208,6 @@ last_plot() +
                  filter(country == "Romania"),
                alpha = .9, col = "green", size = 3)
 ```
-
-
 
 The difference between \mu and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line. 
 
@@ -283,8 +273,6 @@ last_plot() +
             size = 3) 
 ```
 
-
-
 The mean for these areas is the variance.  
 
 We sum up all of the resulting areas that are shown in the plot (note that these are overlapping): 
@@ -295,6 +283,22 @@ And then we divide through by the number of observations (e.g. the total number 
 
 $\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
 
+I'm plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square's area is the average area for all the squares plotted above, and is equal to the variance. 
+
+```{r, out.height = "2in"}
+plot_mean + 
+  annotate(geom = "rect", 
+           xmin = mean(gapminder_2007_europe$lifeExp),
+           xmax = mean(gapminder_2007_europe$lifeExp) +
+             var(gapminder_2007_europe$lifeExp)^.5,
+           ymin = 0,
+           ymax = var(gapminder_2007_europe$lifeExp)^.5,
+           alpha = .2,
+           fill = "purple"
+           ) 
+```
+
+
 # Standard Deviation: 
 
 Now, calculating the standard deviation is straightforward.  Take the square root of the variance.
@@ -302,6 +306,20 @@ Now, calculating the standard deviation is straightforward.  Take the square roo
 Standard Deviation: 
 $\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
 
+The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.  
+
+```{r, out.height = "2in"}
+plot_mean + 
+  annotate(geom = "segment", 
+           x = mean(gapminder_2007_europe$lifeExp),
+           xend = mean(gapminder_2007_europe$lifeExp) +
+             var(gapminder_2007_europe$lifeExp)^.5,
+           y = 0, yend = 0,
+           size = 2, alpha = .5, col = "purple"
+           ) 
+```
+
+Quiz question: 
 
 What are the units of each?
 

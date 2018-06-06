@@ -18,7 +18,7 @@
       <guid>/post/univariate-statistics-visualizing-variance/</guid>
       <description>&lt;p&gt;This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.&lt;/p&gt;
 &lt;p&gt;This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.&lt;/p&gt;
-&lt;p&gt;I’m probably most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across &lt;a href=&#34;https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/&#34;&gt;a nice visualization of variance explained&lt;/a&gt; but couldn’t find a visualization just focused on explaining the variance itself. So I made one with ggplot(). You’ll find it in the second half of the post!&lt;/p&gt;
+&lt;p&gt;I’m most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across &lt;a href=&#34;https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/&#34;&gt;a nice visualization of variance explained&lt;/a&gt; but couldn’t find a visualization just focused on explaining the variance itself. So I made one with ggplot(). You’ll find it in the second half of the post!&lt;/p&gt;
 &lt;p&gt;So first we load the tidyverse, which will load ggplot for data visualization and dplyr which we’ll use for data manipulation.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(gapminder)
@@ -162,11 +162,7 @@ t &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Variance: &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot_mean&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;variance-visual-walk-through-1&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Variance: Visual walk through&lt;/h1&gt;
 &lt;p&gt;Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.&lt;/p&gt;
-&lt;p&gt;Variance: &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt; Calculation for Romania &lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
   geom_point(data = gapminder_2007_europe %&amp;gt;% 
                  filter(country == &amp;quot;Romania&amp;quot;),
@@ -204,11 +200,34 @@ t &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sum_{i=1}^{n}(x_i - \mu)^2\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I’m plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square’s area is the average area for all the squares plotted above, and is equal to the variance.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot_mean + 
+  annotate(geom = &amp;quot;rect&amp;quot;, 
+           xmin = mean(gapminder_2007_europe$lifeExp),
+           xmax = mean(gapminder_2007_europe$lifeExp) +
+             var(gapminder_2007_europe$lifeExp)^.5,
+           ymin = 0,
+           ymax = var(gapminder_2007_europe$lifeExp)^.5,
+           alpha = .2,
+           fill = &amp;quot;purple&amp;quot;
+           ) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-22-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;standard-deviation&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Standard Deviation:&lt;/h1&gt;
 &lt;p&gt;Now, calculating the standard deviation is straightforward. Take the square root of the variance.&lt;/p&gt;
 &lt;p&gt;Standard Deviation: &lt;span class=&#34;math inline&#34;&gt;\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot_mean + 
+  annotate(geom = &amp;quot;segment&amp;quot;, 
+           x = mean(gapminder_2007_europe$lifeExp),
+           xend = mean(gapminder_2007_europe$lifeExp) +
+             var(gapminder_2007_europe$lifeExp)^.5,
+           y = 0, yend = 0,
+           size = 2, alpha = .5, col = &amp;quot;purple&amp;quot;
+           ) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Quiz question:&lt;/p&gt;
 &lt;p&gt;What are the units of each?&lt;/p&gt;
 &lt;/div&gt;
 </description>
