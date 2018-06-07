@@ -17,9 +17,8 @@
       
     
   
-  <meta name="description" content="The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.
-If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
-To think about this more, we conduct a thought experiment accompanied by a computational experiment.">
+  <meta name="description" content="The Central Limit Theorem (CLT) gives of clear expectations for random sample means. A random sample mean is simply the mean of a value for a random sample from a population of interest.
+The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/central-limit-theorem/">
@@ -81,9 +80,8 @@ To think about this more, we conduct a thought experiment accompanied by a compu
   <meta property="og:site_name" content="Evangeline M Reynolds">
   <meta property="og:url" content="/post/central-limit-theorem/">
   <meta property="og:title" content="Central Limit Theorem | Evangeline M Reynolds">
-  <meta property="og:description" content="The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.
-If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
-To think about this more, we conduct a thought experiment accompanied by a computational experiment.">
+  <meta property="og:description" content="The Central Limit Theorem (CLT) gives of clear expectations for random sample means. A random sample mean is simply the mean of a value for a random sample from a population of interest.
+The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-07T00:00:00&#43;00:00">
@@ -272,7 +270,7 @@ To think about this more, we conduct a thought experiment accompanied by a compu
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -332,24 +330,24 @@ To think about this more, we conduct a thought experiment accompanied by a compu
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.</p>
-<p>If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).</p>
+      <p>The Central Limit Theorem (CLT) gives of clear expectations for random sample means. A random sample mean is simply the mean of a value for a random sample from a population of interest.</p>
+<p>The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).</p>
 <p>To think about this more, we conduct a thought experiment accompanied by a computational experiment.</p>
-<p>But it is helpful for us to know the truth. We are going to be omnicsient in the experiment, but think about the perspective of an observer whose knowledge is limited.</p>
-<p>As the omnicsienct being, we will know all about the population, and we will even create it. The population has a variable x, which we measure for all the units of the population.</p>
+<p>But it is helpful for us to know the truth. We are going to be omniscient in the experiment, but think about the perspective of an observer whose knowledge is limited.</p>
+<p>As the omniscience being, we will know all about the population, and we will even create it. The population has a variable x, which we measure for all the units of the population.</p>
 <pre class="r"><code>x_pop &lt;- runif(100) # create a popluation with measurable x
 hist(x_pop)  # what does the distribution look like for x</code></pre>
 <p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code>mean(x_pop)  # True mean of x (popluation mean)</code></pre>
-<pre><code>## [1] 0.5102338</code></pre>
+<pre><code>## [1] 0.4981352</code></pre>
 <p>Now we consider what a scientist would see if she observed one random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a <em>random</em> sample.</p>
 <pre class="r"><code>x_sample &lt;- 
   sample(x = x_pop,
          size = 30)
 mean(x_sample) # sample mean</code></pre>
-<pre><code>## [1] 0.4118625</code></pre>
+<pre><code>## [1] 0.5781031</code></pre>
 <p>Now we’ll get a little more abstract asking the question: What might we have observed if different samples had been taken?</p>
-<p>We are going to use a “forloop” consider all the samples that might have been taken.</p>
+<p>We are going to use a “for-loop” consider all the samples that might have been taken.</p>
 <p>A “for loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.</p>
 <p>Here is a simple for loop. The loop performs a task (printing “Number:” and the time through the loop) ten times, where the input i changes from 1 to 10.</p>
 <pre class="r"><code>for(i in 1:10){
@@ -365,22 +363,22 @@ print(paste(&quot;Number:&quot;, i))
 ## [1] &quot;Number: 8&quot;
 ## [1] &quot;Number: 9&quot;
 ## [1] &quot;Number: 10&quot;</code></pre>
-<p>Now back our thought experiment about sampling. What are our expectations about the distibution of sampling means that might be observed for a random sample of the same size?</p>
-<p>Let’s repeat the procedure we did above, ten times through. We use the forloop to do this work for us. We need to use print() in a forloop to display output.</p>
+<p>Now back our thought experiment about sampling. What are our expectations about the distribution of sampling means that might be observed for a random sample of the same size?</p>
+<p>Let’s repeat the procedure we did above, ten times through. We use the for-loop to do this work for us. We need to use print() in a for-loop to display output.</p>
 <pre class="r"><code>for(i in 1:10){
   x_sample &lt;- sample(x_pop, 30)
   print(mean(x_sample)) # sample mean  
 }</code></pre>
-<pre><code>## [1] 0.5965814
-## [1] 0.4993138
-## [1] 0.4614839
-## [1] 0.5764065
-## [1] 0.4452578
-## [1] 0.4784798
-## [1] 0.5811954
-## [1] 0.5349929
-## [1] 0.5487952
-## [1] 0.4532021</code></pre>
+<pre><code>## [1] 0.4899831
+## [1] 0.4856673
+## [1] 0.4488214
+## [1] 0.3989943
+## [1] 0.4850134
+## [1] 0.5170012
+## [1] 0.4788863
+## [1] 0.4354774
+## [1] 0.5729656
+## [1] 0.504854</code></pre>
 <p>Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.</p>
 <p>By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.</p>
 <pre class="r"><code># Expectations for repeated sampling
@@ -390,7 +388,7 @@ for(i in 1:10000){
   all_samples_means[i] &lt;- mean(x_sample) # save the mean for trial i in position i in vector 
 }</code></pre>
 <p>Now we have a vector of sample means that we could have observed, if different samples were realized.</p>
-<p>Lets use the hist() function to have a quick look at the distibution of the data.</p>
+<p>Lets use the hist() function to have a quick look at the distribution of the data.</p>
 <pre class="r"><code>hist(all_samples_means)</code></pre>
 <p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>You will notice that the might-have-been-observed sample means are centered around the true population mean. And they are also normally distributed. Exciting!</p>

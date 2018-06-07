@@ -10,15 +10,15 @@ header:
   image: ''
 ---
 
-The Central Limit Theorem gives of clear expectations for random sample means.  A random sample is simply the mean for a random sample from a population of interest. 
+The Central Limit Theorem (CLT) gives of clear expectations for random sample means.  A random sample mean is simply the mean of a value for a random sample from a population of interest. 
 
-If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
+The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
 
 To think about this more, we conduct a thought experiment accompanied by a computational experiment. 
 
-But it is helpful for us to know the truth.  We are going to be omnicsient in the experiment, but think about the perspective of an observer whose knowledge is limited.
+But it is helpful for us to know the truth.  We are going to be omniscient in the experiment, but think about the perspective of an observer whose knowledge is limited.
 
-As the omnicsienct being, we will know all about the population, and we will even create it.  The population has a variable x, which we measure for all the units of the population.  
+As the omniscience being, we will know all about the population, and we will even create it.  The population has a variable x, which we measure for all the units of the population.  
 
 ```{r}
 x_pop <- runif(100) # create a popluation with measurable x
@@ -37,7 +37,7 @@ mean(x_sample) # sample mean
 
 Now we'll get a little more abstract asking the question:  What might we have observed if different samples had been taken?
 
-We are going to use a "forloop" consider all the samples that might have been taken.
+We are going to use a "for-loop" consider all the samples that might have been taken.
 
 A "for loop" simply repeats a routine for you, sometimes with different inputs for each time through the routine.  
 
@@ -49,9 +49,9 @@ print(paste("Number:", i))
 }
 ```
 
-Now back our thought experiment about sampling.  What are our expectations about the distibution of sampling means that might be observed for a random sample of the same size? 
+Now back our thought experiment about sampling.  What are our expectations about the distribution of sampling means that might be observed for a random sample of the same size? 
 
-Let's repeat the procedure we did above, ten times through.  We use the forloop to do this work for us. We need to use print() in a forloop to display output.  
+Let's repeat the procedure we did above, ten times through.  We use the for-loop to do this work for us. We need to use print() in a for-loop to display output.  
 
 ```{r}
 for(i in 1:10){
@@ -74,7 +74,7 @@ for(i in 1:10000){
 
 Now we have a vector of sample means that we could have observed, if different samples were realized.  
 
-Lets use the hist() function to have a quick look at the distibution of the data.
+Lets use the hist() function to have a quick look at the distribution of the data.
 
 ```{r}
 hist(all_samples_means)
