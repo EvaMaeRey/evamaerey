@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.41" />
+  <meta name="author" content="Evangeline Reynolds">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.
+If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
+To think about this more, we conduct a thought experiment accompanied by a computational experiment.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/central-limit-theorem/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Evangeline M Reynolds">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Evangeline M Reynolds">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/central-limit-theorem/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@EvaMaeRey">
+  <meta property="twitter:creator" content="@EvaMaeRey">
+  
+  <meta property="og:site_name" content="Evangeline M Reynolds">
+  <meta property="og:url" content="/post/central-limit-theorem/">
+  <meta property="og:title" content="Central Limit Theorem | Evangeline M Reynolds">
+  <meta property="og:description" content="The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.
+If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
+To think about this more, we conduct a thought experiment accompanied by a computational experiment.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-06-07T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-06-07T00:00:00&#43;00:00">
+  
+
+  
+  
+
+  <title>Central Limit Theorem | Evangeline M Reynolds</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Evangeline M Reynolds</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Central Limit Theorem</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 7, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Central%20Limit%20Theorem&amp;url=%2fpost%2fcentral-limit-theorem%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fcentral-limit-theorem%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fcentral-limit-theorem%2f&amp;title=Central%20Limit%20Theorem"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fcentral-limit-theorem%2f&amp;title=Central%20Limit%20Theorem"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Central%20Limit%20Theorem&amp;body=%2fpost%2fcentral-limit-theorem%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      <p>The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.</p>
+<p>If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).</p>
+<p>To think about this more, we conduct a thought experiment accompanied by a computational experiment.</p>
+<p>But it is helpful for us to know the truth. We are going to be omnicsient in the experiment, but think about the perspective of an observer whose knowledge is limited.</p>
+<p>As the omnicsienct being, we will know all about the population, and we will even create it. The population has a variable x, which we measure for all the units of the population.</p>
+<pre class="r"><code>x_pop &lt;- runif(100) # create a popluation with measurable x
+hist(x_pop)  # what does the distribution look like for x</code></pre>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>mean(x_pop)  # True mean of x (popluation mean)</code></pre>
+<pre><code>## [1] 0.5102338</code></pre>
+<p>Now we consider what a scientist would see if she observed one random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a <em>random</em> sample.</p>
+<pre class="r"><code>x_sample &lt;- 
+  sample(x = x_pop,
+         size = 30)
+mean(x_sample) # sample mean</code></pre>
+<pre><code>## [1] 0.4118625</code></pre>
+<p>Now we’ll get a little more abstract asking the question: What might we have observed if different samples had been taken?</p>
+<p>We are going to use a “forloop” consider all the samples that might have been taken.</p>
+<p>A “for loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.</p>
+<p>Here is a simple for loop. The loop performs a task (printing “Number:” and the time through the loop) ten times, where the input i changes from 1 to 10.</p>
+<pre class="r"><code>for(i in 1:10){
+print(paste(&quot;Number:&quot;, i))
+}</code></pre>
+<pre><code>## [1] &quot;Number: 1&quot;
+## [1] &quot;Number: 2&quot;
+## [1] &quot;Number: 3&quot;
+## [1] &quot;Number: 4&quot;
+## [1] &quot;Number: 5&quot;
+## [1] &quot;Number: 6&quot;
+## [1] &quot;Number: 7&quot;
+## [1] &quot;Number: 8&quot;
+## [1] &quot;Number: 9&quot;
+## [1] &quot;Number: 10&quot;</code></pre>
+<p>Now back our thought experiment about sampling. What are our expectations about the distibution of sampling means that might be observed for a random sample of the same size?</p>
+<p>Let’s repeat the procedure we did above, ten times through. We use the forloop to do this work for us. We need to use print() in a forloop to display output.</p>
+<pre class="r"><code>for(i in 1:10){
+  x_sample &lt;- sample(x_pop, 30)
+  print(mean(x_sample)) # sample mean  
+}</code></pre>
+<pre><code>## [1] 0.5965814
+## [1] 0.4993138
+## [1] 0.4614839
+## [1] 0.5764065
+## [1] 0.4452578
+## [1] 0.4784798
+## [1] 0.5811954
+## [1] 0.5349929
+## [1] 0.5487952
+## [1] 0.4532021</code></pre>
+<p>Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.</p>
+<p>By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.</p>
+<pre class="r"><code># Expectations for repeated sampling
+all_samples_means &lt;- c() # this vector is an empty container where we will save means
+for(i in 1:10000){
+  x_sample &lt;- sample(x = x_pop, size = 30)
+  all_samples_means[i] &lt;- mean(x_sample) # save the mean for trial i in position i in vector 
+}</code></pre>
+<p>Now we have a vector of sample means that we could have observed, if different samples were realized.</p>
+<p>Lets use the hist() function to have a quick look at the distibution of the data.</p>
+<pre class="r"><code>hist(all_samples_means)</code></pre>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>You will notice that the might-have-been-observed sample means are centered around the true population mean. And they are also normally distributed. Exciting!</p>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

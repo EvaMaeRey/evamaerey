@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>Central Limit Theorem</title>
+      <link>/post/central-limit-theorem/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/central-limit-theorem/</guid>
+      <description>The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.
+If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
+To think about this more, we conduct a thought experiment accompanied by a computational experiment.</description>
+    </item>
+    
+    <item>
       <title>From N to Standard Deviation: Visualizing Univariate Statistics</title>
       <link>/post/univariate-statistics-visualizing-variance/</link>
       <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>

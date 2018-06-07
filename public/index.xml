@@ -11,6 +11,77 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Central Limit Theorem</title>
+      <link>/post/central-limit-theorem/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/central-limit-theorem/</guid>
+      <description>&lt;p&gt;The Central Limit Theorem gives of clear expectations for random sample means. A random sample is simply the mean for a random sample from a population of interest.&lt;/p&gt;
+&lt;p&gt;If we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).&lt;/p&gt;
+&lt;p&gt;To think about this more, we conduct a thought experiment accompanied by a computational experiment.&lt;/p&gt;
+&lt;p&gt;But it is helpful for us to know the truth. We are going to be omnicsient in the experiment, but think about the perspective of an observer whose knowledge is limited.&lt;/p&gt;
+&lt;p&gt;As the omnicsienct being, we will know all about the population, and we will even create it. The population has a variable x, which we measure for all the units of the population.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- runif(100) # create a popluation with measurable x
+hist(x_pop)  # what does the distribution look like for x&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x_pop)  # True mean of x (popluation mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5102338&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we consider what a scientist would see if she observed one random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a &lt;em&gt;random&lt;/em&gt; sample.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_sample &amp;lt;- 
+  sample(x = x_pop,
+         size = 30)
+mean(x_sample) # sample mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4118625&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we’ll get a little more abstract asking the question: What might we have observed if different samples had been taken?&lt;/p&gt;
+&lt;p&gt;We are going to use a “forloop” consider all the samples that might have been taken.&lt;/p&gt;
+&lt;p&gt;A “for loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.&lt;/p&gt;
+&lt;p&gt;Here is a simple for loop. The loop performs a task (printing “Number:” and the time through the loop) ten times, where the input i changes from 1 to 10.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:10){
+print(paste(&amp;quot;Number:&amp;quot;, i))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Number: 1&amp;quot;
+## [1] &amp;quot;Number: 2&amp;quot;
+## [1] &amp;quot;Number: 3&amp;quot;
+## [1] &amp;quot;Number: 4&amp;quot;
+## [1] &amp;quot;Number: 5&amp;quot;
+## [1] &amp;quot;Number: 6&amp;quot;
+## [1] &amp;quot;Number: 7&amp;quot;
+## [1] &amp;quot;Number: 8&amp;quot;
+## [1] &amp;quot;Number: 9&amp;quot;
+## [1] &amp;quot;Number: 10&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now back our thought experiment about sampling. What are our expectations about the distibution of sampling means that might be observed for a random sample of the same size?&lt;/p&gt;
+&lt;p&gt;Let’s repeat the procedure we did above, ten times through. We use the forloop to do this work for us. We need to use print() in a forloop to display output.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:10){
+  x_sample &amp;lt;- sample(x_pop, 30)
+  print(mean(x_sample)) # sample mean  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5965814
+## [1] 0.4993138
+## [1] 0.4614839
+## [1] 0.5764065
+## [1] 0.4452578
+## [1] 0.4784798
+## [1] 0.5811954
+## [1] 0.5349929
+## [1] 0.5487952
+## [1] 0.4532021&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.&lt;/p&gt;
+&lt;p&gt;By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Expectations for repeated sampling
+all_samples_means &amp;lt;- c() # this vector is an empty container where we will save means
+for(i in 1:10000){
+  x_sample &amp;lt;- sample(x = x_pop, size = 30)
+  all_samples_means[i] &amp;lt;- mean(x_sample) # save the mean for trial i in position i in vector 
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have a vector of sample means that we could have observed, if different samples were realized.&lt;/p&gt;
+&lt;p&gt;Lets use the hist() function to have a quick look at the distibution of the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(all_samples_means)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You will notice that the might-have-been-observed sample means are centered around the true population mean. And they are also normally distributed. Exciting!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>From N to Standard Deviation: Visualizing Univariate Statistics</title>
       <link>/post/univariate-statistics-visualizing-variance/</link>
       <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
