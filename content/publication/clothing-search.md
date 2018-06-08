@@ -1,6 +1,6 @@
 +++
 title = "Attitudes toward Consent-Based and Non-Consent-Based International Law in a Regional Power Context"
-date = "2013-07-01"
+date = "2018-07-01"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
 authors = ["Evangeline Reynolds", "Amâncio Jorge Silva Nunes De Oliveira", "Janina Onuki", "Matthew S. Winters"]
