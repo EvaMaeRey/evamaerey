@@ -22,14 +22,14 @@
 &lt;p&gt;To think about this more, we conduct a thought experiment accompanied by a computational experiment.&lt;/p&gt;
 &lt;div id=&#34;the-population&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;The population&lt;/h1&gt;
-&lt;p&gt;In the exeperiment we’ll be omniscient, but think about the perspective of an observer whose knowledge is limited.&lt;/p&gt;
+&lt;p&gt;In the experiment we’ll be omniscient, but then we’ll think about the perspective of an observer whose knowledge is limited.&lt;/p&gt;
 &lt;p&gt;As the omniscience being, we will know all about the population and will even create it. Let’s do that now.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- runif(100) # create a popluation with measurable x&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(x_pop)  # what does the distribution look like for x&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x_pop)  # True mean of x (popluation mean)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.5062108&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4816103&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;a-sample&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;A sample&lt;/h1&gt;
@@ -38,7 +38,7 @@
   sample(x = x_pop,
          size = 30)
 mean(x_sample) # sample mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.5367055&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4254097&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Interesting. The sample mean for this one sample is not so far from the population mean.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;samples-that-might-have-been&#34; class=&#34;section level1&#34;&gt;
@@ -66,16 +66,16 @@ print(paste(&amp;quot;Number:&amp;quot;, i))
   x_sample &amp;lt;- sample(x_pop, 30)
   print(mean(x_sample)) # sample mean  
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.4877966
-## [1] 0.4643015
-## [1] 0.4455284
-## [1] 0.5785461
-## [1] 0.5094332
-## [1] 0.480695
-## [1] 0.5459092
-## [1] 0.4248391
-## [1] 0.4616969
-## [1] 0.5241534&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5333051
+## [1] 0.5147043
+## [1] 0.495989
+## [1] 0.4715364
+## [1] 0.5263269
+## [1] 0.4469804
+## [1] 0.4542786
+## [1] 0.4572677
+## [1] 0.4747328
+## [1] 0.4060139&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;expectations-in-the-limit&#34; class=&#34;section level1&#34;&gt;
