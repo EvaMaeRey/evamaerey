@@ -11,30 +11,41 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Central Limit Theorem</title>
+      <title>Central Limit Theorem Demonstration</title>
       <link>/post/central-limit-theorem/</link>
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/central-limit-theorem/</guid>
-      <description>&lt;p&gt;The Central Limit Theorem (CLT) gives of clear expectations for random sample means. A random sample mean is simply the mean of a value for a random sample from a population of interest.&lt;/p&gt;
-&lt;p&gt;The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).&lt;/p&gt;
+      <description>&lt;p&gt;Sir Francis Galton described the Central Limit Theorem in this way:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.) The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).&lt;/p&gt;
 &lt;p&gt;To think about this more, we conduct a thought experiment accompanied by a computational experiment.&lt;/p&gt;
-&lt;p&gt;But it is helpful for us to know the truth. We are going to be omniscient in the experiment, but think about the perspective of an observer whose knowledge is limited.&lt;/p&gt;
-&lt;p&gt;As the omniscience being, we will know all about the population, and we will even create it. The population has a variable x, which we measure for all the units of the population.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- runif(100) # create a popluation with measurable x
-hist(x_pop)  # what does the distribution look like for x&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;the-population&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The population&lt;/h1&gt;
+&lt;p&gt;In the exeperiment we’ll be omniscient, but think about the perspective of an observer whose knowledge is limited.&lt;/p&gt;
+&lt;p&gt;As the omniscience being, we will know all about the population and will even create it. Let’s do that now.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- runif(100) # create a popluation with measurable x&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(x_pop)  # what does the distribution look like for x&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x_pop)  # True mean of x (popluation mean)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.4981352&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we consider what a scientist would see if she observed one random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a &lt;em&gt;random&lt;/em&gt; sample.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5062108&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-sample&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A sample&lt;/h1&gt;
+&lt;p&gt;Now let’s think about the researcher who is not omniscient, but will only observe a random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a &lt;em&gt;random&lt;/em&gt; sample.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_sample &amp;lt;- 
   sample(x = x_pop,
          size = 30)
 mean(x_sample) # sample mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.5781031&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we’ll get a little more abstract asking the question: What might we have observed if different samples had been taken?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5367055&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Interesting. The sample mean for this one sample is not so far from the population mean.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;samples-that-might-have-been&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Samples that might have been&lt;/h1&gt;
+&lt;p&gt;In general, how far would we expect the sample mean to be from the population mean? What might we have observed if different samples had been taken?&lt;/p&gt;
 &lt;p&gt;We are going to use a “for-loop” consider all the samples that might have been taken.&lt;/p&gt;
-&lt;p&gt;A “for loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.&lt;/p&gt;
+&lt;p&gt;A “for-loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.&lt;/p&gt;
 &lt;p&gt;Here is a simple for loop. The loop performs a task (printing “Number:” and the time through the loop) ten times, where the input i changes from 1 to 10.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:10){
 print(paste(&amp;quot;Number:&amp;quot;, i))
@@ -55,17 +66,20 @@ print(paste(&amp;quot;Number:&amp;quot;, i))
   x_sample &amp;lt;- sample(x_pop, 30)
   print(mean(x_sample)) # sample mean  
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.4899831
-## [1] 0.4856673
-## [1] 0.4488214
-## [1] 0.3989943
-## [1] 0.4850134
-## [1] 0.5170012
-## [1] 0.4788863
-## [1] 0.4354774
-## [1] 0.5729656
-## [1] 0.504854&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4877966
+## [1] 0.4643015
+## [1] 0.4455284
+## [1] 0.5785461
+## [1] 0.5094332
+## [1] 0.480695
+## [1] 0.5459092
+## [1] 0.4248391
+## [1] 0.4616969
+## [1] 0.5241534&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;expectations-in-the-limit&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Expectations in the limit&lt;/h1&gt;
 &lt;p&gt;By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Expectations for repeated sampling
 all_samples_means &amp;lt;- c() # this vector is an empty container where we will save means
@@ -76,8 +90,21 @@ for(i in 1:10000){
 &lt;p&gt;Now we have a vector of sample means that we could have observed, if different samples were realized.&lt;/p&gt;
 &lt;p&gt;Lets use the hist() function to have a quick look at the distribution of the data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(all_samples_means)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;You will notice that the might-have-been-observed sample means are centered around the true population mean. And they are also normally distributed. Exciting!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You will notice that the might-have-been-observed sample means are centered around the true population mean. And that these sample means are normally distributed. This regularity is the observation of the Central Limit Theorem that has Galton (and now you?) so excited.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;going-further-other-population-distributions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Going further: Other population distributions&lt;/h1&gt;
+&lt;p&gt;What if the distribution in our population looked different? What would the expectation for the distribution of sample means look like?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- c(rnorm(40), runif(60))
+hist(x_pop)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- c(rnorm(50,mean = 10), rnorm(50, mean = 5)) 
+hist(x_pop)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Galton’s quotation continues: &lt;em&gt;Whenever a large sample of chaotic elements are taken in hand and marshalled in the order of their magnitude, an unsuspected and most beautiful form of regularity proves to have been latent all along.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;What is the regularity that you find in the results, with different populations as the starting point?&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

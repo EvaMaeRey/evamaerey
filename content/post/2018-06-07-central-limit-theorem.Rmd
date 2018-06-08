@@ -1,5 +1,5 @@
 ---
-title: Central Limit Theorem
+title: Central Limit Theorem Demonstration
 author: Gina Reynolds
 date: '2018-06-07'
 slug: central-limit-theorem
@@ -10,23 +10,34 @@ header:
   image: ''
 ---
 
-The Central Limit Theorem (CLT) gives of clear expectations for random sample means.  A random sample mean is simply the mean of a value for a random sample from a population of interest. 
+Sir Francis Galton described the Central Limit Theorem in this way:
 
-The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
+*I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the "Law of Frequency of Error"*
+
+Why is Sir Francis Galton so excited?  Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means!  (A random sample mean is simply the mean of a value for a random sample from a population of interest.) The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).
 
 To think about this more, we conduct a thought experiment accompanied by a computational experiment. 
 
-But it is helpful for us to know the truth.  We are going to be omniscient in the experiment, but think about the perspective of an observer whose knowledge is limited.
+# The population
 
-As the omniscience being, we will know all about the population, and we will even create it.  The population has a variable x, which we measure for all the units of the population.  
+In the exeperiment we'll be omniscient, but think about the perspective of an observer whose knowledge is limited.
+
+As the omniscience being, we will know all about the population and will even create it.  Let's do that now.   
 
 ```{r}
 x_pop <- runif(100) # create a popluation with measurable x
+```
+
+The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().
+
+```{r}
 hist(x_pop)  # what does the distribution look like for x
 mean(x_pop)  # True mean of x (popluation mean)
 ```
 
-Now we consider what a scientist would see if she observed one random sample from the population.  We use the function sample to take a random sample of the population.  The population has 100 members, and we sample 30 with the function sample(), which takes a *random* sample.  
+# A sample
+
+Now let's think about the researcher who is not omniscient, but will only observe a random sample from the population.  We use the function sample to take a random sample of the population.  The population has 100 members, and we sample 30 with the function sample(), which takes a *random* sample.  
 
 ```{r}
 x_sample <- 
@@ -34,12 +45,15 @@ x_sample <-
          size = 30)
 mean(x_sample) # sample mean
 ```
+Interesting.  The sample mean for this one sample is not so far from the population mean.  
 
-Now we'll get a little more abstract asking the question:  What might we have observed if different samples had been taken?
+# Samples that might have been 
+
+In general, how far would we expect the sample mean to be from the population mean?  What might we have observed if different samples had been taken?
 
 We are going to use a "for-loop" consider all the samples that might have been taken.
 
-A "for loop" simply repeats a routine for you, sometimes with different inputs for each time through the routine.  
+A "for-loop" simply repeats a routine for you, sometimes with different inputs for each time through the routine.  
 
 Here is a simple for loop.  The loop performs a task (printing "Number:" and the time through the loop) ten times, where the input i changes from 1 to 10. 
 
@@ -61,6 +75,8 @@ for(i in 1:10){
 ```
 Nice!  We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern.  The means are nearby, sometimes lower, sometimes higher to our true value.
 
+# Expectations in the limit
+
 By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.  
 
 ```{r}
@@ -80,4 +96,19 @@ Lets use the hist() function to have a quick look at the distribution of the dat
 hist(all_samples_means)
 ```
 
-You will notice that the might-have-been-observed sample means are centered around the true population mean.  And they are also normally distributed.  Exciting!  
+You will notice that the might-have-been-observed sample means are centered around the true population mean.  And that these sample means are normally distributed.  This regularity is the observation of the Central Limit Theorem that has Galton (and now you?) so excited.
+
+# Going further:  Other population distributions
+
+What if the distribution in our population looked different?  What would the expectation for the distribution of sample means look like?
+
+```{r}
+x_pop <- c(rnorm(40), runif(60))
+hist(x_pop)
+x_pop <- c(rnorm(50,mean = 10), rnorm(50, mean = 5)) 
+hist(x_pop)
+```
+
+Galton's quotation continues:  *Whenever a large sample of chaotic elements are taken in hand and marshalled in the order of their magnitude, an unsuspected and most beautiful form of regularity proves to have been latent all along.*
+
+What is the regularity that you find in the results, with different populations as the starting point? 

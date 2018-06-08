@@ -13,13 +13,14 @@
     
     
     <item>
-      <title>Central Limit Theorem</title>
+      <title>Central Limit Theorem Demonstration</title>
       <link>/post/central-limit-theorem/</link>
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/central-limit-theorem/</guid>
-      <description>The Central Limit Theorem (CLT) gives of clear expectations for random sample means. A random sample mean is simply the mean of a value for a random sample from a population of interest.
-The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).</description>
+      <description>Sir Francis Galton described the Central Limit Theorem in this way:
+I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”
+Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.</description>
     </item>
     
     <item>
