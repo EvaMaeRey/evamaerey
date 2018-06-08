@@ -1,0 +1,271 @@
+---
+title: What’s the IGO dataset?
+author: Gina Reynolds
+date: '2018-06-08'
+slug: what-s-the-igo-dataset
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+```{r, echo = FALSE}
+library(printr)
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+
+```{r regions, echo = F}
+library(tidyverse)
+load("../../../side_projects/tidy.correlates.of.war/igos/data_products/tidy_igo_v2.3.Rdata")
+load("../../../side_projects/tidy.correlates.of.war/cow_countries/data_products/countries.Rdata")
+```
+
+```{r, results = "hide"}
+dim(igo_country_year)
+dim(igos)
+```
+
+The [International Organization v2.3](http://www.correlatesofwar.org/data-sets/IGOs/international-organization-v2.3) dataset is a rich resource for scholars of international relations.  Tracking the existence of international organizations and country memberships in them, the data's various version have been cited over 450 times.  Version 2.3 covers the time period 1815 to 2005, and records information about 529 IGOs and membership information for over two million country-igo-year observations.  Before 1965, coding was performed only every five years; thereafter information about IGOs and membership is available on an annual basis.  
+
+The project originated with [Michael Wallace and David Singer (1970)](http://www.u.arizona.edu/~volgy/WallaceSinger1970.pdf) and was extended by [Jon Pevehouse, Timothy Nordstrom, and Kevin Warnke](https://www.tandfonline.com/doi/abs/10.1080/07388940490463933?src=recsys&journalCode=ucmp20).  The current inclusion criteria are as follows (quoting the codebook):
+
+- *An IGO must consist of at least three members of the [COW-defined state system](http://www.correlatesofwar.org/data-sets/state-system-membership);*
+- *An IGO must hold regular plenary sessions at least once every ten years;*
+- *An IGO must possess a permanent secretariat and corresponding headquarters.*
+
+Further information about the creation of the IGO database and inclusion criteria are available in the [codebook](http://www.correlatesofwar.org/data-sets/IGOs/IGO_codebook_v2.1.pdf).
+
+This webpage is meant provide students and the curious with an visual, explorable introduction to the dataset.  
+
+# Growth in IGOs and participation
+
+The number of IGOs observed over the time period of 1815 to 2005 has dramatically increased.  At the beginning of this period there were just a handful, but now they number more than 300.  
+
+```{r}
+t = theme_bw(base_size = 12)
+l = geom_line(col = "blue", alpha = .7, size = 1.25) 
+
+g = 
+  merge(igos, data.frame(year = 1815:2005)) %>% 
+  mutate(year_last = replace_na(year_termination, 2005)) %>% 
+  filter(year>= year_start & year<= year_last) %>% 
+  group_by(year, ioname) %>% summarise() %>% ungroup() %>% 
+  group_by(year) %>% 
+  summarise(total_num_igo_year = n()) %>% 
+  ggplot(aes(year, total_num_igo_year)) + 
+  l + t + ylab("Number of IGOs") + xlab("")+
+  ggtitle("Number of IGO, 1815-2005", 
+          "Visualization: Gina Reynolds | Datasource: Intergovernmental Organizations Dataset v2.3") 
+g
+
+```
+
+The number of IGO-country memberships, likewise has also grown dramatically.   Individual country affiliations with IGOs numbers more than 10,000. 
+
+```{r}
+g =  igo_country_year %>% 
+  filter(status == "Full Membership") %>% 
+  group_by(year) %>% 
+  summarise(num_country_memberships = n()) %>% 
+  ggplot(aes(year, num_country_memberships)) + 
+  l + t +
+  xlab("") + ylab("Number of memberships") +
+  ggtitle("Number of country memberships in IGOs, 1815-2005", 
+          "Visualization: Gina Reynolds | Datasource: Intergovernmental Organizations Dataset v2.3") 
+g
+
+```
+
+# Duration of IGOs in Version 2.3
+
+```{r}
+igos_mod = igo_country_year %>% 
+  filter(status == "Full Membership") %>% 
+  group_by(ioname, year) %>% summarise(num_members = n()) %>% 
+  group_by(ioname) %>% 
+  summarise(num_members = max(num_members)) %>% 
+  left_join(igos) %>%
+  mutate(year_last = ifelse(is.na(year_termination), 2005, year_termination)) %>% 
+  arrange(year_start, year_last) %>% 
+  mutate(orgname = fct_inorder(orgname))
+```
+
+An overview of the durations of all the IGOs in the dataset is shown in the figure below, with the IGOs grouped by regional focus (my own coding).  The IGOs are simply ordered first by the year that they come into existence and second by the year that they disband.  Notice that some regions have created more IGOs than others.  Some regions start forming regional IGOs later on than others too. What are some of the factors that could be driving these differences?         
+
+```{r, fig.width=18, fig.height=14, echo = F}
+g = ggplot() + 
+    aes(y = orgname, x = year_start,  
+           xend = year_last, yend = orgname, label = num_members) +
+  scale_color_discrete(guide = "none") +
+  labs(y = "", x = "") 
+```
+```{r, fig.width=18, fig.height=12}
+g + geom_segment(data = igos_mod, aes(col = region)) +
+    theme_classic(base_size = 20) + 
+  geom_vline(xintercept = c(2005), lty = "dashed", col = "grey") +
+    facet_wrap(~ region, scales = "free_y") +
+    # geom_vline(xintercept = seq(1825,2000, 25), col = "lightgrey", alpha = .2) +
+   geom_vline(xintercept = seq(1850,2000, 50), col = "lightgrey", alpha = .5) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks = element_blank()) +
+  annotate(geom = "text", x = 1916.5, y= 20 , label = "WWI", angle = 90) +
+  annotate(geom = "text", x = 1943, y= 20 , label = "WWII", angle = 90) +
+  annotate(geom = "text", x = 2009, y= 20 , label = "End of data set", angle = -90) +
+  ggtitle("Durations of IGOs", "Data Visualization: Gina Reynolds | Data source: IGO COW data 1850-2005") +
+  annotate(geom = "rect", xmin = 1914, xmax = 1919,
+                         ymin = -Inf, ymax = Inf,
+            fill = "grey", alpha = .05) +
+  annotate(geom = "rect", xmin = 1939, xmax = 1945,
+                         ymin = -Inf, ymax = Inf,
+            fill = "grey", alpha = .05) + ylab("")
+
+# ggsave("dissemination/igos_regions_over_time.png", g)
+
+# htmlwidgets::saveWidget(widget = as_widget(p1), 
+                        # file =  "dissemination/igos_regions_overtime.html")
+```
+
+## Some notes on duration
+
+For IGOs that we observe start to finish in the IGO dataset, the mean number of years is 22.5, but the mean observed duration for any IGO is observed to be 30.7 years.  When we look at only the IGOs that are observed start to finish, we are deleting the "right censored cases" - cases for which we don't know the full duration.  Survival modeling could be helpful at estimating expectations about IGO duration.    
+
+
+```{r, results = 'hide'}
+igos_mod %>% group_by() %>% filter(year_start != min(year_start, na.rm = T) & !is.na(year_termination)) %>% 
+  summarise(mean_duration = mean(year_last - year_start))
+
+igos_mod %>% group_by() %>% 
+  summarise(mean_duration = mean(year_last - year_start, na.rm = T))
+
+```
+
+Within regions there the observed (including censured cases) durations varies between 22 and 33 years.  It should be noted, that the later a region becomes active with IGOs, the lower the cap on what we might observe for the mean duration. 
+
+
+```{r}
+igos_mod %>% group_by() %>% 
+  group_by(region) %>% 
+  summarise(`mean duration` = round(mean(year_last - year_start, na.rm = T), 1))
+```
+
+
+# Exploring IGOs by region
+
+The data can be explored further in the following interactive plots.  Using these plots, we can answer some simple questions about IGOs in the data set.  For example, which IGOs are created in Europe after World War II?  Which are the IGOs not assigned a region that are created in the wake of World War II?  Which disbanded?  1960 is an important year for Africa, with many countries gaining their independence from colonizing states.  Which are the African IGOs that are also formed around this time?
+
+For best results, "mouse-over" the end-points of the IGO representation.    
+
+```{r}
+
+library(plotly)
+ggplotly(g + geom_segment(data = igos_mod %>% filter(region == "Africa") , col = "darkblue") + ggtitle("Africa"), width = 800, height = 700) 
+ggplotly(g + geom_segment(data = igos_mod %>% filter(region == "Americas") , col = "darkblue") + ggtitle("Americas"), width = 800, height = 800) 
+ggplotly(g + geom_segment(data = igos_mod %>% filter(region == "Arab or Middle East") , col = "darkblue") + ggtitle("Arab or Middle East"), width = 800, height = 600)
+ggplotly(g + geom_segment(data = igos_mod %>% filter(region == "Asia/Pacific") , col = "darkblue")+ ggtitle("Asia/Pacific"), width = 800, height = 700)
+ggplotly(g + geom_segment(data = igos_mod %>% filter(region == "Europe") , col = "darkblue")+ ggtitle("Europe"), width = 800, height = 800)
+ggplotly(g + geom_segment(data = igos_mod %>% filter(region == "no region assigned") , col = "darkblue")+ ggtitle("no region assigned"), width = 800, height = 2500)
+
+```
+
+
+
+
+<!-- # Explorable IGO plots, by region -->
+
+<!-- Thus far we've mostly been concerned with IGOs as our "unit-of-inquiry".  But we might also be concerned with the membership in these IGOs.  Are the IGOs small or large?  Does the membership include powerful states?  Do all members join at once or is membership increase gradual?    -->
+
+# Country Membership
+
+We can also look at individual memberships. Below, each of the points contains the information about country membership in a given year. The horizontal lines represent the time period that the membership 
+
+Unfortunately, there is much missing data which is clear from the visualizations.  Recall, too, that membership data is only available every five years before 1965. 
+
+
+```{r}
+
+igos_year = igo_country_year %>% 
+  filter(status == "Full Membership") %>% left_join(countries) %>% 
+  group_by(ioname, year) %>% 
+  summarise(members = str_wrap(paste(n(),": ", paste(unique(cow_state_name), collapse = ", "), collapse = ", "), 30)) %>% 
+  left_join(igos_mod) %>% arrange(region, year_start, year_last) %>% ungroup() %>% 
+  mutate(orgname = fct_inorder(orgname))
+
+igos_mod_2 = igos_mod %>% select(region, orgname, year_start, year_last) %>% 
+  gather("start_or_end", "year", -orgname, - region)
+
+
+my_plot <- function(which_region){
+  
+ggplot() + 
+    # aes() +
+    geom_point(data = igos_year %>% filter(region == which_region),
+               aes(x = year, y = orgname, label = members),
+               col = "darkblue") +
+    geom_segment(data = igos_mod %>% filter(region == which_region),
+                 aes(yend = orgname, x = year_start, xend = year_last, y = orgname),
+                 col = "magenta") + 
+    ggtitle(label = which_region) + ylab("")
+  
+}
+
+
+ggplotly(my_plot("Africa")       , width = 800, height = 800) 
+ggplotly(my_plot("Americas")       , width = 800, height = 800) 
+ggplotly(my_plot("Asia/Pacific")       , width = 800, height = 800) 
+ggplotly(my_plot("Arab or Middle East")  , width = 800, height = 800) 
+ggplotly(my_plot("Europe")  , width = 800, height = 800) 
+ggplotly(my_plot("no region assigned")   , width = 800, height = 2500) 
+
+
+
+
+
+```
+
+# More to come
+
+In the future, I hope to add some discussion of how we might think about IGOs as connections between countries, and countries as connections between IGOs.  For now, check out my [IGO Network App](https://evangelinereynolds.shinyapps.io/IGONetwork/), where you can explore connections that IGOs create between countries.  
+
+
+# References
+
+## Data:
+
+Pevehouse, Jon C., Timothy Nordstrom, and Kevin Warnke. 2004. "The COW-2 International Organizations Dataset Version 2.0," Conflict Management and Peace Science 21:101-119.
+
+Wallace, Michael, and J. David Singer. 1970. "International Governmental Organization in the Global System, 1815-1964." International Organization 24: 239-87. 
+
+## Tooling:
+
+R Core Team (2017). R: A
+  language and environment
+  for statistical
+  computing. R Foundation
+  for Statistical
+  Computing, Vienna,
+  Austria. URL
+  https://www.R-project.org/.
+
+Wickham, H. and Chang, W., 2008. ggplot2: An implementation of the Grammar of Graphics. R package version 0.7, URL: http://CRAN. R-project. org/package= ggplot2.
+
+Carson Sievert, Chris Parmer,
+  Toby Hocking, Scott
+  Chamberlain, Karthik Ram,
+  Marianne Corvellec and Pedro
+  Despouy (2017). plotly:
+  Create Interactive Web
+  Graphics via 'plotly.js'. R
+  package version 4.7.1.
+  https://CRAN.R-project.org/package=plotly
+
+Hadley Wickham, Romain
+  Francois, Lionel Henry and
+  Kirill Müller (2017). dplyr:
+  A Grammar of Data
+  Manipulation. R package
+  version 0.7.4.
+  https://CRAN.R-project.org/package=dplyr
+
+
