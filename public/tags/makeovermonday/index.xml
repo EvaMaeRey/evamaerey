@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MakeoverMonday on Evangeline M Reynolds</title>
+    <link>/tags/makeovermonday/</link>
+    <description>Recent content in MakeoverMonday on Evangeline M Reynolds</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 12 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/makeovermonday/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eat near the Big Ben?  That will cost you...</title>
+      <link>/post/eat-near-the-big-ben-that-will-cost-you/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/eat-near-the-big-ben-that-will-cost-you/</guid>
+      <description>What’s the cost of eating near an iconic location? We all suspect eating in a fun location is pricier. I used the menu and restaurant location data that #MakeoverMonday “assigned” one week last December to demonstrate this among London Wetherspoon Pubs. #MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool. But I’ve used R and ggplot() and the organizers and participants have been very welcoming.</description>
+    </item>
+    
+  </channel>
+</rss>
