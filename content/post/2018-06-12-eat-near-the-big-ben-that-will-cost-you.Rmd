@@ -16,32 +16,36 @@ knitr::opts_knit$set(root.dir = normalizePath("../../../../Google Drive/side_pro
 knitr::opts_chunk$set(message = F, warning = F)
 ```
 
-What's the cost of eating near an iconic location?  We all suspect eating in a fun location is pricier.  I used the menu and restaurant location data that #MakeoverMonday "assigned" one week last December to demonstrate this among London [Wetherspoon Pubs](https://www.jdwetherspoon.com/).   #MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool.  But I've used R and ggplot() and the organizers and participants have been very welcoming.  (Recently, I've noticed an initiative for R has sprouted up --- #TidyTuesday, with a focus on visualization and data wrangling. Might #MakeoverMonday have been an inspiration?  Probs.)
+What's the cost of eating near an iconic location?  We all might suspect eating in a fun location is pricier.  I used the menu and restaurant location data that #MakeoverMonday "assigned" one week last December to demonstrate this among London [Wetherspoon Pubs](https://www.jdwetherspoon.com/).
+
+\#MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool.  But I've used R and ggplot() and the organizers and participants have been very welcoming.  (Recently, I've noticed an initiative for R has sprouted up --- #TidyTuesday, with a focus on visualization and data wrangling. Might #MakeoverMonday have been an inspiration?  Probably.)
 
 ```{r echo=FALSE}
 blogdown::shortcode('tweet', '939065290016555008')
 ```
 
-The plot that submitted was popular with the organizers of #MakeoverMonday, and it seems that I will be featured in their soon to be published book on the #MakeoverMonday experience. 
+The Wetherspoon Pubs plot that submitted was popular with the organizers of #MakeoverMonday, and it will likely be featured in their soon-to-be-published book on the #MakeoverMonday experience. 
 
 ```{r echo=FALSE}
 blogdown::shortcode('tweet', '939073785994661888')
 ```
 
-And I was happy to be working with some spatial data.  
+You can read Andy Kreible's complete "lessons" summary on the entries from the Wetherspoon Pubs week [here]( http://www.makeovermonday.co.uk/week-49/).
+
+I was happy to be working with some spatial data.  
 
 ```{r echo=FALSE}
 blogdown::shortcode('tweet', '939405276314259456')
 ```
 
-Basically, I did some mapping to explore the data, but suspected that having a closer look at London Pubs might also be interesting.  
+Basically, I did some mapping to explore the data, but suspected that having a closer look at London Pubs might also be interesting.  To do that I had to compute distances from longitude and latitude coordinates in R.  I just used a pre-written function from the geosphere package to do this.
 
-Below is the code to reproduce this.  
+Below is the code (cleaned-up naturally for this post) used in the exercise.  
 
 # Step one:  Load needed packages and data
 ```{r, fig.width=15}
 library(readxl)    # to load excel data
-library(rgdal)  
+library(rgdal)     # geospatial library
 library(tidyverse) # data wrangling and plotting
 library(geosphere) # to calculate distances on the earth
 library(viridis)   # for better color palette for points on map
@@ -63,7 +67,7 @@ data0=read_xlsx("Wetherspoon.xlsx", na = "n/a")
 world_map_df <- map_data("world")
 ```
 
-I plot the UK ...
+I map the UK ...
 ```{r}
 # create a ggplot theme
 theme_opts <- list(theme(panel.grid.minor = element_blank(),
@@ -90,16 +94,20 @@ g
 
 ```{r}
 g + geom_point(data = data0, 
-              aes(x=Longitude, y=Latitude, group=NULL, fill=`Empire State Burger`), 
-              colour="white", shape=21, stroke=1, alpha=.75, size = 2, shape = 25) + 
+              aes(x=Longitude, y=Latitude, 
+                  group=NULL, fill=`Empire State Burger`), 
+              colour="white", shape=21, stroke=1, 
+              alpha=.75, size = 2, shape = 25) + 
   scale_fill_viridis(option = "magma", direction = -1)  # use prefered color scale
 
 
 ```
 
+Looks like there are some pricy places to get a burger on the sea!
+
 # Step 3:  Calculate restaurant distances from iconic location and plot prices as function thereof
 
-I decided to calculate restaurant distances from the Big Ben using the distm() function from the geosphere package ... 
+Zooming in to focus on a London story, I decided to calculate restaurant distances from the Big Ben using the distm() function from the geosphere package ... 
 ```{r}
 # big ben coordinates found on https://www.latlong.net
 LondonLat <- 51.510357
@@ -134,4 +142,4 @@ ggplot(data_long) +  # declare data to use
   xlim(c(0,10))  # limit distance to closest 10 kilometers
 ```
 
-Now your're probably hungry and thirsty.  Find youself a burger or chicken tikka?
+All done.  Now your're probably hungry and thirsty.  Perhaps you'd like a burger or chicken tikka?

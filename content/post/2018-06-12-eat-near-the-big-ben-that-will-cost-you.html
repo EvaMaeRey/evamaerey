@@ -13,18 +13,20 @@ header:
 
 
 
-<p>What’s the cost of eating near an iconic location? We all suspect eating in a fun location is pricier. I used the menu and restaurant location data that #MakeoverMonday “assigned” one week last December to demonstrate this among London <a href="https://www.jdwetherspoon.com/">Wetherspoon Pubs</a>. #MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool. But I’ve used R and ggplot() and the organizers and participants have been very welcoming. (Recently, I’ve noticed an initiative for R has sprouted up — #TidyTuesday, with a focus on visualization and data wrangling. Might #MakeoverMonday have been an inspiration? Probs.)</p>
+<p>What’s the cost of eating near an iconic location? We all might suspect eating in a fun location is pricier. I used the menu and restaurant location data that #MakeoverMonday “assigned” one week last December to demonstrate this among London <a href="https://www.jdwetherspoon.com/">Wetherspoon Pubs</a>.</p>
+<p>#MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool. But I’ve used R and ggplot() and the organizers and participants have been very welcoming. (Recently, I’ve noticed an initiative for R has sprouted up — #TidyTuesday, with a focus on visualization and data wrangling. Might #MakeoverMonday have been an inspiration? Probably.)</p>
 {{% tweet "939065290016555008" %}}
-<p>The plot that submitted was popular with the organizers of #MakeoverMonday, and it seems that I will be featured in their soon to be published book on the #MakeoverMonday experience.</p>
+<p>The Wetherspoon Pubs plot that submitted was popular with the organizers of #MakeoverMonday, and it will likely be featured in their soon-to-be-published book on the #MakeoverMonday experience.</p>
 {{% tweet "939073785994661888" %}}
-<p>And I was happy to be working with some spatial data.</p>
+<p>You can read Andy Kreible’s complete “lessons” summary on the entries from the Wetherspoon Pubs week <a href="http://www.makeovermonday.co.uk/week-49/">here</a>.</p>
+<p>I was happy to be working with some spatial data.</p>
 {{% tweet "939405276314259456" %}}
-<p>Basically, I did some mapping to explore the data, but suspected that having a closer look at London Pubs might also be interesting.</p>
-<p>Below is the code to reproduce this.</p>
+<p>Basically, I did some mapping to explore the data, but suspected that having a closer look at London Pubs might also be interesting. To do that I had to compute distances from longitude and latitude coordinates in R. I just used a pre-written function from the geosphere package to do this.</p>
+<p>Below is the code (cleaned-up naturally for this post) used in the exercise.</p>
 <div id="step-one-load-needed-packages-and-data" class="section level1">
 <h1>Step one: Load needed packages and data</h1>
 <pre class="r"><code>library(readxl)    # to load excel data
-library(rgdal)  
+library(rgdal)     # geospatial library
 library(tidyverse) # data wrangling and plotting
 library(geosphere) # to calculate distances on the earth
 library(viridis)   # for better color palette for points on map
@@ -41,7 +43,7 @@ data0=read_xlsx(&quot;Wetherspoon.xlsx&quot;, na = &quot;n/a&quot;) </code></pre
 
 # Mapping data
 world_map_df &lt;- map_data(&quot;world&quot;)</code></pre>
-<p>I plot the UK …</p>
+<p>I map the UK …</p>
 <pre class="r"><code># create a ggplot theme
 theme_opts &lt;- list(theme(panel.grid.minor = element_blank(),
                         panel.grid.major = element_blank(),
@@ -64,14 +66,17 @@ g &lt;- ggplot(world_map_df %&gt;%
 g</code></pre>
 <p><img src="/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-7-1.png" width="672" /> … and overlay the information about the burger price.</p>
 <pre class="r"><code>g + geom_point(data = data0, 
-              aes(x=Longitude, y=Latitude, group=NULL, fill=`Empire State Burger`), 
-              colour=&quot;white&quot;, shape=21, stroke=1, alpha=.75, size = 2, shape = 25) + 
+              aes(x=Longitude, y=Latitude, 
+                  group=NULL, fill=`Empire State Burger`), 
+              colour=&quot;white&quot;, shape=21, stroke=1, 
+              alpha=.75, size = 2, shape = 25) + 
   scale_fill_viridis(option = &quot;magma&quot;, direction = -1)  # use prefered color scale</code></pre>
 <p><img src="/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Looks like there are some pricy places to get a burger on the sea!</p>
 </div>
 <div id="step-3-calculate-restaurant-distances-from-iconic-location-and-plot-prices-as-function-thereof" class="section level1">
 <h1>Step 3: Calculate restaurant distances from iconic location and plot prices as function thereof</h1>
-<p>I decided to calculate restaurant distances from the Big Ben using the distm() function from the geosphere package …</p>
+<p>Zooming in to focus on a London story, I decided to calculate restaurant distances from the Big Ben using the distm() function from the geosphere package …</p>
 <pre class="r"><code># big ben coordinates found on https://www.latlong.net
 LondonLat &lt;- 51.510357
 LondonLong &lt;- -0.116773
@@ -100,5 +105,5 @@ ggplot(data_long) +  # declare data to use
   labs(y = &quot;Price - £&quot;) + 
   xlim(c(0,10))  # limit distance to closest 10 kilometers</code></pre>
 <p><img src="/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p>Now your’re probably hungry and thirsty. Find youself a burger or chicken tikka?</p>
+<p>All done. Now your’re probably hungry and thirsty. Perhaps you’d like a burger or chicken tikka?</p>
 </div>
