@@ -24,7 +24,7 @@ What's the cost of eating near an iconic location?  We all might suspect eating 
 blogdown::shortcode('tweet', '939065290016555008')
 ```
 
-The Wetherspoon Pubs plot that submitted was popular with the organizers of #MakeoverMonday, and it will likely be featured in their soon-to-be-published book on the #MakeoverMonday experience. 
+The Wetherspoon Pubs plot that I submitted was popular with the organizers of #MakeoverMonday, and it will likely be featured in their soon-to-be-published book on the #MakeoverMonday experience. 
 
 ```{r echo=FALSE}
 blogdown::shortcode('tweet', '939073785994661888')
