@@ -272,7 +272,7 @@ Earlier this week, I heard about the dispute of authorship of some of the Federa
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    10 min read
+    8 min read
   </span>
   
 
@@ -417,7 +417,7 @@ similarity &lt;-
 <pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
 <p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-10-1.png" width="1344" /></p>
 <p>That’s more like it! I was hoping to observe more separation between authors, and with less preprocessing, that’s exactly what we see. Great!</p>
-<p>Also in other analyses the disputed texts are in the Madison “zone”, and most scholars that have done textual studies believe the texts were indeed written by Madison.</p>
+<p>Also in other analyses the disputed texts are in the Madison “zone”, and most scholars that have done textual studies believe the texts were indeed written by Madison, and a few maybe jointly by Madison and Hamilton.</p>
 </div>
 </div>
 <div id="wrapping-up" class="section level1">
@@ -433,45 +433,7 @@ similarity &lt;-
 <div id="the-alternative" class="section level2">
 <h2>The Alternative</h2>
 <p>Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we aren’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.</p>
-<p>I make it here, but I don’t really clean it up, maybe to put my preferred technique in the best light, maybe because I’ve really spent too much time on this. But I don’t know, I think there is something charming and likable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
-<pre><code>## Formal class &#39;dfm&#39; [package &quot;quanteda&quot;] with 15 slots
-##   ..@ settings    : list()
-##   ..@ weightTf    :List of 3
-##   .. ..$ scheme: chr &quot;count&quot;
-##   .. ..$ base  : NULL
-##   .. ..$ K     : NULL
-##   ..@ weightDf    :List of 5
-##   .. ..$ scheme   : chr &quot;unary&quot;
-##   .. ..$ base     : NULL
-##   .. ..$ c        : NULL
-##   .. ..$ smoothing: NULL
-##   .. ..$ threshold: NULL
-##   ..@ smooth      : num 0
-##   ..@ ngrams      : int 1
-##   ..@ skip        : int 0
-##   ..@ concatenator: chr &quot;_&quot;
-##   ..@ version     : int [1:3] 1 2 0
-##   ..@ docvars     :&#39;data.frame&#39;: 85 obs. of  5 variables:
-##   .. ..$ name  : chr [1:85] &quot;Federalist No. 1&quot; &quot;Federalist No. 6&quot; &quot;Federalist No. 7&quot; &quot;Federalist No. 8&quot; ...
-##   .. ..$ title : chr [1:85] &quot;General Introduction&quot; &quot;Concerning Dangers from Dissensions Between the States&quot; &quot;The Same Subject Continued (Concerning Dangers from Dissensions Between the States)&quot; &quot;The Consequences of Hostilities Between the States&quot; ...
-##   .. ..$ venue : chr [1:85] &quot;For the Independent Journal&quot; &quot;For the Independent Journal&quot; &quot;For the Independent Journal&quot; &quot;From the New York Packet&quot; ...
-##   .. ..$ date  : Date[1:85], format: NA ...
-##   .. ..$ author: chr [1:85] &quot;Hamilton&quot; &quot;Hamilton&quot; &quot;Hamilton&quot; &quot;Hamilton&quot; ...
-##   ..@ i           : int [1:60415] 0 1 2 3 4 5 6 7 8 9 ...
-##   ..@ p           : int [1:8767] 0 85 170 255 340 425 510 595 680 711 ...
-##   ..@ Dim         : int [1:2] 85 8766
-##   ..@ Dimnames    :List of 2
-##   .. ..$ docs    : chr [1:85] &quot;text1&quot; &quot;text2&quot; &quot;text3&quot; &quot;text4&quot; ...
-##   .. ..$ features: chr [1:8766] &quot;to&quot; &quot;the&quot; &quot;people&quot; &quot;of&quot; ...
-##   ..@ x           : num [1:60415] 72 58 82 80 71 84 82 43 117 89 ...
-##   ..@ factors     : list()</code></pre>
-<pre><code>##    Var1  Var2     value
-## 1 text1 text1 1.0000000
-## 2 text2 text1 0.9427747
-## 3 text3 text1 0.9538921
-## 4 text4 text1 0.9588363
-## 5 text5 text1 0.9630458
-## 6 text6 text1 0.9494427</code></pre>
+<p>I make it here, sorting by author, but I don’t really clean it up, maybe to put my technique in the best light, maybe because I’ve really spent too much time on this. But, I think there is something charming and likable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
 <p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-13-1.png" width="1344" /></p>
 </div>
 </div>
