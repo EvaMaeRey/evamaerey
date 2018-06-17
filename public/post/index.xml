@@ -13,6 +13,30 @@
     
     
     <item>
+      <title>Federalist Papers</title>
+      <link>/post/federalist-papers/</link>
+      <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/federalist-papers/</guid>
+      <description>Every couple of weeks I like to explore data that’s brand new to me. I anticipate a one-hour, one-off project. Usually this turns out to be a beautiful lie, and the projects chew up much more time. Still, this enticing time-line is pulling me into new projects from time to time.
+Earlier this week, I heard about the dispute of authorship of some of the Federalist papers.
+&amp;quot;Hamilton wrote the other 51!</description>
+    </item>
+    
+    <item>
+      <title>Geometric interpretation of Covariance</title>
+      <link>/post/geometric-covariance/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/geometric-covariance/</guid>
+      <description>So. Visualizing the correlation coefficient.
+But actually covariance first. Correlation coefficient presents some challenges. (Many dimensions!!)
+First the Covariance:
+\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
+library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() x &amp;lt;- rnorm(30) y &amp;lt;- -x + rnorm(30, sd = .</description>
+    </item>
+    
+    <item>
       <title>Eat near the Big Ben?  That will cost you...</title>
       <link>/post/eat-near-the-big-ben-that-will-cost-you/</link>
       <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>

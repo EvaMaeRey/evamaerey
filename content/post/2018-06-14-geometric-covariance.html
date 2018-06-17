@@ -1,0 +1,89 @@
+---
+title: Geometric interpretation of Covariance
+author: Gina Reynolds
+date: '2018-06-14'
+slug: geometric-covariance
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>So. Visualizing the correlation coefficient.</p>
+<p>But actually covariance first. Correlation coefficient presents some challenges. (Many dimensions!!)</p>
+<p>First the Covariance:</p>
+<p><span class="math inline">\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ────────</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
+## ✔ tibble  1.4.2          ✔ dplyr   0.7.5     
+## ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
+## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>x &lt;- rnorm(30)
+y &lt;- -x + rnorm(30, sd = .5)
+df &lt;- data_frame(x,y) %&gt;% 
+  mutate(rectangle=(x-mean(x))*(y-mean(y)))</code></pre>
+<div id="step-1-plot-the-data" class="section level1">
+<h1>Step 1: plot the data</h1>
+<pre class="r"><code>ggplot(df) + 
+  theme_classic() +
+  coord_equal() +
+  aes(x, y, fill = rectangle &gt; 0) +
+  geom_point() </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="step-2-find-the-mean-of-x" class="section level1">
+<h1>Step 2: find the mean of x</h1>
+<pre class="r"><code>last_plot() +
+  geom_vline(xintercept = mean(x), lty = &quot;dashed&quot;) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="step-3-find-the-mean-of-y" class="section level1">
+<h1>Step 3: find the mean of y</h1>
+<pre class="r"><code>last_plot() + geom_hline(yintercept = mean(y), lty = &quot;dashed&quot;) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="step-4-calculate-difference-between-x-and-mean-of-x" class="section level1">
+<h1>Step 4: calculate difference between x and mean of x</h1>
+<pre class="r"><code>last_plot() +
+  geom_segment(xend = mean(x), yend = y, lty = &quot;dotted&quot;) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="step-5-calculate-difference-between-y-and-mean-of-y" class="section level1">
+<h1>Step 5: calculate difference between y and mean of y</h1>
+<pre class="r"><code>last_plot() + geom_segment(yend = mean(y), xend = x, lty = &quot;dotted&quot;) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="step-6-multiply-these-differences-observation-wise" class="section level1">
+<h1>Step 6: multiply these differences (observation-wise)</h1>
+<pre class="r"><code>last_plot() +
+  geom_rect(xmin = mean(x), ymin = mean(y), 
+            ymax = y, xmax = x, alpha = .2  ) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="step-7-add-these-areas" class="section level1">
+<h1>Step 7: Add these areas</h1>
+<pre class="r"><code>ggplot(df %&gt;% arrange(x)) +
+  aes(y = rectangle, x = as.factor(1:nrow(df)),  fill = rectangle&gt;0) +
+  geom_col(alpha = .2) +
+  theme_bw()</code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="step-8-divide-through-by-number-of-observations-minus-1-a-bit-larger-in-magnitude-than-the-average" class="section level1">
+<h1>Step 8: Divide through by number of observations minus 1 (a bit larger in magnitude than the average)</h1>
+<pre class="r"><code>ggplot(df %&gt;% arrange(x)) +
+  aes(y = sum(df$rectangle)/(nrow(df - 1)), x = as.factor(1:nrow(df)),  fill = rectangle&gt;0) +
+  geom_col(alpha = .2) +
+  theme_bw() + ylim(range(df$rectangle))</code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>cov(x,y)</code></pre>
+<pre><code>## [1] -0.7096336</code></pre>
+<pre class="r"><code>sum(df$rectangle)/(30 - 1)</code></pre>
+<pre><code>## [1] -0.7096336</code></pre>
+</div>

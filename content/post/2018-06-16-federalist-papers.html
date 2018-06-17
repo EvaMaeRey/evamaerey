@@ -1,0 +1,172 @@
+---
+title: Federalist Papers
+author: Gina Reynolds
+date: '2018-06-16'
+slug: federalist-papers
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>Every couple of weeks I like to explore data that’s brand new to me. I anticipate a one-hour, one-off project. Usually this turns out to be a beautiful lie, and the projects chew up much more time. Still, this enticing time-line is pulling me into new projects from time to time.</p>
+<p>Earlier this week, I heard about the dispute of authorship of some of the Federalist papers.</p>
+{{% tweet "1006966922699788290" %}}
+<p>I mentally flagged the topic for one a one-hour, one-off. A who-done-it of text analysis, that conjures up the songs of the biggest Broadway hit since … take your pick. What’s not to like?</p>
+<p>Also, I’ve been working on a visualization procedure for small corpora like this one; this would be another chance to try it out. The procedure visualizes documents as nodes in a network, and connects the documents with edges only if for the pair, their similarity scores are in the top percentiles for one or the other of the pair members.</p>
+<p>I don’t see other researchers doing this which makes me worry that: 1) there are principled reasons not to do this or 2) I’m not googling hard enough. Regarding the former, in creating such a graph, there is some arbitrary decision-work to be done: what is the similarity score to be used; what threshold of should be used for drawing connections; and which network layout should be draw? <!-- ; random plus the orientation and projection of the layout leads to different plot realized. --> A critic might think that, given these decisions, this type of visual summary of a corpus in the best case is impressionistic, and in the worst case invites misinterpretation. The later can be managed, I think, if there is enough time/space to talk/write about the decisions made in creating the graph.</p>
+<p>Putting aside these concerns, I can put together this visualization contentedly.</p>
+<p>The deciding factor for moving ahead with this quick project was that the Federalist Papers were ready-to-use in corpus in <a href="https://CRAN.R-project.org/package=corpus">the R package “corpus”, by Patrick O. Perry</a>. Sold! Install and load package.</p>
+<pre class="r"><code>library(corpus)    </code></pre>
+<p>I was also “sold” by the size of the corpus. The Federalist Paper, with its 85 documents lends to my small-corpus network graph visualization. Network graphs tend to get messy and overwhelming looking with more than 100 nodes. Developing this visualization technique, I’ve used a few corpora that have well beyond 100 documents, like UN Security Council Resolutions (in an ongoing project with <span class="citation">@felixhass</span> and <span class="citation">@F_Bethke</span>, &gt; 2000 documents); Research &amp; Politics Articles (solo, ~ 200 documents); and National Anthems (in ongoing work with <span class="citation">@marinkobobic</span> and <span class="citation">@Jarek_Kantor</span>, ~ 200 documents), and the options with these way-too-large and too-large corpora is to subsample and plot, or to just leave things messy. But the trim Federalist Papers doesn’t present this problem!</p>
+<div id="the-question" class="section level1">
+<h1>The question</h1>
+<p>My question was whether this visualization method could provide insight into who wrote the disputed essays. Apparently Hamilton claimed quite a few more essays, that later Madison claimed that he wrote. Lin Manuel Miranda’s lyrics are consistent with conservative 51 essays for Hamilton. Of course there is a lot of fantastic work already done on this, but I just ignore this fact for the sake of the exercise. The <em>federalist</em> dataset in the <em>corpus</em> package provides authors if known; but disputed authorship is designated NA.</p>
+<pre class="r"><code>table(federalist$author, useNA = &quot;ifany&quot;)</code></pre>
+<pre><code>## 
+## Hamilton      Jay  Madison     &lt;NA&gt; 
+##       51        5       14       15</code></pre>
+<p>In fact, in the end, I’ll present two network visualizations, using different preparations of the data. For the first, I use the text preprocessing methods that I’ve previously used with this vis technique, which, I think is appropriate for thematically associating documents. For the second, I reduce the amount of text preprocessing, which might in better who-wrote-it, “textual forensics” work. This mirrors how this mini-project developed, and I think two approaches are interesting to contrast.</p>
+</div>
+<div id="getting-started" class="section level1">
+<h1>Getting started</h1>
+<p>One thing that I like about this four-hour-and-counting project (my one-hour one-off dreams elude me again), is that it makes use of so many of my favorite packages. Let’s load them.</p>
+<pre class="r"><code>library(quanteda)  # text analysis
+library(tidyverse) # ggplot for graphing and dplyr for wrangling
+library(tidygraph)  # for relational data manipulation
+library(igraph)    # network graph tools
+library(ggraph)   # the link between ggplot and 
+library(viridis)   # for better color palette for points on map
+library(plotly)  # plan to use this in the future, for mouse-over and view full text. </code></pre>
+<p>Now we prepare the corpus. We use a bag-of-words approach, where the tokens of each document are counted. This is done using the document feature matrix function or dfm(). I set several preprocessing options to “true”; I think these represent pretty typical preprocessing choices.</p>
+<p>Using the preprocessed data, we calculate a similarity score. I use the popular <em>cosine similarity</em> in this exercise. The procedure looks at the “direction” of the vector of a document created with each token as a dimension, and compares this to that calculated for other documents. A similarity scores between 0 (low similarity) and 1 (identical token ratios) results for each document pair. Here is the code, which uses functions from the quanteda package:</p>
+<pre class="r"><code>corpus &lt;- corpus(federalist)
+
+dfm &lt;- dfm(corpus, 
+            remove_numbers = T,
+             remove_punct = T,
+              remove_separators = T,
+           stem = T,
+            remove = stopwords(&quot;english&quot;)
+           )
+
+# Calculate cosine similarity
+similarity &lt;- 
+  textstat_simil(dfm, 
+                 method = &quot;cosine&quot;,
+                 upper = T, diag = T)</code></pre>
+</div>
+<div id="resulting-graph" class="section level1">
+<h1>Resulting Graph</h1>
+<p>Now the resulting similarity matrix, and treat it as the basis for my network matrix. I simply need to have ones-and-zeros instead of the similarity measure (which takes values between 0 and 1).</p>
+<p>There are different procedures that I could apply. What I think works well and makes sense for corpus visualizations is to draw an edge (1) when, for a pair of documents, the cosign similarity for the pair is within the top quantile (say .95) of the set of document similarities for either pair member; otherwise don’t draw an edge (0). My rule here is that a connection should be drawn to the top two most similar documents from any document.</p>
+<p>In this blogpost I’m not going to echo all the code. It is a bit lengthy; it could also stand to be cleaned up a bit. (I haven’t yet implemented the power of the <em>tidygraph</em> package - which I’ve tried elsewhere; it is all that you would hope for!) Perhaps, it is that want I like to keep a few implementation secrets to myself, at least at this point.</p>
+<p>So I just give you the resulting graph:</p>
+<pre><code>##        text41 text6 text38 text59 text9 text52
+## text41      1     0      0      0     0      0
+## text6       0     1      0      0     0      0
+## text38      0     0      1      0     0      0
+## text59      0     0      0      1     0      0
+## text9       0     0      0      0     1      0
+## text52      0     0      0      0     0      1</code></pre>
+<pre><code>## [1] 353</code></pre>
+<pre><code>## [1] 85 85</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-7-1.png" width="1344" /></p>
+</div>
+<div id="take-2-a-revised-preparation" class="section level1">
+<h1>Take 2: A revised preparation</h1>
+<p>Now I do the same thing using the alternate preparation. When I used the above preprocessing method, basically the template that I’d used before, I felt disappointed. I expected there to be more “clustering” among the authors; but what seemed to really dominate was topics. It made sense, but I still felt let down.</p>
+<p>Thankfully, I took a step back from fiddling with the graphing parameters to review all the code. I came back to the preprocessing code. Hmm. What was being done to alter the raw text? Lots! And there could be the idiosyncratic, tell-tale authorship “signatures” in what was being removed and standardized. So, I modified the preprocessing step to do less to the raw text; below I just comment out the options so the difference is clear. Instead of removing stopwords, we keep them. And we don’t do any stemming. We keep punctuation and numbers too. Then I prep the recalculated similarity scores into an adjacency matrix to allow for a revised network graph.</p>
+<pre class="r"><code>corpus &lt;- corpus(federalist)
+
+dfm &lt;- dfm(corpus, 
+           # remove_numbers = T,
+            # remove_punct = T,
+             remove_separators = T #,
+            # stem = T,
+            # remove = stopwords(&quot;english&quot;)
+           )
+
+# Calculate cosine similarity
+similarity &lt;- 
+  textstat_simil(dfm, 
+                 method = &quot;cosine&quot;,
+                 upper = T, diag = T)</code></pre>
+<div id="graphs-when-cosign-similarity-contains-stop-words" class="section level2">
+<h2>Graphs when cosign similarity contains stop words</h2>
+<p>The adjacency matrix is prepped in the exact same way as before.</p>
+<pre><code>##        text48 text59 text30 text40 text77 text26
+## text48      1      0      0      0      0      0
+## text59      0      1      0      0      0      0
+## text30      0      0      1      0      0      0
+## text40      0      0      0      1      0      0
+## text77      0      0      0      0      1      0
+## text26      0      0      0      0      0      1</code></pre>
+<pre><code>## [1] 365</code></pre>
+<pre><code>## [1] 85 85</code></pre>
+<pre><code>## Warning in summary_character(texts(object), n = n, tolower = tolower, ...):
+## verbose argument is defunct</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-10-1.png" width="1344" /></p>
+<p>That’s more like it! I was hoping to observe more separation between authors, and with less preprocessing, that’s exactly what we see. Great!</p>
+</div>
+</div>
+<div id="wrapping-up" class="section level1">
+<h1>Wrapping up</h1>
+<div id="worries" class="section level2">
+<h2>Worries</h2>
+<p>The unsatisfying thing about this exercise is that you don’t know which particular word choices and ideosyncratic features drive similarities. But that is the case when using a summary like cosign similarity. You would have to dig in further to look at influential components, I suppose.</p>
+<p>I’m always worried that lenth of documents drive statistic too. Maybe length of documents contributes to finding cosign similarities. Madison’s works on average are longer than Hamiltons. Could this be driving things. Maybe.</p>
+<pre><code>## Joining, by = c(&quot;name&quot;, &quot;title&quot;, &quot;venue&quot;, &quot;date&quot;, &quot;author&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="the-alternative" class="section level2">
+<h2>The Alternative</h2>
+<p>Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we arn’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.</p>
+<p>I make it here, but I don’t really clean it up, maybe to put my prefered technique in the best light, maybe cause I’ve really spent too much time on this. But I don’t know, I think there is something charming and likeable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
+<pre><code>## Formal class &#39;dfm&#39; [package &quot;quanteda&quot;] with 15 slots
+##   ..@ settings    : list()
+##   ..@ weightTf    :List of 3
+##   .. ..$ scheme: chr &quot;count&quot;
+##   .. ..$ base  : NULL
+##   .. ..$ K     : NULL
+##   ..@ weightDf    :List of 5
+##   .. ..$ scheme   : chr &quot;unary&quot;
+##   .. ..$ base     : NULL
+##   .. ..$ c        : NULL
+##   .. ..$ smoothing: NULL
+##   .. ..$ threshold: NULL
+##   ..@ smooth      : num 0
+##   ..@ ngrams      : int 1
+##   ..@ skip        : int 0
+##   ..@ concatenator: chr &quot;_&quot;
+##   ..@ version     : int [1:3] 1 2 0
+##   ..@ docvars     :&#39;data.frame&#39;: 85 obs. of  5 variables:
+##   .. ..$ name  : chr [1:85] &quot;Federalist No. 1&quot; &quot;Federalist No. 6&quot; &quot;Federalist No. 7&quot; &quot;Federalist No. 8&quot; ...
+##   .. ..$ title : chr [1:85] &quot;General Introduction&quot; &quot;Concerning Dangers from Dissensions Between the States&quot; &quot;The Same Subject Continued (Concerning Dangers from Dissensions Between the States)&quot; &quot;The Consequences of Hostilities Between the States&quot; ...
+##   .. ..$ venue : chr [1:85] &quot;For the Independent Journal&quot; &quot;For the Independent Journal&quot; &quot;For the Independent Journal&quot; &quot;From the New York Packet&quot; ...
+##   .. ..$ date  : Date[1:85], format: NA ...
+##   .. ..$ author: chr [1:85] &quot;Hamilton&quot; &quot;Hamilton&quot; &quot;Hamilton&quot; &quot;Hamilton&quot; ...
+##   ..@ i           : int [1:60415] 0 1 2 3 4 5 6 7 8 9 ...
+##   ..@ p           : int [1:8767] 0 85 170 255 340 425 510 595 680 711 ...
+##   ..@ Dim         : int [1:2] 85 8766
+##   ..@ Dimnames    :List of 2
+##   .. ..$ docs    : chr [1:85] &quot;text1&quot; &quot;text2&quot; &quot;text3&quot; &quot;text4&quot; ...
+##   .. ..$ features: chr [1:8766] &quot;to&quot; &quot;the&quot; &quot;people&quot; &quot;of&quot; ...
+##   ..@ x           : num [1:60415] 72 58 82 80 71 84 82 43 117 89 ...
+##   ..@ factors     : list()</code></pre>
+<pre><code>##    Var1  Var2     value
+## 1 text1 text1 1.0000000
+## 2 text2 text1 0.9427747
+## 3 text3 text1 0.9538921
+## 4 text4 text1 0.9588363
+## 5 text5 text1 0.9630458
+## 6 text6 text1 0.9494427</code></pre>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-13-1.png" width="1344" /></p>
+</div>
+</div>
