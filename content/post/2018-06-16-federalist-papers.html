@@ -65,15 +65,6 @@ similarity &lt;-
 <p>There are different procedures that I could apply. What I think works well and makes sense for corpus visualizations is to draw an edge (1) when, for a pair of documents, the cosign similarity for the pair is within the top quantile (say .95) of the set of document similarities for either pair member; otherwise don’t draw an edge (0). My rule here is that a connection should be drawn to the top two most similar documents from any document.</p>
 <p>In this blogpost I’m not going to echo all the code. It is a bit lengthy; it could also stand to be cleaned up a bit. (I haven’t yet implemented the power of the <em>tidygraph</em> package - which I’ve tried elsewhere; it is all that you would hope for!) Perhaps, it is that want I like to keep a few implementation secrets to myself, at least at this point.</p>
 <p>So I just give you the resulting graph:</p>
-<pre><code>##        text41 text6 text38 text59 text9 text52
-## text41      1     0      0      0     0      0
-## text6       0     1      0      0     0      0
-## text38      0     0      1      0     0      0
-## text59      0     0      0      1     0      0
-## text9       0     0      0      0     1      0
-## text52      0     0      0      0     0      1</code></pre>
-<pre><code>## [1] 353</code></pre>
-<pre><code>## [1] 85 85</code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
 <p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-7-1.png" width="1344" /></p>
 </div>
@@ -99,36 +90,28 @@ similarity &lt;-
 <div id="graphs-when-cosign-similarity-contains-stop-words" class="section level2">
 <h2>Graphs when cosign similarity contains stop words</h2>
 <p>The adjacency matrix is prepped in the exact same way as before.</p>
-<pre><code>##        text48 text59 text30 text40 text77 text26
-## text48      1      0      0      0      0      0
-## text59      0      1      0      0      0      0
-## text30      0      0      1      0      0      0
-## text40      0      0      0      1      0      0
-## text77      0      0      0      0      1      0
-## text26      0      0      0      0      0      1</code></pre>
-<pre><code>## [1] 365</code></pre>
-<pre><code>## [1] 85 85</code></pre>
 <pre><code>## Warning in summary_character(texts(object), n = n, tolower = tolower, ...):
 ## verbose argument is defunct</code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
 <p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-10-1.png" width="1344" /></p>
 <p>That’s more like it! I was hoping to observe more separation between authors, and with less preprocessing, that’s exactly what we see. Great!</p>
+<p>Also in other analyses the disputed texts are in the Madison “zone”, and most scholars that have done textual studies believe the texts were indeed written by Madison.</p>
 </div>
 </div>
 <div id="wrapping-up" class="section level1">
 <h1>Wrapping up</h1>
 <div id="worries" class="section level2">
 <h2>Worries</h2>
-<p>The unsatisfying thing about this exercise is that you don’t know which particular word choices and ideosyncratic features drive similarities. But that is the case when using a summary like cosign similarity. You would have to dig in further to look at influential components, I suppose.</p>
-<p>I’m always worried that lenth of documents drive statistic too. Maybe length of documents contributes to finding cosign similarities. Madison’s works on average are longer than Hamiltons. Could this be driving things. Maybe.</p>
+<p>The unsatisfying thing about this exercise is that you don’t know which particular word choices and idiosyncratic features drive similarities. But that is the case when using a summary like cosign similarity. You would have to dig in further to look at influential components, I suppose.</p>
+<p>I’m always worried that length of documents drive statistic too. Maybe length of documents contributes to finding cosign similarities. Madison’s works on average are longer than Hamilton’s. Could this be driving things. Maybe.</p>
 <pre><code>## Joining, by = c(&quot;name&quot;, &quot;title&quot;, &quot;venue&quot;, &quot;date&quot;, &quot;author&quot;)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <div id="the-alternative" class="section level2">
 <h2>The Alternative</h2>
-<p>Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we arn’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.</p>
-<p>I make it here, but I don’t really clean it up, maybe to put my prefered technique in the best light, maybe cause I’ve really spent too much time on this. But I don’t know, I think there is something charming and likeable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
+<p>Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we aren’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.</p>
+<p>I make it here, but I don’t really clean it up, maybe to put my preferred technique in the best light, maybe because I’ve really spent too much time on this. But I don’t know, I think there is something charming and likable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
 <pre><code>## Formal class &#39;dfm&#39; [package &quot;quanteda&quot;] with 15 slots
 ##   ..@ settings    : list()
 ##   ..@ weightTf    :List of 3
