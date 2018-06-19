@@ -394,13 +394,8 @@ tidy_df = gather(flip_histories, &quot;flip&quot;, &quot;outcome&quot;,  1:5) %&
   mutate(ht = outcome == &quot;Heads&quot; &amp; next_flip_outcome == &quot;Tails&quot;) %&gt;% 
   mutate(first_ht = min(flip[ht], na.rm = T) + 1)</code></pre>
 <p>Now we can plot the two scenarios of interest side-by-side. The full hypothetical histories are plotted, but the transparency is increased if the goal is reached previously in the flipping space.</p>
-<pre class="r"><code>library(cowplot)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;cowplot&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     ggsave</code></pre>
-<pre class="r"><code>g_hh &lt;- ggplot(tidy_df) +
+<pre class="r"><code>library(cowplot)
+g_hh &lt;- ggplot(tidy_df) +
   aes(flip, history, 
       alpha = flip &lt;= first_hh, 
       col = outcome) +
@@ -409,14 +404,14 @@ tidy_df = gather(flip_histories, &quot;flip&quot;, &quot;outcome&quot;,  1:5) %&
   theme_classic() +
   labs(title = &quot;Heads-heads as success case&quot;) +
   geom_hline(yintercept = seq(.5,32.5, by =1), 
-             lty = &quot;dotted&quot;, col = &quot;grey&quot;)</code></pre>
-<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
-<pre class="r"><code>g_ht &lt;- g_hh +
+             lty = &quot;dotted&quot;, col = &quot;grey&quot;)
+
+g_ht &lt;- g_hh +
   aes(alpha = flip &lt;= first_ht) +
   labs(title = &quot;Heads-tails as success case&quot;) 
 
 cowplot::plot_grid(g_hh, g_ht)</code></pre>
-<p><img src="/post/2018-06-19-sequences-probabilities_files/figure-html/unnamed-chunk-9-1.png" width="672" /> You observe that the success in flips 1 and 2 for the heads-heads desired outcome leads less opportunities for flips 2 and 3, compared with the heads-tails case. In the heads-heads case, success is the kind of success that quenches more success.</p>
+<p><img src="/post/2018-06-19-sequences-probabilities_files/figure-html/unnamed-chunk-10-1.png" width="672" /> You observe that the success in flips 1 and 2 for the heads-heads desired outcome leads less opportunities for flips 2 and 3 to be a success, compared with the heads-tails case. In the heads-heads case, success is the kind of success that quenches more success.</p>
 <p>It might be fun too plot these as branching might-have-been networks (like with tidygraph!). But I will leave that for someone else or another day.</p>
 <div id="packages-used" class="section level1">
 <h1>Packages used:</h1>
