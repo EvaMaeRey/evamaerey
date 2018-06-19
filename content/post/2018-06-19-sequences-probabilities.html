@@ -1,0 +1,106 @@
+---
+title: The visual taming of a paradox
+author: Gina Reynolds
+date: '2018-06-19'
+slug: sequences-probabilities
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>@drob has posted fun code to play with on Twitter today. To illustrate what he calls a veridical paradox he’s posted the set up, the code and result of a coin flipping experiment:</p>
+{{% tweet "1008409373423611904" %}}
+<p>There are some good and exact explanations in the thread, for this at-first-glance puzzle. But I didn’t see a visualization that might give you quick intuition about what is going on.</p>
+<p>So I prepare one here. We’ll use the tidyverse packages and stringr.</p>
+<pre class="r"><code>library(tidyverse)
+library(stringr)</code></pre>
+<p>First we simulate one flip’s possible outcomes.</p>
+<pre class="r"><code>one_flip &lt;- tribble(
+  ~flip,
+  &quot;Heads&quot;, 
+  &quot;Tails&quot;
+)</code></pre>
+<p>We can also simulate the possible outcomes for histories which have equal probability.</p>
+<pre class="r"><code>two_flips &lt;- crossing(one_flip, one_flip)
+two_flips</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   flip  flip1
+##   &lt;chr&gt; &lt;chr&gt;
+## 1 Heads Heads
+## 2 Heads Tails
+## 3 Tails Heads
+## 4 Tails Tails</code></pre>
+<p>And so on…</p>
+<pre class="r"><code>crossing(two_flips, one_flip)</code></pre>
+<pre><code>## # A tibble: 8 x 3
+##   flip  flip1 flip2
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 Heads Heads Heads
+## 2 Heads Heads Tails
+## 3 Heads Tails Heads
+## 4 Heads Tails Tails
+## 5 Tails Heads Heads
+## 6 Tails Heads Tails
+## 7 Tails Tails Heads
+## 8 Tails Tails Tails</code></pre>
+<p>For more flips I use a for-loop. Here I just have the histories for six flips. This give us 2^5 (32) equally probable histories. This is enough, I think, to make a viz that might illuminate the paradox.</p>
+<pre class="r"><code>flip_histories &lt;- one_flip
+for(i in 1:4){
+flip_histories &lt;- crossing(flip_histories, one_flip)
+}
+
+dim(flip_histories)</code></pre>
+<pre><code>## [1] 32  5</code></pre>
+<p>Now let’s plot these histories to give us some insights about the apparent paradox.</p>
+<p>We’ll use ggplot2(), so first we get the data into tidy form.</p>
+<pre class="r"><code>names(flip_histories) &lt;- paste0(&quot;flip&quot;, 1:ncol(flip_histories))
+flip_histories &lt;- flip_histories %&gt;% mutate(history = 1:n()) 
+
+
+tidy_df = gather(flip_histories, &quot;flip&quot;, &quot;outcome&quot;,  1:5) %&gt;% 
+  mutate(flip = as.numeric(str_extract(flip, &quot;\\d&quot;))) %&gt;% 
+  arrange(history)</code></pre>
+<p>Then we compute the position where we have observed the first heads heads pattern, and where we observed the first heads tails pattern.</p>
+<pre class="r"><code>tidy_df = tidy_df %&gt;% group_by(history) %&gt;% 
+  mutate(next_flip_outcome = lead(outcome)) %&gt;% 
+  mutate(hh = outcome == &quot;Heads&quot; &amp; next_flip_outcome == &quot;Heads&quot;) %&gt;% 
+  mutate(first_hh = min(flip[hh], na.rm = T) + 1) %&gt;% 
+  mutate(ht = outcome == &quot;Heads&quot; &amp; next_flip_outcome == &quot;Tails&quot;) %&gt;% 
+  mutate(first_ht = min(flip[ht], na.rm = T) + 1)</code></pre>
+<p>Now we can plot the two scenarios of interest side-by-side. The full hypothetical histories are plotted, but the transparency is increased if the goal is reached previously in the flipping space.</p>
+<pre class="r"><code>library(cowplot)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;cowplot&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     ggsave</code></pre>
+<pre class="r"><code>g_hh &lt;- ggplot(tidy_df) +
+  aes(flip, history, 
+      alpha = flip &lt;= first_hh, 
+      col = outcome) +
+  geom_point() +
+  scale_alpha_discrete(range = c(.3,1)) +
+  theme_classic() +
+  labs(title = &quot;Heads-heads as success case&quot;) +
+  geom_hline(yintercept = seq(.5,32.5, by =1), 
+             lty = &quot;dotted&quot;, col = &quot;grey&quot;)</code></pre>
+<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
+<pre class="r"><code>g_ht &lt;- g_hh +
+  aes(alpha = flip &lt;= first_ht) +
+  labs(title = &quot;Heads-tails as success case&quot;) 
+
+cowplot::plot_grid(g_hh, g_ht)</code></pre>
+<p><img src="/post/2018-06-19-sequences-probabilities_files/figure-html/unnamed-chunk-9-1.png" width="672" /> You observe that the success in flips 1 and 2 for the heads-heads desired outcome leads less opportunities for flips 2 and 3, compared with the heads-tails case. In the heads-heads case, success is the kind of success that quenches more success.</p>
+<p>It might be fun too plot these as branching might-have-been networks (like with tidygraph!). But I will leave that for someone else or another day.</p>
+<div id="packages-used" class="section level1">
+<h1>Packages used:</h1>
+<p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.</p>
+<p>Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2018). dplyr: A Grammar of Data Manipulation. R package version 0.7.5. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></p>
+<p>Hadley Wickham and Lionel Henry (2018). tidyr: Easily Tidy Data with ‘spread()’ and ‘gather()’ Functions. R package version 0.8.1. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a></p>
+<p>Claus O. Wilke (2017). cowplot: Streamlined Plot Theme and Plot Annotations for ‘ggplot2’. R package version 0.9.2. <a href="https://CRAN.R-project.org/package=cowplot" class="uri">https://CRAN.R-project.org/package=cowplot</a></p>
+<p>Hadley Wickham (2018). stringr: Simple, Consistent Wrappers for Common String Operations. R package version 1.3.1. <a href="https://CRAN.R-project.org/package=stringr" class="uri">https://CRAN.R-project.org/package=stringr</a></p>
+</div>
