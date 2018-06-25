@@ -284,7 +284,7 @@ corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -431,9 +431,15 @@ cor.test(x, y)</code></pre>
 <p>Now plotting the subset:</p>
 <pre class="r"><code>ggplot(df %&gt;% filter(x &gt; .95)) +
   aes(x = x, y = y) + 
-  geom_point(alpha = .2) +
+  geom_point(data = df, col = &quot;grey&quot;) +
+  geom_point() +
   theme_bw() + geom_smooth(method = lm)</code></pre>
-<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png" width="672" /> or:</p>
+<pre class="r"><code>ggplot(df %&gt;% filter(x &gt; .95)) +
+  aes(x = x, y = y) + 
+  geom_point() +
+  theme_bw() + geom_smooth(method = lm)</code></pre>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>summary(lm(y ~ x, data = df %&gt;% filter(x &gt; .95)))</code></pre>
 <pre><code>## 
 ## Call:
@@ -470,6 +476,7 @@ cor.test(x, y)</code></pre>
 <div id="now-lets-montecarlo" class="section level1">
 <h1>Now let’s montecarlo</h1>
 <p>Not part of original goals! Why am I still updating this post!</p>
+<p>Let’s think about what we might have observed upon multiple realizations of this experiment.</p>
 <pre class="r"><code>estimate &lt;- c()
 case &lt;- c()
 
@@ -492,7 +499,47 @@ ggplot(df) +
   geom_density(alpha =.2) +
   geom_rug() +
   facet_wrap(~case, scales = &quot;free&quot;)</code></pre>
-<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Look at how the distributions differ. The estimates that we might observe very narrow in the case of observing all the data, and rather wide in the case where we observe the subset of data.</p>
+</div>
+<div id="selection-bias" class="section level1">
+<h1>Selection <em>bias</em></h1>
+<p>Above we see how looking at a subset of our data, just a small range of our independent variable, results in inefficiency. The variance explained will likely be less.</p>
+<p>Selection on <em>dependent variable</em> can be hazardus as it introduces bias. Here is an example of that case with a similar set up. Let’s just start with the montecarlo:</p>
+<pre class="r"><code>estimate &lt;- c()
+case &lt;- c()
+
+for(i in 1:2000){
+x &lt;- runif(20000)
+y &lt;- x + .1*rnorm(20000)
+if(i&lt;=1000){
+estimate[i] &lt;- summary(lm(y~x))$coefficients[2,1]
+case[i] &lt;- &quot;full&quot;
+}else{
+estimate[i] &lt;- summary(lm(y[.5 &lt; y] ~ x[.5 &lt; y]))$coefficients[2,1]
+case[i] &lt;- &quot;selection&quot;
+}
+}
+
+df &lt;- data_frame(estimate, case)
+
+ggplot(df) +
+  aes(x = estimate, fill = case) +
+  geom_density(alpha =.2) +
+  geom_rug() +
+  facet_wrap(~case, scales = &quot;free&quot;)</code></pre>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="plotting-what-we-last-simulation-observed-in-the-loop-above" class="section level1">
+<h1>plotting what we last simulation observed in the loop above</h1>
+<pre class="r"><code>df &lt;- data_frame(x, y)
+ggplot(df %&gt;% filter(y &gt; .5)) +
+  aes(x,y) + 
+  geom_point(data = df, col = &quot;grey&quot;) +
+  geom_point() + 
+  geom_smooth(method = lm)</code></pre>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>You can see how the linear model underestimates the trend.</p>
 </div>
 
     </div>
