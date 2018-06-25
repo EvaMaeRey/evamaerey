@@ -1,0 +1,134 @@
+---
+title: Selection effects
+author: Gina Reynolds
+date: '2018-06-25'
+slug: selection-effects
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>Saw this tweet by <span class="citation">@Nolan_Mc</span>, and thought, this is good fodder for a quick blog post – a true one-hour one-off.</p>
+<p>My limited goals:</p>
+<ul>
+<li>translate to R/tidyverse code</li>
+<li>visualize.</li>
+</ul>
+{{% tweet "1008498114037248000" %}}
+<p>Perhaps the central difference between working in the Stata environment and in R is that, in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variable by their names alone. The tidyverse tools with piping, make working in R feel more like working in Stata in my experience.</p>
+<p>Okay so here again is the code in Stata:</p>
+<ul>
+<li>set obs 20000</li>
+<li>gen x = runiform()</li>
+<li>gen y = x + .1*rnormal()</li>
+<li>corr x y</li>
+<li>corr x y if x &gt; .95</li>
+</ul>
+<p>And here is the translation to R:</p>
+<pre class="r"><code>set.seed(39475)
+x &lt;- runif(20000)
+y &lt;- x + .1*rnorm(20000)
+cor.test(x, y)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  x and y
+## t = 408.93, df = 19998, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9435858 0.9465470
+## sample estimates:
+##       cor 
+## 0.9450858</code></pre>
+<pre class="r"><code>cor.test(x[x &gt; .95], y[x &gt; .95])</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  x[x &gt; 0.95] and y[x &gt; 0.95]
+## t = 4.8262, df = 987, p-value = 1.612e-06
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.09035602 0.21216667
+## sample estimates:
+##       cor 
+## 0.1518378</code></pre>
+<p>It is interesting to note that the strength of the relationship (the correlation coefficient) is estimated to be much lower in the case where we have subset to only the top x values.</p>
+<p>Now, I’ve only actually used base R up to this point. For the visualization, we’re gonna use ggplot2, which works best if you have your data in a data frame. Let’s load the tidyverse tools (ggplot2, dplyr, etc.), make that dataframe, and visualize.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
+## ✔ tibble  1.4.2          ✔ dplyr   0.7.5     
+## ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
+## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>df &lt;- data_frame(x,y)</code></pre>
+<p>Now we can use ggplot() to explore the simulated data. First the full data:</p>
+<pre class="r"><code>ggplot(df) +
+  aes(x = x, y = y) + 
+  geom_point(alpha = .2) +
+  theme_bw() + geom_smooth(method = lm)</code></pre>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-4-1.png" width="672" /> And fitting a linear model:</p>
+<pre class="r"><code>summary(lm(y ~ x, data = df))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.42066 -0.06696 -0.00022  0.06786  0.35901 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -8.884e-06  1.414e-03  -0.006    0.995    
+## x            9.989e-01  2.443e-03 408.934   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.09969 on 19998 degrees of freedom
+## Multiple R-squared:  0.8932, Adjusted R-squared:  0.8932 
+## F-statistic: 1.672e+05 on 1 and 19998 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>In this model the R squared (variance explained) is high – .89. The variable x does seems to do a good job of predicting y.</p>
+<p>Now plotting the subset:</p>
+<pre class="r"><code>ggplot(df %&gt;% filter(x &gt; .95)) +
+  aes(x = x, y = y) + 
+  geom_point(alpha = .2) +
+  theme_bw() + geom_smooth(method = lm)</code></pre>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>summary(lm(y ~ x, data = df %&gt;% filter(x &gt; .95)))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = df %&gt;% filter(x &gt; 0.95))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.303991 -0.060496 -0.001536  0.070209  0.312612 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.05074    0.21263  -0.239    0.811    
+## x            1.05294    0.21817   4.826 1.61e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1001 on 987 degrees of freedom
+## Multiple R-squared:  0.02305,    Adjusted R-squared:  0.02206 
+## F-statistic: 23.29 on 1 and 987 DF,  p-value: 1.612e-06</code></pre>
+<p>Looking at this data, x seems to explain very little. The variance explained (R^2) is very small. The variable x seems not to do such a good job of explaining y given the subset of data.</p>
+<p>This exercise reminds us that the R2, or variance explained, in bivariate linear regression is equivilant to the Pearson Correlation Coefficient squared.</p>
+<pre class="r"><code>cor(x,y)^2</code></pre>
+<pre><code>## [1] 0.8931872</code></pre>
+<pre class="r"><code>summary(lm(y ~ x, data = df))$r.squared</code></pre>
+<pre><code>## [1] 0.8931872</code></pre>
+<p>Which makes me want to link to this gif:</p>
+<div class="figure">
+<img src="https://assessingpsyche.files.wordpress.com/2014/07/varianceexplained.gif" />
+
+</div>
+<p>Found at:</p>
+<p><a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/" class="uri">https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/</a></p>

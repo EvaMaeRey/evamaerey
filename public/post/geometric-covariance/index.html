@@ -17,9 +17,12 @@
       
     
   
-  <meta name="description" content="The Covariance:
-\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
-library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() x &lt;- rnorm(30) y &lt;- -x &#43; rnorm(30, sd = .5) df &lt;- data_frame(x,y) %&gt;% mutate(rectangle=(x-mean(x))*(y-mean(y))) Step 1: plot the data ggplot(df) &#43; theme_classic() &#43; coord_equal() &#43; aes(x, y, fill = rectangle &gt; 0) &#43; geom_point()   Step 2: find the mean of x \(\overline{x}\)">
+  <meta name="description" content="In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.
+Covariance is a measure of the joint variability of two random variables.
+Let’s have a look at the sample covariance equation over all:
+\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
+And now lets apply the equation to the following case:
+Ready? Okay, now let’s walk through the calculation; there are 7 small steps:">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/geometric-covariance/">
@@ -80,10 +83,13 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
   
   <meta property="og:site_name" content="Evangeline M Reynolds">
   <meta property="og:url" content="/post/geometric-covariance/">
-  <meta property="og:title" content="Geometric interpretation of Covariance | Evangeline M Reynolds">
-  <meta property="og:description" content="The Covariance:
-\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
-library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() x &lt;- rnorm(30) y &lt;- -x &#43; rnorm(30, sd = .5) df &lt;- data_frame(x,y) %&gt;% mutate(rectangle=(x-mean(x))*(y-mean(y))) Step 1: plot the data ggplot(df) &#43; theme_classic() &#43; coord_equal() &#43; aes(x, y, fill = rectangle &gt; 0) &#43; geom_point()   Step 2: find the mean of x \(\overline{x}\)">
+  <meta property="og:title" content="Covariance -- A Visual Walk Through | Evangeline M Reynolds">
+  <meta property="og:description" content="In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.
+Covariance is a measure of the joint variability of two random variables.
+Let’s have a look at the sample covariance equation over all:
+\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
+And now lets apply the equation to the following case:
+Ready? Okay, now let’s walk through the calculation; there are 7 small steps:">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-14T00:00:00&#43;00:00">
@@ -94,7 +100,7 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
   
   
 
-  <title>Geometric interpretation of Covariance | Evangeline M Reynolds</title>
+  <title>Covariance -- A Visual Walk Through | Evangeline M Reynolds</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -253,7 +259,7 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
 
 
   <div class="article-container">
-    <h1 itemprop="name">Geometric interpretation of Covariance</h1>
+    <h1 itemprop="name">Covariance -- A Visual Walk Through</h1>
 
     
 
@@ -290,7 +296,7 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Geometric%20interpretation%20of%20Covariance&amp;url=%2fpost%2fgeometric-covariance%2f"
+         href="https://twitter.com/intent/tweet?text=Covariance%20--%20A%20Visual%20Walk%20Through&amp;url=%2fpost%2fgeometric-covariance%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
@@ -304,21 +310,21 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fgeometric-covariance%2f&amp;title=Geometric%20interpretation%20of%20Covariance"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fgeometric-covariance%2f&amp;title=Covariance%20--%20A%20Visual%20Walk%20Through"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fgeometric-covariance%2f&amp;title=Geometric%20interpretation%20of%20Covariance"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fgeometric-covariance%2f&amp;title=Covariance%20--%20A%20Visual%20Walk%20Through"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Geometric%20interpretation%20of%20Covariance&amp;body=%2fpost%2fgeometric-covariance%2f">
+         href="mailto:?subject=Covariance%20--%20A%20Visual%20Walk%20Through&amp;body=%2fpost%2fgeometric-covariance%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -332,85 +338,78 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>The Covariance:</p>
-<p><span class="math inline">\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
-## ✔ tibble  1.4.2          ✔ dplyr   0.7.5     
-## ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
-## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>x &lt;- rnorm(30)
-y &lt;- -x + rnorm(30, sd = .5)
-df &lt;- data_frame(x,y) %&gt;% 
-  mutate(rectangle=(x-mean(x))*(y-mean(y)))</code></pre>
-<div id="step-1-plot-the-data" class="section level1">
-<h1>Step 1: plot the data</h1>
-<pre class="r"><code>ggplot(df) + 
-  theme_classic() +
-  coord_equal() +
-  aes(x, y, fill = rectangle &gt; 0) +
-  geom_point() </code></pre>
+      <p>In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.</p>
+<p>Covariance is a measure of the joint variability of two random variables.</p>
+<p>Let’s have a look at the <em>sample</em> covariance equation over all:</p>
+<p><span class="math inline">\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></p>
+<p>And now lets apply the equation to the following case:</p>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-</div>
-<div id="step-2-find-the-mean-of-x" class="section level1">
-<h1>Step 2: find the mean of x</h1>
-<p><span class="math inline">\(\overline{x}\)</span></p>
-<pre class="r"><code>last_plot() +
-  geom_vline(xintercept = mean(x), lty = &quot;dashed&quot;) </code></pre>
+<p>Ready? Okay, now let’s walk through the calculation; there are 7 small steps:</p>
+<div id="step-1-find-the-mean-of-x" class="section level1">
+<h1>Step 1: find the mean of x:</h1>
+<div id="overlinex" class="section level2">
+<h2><span class="math inline">\(\overline{x}\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
-<div id="step-3-find-the-mean-of-y" class="section level1">
-<h1>Step 3: find the mean of y</h1>
-<p><span class="math inline">\(\overline{y}\)</span></p>
-<pre class="r"><code>last_plot() + geom_hline(yintercept = mean(y), lty = &quot;dashed&quot;) </code></pre>
+</div>
+<div id="step-2-find-the-mean-of-y" class="section level1">
+<h1>Step 2: find the mean of y</h1>
+<div id="overliney" class="section level2">
+<h2><span class="math inline">\(\overline{y}\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
-<div id="step-4-calculate-difference-between-x-and-mean-of-x" class="section level1">
-<h1>Step 4: calculate difference between x and mean of x</h1>
-<p><span class="math inline">\(x_i-\overline{x}\)</span></p>
-<pre class="r"><code>last_plot() +
-  geom_segment(xend = mean(x), yend = y, lty = &quot;dotted&quot;) </code></pre>
+</div>
+<div id="step-3-calculate-difference-between-x-and-mean-of-x" class="section level1">
+<h1>Step 3: calculate difference between x and mean of x</h1>
+<div id="x_i-overlinex" class="section level2">
+<h2><span class="math inline">\(x_i-\overline{x}\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
-<div id="step-5-calculate-difference-between-y-and-mean-of-y" class="section level1">
-<h1>Step 5: calculate difference between y and mean of y</h1>
-<p><span class="math inline">\(y_i-\overline{y}\)</span></p>
-<pre class="r"><code>last_plot() + geom_segment(yend = mean(y), xend = x, lty = &quot;dotted&quot;) </code></pre>
+</div>
+<div id="step-4-calculate-difference-between-y-and-mean-of-y" class="section level1">
+<h1>Step 4: calculate difference between y and mean of y</h1>
+<div id="y_i-overliney" class="section level2">
+<h2><span class="math inline">\(y_i-\overline{y}\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
-<div id="step-6-multiply-these-differences-observation-wise" class="section level1">
-<h1>Step 6: multiply these differences (observation-wise)</h1>
-<p><span class="math inline">\((x_i-\overline{x})(y_i-\overline{y})\)</span></p>
-<pre class="r"><code>last_plot() +
-  geom_rect(xmin = mean(x), ymin = mean(y), 
-            ymax = y, xmax = x, alpha = .2  ) </code></pre>
+</div>
+<div id="step-5-multiply-these-differences-observation-wise" class="section level1">
+<h1>Step 5: multiply these differences (observation-wise)</h1>
+<div id="x_i-overlinexy_i-overliney" class="section level2">
+<h2><span class="math inline">\((x_i-\overline{x})(y_i-\overline{y})\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
-<div id="step-7-add-these-areas" class="section level1">
-<h1>Step 7: Add these areas</h1>
-<p><span class="math inline">\(\sum_1^n (x_i-\overline{x})(y_i-\overline{y})\)</span></p>
-<pre class="r"><code>ggplot(df %&gt;% arrange(x)) +
-  aes(y = rectangle, x = as.factor(1:nrow(df)),  fill = rectangle&gt;0) +
-  geom_col(alpha = .2) +
-  theme_bw()</code></pre>
+</div>
+<div id="step-6-add-these-areas" class="section level1">
+<h1>Step 6: Add these areas</h1>
+<div id="sum_1n-x_i-overlinexy_i-overliney" class="section level2">
+<h2><span class="math inline">\(\sum_1^n (x_i-\overline{x})(y_i-\overline{y})\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
-<div id="step-8-divide-through-by-number-of-observations-minus-1-a-bit-larger-in-magnitude-than-the-average" class="section level1">
-<h1>Step 8: Divide through by number of observations minus 1 (a bit larger in magnitude than the average)</h1>
-<p><span class="math inline">\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></p>
-<pre class="r"><code>ggplot(df %&gt;% arrange(x)) +
-  aes(y = sum(df$rectangle)/(nrow(df - 1)), x = as.factor(1:nrow(df)),  fill = rectangle&gt;0) +
-  geom_col(alpha = .2) +
-  theme_bw() + ylim(range(df$rectangle))</code></pre>
+</div>
+<div id="step-7-divide-through-by-number-of-observations-minus-1-the-result-will-a-bit-larger-in-magnitude-than-the-average" class="section level1">
+<h1>Step 7: Divide through by number of observations minus 1 (the result will a bit larger in magnitude than the average)</h1>
+<div id="covxy-fracsum_i1n-x_i-overlinexy_i-overlineyn-1" class="section level2">
+<h2><span class="math inline">\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></h2>
 <p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<pre class="r"><code>cov(x,y)</code></pre>
-<pre><code>## [1] -1.559993</code></pre>
-<pre class="r"><code>sum(df$rectangle)/(30 - 1)</code></pre>
-<pre><code>## [1] -1.559993</code></pre>
+<p>That’s it.</p>
+<p>Now we can compare this visualized result to what we would get if we simply trust the R covariance function to calculate this for us.</p>
+<pre class="r"><code>sum(df$rectangle)/(nrow(df)-1)</code></pre>
+<pre><code>## [1] 0.4766744</code></pre>
+<pre class="r"><code>cov(x,y) # Calculation for **sample** covariance</code></pre>
+<pre><code>## [1] 0.4766744</code></pre>
+<p>Great. It’s a match!</p>
+</div>
+</div>
+<div id="discussion-question" class="section level1">
+<h1>Discussion question</h1>
+<p>What would the units of unadjusted covariance be for the covariance between life expectancy in years and per capita gdp in dollars?</p>
+<p>Note: The normalized version of covariance is Pearson’s correlation coefficient.</p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p>R Core Team (2018). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.</p>
 </div>
 
     </div>

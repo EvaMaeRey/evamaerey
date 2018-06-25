@@ -35,14 +35,17 @@ Earlier this week, I heard about the dispute of authorship of some of the Federa
     </item>
     
     <item>
-      <title>Geometric interpretation of Covariance</title>
+      <title>Covariance -- A Visual Walk Through</title>
       <link>/post/geometric-covariance/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/geometric-covariance/</guid>
-      <description>The Covariance:
-\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
-library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() x &amp;lt;- rnorm(30) y &amp;lt;- -x + rnorm(30, sd = .5) df &amp;lt;- data_frame(x,y) %&amp;gt;% mutate(rectangle=(x-mean(x))*(y-mean(y))) Step 1: plot the data ggplot(df) + theme_classic() + coord_equal() + aes(x, y, fill = rectangle &amp;gt; 0) + geom_point()   Step 2: find the mean of x \(\overline{x}\)</description>
+      <description>In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.
+Covariance is a measure of the joint variability of two random variables.
+Let’s have a look at the sample covariance equation over all:
+\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
+And now lets apply the equation to the following case:
+Ready? Okay, now let’s walk through the calculation; there are 7 small steps:</description>
     </item>
     
     <item>

@@ -725,6 +725,85 @@
 
   <span class="article-date">
     
+    <time datetime="2018-06-25 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jun 25, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/selection-effects/" itemprop="url">Selection effects</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
+My limited goals:
+ translate to R/tidyverse code visualize.  Run this Stata code, and then tell me the logic is sound
+set obs 20000
+gen x =runiform()
+gen y = x + .1*rnormal()
+corr x y
+corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
+&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  Perhaps the central difference between working in the Stata environment and in R is that, in R you always have to be declaring which data frame you are working with.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/selection-effects/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+        
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+
+      
+      
+        
+        
+          
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
     <time datetime="2018-06-19 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
       Jun 19, 2018
     </time>
@@ -902,13 +981,16 @@ Earlier this week, I heard about the dispute of authorship of some of the Federa
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="/post/geometric-covariance/" itemprop="url">Geometric interpretation of Covariance</a>
+    <a href="/post/geometric-covariance/" itemprop="url">Covariance -- A Visual Walk Through</a>
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    The Covariance:
-\(cov(x,y) = \frac{\sum_1^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
-library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() x &lt;- rnorm(30) y &lt;- -x + rnorm(30, sd = .5) df &lt;- data_frame(x,y) %&gt;% mutate(rectangle=(x-mean(x))*(y-mean(y))) Step 1: plot the data ggplot(df) + theme_classic() + coord_equal() + aes(x, y, fill = rectangle &gt; 0) + geom_point()   Step 2: find the mean of x \(\overline{x}\)
+    In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.
+Covariance is a measure of the joint variability of two random variables.
+Let’s have a look at the sample covariance equation over all:
+\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
+And now lets apply the equation to the following case:
+Ready? Okay, now let’s walk through the calculation; there are 7 small steps:
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -987,77 +1069,6 @@ library(tidyverse) ## ── Attaching packages ──────── ## ✔ 
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/eat-near-the-big-ben-that-will-cost-you/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-        
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-
-      
-      
-        
-        
-          
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-06-08 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Jun 8, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Evangeline Reynolds">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2739 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/what-s-the-igo-dataset/" itemprop="url">What’s the IGO dataset?</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    The International Organization v2.3 dataset is a rich resource for scholars of international relations. Tracking the existence of international organizations and country memberships in them, the data’s various version have been cited over 450 times. Version 2.3 covers the time period 1815 to 2005, and records information about 529 IGOs and membership information for over two million country-igo-year observations. Before 1965, coding was performed only every five years; thereafter information about IGOs and membership is available on an annual basis.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/what-s-the-igo-dataset/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
