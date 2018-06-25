@@ -133,3 +133,30 @@ cor.test(x, y)</code></pre>
 <p>Found at:</p>
 <p><a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/" class="uri">https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/</a></p>
 <p>Did I spend only an hour with this post? No, sadly, but not too too too much more!</p>
+<div id="now-lets-montecarlo" class="section level1">
+<h1>Now let’s montecarlo</h1>
+<p>Not part of original goals! Why am I still updating this post!</p>
+<pre class="r"><code>estimate &lt;- c()
+case &lt;- c()
+
+for(i in 1:20000){
+x &lt;- runif(20000)
+y &lt;- x + .1*rnorm(20000)
+if(i&lt;=10000){
+estimate[i] &lt;- summary(lm(y~x))$coefficients[2,1]
+case[i] &lt;- &quot;full&quot;
+}else{
+estimate[i] &lt;- summary(lm(y[.95 &lt; x] ~ x[.95 &lt; x]))$coefficients[2,1]
+case[i] &lt;- &quot;selection&quot;
+}
+}
+
+df &lt;- data_frame(estimate, case)
+
+ggplot(df) +
+  aes(x = estimate, fill = case) +
+  geom_density(alpha =.2) +
+  geom_rug() +
+  facet_wrap(~case, scales = &quot;free&quot;)</code></pre>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
