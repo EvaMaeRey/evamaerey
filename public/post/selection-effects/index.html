@@ -18,14 +18,14 @@
     
   
   <meta name="description" content="Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R/tidyverse code visualize.  Run this Stata code, and then tell me the logic is sound
+Run this Stata code, and then tell me the logic is sound
 set obs 20000
 gen x =runiform()
 gen y = x &#43; .1*rnormal()
 corr x y
 corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
-&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  Perhaps the central difference between working in the Stata environment and in R is that, in R you always have to be declaring which data frame you are working with.">
+&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/selection-effects/">
@@ -88,14 +88,14 @@ corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
   <meta property="og:url" content="/post/selection-effects/">
   <meta property="og:title" content="Selection effects | Evangeline M Reynolds">
   <meta property="og:description" content="Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R/tidyverse code visualize.  Run this Stata code, and then tell me the logic is sound
+Run this Stata code, and then tell me the logic is sound
 set obs 20000
 gen x =runiform()
 gen y = x &#43; .1*rnormal()
 corr x y
 corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
-&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  Perhaps the central difference between working in the Stata environment and in R is that, in R you always have to be declaring which data frame you are working with.">
+&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-25T00:00:00&#43;00:00">
@@ -345,15 +345,15 @@ corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
 
     <div class="article-style" itemprop="articleBody">
       <p>Saw this tweet by <span class="citation">@Nolan_Mc</span>, and thought, this is good fodder for a quick blog post – a true one-hour one-off.</p>
-<p>My limited goals:</p>
-<ul>
-<li>translate to R/tidyverse code</li>
-<li>visualize.</li>
-</ul>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Run this Stata code, and then tell me the logic is sound<br><br>set obs 20000<br>gen x =runiform()<br>gen y = x + .1*rnormal()<br>corr x y<br>corr x y if x &gt; .95 <a href="https://t.co/z5bE0iAH3I">https://t.co/z5bE0iAH3I</a></p>&mdash; Nolan McCarty (@Nolan_Mc) <a href="https://twitter.com/Nolan_Mc/status/1008498114037248000?ref_src=twsrc%5Etfw">June 17, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>Perhaps the central difference between working in the Stata environment and in R is that, in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variable by their names alone. The tidyverse tools with piping, make working in R feel more like working in Stata in my experience.</p>
+<p>My limited goals:</p>
+<ul>
+<li>translate to R code</li>
+<li>visualize</li>
+</ul>
+<p>Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone. The tidyverse tools with piping make working in R feel more like working in Stata in my experience.</p>
 <p>Okay so here again is the code in Stata:</p>
 <ul>
 <li>set obs 20000</li>
@@ -362,7 +362,7 @@ corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
 <li>corr x y</li>
 <li>corr x y if x &gt; .95</li>
 </ul>
-<p>And here is the translation to R:</p>
+<p>And here is the translation to R (just using base R):</p>
 <pre class="r"><code>set.seed(39475)
 x &lt;- runif(20000)
 y &lt;- x + .1*rnorm(20000)
@@ -390,8 +390,8 @@ cor.test(x, y)</code></pre>
 ## sample estimates:
 ##       cor 
 ## 0.1518378</code></pre>
-<p>It is interesting to note that the strength of the relationship (the correlation coefficient) is estimated to be much lower in the case where we have subset to only the top x values.</p>
-<p>Now, I’ve only actually used base R up to this point. For the visualization, we’re gonna use ggplot2, which works best if you have your data in a data frame. Let’s load the tidyverse tools (ggplot2, dplyr, etc.), make that dataframe, and visualize.</p>
+<p>It is interesting to note that the strength of the relationship (the correlation coefficient) is estimated to be much lower in the case where we have subset to only the top x values. That’s the whole point of the twitter post.</p>
+<p>Now, I’ve only actually used base R up to this point. For the visualization, we will use ggplot2, which works best if you have your data in a data frame. Let’s load the tidyverse tools (ggplot2, dplyr, etc.), make that data frame, and visualize! I also compute the model that is overlaid on the scatterplot.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ──────────</code></pre>
 <pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
@@ -454,18 +454,19 @@ cor.test(x, y)</code></pre>
 ## Multiple R-squared:  0.02305,    Adjusted R-squared:  0.02206 
 ## F-statistic: 23.29 on 1 and 987 DF,  p-value: 1.612e-06</code></pre>
 <p>Looking at this data, x seems to explain very little. The variance explained (R^2) is very small. The variable x seems not to do such a good job of explaining y given the subset of data.</p>
-<p>This exercise reminds us that the R2, or variance explained, in bivariate linear regression is equivilant to the Pearson Correlation Coefficient squared.</p>
+<p>This exercise reminds us that the R2, or variance explained, in bivariate linear regression is equivalent to the Pearson Correlation Coefficient squared.</p>
 <pre class="r"><code>cor(x,y)^2</code></pre>
 <pre><code>## [1] 0.8931872</code></pre>
 <pre class="r"><code>summary(lm(y ~ x, data = df))$r.squared</code></pre>
 <pre><code>## [1] 0.8931872</code></pre>
-<p>Which makes me want to link to this gif:</p>
+<p>Which makes me want to link to this wonderful gif from assessingpsyche.files.wordpress.com:</p>
 <div class="figure">
 <img src="https://assessingpsyche.files.wordpress.com/2014/07/varianceexplained.gif" />
 
 </div>
 <p>Found at:</p>
 <p><a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/" class="uri">https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/</a></p>
+<p>Did I spend only an hour with this post? No, sadly, but not too too too much more!</p>
 
     </div>
 

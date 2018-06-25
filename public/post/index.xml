@@ -19,14 +19,14 @@
       
       <guid>/post/selection-effects/</guid>
       <description>Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R/tidyverse code visualize.  Run this Stata code, and then tell me the logic is sound
+Run this Stata code, and then tell me the logic is sound
 set obs 20000
 gen x =runiform()
 gen y = x + .1*rnormal()
 corr x y
 corr x y if x &amp;gt; .95 https://t.co/z5bE0iAH3I
-&amp;mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  Perhaps the central difference between working in the Stata environment and in R is that, in R you always have to be declaring which data frame you are working with.</description>
+&amp;mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.</description>
     </item>
     
     <item>
