@@ -1,0 +1,71 @@
+---
+title: Wide data to long using the tidyverse (tidyr's gather function)
+author: Gina Reynolds
+date: '2018-07-06'
+slug: wide-to-long-using-the-tidy-verse
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>A wide data storage format is an efficient and compact way to store information. And this organization perhaps it makes data easier to inspect. We have wide monitors our laptops and destops. However, for visualization and analysis you generally need to transform this data from the wide format to a “tidy”, long format.</p>
+<p>We look at the case where just one variable is stored in a spreadsheet.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<p>Suppose you have a data frame of rankings of schools by year, and the initial data set is organized as follows (I just build one with tribble()):</p>
+<pre class="r"><code>df_wide &lt;- tribble(~rankings_of_schools_by_year, ~`2000`, ~`2001`, ~`2002`,
+        &quot;U of Illinois&quot;, 1, 2,  3, 
+        &quot;TU Dresden&quot;, 2, 3, 1, 
+        &quot;U of Denver&quot;, 3, 1, 1, 
+        &quot;Hogwarts&quot;, 4,4,4)
+
+df_wide</code></pre>
+<pre><code>## # A tibble: 4 x 4
+##   rankings_of_schools_by_year `2000` `2001` `2002`
+##   &lt;chr&gt;                        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 U of Illinois                    1      2      3
+## 2 TU Dresden                       2      3      1
+## 3 U of Denver                      3      1      1
+## 4 Hogwarts                         4      4      4</code></pre>
+<p>Restructuring the data with gather, I define the names of columns that will contain the information in the column names (year) and the variable of interest (rank).</p>
+<pre class="r"><code>df_long &lt;- df_wide %&gt;% gather(key = year, value = rank, `2000`:`2002`)
+df_long</code></pre>
+<pre><code>## # A tibble: 12 x 3
+##    rankings_of_schools_by_year year   rank
+##    &lt;chr&gt;                       &lt;chr&gt; &lt;dbl&gt;
+##  1 U of Illinois               2000      1
+##  2 TU Dresden                  2000      2
+##  3 U of Denver                 2000      3
+##  4 Hogwarts                    2000      4
+##  5 U of Illinois               2001      2
+##  6 TU Dresden                  2001      3
+##  7 U of Denver                 2001      1
+##  8 Hogwarts                    2001      4
+##  9 U of Illinois               2002      3
+## 10 TU Dresden                  2002      1
+## 11 U of Denver                 2002      1
+## 12 Hogwarts                    2002      4</code></pre>
+<p>Pretty good! But we are not all the way there. Let’s use the code above a base. We need to change the first column name to be more appropriate. Also, the years are encoded as a character variable whereas they should be numeric (in this case integers, as the years are round numbers).</p>
+<pre class="r"><code>df_long &lt;- df_wide %&gt;% gather(key = year, value = rank, `2000`:`2002`) %&gt;% 
+  rename(school = rankings_of_schools_by_year) %&gt;% 
+  mutate(year = as.integer(year))
+df_long</code></pre>
+<pre><code>## # A tibble: 12 x 3
+##    school         year  rank
+##    &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt;
+##  1 U of Illinois  2000     1
+##  2 TU Dresden     2000     2
+##  3 U of Denver    2000     3
+##  4 Hogwarts       2000     4
+##  5 U of Illinois  2001     2
+##  6 TU Dresden     2001     3
+##  7 U of Denver    2001     1
+##  8 Hogwarts       2001     4
+##  9 U of Illinois  2002     3
+## 10 TU Dresden     2002     1
+## 11 U of Denver    2002     1
+## 12 Hogwarts       2002     4</code></pre>
+<p>Note to students: Then you might filter by year: filter(year &gt; 2000).</p>

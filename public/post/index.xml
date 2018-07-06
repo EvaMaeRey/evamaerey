@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>Wide data to long using the tidyverse (tidyr&#39;s gather function)</title>
+      <link>/post/wide-to-long-using-the-tidy-verse/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/wide-to-long-using-the-tidy-verse/</guid>
+      <description>A wide data storage format is an efficient and compact way to store information. And this organization perhaps it makes data easier to inspect. We have wide monitors our laptops and destops. However, for visualization and analysis you generally need to transform this data from the wide format to a “tidy”, long format.
+We look at the case where just one variable is stored in a spreadsheet.
+library(tidyverse) Suppose you have a data frame of rankings of schools by year, and the initial data set is organized as follows (I just build one with tribble()):</description>
+    </item>
+    
+    <item>
       <title>Selection effects</title>
       <link>/post/selection-effects/</link>
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
