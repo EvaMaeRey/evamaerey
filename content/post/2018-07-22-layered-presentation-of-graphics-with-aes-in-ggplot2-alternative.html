@@ -12,7 +12,9 @@ header:
 
 
 
-<p>Here is my second post is about how to implement a <em>layered presentation of a graphics</em>. My implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data to Chile when I add the first geom layer. It is better I think. But isn’t it great that there are so many ways to get to the right place! This time around, I’ll do a little with labeling too.</p>
+<p>Here is my second post is about how to implement a <em>layered presentation of a graphics</em>. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.</p>
+<p>I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.2.1.9000.</p>
+<p>This time around, I’ll do a little with labeling too. Before, I left labels as variable names, which wouldn’t really be acceptable in a presentation setting, at least with the present example.</p>
 <p>Here again is the original inspiration:</p>
 {{% tweet "991004129198854145" %}}
 <p>And the goal is simply to write an implementation, with some data:</p>
@@ -49,4 +51,5 @@ my_data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year =
 <pre class="r"><code>last_plot() + 
   geom_point()</code></pre>
 <p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png" width="672" /> Done!</p>
+<p>Why didn’t I come up with this before? I think it didn’t have the presence of mind because my mind had just been blown by the possibility of adding global aesthetics outside of the ggplot() statement. I was very excited about that discovery! Also, ggplot2 has also had an update since the original implmentation. Perhaps the behavior was different in a previous version. Don’t know. Not gonna check at this point. I guess probably it wasn’t.</p>
 </div>
