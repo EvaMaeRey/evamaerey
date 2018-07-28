@@ -18,8 +18,14 @@
     
   
   <meta name="description" content="Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone.">
+Run this Stata code, and then tell me the logic is sound
+set obs 20000
+gen x =runiform()
+gen y = x &#43; .1*rnormal()
+corr x y
+corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
+&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/selection-effects/">
@@ -82,8 +88,14 @@ My limited goals:
   <meta property="og:url" content="/post/selection-effects/">
   <meta property="og:title" content="Selection effects | Evangeline M Reynolds">
   <meta property="og:description" content="Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone.">
+Run this Stata code, and then tell me the logic is sound
+set obs 20000
+gen x =runiform()
+gen y = x &#43; .1*rnormal()
+corr x y
+corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
+&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-06-25T00:00:00&#43;00:00">
@@ -333,6 +345,8 @@ My limited goals:
 
     <div class="article-style" itemprop="articleBody">
       <p>Saw this tweet by <span class="citation">@Nolan_Mc</span>, and thought, this is good fodder for a quick blog post – a true one-hour one-off.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Run this Stata code, and then tell me the logic is sound<br><br>set obs 20000<br>gen x =runiform()<br>gen y = x + .1*rnormal()<br>corr x y<br>corr x y if x &gt; .95 <a href="https://t.co/z5bE0iAH3I">https://t.co/z5bE0iAH3I</a></p>&mdash; Nolan McCarty (@Nolan_Mc) <a href="https://twitter.com/Nolan_Mc/status/1008498114037248000?ref_src=twsrc%5Etfw">June 17, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>My limited goals:</p>
 <ul>

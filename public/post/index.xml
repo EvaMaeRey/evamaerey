@@ -13,11 +13,11 @@
     
     
     <item>
-      <title>Layered Presentation of Graphics with &#43;aes() in ggplot2</title>
-      <link>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</link>
+      <title>Layered Presentation of Graphics, revised</title>
+      <link>/post/layered-presentation-of-graphics-take-2/</link>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</guid>
+      <guid>/post/layered-presentation-of-graphics-take-2/</guid>
       <description>Here is my second post is about how to implement a layered presentation of a graphics. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.
 I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.</description>
     </item>
@@ -60,8 +60,14 @@ library(tidyverse) Suppose you have a data frame of rankings of schools by year,
       
       <guid>/post/selection-effects/</guid>
       <description>Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone.</description>
+Run this Stata code, and then tell me the logic is sound
+set obs 20000
+gen x =runiform()
+gen y = x + .1*rnormal()
+corr x y
+corr x y if x &amp;gt; .95 https://t.co/z5bE0iAH3I
+&amp;mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.</description>
     </item>
     
     <item>
@@ -71,8 +77,8 @@ My limited goals:
       
       <guid>/post/sequences-probabilities/</guid>
       <description>@drob has posted code to play with on Twitter today. To illustrate what he calls a veridical paradox he’s posted the set up, the code and result of a coin flipping experiment:
-There are some good and exact explanations in the thread, for this at-first-glance puzzle. But I didn’t see a visualization that might give you quick intuition about what is going on.
-So I prepare one here. We’ll use the tidyverse packages and stringr.</description>
+A #tidyverse simulation to demonstrate that if you wait for two heads in a row, it takes 6 flips on average, while you wait for a heads then a tails, it takes 4 flips on average
+h/t @CutTheKnotMath #rstats pic.</description>
     </item>
     
     <item>
@@ -83,7 +89,7 @@ So I prepare one here. We’ll use the tidyverse packages and stringr.</descript
       <guid>/post/federalist-papers/</guid>
       <description>Every couple of weeks I like to explore data that’s brand new to me. I anticipate a one-hour, one-off project. Usually this turns out to be a beautiful lie, and the projects chew up much more time. Still, this enticing time-line is pulling me into new projects from time to time.
 Earlier this week, I heard about the dispute of authorship of some of the Federalist papers.
-I mentally flagged the topic for one a one-hour, one-off.</description>
+&amp;quot;Hamilton wrote the other 51!</description>
     </item>
     
     <item>
@@ -148,7 +154,7 @@ I’m most excited about the walk-through of the variance calculation. In prepar
       
       <guid>/post/winter-games-and-athlete-ages/</guid>
       <description>In February, I made a plot on athletes ages at the Winter Olympics for the data visualization initiative #MakeoverMonday. The initiative is mostly Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought. My viz had this description:
-@Staticum, who I think is a statistical/data science start-up in Chile asked me to share the code.</description>
+Winter games individual medalists are most likely to be athletes in their twenties.</description>
     </item>
     
     <item>
@@ -158,7 +164,7 @@ I’m most excited about the walk-through of the variance calculation. In prepar
       
       <guid>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</guid>
       <description>Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &amp;gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
-Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!</description>
+My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:</description>
     </item>
     
     <item>

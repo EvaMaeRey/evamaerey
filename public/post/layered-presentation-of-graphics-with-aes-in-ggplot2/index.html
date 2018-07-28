@@ -18,7 +18,7 @@
     
   
   <meta name="description" content="Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
-Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!">
+My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/">
@@ -81,7 +81,7 @@ Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics�
   <meta property="og:url" content="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/">
   <meta property="og:title" content="Layered Presentation of Graphics with &#43;aes() in ggplot2 | Evangeline M Reynolds">
   <meta property="og:description" content="Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
-Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!">
+My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-05-21T00:00:00&#43;00:00">
@@ -270,7 +270,7 @@ Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics�
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -331,8 +331,12 @@ Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics�
 
     <div class="article-style" itemprop="articleBody">
       <p>Here is the post is about how to implement a <em>layered presentation of a graphics</em>. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:<br><br>- Just x-axis (explain it)<br>- Add y-axis (explain it)<br>- Add 1 data point (explain it)<br>- Plot the rest of the data (explain it)</p>&mdash; Matt Blackwell (@matt_blackwell) <a href="https://twitter.com/matt_blackwell/status/991004129198854145?ref_src=twsrc%5Etfw">April 30, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Good ideas!  Very <a href="https://twitter.com/hashtag/ggplot?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot</a>.  A layered presentation of graphics. <a href="https://t.co/M4tRB9bGS5">https://t.co/M4tRB9bGS5</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/991269331257487366?ref_src=twsrc%5Etfw">May 1, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>So then I set out to write an implementation with ggplot. I actually wrote a couple of implementations and what follows is my favorite, which is demonstrated using a year of data from the gapminder data package.</p>
 <pre class="r"><code>library(tidyverse)

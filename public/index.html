@@ -756,7 +756,7 @@
   
   
   <h3 class="article-title" itemprop="headline">
-    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" itemprop="url">Layered Presentation of Graphics with &#43;aes() in ggplot2</a>
+    <a href="/post/layered-presentation-of-graphics-take-2/" itemprop="url">Layered Presentation of Graphics, revised</a>
   </h3>
   <div class="article-style" itemprop="articleBody">
     
@@ -765,7 +765,7 @@ I think it is more straight forward than messing around with alpha. Several folk
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" class="btn btn-primary btn-outline">
+    <a href="/post/layered-presentation-of-graphics-take-2/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -1050,8 +1050,14 @@ library(tidyverse) Suppose you have a data frame of rankings of schools by year,
   <div class="article-style" itemprop="articleBody">
     
     Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-My limited goals:
- translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone.
+Run this Stata code, and then tell me the logic is sound
+set obs 20000
+gen x =runiform()
+gen y = x + .1*rnormal()
+corr x y
+corr x y if x &gt; .95 https://t.co/z5bE0iAH3I
+&mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
