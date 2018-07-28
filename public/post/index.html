@@ -71,7 +71,7 @@
   <meta property="og:description" content="External Lecturer on International Relations and Data Science">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
+  <meta property="og:updated_time" content="2017-01-01T00:00:00-07:00">
   
 
   
@@ -240,6 +240,182 @@
   
 
   
+  
+    
+    
+      
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-07-22 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jul 22, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" itemprop="url">Layered Presentation of Graphics with &#43;aes() in ggplot2</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Here is my second post is about how to implement a layered presentation of a graphics. My implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data to Chile when I add the first geom layer. It is better I think. But isn’t it great that there are so many ways to get to the right place!
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/layered-presentation-of-graphics-with-aes-in-ggplot2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+    
+  
+    
+    
+      
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-07-16 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jul 16, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/mapping-aesthetics/" itemprop="url">Where should you declare aesthetics?  Globally, or geom-by-geom?</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Where should you declare aesthetics? Globally or in the geom_*() function? The answer to this question, in some sense is personal preference, because there are simply different ways to get the same job done in the ggplot architecture. My preference is declaring all aesthetic mappings as global unless there are conflicts.
+Below is an example that, I hope, will persuade you to my preference. We graph the increase in life expectancy by year for three countries.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/mapping-aesthetics/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+    
+  
+    
+    
+      
+
+<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-07-09 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Jul 9, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+
+  
+  
+  <h3 class="article-title" itemprop="headline">
+    <a href="/post/tuition-for-tidy-tuesday/" itemprop="url">Tuition Increases for Tidy Tuesday</a>
+  </h3>
+  <div class="article-style" itemprop="articleBody">
+    
+    Here’s the code for my first Tidy Tuesday submission:
+library(tidyverse) ## ── Attaching packages ─────────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ──────────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.
+    
+  </div>
+  <p class="read-more" itemprop="mainEntityOfPage">
+    <a href="/post/tuition-for-tidy-tuesday/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+    
   
     
     
@@ -660,184 +836,6 @@ Ready? Okay, now let’s walk through the calculation; there are 7 small steps:
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
     <a href="/post/what-s-the-igo-dataset/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-    
-  
-    
-    
-      
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-06-08 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Jun 8, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Evangeline Reynolds">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/what-s-the-igo-dataset/" itemprop="url">What’s the IGO dataset?</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    The International Organization v2.3 dataset is a rich resource for scholars of international relations. Tracking the existence of international organizations and country memberships in them, the data&rsquo;s various version have been cited over 450 times. Version 2.3 covers the time period 1815 to 2005, and records information about 529 IGOs and membership information for over two million country-igo-year observations. Before 1965, coding was performed only every five years; thereafter information about IGOs and membership is available on an annual basis.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/what-s-the-igo-dataset/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-    
-  
-    
-    
-      
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Jun 7, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Evangeline Reynolds">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/central-limit-theorem/" itemprop="url">Central Limit Theorem Demonstration</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    Sir Francis Galton described the Central Limit Theorem in this way:
-I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”
-Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/central-limit-theorem/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-    
-  
-    
-    
-      
-
-<div class="card-simple" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-06-06 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Jun 6, 2018
-    </time>
-  </span>
-  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Evangeline Reynolds">
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-
-  
-  
-  <h3 class="article-title" itemprop="headline">
-    <a href="/post/univariate-statistics-visualizing-variance/" itemprop="url">From N to Standard Deviation: Visualizing Univariate Statistics</a>
-  </h3>
-  <div class="article-style" itemprop="articleBody">
-    
-    This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.
-This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.
-I’m most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across a nice visualization of variance explained but couldn’t find a visualization just focused on explaining the variance itself.
-    
-  </div>
-  <p class="read-more" itemprop="mainEntityOfPage">
-    <a href="/post/univariate-statistics-visualizing-variance/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

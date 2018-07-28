@@ -1,0 +1,60 @@
+---
+title: Tuition Increases for Tidy Tuesday
+author: Gina Reynolds
+date: '2018-07-09'
+slug: tuition-for-tidy-tuesday
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+
+<p>Here’s the code for my first Tidy Tuesday submission:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ───────────</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
+## ✔ tibble  1.4.2          ✔ dplyr   0.7.5     
+## ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
+## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(readxl)
+library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.xlsx&quot;) %&gt;% 
+  left_join(data_frame(state.abb, State = state.name))</code></pre>
+<pre><code>## Joining, by = &quot;State&quot;</code></pre>
+<pre class="r"><code>library(ggrepel)
+
+ggplot(df_0) +
+  aes(x = `2004-05`, y = `2014-15`, label = state.abb) +
+  coord_equal() +
+  lims(x = c(0,15000), y = c(0,17000)) +
+  geom_abline(slope = 1, intercept = 0, lty = 2) +
+  labs(x = &quot;Tuition cost in 2004, USD&quot;, y = &quot;Tuition cost in 2014, USD&quot;, col = &quot;&quot;, title = &quot;Average in-state tuition fees at public 4-year: 2004 and 2014&quot;,
+       subtitle = &quot;Vis: Gina Reynolds | Data Source: onlinembapage.com&quot;) +
+  theme_bw(base_family = &quot;serif&quot;) +
+  # gain
+  geom_segment(aes(x=`2004-05`, xend=`2004-05`, y=`2014-15`, yend=`2004-05`, col=&quot;Increase from\n2004 to 2014&quot;), alpha = .7)+ 
+  #original
+  geom_segment(aes(x=`2004-05`, xend=`2004-05`, y=0, yend=`2004-05`, col=&quot;2004 Tuition Cost&quot; ), alpha = .7) +
+  # colscale
+  scale_color_manual(breaks=c(&quot;Increase from\n2004 to 2014&quot;, &quot;2004 Tuition Cost&quot;),values=c(&quot;grey70&quot;, &quot;grey30&quot;)) +
+  # geom_smooth(se = F, method = &quot;lm&quot;) +
+    geom_point(col = &quot;grey30&quot;) +
+  ggpmisc::stat_dens2d_filter(geom = &quot;text_repel&quot;, keep.fraction = 0.30, size = 3.8) +
+  annotate(geom = &quot;text&quot;, x = 1700, y = 1700, label = &quot;Average Tuition\nCosts in 2004&quot;, angle = 45, size = 2.8) +
+  annotate(geom = &quot;text&quot;, x = 13300, y = 15200, label = &quot;Increase&quot;, angle = 90, size = 2.8) +
+  annotate(geom = &quot;segment&quot;, x = 12900, y = 12900, xend = 12900, yend = 17000, arrow = arrow(length = unit(0.25, &quot;cm&quot;)), col = &quot;darkgrey&quot;) +
+  annotate(geom = &quot;segment&quot;, x = 12900, y = 12900, xend = 12900, yend = 0, 
+           arrow = arrow(ends = &quot;both&quot;, length = unit(0.15, &quot;cm&quot;), angle = 90), col = &quot;darkgrey&quot;) +
+  annotate(geom = &quot;text&quot;, x = 13300, y = 8000, label = &quot;Cost in 2004&quot;, angle = 90, size = 2.8) </code></pre>
+<p><img src="/post/2018-07-09-tuition-for-tidy-tuesday_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
