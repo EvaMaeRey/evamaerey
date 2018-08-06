@@ -299,16 +299,6 @@
     
     <url>
     
-      <loc>/tags/maps/</loc>
-      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/categories/maps/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -319,7 +309,7 @@
     
     <url>
     
-      <loc>/tags/nationalism/</loc>
+      <loc>/tags/maps/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -330,6 +320,16 @@
     <url>
     
       <loc>/categories/nationalism/</loc>
+      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/nationalism/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -369,7 +369,7 @@
     
     <url>
     
-      <loc>/tags/text-analysis/</loc>
+      <loc>/categories/text-analysis/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -379,7 +379,7 @@
     
     <url>
     
-      <loc>/categories/text-analysis/</loc>
+      <loc>/tags/text-analysis/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>

@@ -37,7 +37,7 @@ weight = 5
 # Biography
 
 
-Welcome to my website.  Currently based in Dresden Germany, I am a consultant on a project with the Violence Prevention Research Program at the University of California Davis and am lecturing at TU Dresden's Center for International Studies and Department of International Relations.  My PhD is from the University of Illinois, where my dissertation won 2018 Burkholder Award for Best Dissertation in the Political Science department of the University of Illinois. 
+Welcome to my website.  Currently based in Dresden Germany, I am a consultant on a project with the Violence Prevention Research Program at the University of California Davis and am lecturing at TU Dresden's Center for International Studies and Department of International Relations.  My PhD is from the University of Illinois, where my dissertation won 2018 Burkholder Award for Best Dissertation in the Political Science department of the University of Illinois. I will be teaching at the Josef Korbel School of International Studies at the University of Denver this fall.   
 
 I study effectiveness of international institutions and law especially in the areas of security, trade, and human rights. More broadly, my areas of study have been International Relations, Methodology, Comparative Politics and Latin American Politics. I conducted my field research in Brazil in the Federal House of Deputies.  My dissertation focused on compliance with supranational law, using UN Security Council resolutions as my principle case.
 
