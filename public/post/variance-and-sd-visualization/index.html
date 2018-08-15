@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.41" />
+  <meta name="author" content="Evangeline Reynolds">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole:
+I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers
+&mdash; Max Fisher (@Max_Fisher) August 13, 2018  And communicating about standard deviations.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/variance-and-sd-visualization/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Evangeline M Reynolds">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Evangeline M Reynolds">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/variance-and-sd-visualization/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@EvaMaeRey">
+  <meta property="twitter:creator" content="@EvaMaeRey">
+  
+  <meta property="og:site_name" content="Evangeline M Reynolds">
+  <meta property="og:url" content="/post/variance-and-sd-visualization/">
+  <meta property="og:title" content="Visualizing Variance and Standard Deviation | Evangeline M Reynolds">
+  <meta property="og:description" content="So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole:
+I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers
+&mdash; Max Fisher (@Max_Fisher) August 13, 2018  And communicating about standard deviations.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-08-15T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-08-15T00:00:00&#43;00:00">
+  
+
+  
+  
+
+  <title>Visualizing Variance and Standard Deviation | Evangeline M Reynolds</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Evangeline M Reynolds</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Visualizing Variance and Standard Deviation</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-15 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Aug 15, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Evangeline Reynolds">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Visualizing%20Variance%20and%20Standard%20Deviation&amp;url=%2fpost%2fvariance-and-sd-visualization%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fvariance-and-sd-visualization%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fvariance-and-sd-visualization%2f&amp;title=Visualizing%20Variance%20and%20Standard%20Deviation"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fvariance-and-sd-visualization%2f&amp;title=Visualizing%20Variance%20and%20Standard%20Deviation"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Visualizing%20Variance%20and%20Standard%20Deviation&amp;body=%2fpost%2fvariance-and-sd-visualization%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      <p>So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers</p>&mdash; Max Fisher (@Max_Fisher) <a href="https://twitter.com/Max_Fisher/status/1028938932359241728?ref_src=twsrc%5Etfw">August 13, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>And communicating about standard deviations. That’s like one of my favorite topics! The project is now <em>on</em> my to-do list.</p>
+<p>Full disclosure, I’ve already written on this topic here: <a href="https://evangelinereynolds.netlify.com/post/univariate-statistics-visualizing-variance/">From N to Standard Deviation: Visualizing Univariate Statistics</a>. The current post was be a matter of focusing on variance and sd, and clean-ups as any messes were encountered (encountered they were!). One more thing: the calculation is for population variance and sd.</p>
+<p>So here we go. I’m using the gapminder dataset which is ever-so-handy as it’s available in an R package (thanks Jenny Bryan). For the exercise I’ll just be looking at European countries in 2007, and focusing exclusively on the life expectancy variable.</p>
+<p>Let’s look at a plot of the data.</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Cool. So what are the variance and standard deviation for life expectancy of European Countries in 2007?</p>
+<p>Well, the equation for variance is as follows.</p>
+<p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Can you mentally visualize it? Maybe not? Let’s walk through together then.</p>
+<p>First we need the mean, <span class="math inline">\(\mu\)</span>. We plot it in red on the figure.</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Then we do an operation for each of our observations, <span class="math inline">\((x_i - \mu)^2\)</span>. In words, for an observation, say Romania, take the difference for its life expectancy value from the mean. Then square that. So, let’s just do that for one of our observations. Our Romania example will work fine. We plot the point representing Romania in green.</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Now take the difference between the mean for all observations, <span class="math inline">\(\mu\)</span>, and the life expectancy for Romania.</p>
+<p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span> </p>
+<p>This difference is shown with the green line:</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Then we need to square that difference. This resultant value is equal to the area of a square that has as one of its sides the difference in life expectancy for Romania and the mean life expectancy for all observations. It is a transparent green square in the plot.</p>
+<p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)^2\)</span> </p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" height="2in" /></p>
+<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
+<p>Doing that we get the result (Yup, Romania’s still there in green):</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-9-1.png" width="672" height="2in" /></p>
+<p>The average of all of these areas is the variance. We simply sum up all of the resulting areas that are shown in the plot (note that these areas are overlapping), and divide by the number of these squares:</p>
+<p><span class="math inline">\(\sum_{i=1}^{n}(x_i - \mu)^2/n\)</span></p>
+<p>The result is the variance. It is equivalent to the area of the orange square in the plot below. Again, it is simply the average area of all of the squares we created previously. The corner of the orange square, whose area is the variance, happens to be at the mean value, but it need not be so.</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" height="2in" /></p>
+<div id="standard-deviation" class="section level1">
+<h1>Standard Deviation:</h1>
+<p>Now, calculating the standard deviation is straightforward. Take the square root of the variance (that orange square).</p>
+<p>Standard Deviation: <span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance (i.e. the length of the side of the bright orange square). The standard deviation (the resulting length) is highlighted in blue on the plot: :</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png" width="672" height="2in" /></p>
+<p>That’s it! I hope that this will help you visualize variance and sd in the future.</p>
+<p>Discussion question(s):</p>
+<p>What do you think of as the first step to finding the variance and standard deviation? Which measure do you think feels more useful as a description of spread of a variable? What are the units of each?</p>
+<div id="quick-final-note" class="section level2">
+<h2>Quick final note:</h2>
+<p>We could equivalently represent the squared differences (observation value - mean squared) in a bar chart:<br />
+<img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>And taking the average gives us the level of the dotted line and grey bars:</p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>So that is the variance: the mean of the areas of the squares that have edges that are the distance between observation values and the population mean value.</p>
+<p>The standard deviation is is the length of the edge of the square that has the area which is the variance.</p>
+<p>And these two last sentences are the reason I like to keep things step-by-step and visual!</p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
