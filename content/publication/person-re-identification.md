@@ -36,7 +36,7 @@ selected = false
 projects = []
 
 # Links (optional).
-url_pdf = "http://arxiv.org/pdf/1512.04133v1"
+url_pdf = "http://journals.sagepub.com/doi/pdf/10.1177/2053168015626167"
 url_preprint = ""
 url_code = ""
 url_dataset = ""
