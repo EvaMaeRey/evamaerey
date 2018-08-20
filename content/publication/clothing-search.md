@@ -37,7 +37,7 @@ selected = true
 projects = []
 
 # Links (optional).
-url_pdf = "https://www.tandfonline.com/doi/abs/10.1080/03050629.2018.1408012"
+# url_pdf = "https://www.tandfonline.com/doi/abs/10.1080/03050629.2018.1408012"
 # url_preprint = "http://eprints.soton.ac.uk/352095/1/Cushen-IMV2013.pdf"
 # url_code = "#"
 # url_dataset = "#"
@@ -49,7 +49,7 @@ url_pdf = "https://www.tandfonline.com/doi/abs/10.1080/03050629.2018.1408012"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
-url_custom = [{name = "Custom Link", url = "http://example.org"}]
+url_custom = [{name = "From Publisher", url = "https://www.tandfonline.com/doi/abs/10.1080/03050629.2018.1408012"}]
 
 # Does the content use math formatting?
 math = true
