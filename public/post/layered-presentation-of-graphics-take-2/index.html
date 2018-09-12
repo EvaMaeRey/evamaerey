@@ -18,7 +18,7 @@
     
   
   <meta name="description" content="Here is my second post is about how to implement a layered presentation of a graphics. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.
-I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.">
+I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/layered-presentation-of-graphics-take-2/">
@@ -81,7 +81,7 @@ I think it is more straight forward than messing around with alpha. Several folk
   <meta property="og:url" content="/post/layered-presentation-of-graphics-take-2/">
   <meta property="og:title" content="Layered Presentation of Graphics, revised | Evangeline M Reynolds">
   <meta property="og:description" content="Here is my second post is about how to implement a layered presentation of a graphics. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.
-I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.">
+I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-07-22T00:00:00&#43;00:00">
@@ -331,7 +331,7 @@ I think it is more straight forward than messing around with alpha. Several folk
 
     <div class="article-style" itemprop="articleBody">
       <p>Here is my second post is about how to implement a <em>layered presentation of a graphics</em>. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.</p>
-<p>I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.2.1.9000.</p>
+<p>I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context. Still, geom_blank is good to know about.</p>
 <p>This time around, I’ll do a little with labeling too. Before, I left labels as variable names, which wouldn’t really be acceptable in a presentation setting, at least with the present example.</p>
 <p>Here again is the original inspiration:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:<br><br>- Just x-axis (explain it)<br>- Add y-axis (explain it)<br>- Add 1 data point (explain it)<br>- Plot the rest of the data (explain it)</p>&mdash; Matt Blackwell (@matt_blackwell) <a href="https://twitter.com/matt_blackwell/status/991004129198854145?ref_src=twsrc%5Etfw">April 30, 2018</a></blockquote>

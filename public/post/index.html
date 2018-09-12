@@ -71,7 +71,7 @@
   <meta property="og:description" content="External Lecturer on International Relations and Data Science">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
+  <meta property="og:updated_time" content="2017-01-01T00:00:00-07:00">
   
 
   
@@ -288,8 +288,8 @@
   <div class="article-style" itemprop="articleBody">
     
     So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole:
-I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers
-&mdash; Max Fisher (@Max_Fisher) August 13, 2018  And communicating about standard deviations.
+And communicating about standard deviations. That’s like one of my favorite topics! The project is now on my to-do list.
+Full disclosure, I’ve already written on this topic here: From N to Standard Deviation: Visualizing Univariate Statistics. The current post was be a matter of focusing on variance and sd, and clean-ups as any messes were encountered (encountered they were!
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -422,7 +422,7 @@ I want to give quick background on how this happens to be in my blog, to give pl
   <div class="article-style" itemprop="articleBody">
     
     Here is my second post is about how to implement a layered presentation of a graphics. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.
-I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.
+I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
@@ -540,7 +540,7 @@ Below is an example that, I hope, will persuade you to my preference. We graph t
   <div class="article-style" itemprop="articleBody">
     
     Here’s the code for my first Tidy Tuesday submission:
-library(tidyverse) ## ── Attaching packages ──────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ───────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.
+library(tidyverse) ## ── Attaching packages ───────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ────────────────── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">

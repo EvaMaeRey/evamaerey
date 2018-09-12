@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 -0600</lastBuildDate>
     
 	<atom:link href="/tags/academic-hugo/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Academic Hugo and Blogdown</title>
       <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0600</pubDate>
       
       <guid>/post/getting-started/</guid>
       <description>About Academic Hugo from the creator:

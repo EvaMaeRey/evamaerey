@@ -13,7 +13,7 @@ header:
 
 
 <p>Here is my second post is about how to implement a <em>layered presentation of a graphics</em>. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.</p>
-<p>I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case and with the current version of ggplot2: 2.2.1.9000.</p>
+<p>I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context. Still, geom_blank is good to know about.</p>
 <p>This time around, I’ll do a little with labeling too. Before, I left labels as variable names, which wouldn’t really be acceptable in a presentation setting, at least with the present example.</p>
 <p>Here again is the original inspiration:</p>
 {{% tweet "991004129198854145" %}}

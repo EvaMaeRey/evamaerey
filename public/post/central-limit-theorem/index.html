@@ -345,7 +345,7 @@ Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gi
 <pre class="r"><code>hist(x_pop)  # what does the distribution look like for x</code></pre>
 <p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>mean(x_pop)  # True mean of x (popluation mean)</code></pre>
-<pre><code>## [1] 0.5102446</code></pre>
+<pre><code>## [1] 0.5056296</code></pre>
 </div>
 <div id="a-sample" class="section level1">
 <h1>A sample</h1>
@@ -354,7 +354,7 @@ Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gi
   sample(x = x_pop,
          size = 30)
 mean(x_sample) # sample mean</code></pre>
-<pre><code>## [1] 0.5390218</code></pre>
+<pre><code>## [1] 0.500263</code></pre>
 <p>Interesting. The sample mean for this one sample is not so far from the population mean.</p>
 </div>
 <div id="samples-that-might-have-been" class="section level1">
@@ -382,16 +382,16 @@ print(paste(&quot;Number:&quot;, i))
   x_sample &lt;- sample(x_pop, 30)
   print(mean(x_sample)) # sample mean  
 }</code></pre>
-<pre><code>## [1] 0.509349
-## [1] 0.4384142
-## [1] 0.46795
-## [1] 0.5189824
-## [1] 0.5156996
-## [1] 0.5325629
-## [1] 0.6146784
-## [1] 0.5902196
-## [1] 0.4377743
-## [1] 0.4946076</code></pre>
+<pre><code>## [1] 0.5076497
+## [1] 0.4894876
+## [1] 0.5340289
+## [1] 0.5520005
+## [1] 0.4881118
+## [1] 0.5314631
+## [1] 0.529155
+## [1] 0.6403775
+## [1] 0.5793474
+## [1] 0.4810795</code></pre>
 <p>Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.</p>
 </div>
 <div id="expectations-in-the-limit" class="section level1">

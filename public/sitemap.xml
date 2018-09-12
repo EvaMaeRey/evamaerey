@@ -122,6 +122,15 @@
     
     <url>
     
+      <loc>/post/what-s-the-igo-dataset/</loc>
+      <lastmod>2018-06-08T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/central-limit-theorem/</loc>
       <lastmod>2018-06-07T00:00:00+00:00</lastmod>
     </url>
@@ -168,7 +177,7 @@
     <url>
     
       <loc>/tags/academic/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-07:00</lastmod>
     </url>
     
   
@@ -177,7 +186,7 @@
     <url>
     
       <loc>/talk/example-talk/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-07:00</lastmod>
     </url>
     
   
@@ -186,7 +195,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-07:00</lastmod>
     </url>
     
   
@@ -195,7 +204,7 @@
     <url>
     
       <loc>/publication/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-07:00</lastmod>
     </url>
     
   
@@ -204,7 +213,7 @@
     <url>
     
       <loc>/talk/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-07:00</lastmod>
     </url>
     
   
@@ -213,7 +222,7 @@
     <url>
     
       <loc>/project/supranational-law/</loc>
-      <lastmod>2016-04-27T00:00:00+02:00</lastmod>
+      <lastmod>2016-04-27T00:00:00-06:00</lastmod>
     </url>
     
   
@@ -222,7 +231,7 @@
     <url>
     
       <loc>/post/getting-started/</loc>
-      <lastmod>2018-01-13T00:00:00+01:00</lastmod>
+      <lastmod>2018-01-13T00:00:00-07:00</lastmod>
     </url>
     
   
@@ -231,7 +240,7 @@
     <url>
     
       <loc>/publication/person-re-identification/</loc>
-      <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+      <lastmod>2015-09-01T00:00:00-06:00</lastmod>
     </url>
     
   
@@ -250,7 +259,7 @@
     <url>
     
       <loc>/tags/academic-hugo/</loc>
-      <lastmod>2018-01-13T00:00:00+01:00</lastmod>
+      <lastmod>2018-01-13T00:00:00-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -260,7 +269,7 @@
     <url>
     
       <loc>/tags/blogdown/</loc>
-      <lastmod>2018-01-13T00:00:00+01:00</lastmod>
+      <lastmod>2018-01-13T00:00:00-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -279,7 +288,7 @@
     <url>
     
       <loc>/</loc>
-      <lastmod>2017-10-15T00:00:00+02:00</lastmod>
+      <lastmod>2017-10-15T00:00:00-06:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -289,7 +298,7 @@
     <url>
     
       <loc>/tags/international-law/</loc>
-      <lastmod>2016-04-27T00:00:00+02:00</lastmod>
+      <lastmod>2016-04-27T00:00:00-06:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -308,16 +317,6 @@
     
     <url>
     
-      <loc>/categories/maps/</loc>
-      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/maps/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -328,7 +327,7 @@
     
     <url>
     
-      <loc>/categories/nationalism/</loc>
+      <loc>/categories/maps/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -348,8 +347,18 @@
     
     <url>
     
+      <loc>/categories/nationalism/</loc>
+      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/</loc>
-      <lastmod>2016-04-27T00:00:00+02:00</lastmod>
+      <lastmod>2016-04-27T00:00:00-06:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -369,17 +378,7 @@
     <url>
     
       <loc>/tags/</loc>
-      <lastmod>2017-01-01T00:00:00+01:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/categories/text-analysis/</loc>
-      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -389,6 +388,16 @@
     <url>
     
       <loc>/tags/text-analysis/</loc>
+      <lastmod>2018-08-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/text-analysis/</loc>
       <lastmod>2018-08-04T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
