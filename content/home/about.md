@@ -37,7 +37,7 @@ weight = 5
 # Biography
 
 
-Welcome to my website.  I am a Visiting Teaching Assistant Professor at the University of Denver's Josef Korbel School of International Studies.  I've previously lectured at the Technische Universität Dresden's Center for International Studies and have consulted on a project with the Violence Prevention Research Program at the University of California Davis.  My PhD is from the University of Illinois, where my dissertation won 2018 Burkholder Award for Best Dissertation in the Political Science department of the University of Illinois. 
+Welcome.  I am a Visiting Teaching Assistant Professor at the University of Denver's Josef Korbel School of International Studies.  I've previously lectured at the Technische Universität Dresden's Center for International Studies and have consulted on a project with the Violence Prevention Research Program at the University of California Davis.  My PhD is from the University of Illinois, where my dissertation won 2018 Burkholder Award for Best Dissertation in the Political Science department of the University of Illinois. 
 
 I study effectiveness of international institutions and law especially in the areas of security, trade, and human rights. More broadly, my areas of study have been International Relations, Methodology, Comparative Politics and Latin American Politics. I conducted my field research in Brazil in the Federal House of Deputies.  My dissertation focused on compliance with supranational law, using UN Security Council resolutions as my principle case.
 
