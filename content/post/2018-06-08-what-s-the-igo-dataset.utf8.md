@@ -75,7 +75,7 @@ The data can be explored further in the following interactive plots.  Using thes
 
 For best results, "mouse-over" the end-points of the IGO representation.    
 
-preserve6bee85faaa653c78preserve6a8f89f60efbd057preserveddd9c186b575770fpreserve61e9013415c76ecapreserve674cde2fb045ffcfpreserve8bdca316d174f4e2
+preservec63a95d1570ab3bapreservedafeb6c40ddae85epreserveb3af7e43f289091apreserve42eb320b35226a53preserve17d508bd2ef77af5preserve8d7d312bf9fb169d
 
 
 
@@ -91,7 +91,7 @@ We can also look at individual memberships. Below, each of the points contains t
 Unfortunately, there is much missing data which is clear from the visualizations.  Recall, too, that membership data is only available every five years before 1965. 
 
 
-preserved248e1bc9f611a56preservefc73d5b9a1e9fcd3preserve81e7ff5c2e7f8939preserve9656e01a878f6311preserve84bf447bce28eb70preserve4c8b28790b61d690
+preserve575853a1062219bbpreservec10715c37be54111preserve4e53a80c5791bb62preservec78b3c97955d9953preserve86bb0b81684e4140preserve6770f956afda52d8
 
 # More to come
 
