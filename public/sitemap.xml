@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/slow-ggplot/</loc>
+      <lastmod>2018-09-13T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/variance-and-sd-visualization/</loc>
       <lastmod>2018-08-15T00:00:00+00:00</lastmod>
     </url>
@@ -287,8 +296,38 @@
     
     <url>
     
+      <loc>/tags/data-visualization/</loc>
+      <lastmod>2018-09-13T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/data-visualization/</loc>
+      <lastmod>2018-09-13T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/</loc>
       <lastmod>2017-10-15T00:00:00-06:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/ggplot2/</loc>
+      <lastmod>2018-09-13T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -379,6 +418,16 @@
     
       <loc>/tags/</loc>
       <lastmod>2017-01-01T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/teaching/</loc>
+      <lastmod>2018-09-13T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

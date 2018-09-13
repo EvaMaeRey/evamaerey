@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data visualization on Evangeline M Reynolds</title>
+    <link>/categories/data-visualization/</link>
+    <description>Recent content in Data visualization on Evangeline M Reynolds</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 13 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slow ggplot</title>
+      <link>/post/slow-ggplot/</link>
+      <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/slow-ggplot/</guid>
+      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incramental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
+My recent tweet presented the technique:</description>
+    </item>
+    
+  </channel>
+</rss>
