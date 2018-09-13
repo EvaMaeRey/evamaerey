@@ -55,15 +55,15 @@ enableGitInfo = false
 
   # Your details.
   name = "Evangeline Reynolds"
-  role = "External Lecturer on International Relations and Data Science"
+  role = "Visiting Teaching Assistant Professor"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "Technische Universität Dresden", url = "" } ]
+  organizations = [ { name = "University of Denver, Joseph Korbel School of International Studies", url = "" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "mailto:evangeline.reynolds@mailbox.tu-dresden.de"
+  email = "mailto:evangeline.reynolds@du.edu"
   address = ""
   office_hours = "email for appointment"
   phone = ""
