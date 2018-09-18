@@ -12,54 +12,57 @@ header:
 
 
 
-<p>So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole:</p>
-{{% tweet "1028938932359241728" %}}
+<p>So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole due to this tweet:</p>
+<div class="figure">
+<img src="../../static/img/2018_08_13_fisher_max_sd.png" alt="I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate one standard deviation from the mean for regular readers — Max Fisher (@Max_Fisher) August 13, 2018 Note: Tweet has been deleted; the text is from my blogpost when the tweet was still active. Updating Sept 18, 2018" />
+<p class="caption"><strong>I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers — Max Fisher (<span class="citation">@Max_Fisher</span>) August 13, 2018</strong> <em>Note: Tweet has been deleted; the text is from my blogpost when the tweet was still active. Updating Sept 18, 2018</em></p>
+</div>
 <p>And communicating about standard deviations. That’s like one of my favorite topics! The project is now <em>on</em> my to-do list.</p>
 <p>Full disclosure, I’ve already written on this topic here: <a href="https://evangelinereynolds.netlify.com/post/univariate-statistics-visualizing-variance/">From N to Standard Deviation: Visualizing Univariate Statistics</a>. The current post was be a matter of focusing on variance and sd, and clean-ups as any messes were encountered (encountered they were!). One more thing: the calculation is for population variance and sd.</p>
 <p>So here we go. I’m using the gapminder dataset which is ever-so-handy as it’s available in an R package (thanks Jenny Bryan). For the exercise I’ll just be looking at European countries in 2007, and focusing exclusively on the life expectancy variable.</p>
 <p>Let’s look at a plot of the data.</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Cool. So what are the variance and standard deviation for life expectancy of European Countries in 2007?</p>
 <p>Well, the equation for variance is as follows.</p>
 <p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Can you mentally visualize it? Maybe not? Let’s walk through together then.</p>
 <p>First we need the mean, <span class="math inline">\(\mu\)</span>. We plot it in red on the figure.</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Then we do an operation for each of our observations, <span class="math inline">\((x_i - \mu)^2\)</span>. In words, for an observation, say Romania, take the difference for its life expectancy value from the mean. Then square that. So, let’s just do that for one of our observations. Our Romania example will work fine. We plot the point representing Romania in green.</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Now take the difference between the mean for all observations, <span class="math inline">\(\mu\)</span>, and the life expectancy for Romania.</p>
 <p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span> </p>
 <p>This difference is shown with the green line:</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Then we need to square that difference. This resultant value is equal to the area of a square that has as one of its sides the difference in life expectancy for Romania and the mean life expectancy for all observations. It is a transparent green square in the plot.</p>
 <p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)^2\)</span> </p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" height="2in" /></p>
 <p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
 <p>Doing that we get the result (Yup, Romania’s still there in green):</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-9-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" height="2in" /></p>
 <p>The average of all of these areas is the variance. We simply sum up all of the resulting areas that are shown in the plot (note that these areas are overlapping), and divide by the number of these squares:</p>
 <p><span class="math inline">\(\sum_{i=1}^{n}(x_i - \mu)^2/n\)</span></p>
 <p>The result is the variance. It is equivalent to the area of the orange square in the plot below. Again, it is simply the average area of all of the squares we created previously. The corner of the orange square, whose area is the variance, happens to be at the mean value, but it need not be so.</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-9-1.png" width="672" height="2in" /></p>
 <div id="standard-deviation" class="section level1">
 <h1>Standard Deviation:</h1>
 <p>Now, calculating the standard deviation is straightforward. Take the square root of the variance (that orange square).</p>
 <p>Standard Deviation: <span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance (i.e. the length of the side of the bright orange square). The standard deviation (the resulting length) is highlighted in blue on the plot:</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" height="2in" /></p>
 <p>That’s it! I hope that this will help you visualize variance and sd in the future.</p>
 <p>Discussion question(s):</p>
 <p>What do you think of as the first step to finding the variance and standard deviation? Which measure do you think feels more useful as a description of spread of a variable? What are the units of each?</p>
 <div id="quick-final-note" class="section level2">
 <h2>Quick final note:</h2>
 <p>We could equivalently represent the squared differences (observation value - mean squared) in a bar chart:<br />
-<img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>And taking the average gives us the level of the dotted line and grey bars:</p>
-<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>So that is the variance: the mean of the areas of the squares that have edges that are the distance between observation values and the population mean value.</p>
 <p>The standard deviation is is the length of the edge of the square that has the area which is the variance.</p>
 <p>And these two last sentences are the reason I like to keep things step-by-step and visual!</p>
