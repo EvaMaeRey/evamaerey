@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/slow-ggplot/</guid>
-      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incramental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
+      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
 My recent tweet presented the technique:</description>
     </item>
     
@@ -69,7 +69,7 @@ Below is an example that, I hope, will persuade you to my preference. We graph t
       
       <guid>/post/tuition-for-tidy-tuesday/</guid>
       <description>Here’s the code for my first Tidy Tuesday submission:
-library(tidyverse) ## ── Attaching packages ─────────────────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ─── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &amp;#39;lubridate&amp;#39; ## The following object is masked from &amp;#39;package:base&amp;#39;: ## ## date df_0 &amp;lt;- read_xlsx(&amp;quot;raw_data/us_avg_tuition.</description>
+library(tidyverse) ## ── Attaching packages ────────────────── ## ✔ ggplot2 3.1.0 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.8 ## ✔ tidyr 0.8.2 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &amp;#39;lubridate&amp;#39; ## The following object is masked from &amp;#39;package:base&amp;#39;: ## ## date df_0 &amp;lt;- read_xlsx(&amp;quot;raw_data/us_avg_tuition.</description>
     </item>
     
     <item>
@@ -213,7 +213,7 @@ library(ggplot2) ggplot(mtcars) + aes(mpg, disp, col = as.factor(cyl)) + geom_po
     <item>
       <title>Academic Hugo and Blogdown</title>
       <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0600</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
       
       <guid>/post/getting-started/</guid>
       <description>About Academic Hugo from the creator:
