@@ -21,7 +21,7 @@
 It seems to be working fine also with this R code.
 x = 5 x^2 ## [1] 25 And this Python code:
 print(&quot;hello&quot; &#43; &quot;there&quot;) ## hellothere Let’s check out how a graph looks too:
-library(ggplot2) ggplot(mtcars) &#43; aes(mpg, disp, col = as.factor(cyl)) &#43; geom_point() Looks good. I’m very satisfied. Hooray for blogdown!">
+library(ggplot2) ## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2 ggplot(mtcars) &#43; aes(mpg, disp, col = as.factor(cyl)) &#43; geom_point() Looks good. I’m very satisfied. Hooray for blogdown!">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/first-blogdown-post/">
@@ -87,7 +87,7 @@ library(ggplot2) ggplot(mtcars) &#43; aes(mpg, disp, col = as.factor(cyl)) &#43;
 It seems to be working fine also with this R code.
 x = 5 x^2 ## [1] 25 And this Python code:
 print(&quot;hello&quot; &#43; &quot;there&quot;) ## hellothere Let’s check out how a graph looks too:
-library(ggplot2) ggplot(mtcars) &#43; aes(mpg, disp, col = as.factor(cyl)) &#43; geom_point() Looks good. I’m very satisfied. Hooray for blogdown!">
+library(ggplot2) ## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2 ggplot(mtcars) &#43; aes(mpg, disp, col = as.factor(cyl)) &#43; geom_point() Looks good. I’m very satisfied. Hooray for blogdown!">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-05-19T00:00:00&#43;00:00">
@@ -345,8 +345,9 @@ x^2</code></pre>
 <pre class="python"><code>print(&quot;hello&quot; + &quot;there&quot;)</code></pre>
 <pre><code>## hellothere</code></pre>
 <p>Let’s check out how a graph looks too:</p>
-<pre class="r"><code>library(ggplot2)
-ggplot(mtcars) +
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<pre class="r"><code>ggplot(mtcars) +
   aes(mpg, disp, col = as.factor(cyl)) +
   geom_point()</code></pre>
 <p><img src="/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

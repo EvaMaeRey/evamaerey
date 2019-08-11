@@ -399,7 +399,8 @@ df &lt;- data_frame(x,y)</code></pre>
   aes(x = x, y = y) + 
   geom_point(alpha = .2) +
   theme_bw() + geom_smooth(method = lm)</code></pre>
-<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-4-1.png" width="672" /> And fitting a linear model:</p>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+And fitting a linear model:</p>
 <pre class="r"><code>summary(lm(y ~ x, data = df))</code></pre>
 <pre><code>## 
 ## Call:
@@ -426,7 +427,8 @@ df &lt;- data_frame(x,y)</code></pre>
   geom_point(data = df, col = &quot;grey&quot;) +
   geom_point() +
   theme_bw() + geom_smooth(method = lm)</code></pre>
-<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png" width="672" /> or:</p>
+<p><img src="/post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+or:</p>
 <pre class="r"><code>ggplot(df %&gt;% filter(x &gt; .95)) +
   aes(x = x, y = y) + 
   geom_point() +
@@ -458,10 +460,7 @@ df &lt;- data_frame(x,y)</code></pre>
 <pre class="r"><code>summary(lm(y ~ x, data = df))$r.squared</code></pre>
 <pre><code>## [1] 0.8931872</code></pre>
 <p>Which makes me want to link to this wonderful gif from assessingpsyche.files.wordpress.com:</p>
-<div class="figure">
-<img src="https://assessingpsyche.files.wordpress.com/2014/07/varianceexplained.gif" />
-
-</div>
+<p><img src="https://assessingpsyche.files.wordpress.com/2014/07/varianceexplained.gif" /></p>
 <p>Found at:</p>
 <p><a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/" class="uri">https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/</a></p>
 <p>Did I spend only an hour with this post? No, sadly, but not too too too much more!</p>

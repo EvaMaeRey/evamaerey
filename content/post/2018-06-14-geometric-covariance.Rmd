@@ -1,0 +1,161 @@
+---
+title: Covariance -- A Visual Walk Through
+author: Gina Reynolds
+date: '2018-06-14'
+slug: geometric-covariance
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+
+In a previous post, I've looked at walking through the calculation of variance and standard deviation, visualizing each step.  This post is dedicated to the visualization of another statistic:  covariance.
+
+Covariance is a measure of the joint variability of two random variables. 
+
+Let's have a look at the *sample* covariance equation over all:
+
+$cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}$
+
+And now lets apply the equation to the following case: 
+
+
+```{r, echo = F, message=F, warning=F}
+knitr::opts_chunk$set(echo = F)
+set.seed(12345)
+library(tidyverse)
+x <- rnorm(30)
+y <- .5*x + rnorm(30, sd = .5)
+df <- data_frame(x,y) %>% 
+  mutate(rectangle=(x-mean(x))*(y-mean(y)))
+```
+
+
+```{r}
+scatter <- ggplot(df) + 
+  theme_classic() +
+  coord_fixed() +
+  aes(x, y, fill = rectangle > 0) +
+  geom_point() 
+
+scatter
+```
+
+Ready?  Okay, now let's walk through the calculation; there are 7 small steps: 
+
+# Step 1: find the mean of x: 
+## $\overline{x}$
+
+```{r}
+scatter + geom_rug(aes(y = NULL)) +
+  geom_vline(xintercept = mean(x), lty = "dashed") 
+```
+
+# Step 2: find the mean of y
+
+## $\overline{y}$
+
+
+```{r}
+scatter_means <- scatter + 
+  geom_vline(xintercept = mean(x), lty = "dashed") +
+  geom_hline(yintercept = mean(y), lty = "dashed")
+
+
+scatter_means + geom_rug(aes(x = NULL)) 
+```
+
+
+# Step 3: calculate difference between x and mean of x
+
+## $x_i-\overline{x}$
+
+
+```{r}
+scatter_means +
+  geom_segment(mapping = aes(col = x > mean(x)), xend = mean(x), yend = y,  
+               arrow = arrow(ends = "first", length = unit(0.1, "inches"))) 
+```
+
+# Step 4: calculate difference between y and mean of y
+
+## $y_i-\overline{y}$
+
+```{r}
+last_plot() + 
+  geom_segment(mapping = aes(col = y > mean(y)), xend = x, yend = mean(y),  
+               arrow = arrow(ends = "first", length = unit(0.1, "inches")))
+```
+
+# Step 5: multiply these differences (observation-wise)
+
+## $(x_i-\overline{x})(y_i-\overline{y})$
+
+```{r}
+last_plot() +
+  geom_rect(xmin = mean(x), ymin = mean(y), 
+            ymax = y, xmax = x, alpha = .2  ) 
+```
+
+
+# Step 6:  Add these areas
+
+## $\sum_1^n (x_i-\overline{x})(y_i-\overline{y})$
+
+
+```{r}
+ggplot(df %>% arrange(x)) +
+  aes(y = rectangle, x = as.factor(1:nrow(df)),  fill = rectangle>0) +
+  geom_col(alpha = .2) +
+  theme_bw()
+```
+
+
+# Step 7: Divide through by number of observations minus 1 (the result will a bit larger in magnitude than the average)
+
+## $cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}$
+
+
+```{r}
+last_plot() +
+  geom_col(aes(y = sum(rectangle)/(nrow(df)-1)), 
+           alpha = .2, fill = "grey") +
+  geom_hline(yintercept = sum(df$rectangle)/(nrow(df)-1), lty = "dotted")
+```
+
+That's it.  
+
+Now we can compare this visualized result to what we would get if we simply trust the R covariance function to calculate this for us.  
+
+```{r, echo = T}
+sum(df$rectangle)/(nrow(df)-1)
+cov(x,y) # Calculation for **sample** covariance
+```
+Great. It's a match!
+
+
+# Discussion question
+
+What would the units of unadjusted covariance be for the covariance between life expectancy in years and per capita gdp in dollars?
+
+Note: The normalized version of covariance is Pearson's correlation coefficient.
+
+# References
+
+R Core Team (2018). R: A
+  language and environment
+  for statistical
+  computing. R Foundation
+  for Statistical
+  Computing, Vienna,
+  Austria. URL
+  https://www.R-project.org/.
+  
+  
+H. Wickham. ggplot2:
+  Elegant Graphics for
+  Data Analysis.
+  Springer-Verlag New
+  York, 2016.

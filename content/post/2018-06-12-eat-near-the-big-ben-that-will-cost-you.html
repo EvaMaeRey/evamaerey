@@ -64,7 +64,8 @@ g &lt;- ggplot(world_map_df %&gt;%
   ggtitle(&quot;Food Versus Drink Prices&quot;, &quot;@EvaMaeRey | source: data.worldbank.org&quot; )
 
 g</code></pre>
-<p><img src="/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-7-1.png" width="672" /> … and overlay the information about the burger price.</p>
+<p><img src="/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+… and overlay the information about the burger price.</p>
 <pre class="r"><code>g + geom_point(data = data0, 
               aes(x=Longitude, y=Latitude, 
                   group=NULL, fill=`Empire State Burger`), 

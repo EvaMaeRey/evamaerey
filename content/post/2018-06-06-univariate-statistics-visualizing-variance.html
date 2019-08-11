@@ -44,7 +44,8 @@ sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
 <h2>Mean</h2>
 <p>The mean is the sum of the values of a variable divided by the number of values. It is a measure of “central tendancy.”</p>
 <p>The mean can also be thought of as a balancing point. It the point that, if the folcrum of a balance, with weights of of equal weight at each of the values of the observations, would result in a balanced scale.</p>
-<p><span class="math display">\[\mu = \frac{\sum_{i=1}^{n}x_i}{n}\]</span> In R you can use the mean function to compute this value.</p>
+<p><span class="math display">\[\mu = \frac{\sum_{i=1}^{n}x_i}{n}\]</span>
+In R you can use the mean function to compute this value.</p>
 <pre class="r"><code>mean(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 77.6486</code></pre>
 <p>In the following plot, the mean is plotted in red.<br />
@@ -56,7 +57,8 @@ sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
 <p>In R you can comute the median with the function, median().</p>
 <pre class="r"><code>median(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 78.6085</code></pre>
-<p>In the following plot, the median is shown in blue. <img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>In the following plot, the median is shown in blue.
+<img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 </div>
 <div id="measures-of-spread" class="section level1">
@@ -122,18 +124,32 @@ sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
 <div id="variance-visual-walk-through" class="section level1">
 <h1>Variance: Visual walk through</h1>
 <p>Now let’s walk through this formula piece by piece. First we need the mean.</p>
-<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Variance:
+<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>The difference between and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line.</p>
-<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span> Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span> </p>
+
+<p>Variance:
+<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span>
+
+Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span>
+
+</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+
+<p>Variance:
+<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Then we need to square that difference. This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy. It is a transparent green square in the plot.</p>
-<p>Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)^2\)</span> </p>
+
+<p>Calculation for Romania:
+<span class="math inline">\((x_{Romania} - \mu)^2\)</span>
+</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png" width="672" height="2in" /></p>
-<p>Variance: <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+
+<p>Variance:
+<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png" width="672" height="2in" /></p>
 <p>The mean for these areas is the variance.</p>
@@ -147,7 +163,8 @@ sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
 <div id="standard-deviation" class="section level1">
 <h1>Standard Deviation:</h1>
 <p>Now, calculating the standard deviation is straightforward. Take the square root of the variance.</p>
-<p>Standard Deviation: <span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p>Standard Deviation:
+<span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png" width="672" height="2in" /></p>
 <p>Quiz question:</p>

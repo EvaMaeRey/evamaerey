@@ -15,6 +15,14 @@ weight = 60
 
 +++
 
+Visiting Teaching Assistant Professor at University of Denver:
+
+- Defense and Security Methods *This course introduces students to concepts and best practices in analysis, including posing well defined questions, developing theory and hypotheses, conducting literature reviews, working with data (including gathering, manipulation, visualization, and analysis), and understanding limitations of analyses. Students are given a variety of short exercises to put new knowledge and skills into practice. In addition, students develop their own research project, posing an original research question, and walk through steps of inquiry themselves.*
+
+- Defense and Security Quantitative Analysis *The course guides students in exploring and modeling data, as well as communicating insights. Topics to be covered include concept measurement decisions, modeling, causal inference, and text, spatial, network, and formal analysis.*
+
+- Data Science in International Relations *Students will use research methods and data science tools to describe, analyze, and evaluate contemporary topics in international relations. We will use the R statistical programming language to generate descriptive statistics, visualizations, and basic inferential statistics while using data on IR topics including international conflict, human security, trade, development. The course will culminate in a presentation and report on a specific topic related to international studies. These tools will help equip students for additional coursework, research, and careers that use data science and quantitative analysis.*
+
 Instructor at TU Dresden:
 
 - International Regimes and Organization (2017, 2018)  *International institutions' numbers have grown tremendously over the course of the last century.  These institutions bridge national boundaries to target problems in a diverse set of areas including security, human rights, the environment, and trade. This seminar will introduce students to the concepts of global governance as borne out in these issue areas.  The course will focus on identifying patterns in institution creation, goals, organizational structure, compliance, and enforcement mechanisms.  Additionally, students will become familiar with organizational structure and inner workings of international institutions, as well as analyses of their effectiveness.*

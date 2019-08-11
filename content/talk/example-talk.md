@@ -1,9 +1,10 @@
 +++
 date = 2017-01-01T00:00:00  # Schedule page publish date.
 
-title = "Example Talk: This section under construction"
-time_start = 2030-06-01T13:00:00
-time_end = 2030-06-01T15:00:00
+title = "Shallow Fakes:
+Assessing the potential for spoofing and faking in data visualization and what to do about it"
+time_start = 2019-05-09T12:00:00
+time_end = 2019-05-09T14:00:00
 abstract = ""
 abstract_short = ""
 event = "--"
@@ -11,7 +12,7 @@ event_url = "--"
 location = "--"
 
 # Is this a selected talk? (true/false)
-selected = false
+selected = true
 
 # Projects (optional).
 #   Associate this talk with one or more of your projects.

@@ -1,0 +1,46 @@
+---
+title: Wide data to long using the tidyverse (tidyr's gather function)
+author: Gina Reynolds
+date: '2018-07-06'
+slug: wide-to-long-using-the-tidy-verse
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+A wide data storage format is an efficient and compact way to store information.  And this organization perhaps it makes data easier to inspect.  We have wide monitors our laptops and destops.  However, for visualization and analysis you generally need to transform this data from the wide format to a "tidy", long format.  
+
+We look at the case where just one variable is stored in a spreadsheet.  
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+Suppose you have a data frame of rankings of schools by year, and the initial data set is organized as follows (I just build one with tribble()):
+
+```{r}
+df_wide <- tribble(~rankings_of_schools_by_year, ~`2000`, ~`2001`, ~`2002`,
+        "U of Illinois", 1, 2,  3, 
+        "TU Dresden", 2, 3, 1, 
+        "U of Denver", 3, 1, 1, 
+        "Hogwarts", 4,4,4)
+
+df_wide
+```
+
+Restructuring the data with gather, I define the names of columns that will contain the information in the column names (year) and the variable of interest (rank).  
+```{r}
+df_long <- df_wide %>% gather(key = year, value = rank, `2000`:`2002`)
+df_long
+```  
+Pretty good!  But we are not all the way there.  Let's use the code above a base.  We need to change the first column name to be more appropriate.  Also, the years are encoded as a character variable whereas they should be numeric (in this case integers, as the years are round numbers).  
+```{r}
+df_long <- df_wide %>% gather(key = year, value = rank, `2000`:`2002`) %>% 
+  rename(school = rankings_of_schools_by_year) %>% 
+  mutate(year = as.integer(year))
+df_long
+```  
+
+Note to students:  Then you might filter by year: filter(year > 2000).  

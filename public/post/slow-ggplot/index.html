@@ -17,7 +17,7 @@
       
     
   
-  <meta name="description" content="This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incramental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
+  <meta name="description" content="This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
 My recent tweet presented the technique:">
 
   
@@ -80,7 +80,7 @@ My recent tweet presented the technique:">
   <meta property="og:site_name" content="Evangeline M Reynolds">
   <meta property="og:url" content="/post/slow-ggplot/">
   <meta property="og:title" content="Slow ggplot | Evangeline M Reynolds">
-  <meta property="og:description" content="This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incramental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
+  <meta property="og:description" content="This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
 My recent tweet presented the technique:">
   <meta property="og:locale" content="en-us">
   
@@ -342,19 +342,23 @@ My recent tweet presented the technique:">
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incramental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.</p>
+      <p>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.</p>
 <p>My recent tweet presented the technique:</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here, building up a <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> as slowly as possible, <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>.  Incremental adjustments.  <a href="https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;ref_src=twsrc%5Etfw">#rstatsteachingideas</a> <a href="https://t.co/nUulQl8bPh">pic.twitter.com/nUulQl8bPh</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw">August 13, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>People reacted positively. Now here is the comparison between a traditional ggplot construction and the more verbose, slow ggplot construction.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
-## ✔ tibble  1.4.2          ✔ dplyr   0.7.5     
-## ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
-## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─── tidyverse_conflicts() ──
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(gapminder)
@@ -383,10 +387,10 @@ df_2007 &lt;- gapminder %&gt;% filter(year == 2007)</code></pre>
   labs(col = &quot;&quot;) +
   theme_bw()</code></pre>
 <p><img src="/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Same result, but students are perhaps more likely to go slow, and mentally make connections between adjustment to product and the functions for making those adjustments, given that each change gets it’s own line of code and that there is repetition built into this exersize. After using this approach to introduce students to ggplot, students can be alerted to the fact that they can gather up arguments into one function.</p>
+<p>Same result, but students are perhaps more likely to go slow, and mentally make connections between adjustment to product and the functions for making those adjustments, given that each change gets its own line of code and that there is repetition built into this exercise. After using this approach to introduce students to ggplot, students can be alerted to the fact that they can gather up arguments into one function.</p>
 <div id="downsides" class="section level1">
-<h1>Downsides</h1>
-<p>A possible downside, as I see it, is that most teaching materials don’t take this approach. Perhaps it will be confusing to have the two approaches in their head. That is an empirical question. My hunch is that newbies won’t find this jump so hard though.</p>
+<h1>Downsides?</h1>
+<p>A possible downside is that most teaching materials don’t take this approach. Perhaps it will be confusing to have the two approaches in students’ head. This is an unanswered empirical question, but my hunch is that newbies won’t find this jump so hard to make.</p>
 </div>
 
     </div>

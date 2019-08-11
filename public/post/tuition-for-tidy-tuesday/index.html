@@ -18,7 +18,7 @@
     
   
   <meta name="description" content="Here’s the code for my first Tidy Tuesday submission:
-library(tidyverse) ## ── Attaching packages ─────────────────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ─── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.">
+library(tidyverse) ## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 3.2.0 ✔ purrr 0.3.2 ## ✔ tibble 2.1.3 ✔ dplyr 0.7.8 ## ✔ tidyr 0.8.2 ✔ stringr 1.4.0 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2 ## Warning: package &#39;tibble&#39; was built under R version 3.5.2 ## Warning: package &#39;purrr&#39; was built under R version 3.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/tuition-for-tidy-tuesday/">
@@ -81,7 +81,7 @@ library(tidyverse) ## ── Attaching packages ──────────�
   <meta property="og:url" content="/post/tuition-for-tidy-tuesday/">
   <meta property="og:title" content="Tuition Increases for Tidy Tuesday | Evangeline M Reynolds">
   <meta property="og:description" content="Here’s the code for my first Tidy Tuesday submission:
-library(tidyverse) ## ── Attaching packages ─────────────────── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.5 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.5 ## ✔ tidyr 0.8.1 ✔ stringr 1.3.1 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ─── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() library(readxl) library(lubridate) ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.">
+library(tidyverse) ## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 3.2.0 ✔ purrr 0.3.2 ## ✔ tibble 2.1.3 ✔ dplyr 0.7.8 ## ✔ tidyr 0.8.2 ✔ stringr 1.4.0 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2 ## Warning: package &#39;tibble&#39; was built under R version 3.5.2 ## Warning: package &#39;purrr&#39; was built under R version 3.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-07-09T00:00:00&#43;00:00">
@@ -332,12 +332,16 @@ library(tidyverse) ## ── Attaching packages ──────────�
     <div class="article-style" itemprop="articleBody">
       <p>Here’s the code for my first Tidy Tuesday submission:</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.5     
-## ✔ tibble  1.4.2          ✔ dplyr   0.7.5     
-## ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
-## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─── tidyverse_conflicts() ──
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(readxl)
@@ -349,6 +353,8 @@ library(lubridate)</code></pre>
 ##     date</code></pre>
 <pre class="r"><code>df_0 &lt;- read_xlsx(&quot;raw_data/us_avg_tuition.xlsx&quot;) %&gt;% 
   left_join(data_frame(state.abb, State = state.name))</code></pre>
+<pre><code>## Warning: `data_frame()` is deprecated, use `tibble()`.
+## This warning is displayed once per session.</code></pre>
 <pre><code>## Joining, by = &quot;State&quot;</code></pre>
 <pre class="r"><code>library(ggrepel)
 

@@ -18,7 +18,7 @@
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/slow-ggplot/</guid>
-      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incramental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
+      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
 My recent tweet presented the technique:</description>
     </item>
     

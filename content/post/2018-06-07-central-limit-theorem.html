@@ -25,7 +25,7 @@ header:
 <pre class="r"><code>hist(x_pop)  # what does the distribution look like for x</code></pre>
 <p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>mean(x_pop)  # True mean of x (popluation mean)</code></pre>
-<pre><code>## [1] 0.5476124</code></pre>
+<pre><code>## [1] 0.4853363</code></pre>
 </div>
 <div id="a-sample" class="section level1">
 <h1>A sample</h1>
@@ -34,7 +34,7 @@ header:
   sample(x = x_pop,
          size = 30)
 mean(x_sample) # sample mean</code></pre>
-<pre><code>## [1] 0.5131298</code></pre>
+<pre><code>## [1] 0.5476281</code></pre>
 <p>Interesting. The sample mean for this one sample is not so far from the population mean.</p>
 </div>
 <div id="samples-that-might-have-been" class="section level1">
@@ -62,16 +62,16 @@ print(paste(&quot;Number:&quot;, i))
   x_sample &lt;- sample(x_pop, 30)
   print(mean(x_sample)) # sample mean  
 }</code></pre>
-<pre><code>## [1] 0.517501
-## [1] 0.4901982
-## [1] 0.5337358
-## [1] 0.5544171
-## [1] 0.4930681
-## [1] 0.4757758
-## [1] 0.5575718
-## [1] 0.6042861
-## [1] 0.5660208
-## [1] 0.5364147</code></pre>
+<pre><code>## [1] 0.5138002
+## [1] 0.4506922
+## [1] 0.4527608
+## [1] 0.5831083
+## [1] 0.4805688
+## [1] 0.4296424
+## [1] 0.5704734
+## [1] 0.4556482
+## [1] 0.5092977
+## [1] 0.4481701</code></pre>
 <p>Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.</p>
 </div>
 <div id="expectations-in-the-limit" class="section level1">

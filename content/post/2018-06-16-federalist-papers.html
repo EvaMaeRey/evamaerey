@@ -17,7 +17,9 @@ header:
 {{% tweet "1006966922699788290" %}}
 <p>I mentally flagged the topic for one a one-hour, one-off. A who-done-it of text analysis, that conjures up the songs of the biggest Broadway hit since … take your pick. What’s not to like?</p>
 <p>Also, I’ve been working on a visualization procedure for small corpora like this one; this would be another chance to try it out. The procedure visualizes documents as nodes in a network, and connects the documents with edges only if for the pair, their similarity scores are in the top percentiles for one or the other of the pair members.</p>
-<p>I don’t see other researchers doing this which makes me worry that: 1) there are principled reasons not to do this or 2) I’m not googling hard enough. Regarding the former, in creating such a graph, there is some arbitrary decision-work to be done: what is the similarity score to be used; what threshold of should be used for drawing connections; and which network layout should be draw? <!-- ; random plus the orientation and projection of the layout leads to different plot realized. --> A critic might think that, given these decisions, this type of visual summary of a corpus in the best case is impressionistic, and in the worst case invites misinterpretation. The later can be managed, I think, if there is enough time/space to talk/write about the decisions made in creating the graph.</p>
+<p>I don’t see other researchers doing this which makes me worry that: 1) there are principled reasons not to do this or 2) I’m not googling hard enough. Regarding the former, in creating such a graph, there is some arbitrary decision-work to be done: what is the similarity score to be used; what threshold of should be used for drawing connections; and which network layout should be draw?
+<!-- ; random plus the orientation and projection of the layout leads to different plot realized. -->
+A critic might think that, given these decisions, this type of visual summary of a corpus in the best case is impressionistic, and in the worst case invites misinterpretation. The later can be managed, I think, if there is enough time/space to talk/write about the decisions made in creating the graph.</p>
 <p>Putting aside these concerns, I can put together this visualization contentedly.</p>
 <p>The deciding factor for moving ahead with this quick project was that the Federalist Papers were ready-to-use in corpus in <a href="https://CRAN.R-project.org/package=corpus">the R package “corpus”, by Patrick O. Perry</a>. Sold! Install and load package.</p>
 <pre class="r"><code>library(corpus)    </code></pre>
@@ -35,10 +37,15 @@ header:
 <h1>Getting started</h1>
 <p>One thing that I like about this four-hour-and-counting project (my one-hour one-off dreams elude me again), is that it makes use of so many of my favorite packages. Let’s load them.</p>
 <pre class="r"><code>library(quanteda)  # text analysis
-library(tidyverse) # ggplot for graphing and dplyr for wrangling
-library(tidygraph)  # for relational data manipulation
-library(igraph)    # network graph tools
-library(ggraph)   # the link between ggplot and 
+library(tidyverse) # ggplot for graphing and dplyr for wrangling</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
+<pre class="r"><code>library(tidygraph)  # for relational data manipulation
+library(igraph)    # network graph tools</code></pre>
+<pre><code>## Warning: package &#39;igraph&#39; was built under R version 3.5.2</code></pre>
+<pre class="r"><code>library(ggraph)   # the link between ggplot and 
 library(viridis)   # for better color palette for points on map
 library(plotly)  # plan to use this in the future, for mouse-over and view full text. </code></pre>
 <p>Now we prepare the corpus. We use a bag-of-words approach, where the tokens of each document are counted. This is done using the document feature matrix function or dfm(). I set several preprocessing options to “true”; I think these represent pretty typical preprocessing choices.</p>
