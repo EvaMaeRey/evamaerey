@@ -1,8 +1,7 @@
 +++
 date = 2017-01-01T00:00:00  # Schedule page publish date.
 
-title = "Shallow Fakes:
-Assessing the potential for spoofing and faking in data visualization and what to do about it"
+title = "Shallow Fakes:  Assessing the potential for spoofing and faking in data visualization and what to do about it"
 time_start = 2019-05-09T12:00:00
 time_end = 2019-05-09T14:00:00
 abstract = ""

@@ -37,15 +37,10 @@ A critic might think that, given these decisions, this type of visual summary of
 <h1>Getting started</h1>
 <p>One thing that I like about this four-hour-and-counting project (my one-hour one-off dreams elude me again), is that it makes use of so many of my favorite packages. Let’s load them.</p>
 <pre class="r"><code>library(quanteda)  # text analysis
-library(tidyverse) # ggplot for graphing and dplyr for wrangling</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
-<pre class="r"><code>library(tidygraph)  # for relational data manipulation
-library(igraph)    # network graph tools</code></pre>
-<pre><code>## Warning: package &#39;igraph&#39; was built under R version 3.5.2</code></pre>
-<pre class="r"><code>library(ggraph)   # the link between ggplot and 
+library(tidyverse) # ggplot for graphing and dplyr for wrangling
+library(tidygraph)  # for relational data manipulation
+library(igraph)    # network graph tools
+library(ggraph)   # the link between ggplot and 
 library(viridis)   # for better color palette for points on map
 library(plotly)  # plan to use this in the future, for mouse-over and view full text. </code></pre>
 <p>Now we prepare the corpus. We use a bag-of-words approach, where the tokens of each document are counted. This is done using the document feature matrix function or dfm(). I set several preprocessing options to “true”; I think these represent pretty typical preprocessing choices.</p>
@@ -65,6 +60,7 @@ similarity &lt;-
   textstat_simil(dfm, 
                  method = &quot;cosine&quot;,
                  upper = T, diag = T)</code></pre>
+<pre><code>## Warning: Arguments upper, diag not used.</code></pre>
 </div>
 <div id="resulting-graph" class="section level1">
 <h1>Resulting Graph</h1>
@@ -94,6 +90,7 @@ similarity &lt;-
   textstat_simil(dfm, 
                  method = &quot;cosine&quot;,
                  upper = T, diag = T)</code></pre>
+<pre><code>## Warning: Arguments upper, diag not used.</code></pre>
 <div id="graphs-when-cosign-similarity-contains-stop-words" class="section level2">
 <h2>Graphs when cosign similarity contains stop words</h2>
 <p>The adjacency matrix is prepped in the exact same way as before.</p>
@@ -119,6 +116,7 @@ similarity &lt;-
 <h2>The Alternative</h2>
 <p>Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we aren’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.</p>
 <p>I make it here, sorting by author, but I don’t really clean it up, maybe to put my technique in the best light, maybe because I’ve really spent too much time on this. But, I think there is something charming and likable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
+<pre><code>## Warning: Arguments upper, diag not used.</code></pre>
 <p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-13-1.png" width="1344" /></p>
 </div>
 </div>
