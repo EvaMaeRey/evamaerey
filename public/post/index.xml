@@ -1,217 +1,1117 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Evangeline M Reynolds</title>
+    <title>Posts | Evangeline Reynolds</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Evangeline M Reynolds</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0100</lastBuildDate>
-    
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
     
     <item>
       <title>Slow ggplot</title>
       <link>/post/slow-ggplot/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/slow-ggplot/</guid>
-      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
-My recent tweet presented the technique:</description>
+      <description>
+
+
+&lt;p&gt;This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.&lt;/p&gt;
+&lt;p&gt;My recent tweet presented the technique:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Here, building up a &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; as slowly as possible, &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt;.  Incremental adjustments.  &lt;a href=&#34;https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstatsteachingideas&lt;/a&gt; &lt;a href=&#34;https://t.co/nUulQl8bPh&#34;&gt;pic.twitter.com/nUulQl8bPh&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw&#34;&gt;August 13, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;People reacted positively. Now here is the comparison between a traditional ggplot construction and the more verbose, slow ggplot construction.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
+df_2007 &amp;lt;- gapminder %&amp;gt;% filter(year == 2007)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Traditional approach:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = df_2007, 
+       mapping = aes(x = gdpPercap, 
+                     y = lifeExp, 
+                     col = continent)) +
+  geom_point() +
+  labs(title = &amp;quot;Wealth and life expectancy in 2007&amp;quot;,
+       x = &amp;quot;GDP per capita (inflation adjusted)&amp;quot;,
+       y = &amp;quot;Life Expectancy&amp;quot;,
+       col = &amp;quot;&amp;quot;) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Verbose, slow approach:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = df_2007) +
+  aes(x = gdpPercap) + 
+  aes(y = lifeExp) +
+  geom_point() +
+  aes(col = continent) +
+  labs(title = &amp;quot;Wealth and life expectancy in 2007&amp;quot;) +
+  labs(x = &amp;quot;GDP per capita (inflation adjusted)&amp;quot;) +
+  labs(y = &amp;quot;Life Expectancy&amp;quot;) +
+  labs(col = &amp;quot;&amp;quot;) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Same result, but students are perhaps more likely to go slow, and mentally make connections between adjustment to product and the functions for making those adjustments, given that each change gets its own line of code and that there is repetition built into this exercise. After using this approach to introduce students to ggplot, students can be alerted to the fact that they can gather up arguments into one function.&lt;/p&gt;
+&lt;div id=&#34;downsides&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Downsides?&lt;/h1&gt;
+&lt;p&gt;A possible downside is that most teaching materials don’t take this approach. Perhaps it will be confusing to have the two approaches in students’ head. This is an unanswered empirical question, but my hunch is that newbies won’t find this jump so hard to make.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Visualizing Variance and Standard Deviation</title>
       <link>/post/variance-and-sd-visualization/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/variance-and-sd-visualization/</guid>
-      <description>So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole due to this tweet:
-I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers — Max Fisher (@Max_Fisher) August 13, 2018 Note: Tweet has been deleted; the text is from my blogpost when the tweet was still active.</description>
-    </item>
-    
-    <item>
-      <title>National Anthems’ Sentiment Scores, Mapped and Interactive</title>
-      <link>/post/national-anthems-sentiment-scores-mapped-and-interactive/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/national-anthems-sentiment-scores-mapped-and-interactive/</guid>
-      <description>Background This post, as indicated in the title, is about an interactive mapping of sentiment scores calculated for national anthems. Text analysis is of growing interest for political researchers, and I count myself among the interested! The interactive plot at the end of the post is, I think, an ideal introduction sentiment analysis. It highlights opportunities, and also, perhaps, some pitfalls.
-I want to give quick background on how this happens to be in my blog, to give plenty of credit where it is due.</description>
+      <description>
+
+
+&lt;p&gt;So this wasn’t on today’s to-do list, but there seems to be a cash prize associated with this rabbit hole due to this tweet:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../static/img/2018_08_13_fisher_max_sd.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I generally fall in the camp of people who are skeptical of graduate-level journalism schools, but I would absolutely pay Columbia University $98,000 if it could teach me how to clearly and concisely translate “one standard deviation from the mean” for regular readers
+— Max Fisher (&lt;span class=&#34;citation&#34;&gt;@Max_Fisher&lt;/span&gt;) August 13, 2018&lt;/strong&gt; &lt;em&gt;Note: Tweet has been deleted; the text is from my blogpost when the tweet was still active. Updating Sept 18, 2018&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;And communicating about standard deviations. That’s like one of my favorite topics! The project is now &lt;em&gt;on&lt;/em&gt; my to-do list.&lt;/p&gt;
+&lt;p&gt;Full disclosure, I’ve already written on this topic here: &lt;a href=&#34;https://evangelinereynolds.netlify.com/post/univariate-statistics-visualizing-variance/&#34;&gt;From N to Standard Deviation: Visualizing Univariate Statistics&lt;/a&gt;. The current post was be a matter of focusing on variance and sd, and clean-ups as any messes were encountered (encountered they were!). One more thing: the calculation is for population variance and sd.&lt;/p&gt;
+&lt;p&gt;So here we go. I’m using the gapminder dataset which is ever-so-handy as it’s available in an R package (thanks Jenny Bryan).
+For the exercise I’ll just be looking at European countries in 2007, and focusing exclusively on the life expectancy variable.&lt;/p&gt;
+&lt;p&gt;Let’s look at a plot of the data.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Cool. So what are the variance and standard deviation for life expectancy of European Countries in 2007?&lt;/p&gt;
+&lt;p&gt;Well, the equation for variance is as follows.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Can you mentally visualize it? Maybe not? Let’s walk through together then.&lt;/p&gt;
+&lt;p&gt;First we need the mean, &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;. We plot it in red on the figure.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then we do an operation for each of our observations, &lt;span class=&#34;math inline&#34;&gt;\((x_i - \mu)^2\)&lt;/span&gt;. In words, for an observation, say Romania, take the difference for its life expectancy value from the mean. Then square that. So, let’s just do that for one of our observations. Our Romania example will work fine. We plot the point representing Romania in green.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now take the difference between the mean for all observations, &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;, and the life expectancy for Romania.&lt;/p&gt;
+
+&lt;p&gt;Calculation for Romania: &lt;span class=&#34;math inline&#34;&gt;\((x_{Romania} - \mu)\)&lt;/span&gt;
+
+&lt;/p&gt;
+&lt;p&gt;This difference is shown with the green line:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Variance:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Then we need to square that difference. This resultant value is equal to the area of a square that has as one of its sides the difference in life expectancy for Romania and the mean life expectancy for all observations. It is a transparent green square in the plot.&lt;/p&gt;
+
+&lt;p&gt;Calculation for Romania:
+&lt;span class=&#34;math inline&#34;&gt;\((x_{Romania} - \mu)^2\)&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Variance:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.&lt;/p&gt;
+&lt;p&gt;Doing that we get the result (Yup, Romania’s still there in green):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The average of all of these areas is the variance. We simply sum up all of the resulting areas that are shown in the plot (note that these areas are overlapping), and divide by the number of these squares:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sum_{i=1}^{n}(x_i - \mu)^2/n\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The result is the variance. It is equivalent to the area of the orange square in the plot below. Again, it is simply the average area of all of the squares we created previously. The corner of the orange square, whose area is the variance, happens to be at the mean value, but it need not be so.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;standard-deviation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Standard Deviation:&lt;/h1&gt;
+&lt;p&gt;Now, calculating the standard deviation is straightforward. Take the square root of the variance (that orange square).&lt;/p&gt;
+&lt;p&gt;Standard Deviation:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance (i.e. the length of the side of the bright orange square). The standard deviation (the resulting length) is highlighted in blue on the plot:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;That’s it! I hope that this will help you visualize variance and sd in the future.&lt;/p&gt;
+&lt;p&gt;Discussion question(s):&lt;/p&gt;
+&lt;p&gt;What do you think of as the first step to finding the variance and standard deviation?
+Which measure do you think feels more useful as a description of spread of a variable?
+What are the units of each?&lt;/p&gt;
+&lt;div id=&#34;quick-final-note&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Quick final note:&lt;/h2&gt;
+&lt;p&gt;We could equivalently represent the squared differences (observation value - mean squared) in a bar chart:&lt;br /&gt;
+&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And taking the average gives us the level of the dotted line and grey bars:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So that is the variance: the mean of the areas of the squares that have edges that are the distance between observation values and the population mean value.&lt;/p&gt;
+&lt;p&gt;The standard deviation is is the length of the edge of the square that has the area which is the variance.&lt;/p&gt;
+&lt;p&gt;And these two last sentences are the reason I like to keep things step-by-step and visual!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Layered Presentation of Graphics, revised</title>
       <link>/post/layered-presentation-of-graphics-take-2/</link>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/layered-presentation-of-graphics-take-2/</guid>
-      <description>Here is my second post is about how to implement a layered presentation of a graphics. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.
-I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context.</description>
+      <description>
+
+
+&lt;p&gt;Here is my second post is about how to implement a &lt;em&gt;layered presentation of a graphics&lt;/em&gt;. My previous implementation used the alpha transparency aesthetic to hide all but one point. But, now, rethink things, now for the 3rd time or so, I just subset the data associated with the first geom layer, leaving the global data complete.&lt;/p&gt;
+&lt;p&gt;I think it is more straight forward than messing around with alpha. Several folks brought up geom_blank() having looked at the previous implementation, but I didn’t find it necessary in this case if you are using last_plot() which I think it makes sense to do in this context. Still, geom_blank is good to know about.&lt;/p&gt;
+&lt;p&gt;This time around, I’ll do a little with labeling too. Before, I left labels as variable names, which wouldn’t really be acceptable in a presentation setting, at least with the present example.&lt;/p&gt;
+&lt;p&gt;Here again is the original inspiration:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:&lt;br&gt;&lt;br&gt;- Just x-axis (explain it)&lt;br&gt;- Add y-axis (explain it)&lt;br&gt;- Add 1 data point (explain it)&lt;br&gt;- Plot the rest of the data (explain it)&lt;/p&gt;&amp;mdash; Matt Blackwell (@matt_blackwell) &lt;a href=&#34;https://twitter.com/matt_blackwell/status/991004129198854145?ref_src=twsrc%5Etfw&#34;&gt;April 30, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;And the goal is simply to write an implementation, with some data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(gapminder)
+my_data = gapminder %&amp;gt;% filter(continent == &amp;quot;Americas&amp;quot; &amp;amp; year == 2002)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Okay, the data is ready and packages loaded. Now for plotting:&lt;/p&gt;
+&lt;div id=&#34;step-1-just-x-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 1: Just x-axis (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(my_data) +            # declare the data you want to use
+  aes(x = gdpPercap) +       # declare the aesthetic mapping for x
+  theme_bw(base_size = 20) + # we want label sizes to be a bit bigger
+  labs(x = &amp;quot;Per capita GDP\n(US$, inflation-adjusted)&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;                             # instead of variable name, we give x axis a nice name&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-just-y-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 2: Just y-axis (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +        # we just add to the last plot
+  aes(y = lifeExp) + # add the aesthetic mapping for y 
+  labs(y = &amp;quot;Life Expectancy\n(years)&amp;quot;) # a nice axis label&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3-add-1-data-point-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 3: Add 1 data point (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  geom_point(data = my_data %&amp;gt;% filter(country == &amp;quot;Chile&amp;quot;))   # declare the geom to add &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I use geom_point() to add the layer where Chile’s data is shown. I indicate that I want points to be added for onlly a subset of the data by specifying that with the data argument.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4-plot-the-rest-of-the-data-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 4: Plot the rest of the data (explain it)&lt;/h1&gt;
+&lt;p&gt;Add another geom_point() layer. This time, the data that will be used is the global data, as there is no data specified in the function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;
+Done!&lt;/p&gt;
+&lt;p&gt;Why didn’t I come up with this before? I think it didn’t have the presence of mind because my mind had just been blown by the possibility of adding global aesthetics outside of the ggplot() statement. I was very excited about that discovery! Also, ggplot2 has also had an update since the original implmentation. Perhaps the behavior was different in a previous version. Don’t know. Not gonna check at this point. I guess probably it wasn’t.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Where should you declare aesthetics?  Globally, or geom-by-geom?</title>
       <link>/post/mapping-aesthetics/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/mapping-aesthetics/</guid>
-      <description>Where should you declare aesthetics? Globally or in the geom_*() function? The answer to this question, in some sense is personal preference, because there are simply different ways to get the same job done in the ggplot architecture. My preference is declaring all aesthetic mappings as global unless there are conflicts.
-Below is an example that, I hope, will persuade you to my preference. We graph the increase in life expectancy by year for three countries.</description>
+      <description>
+
+
+&lt;p&gt;Where should you declare aesthetics? Globally or in the geom_*() function? The answer to this question, in some sense is personal preference, because there are simply different ways to get the same job done in the ggplot architecture. My preference is declaring all aesthetic mappings as global unless there are conflicts.&lt;/p&gt;
+&lt;p&gt;Below is an example that, I hope, will persuade you to my preference. We graph the increase in life expectancy by year for three countries. First, subset some data from the gapminder dataset and we create a scatterplot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;- gapminder::gapminder %&amp;gt;% 
+  filter(country %in% c(&amp;quot;Germany&amp;quot;, &amp;quot;United States&amp;quot;, &amp;quot;Italy&amp;quot;))
+
+ggplot(df) +
+  aes(x = year,
+      y = lifeExp) +
+  geom_point() &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then we might want to add a line connecting the three countries data year by year. We add geom_line, but notice that grouping needs to be declared to distinguish the countries:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df) +
+  aes(x = year,
+      y = lifeExp) +
+  geom_point() +
+  geom_line()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Using the grouping, (notice here I’m declaring the grouping as a global aesthetic mapping), the plot makes a bit more sense.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df) +
+  aes(x = year,
+      y = lifeExp,
+      group = country) +
+  geom_point() +
+  geom_line()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then, given this declaration, I can add a linear trend line with geom_smooth() for each country.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df) +
+  aes(x = year,
+      y = lifeExp,
+      group = country) +
+  geom_point() +
+  geom_line() +
+  geom_smooth(method = lm)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;
+This is where I think the gain is. You don’t have to make the grouping declaration twice. (And you can override the global grouping aesthetic, should you so desire, in the geom_smooth() The alternative is redundant:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df) +
+  aes(x = year,
+      y = lifeExp) +
+  geom_point() +
+  geom_line(aes(group = country)) +
+  geom_smooth(aes(group = country), method = lm)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In conclusion, trust your aesthetic mapping decisions, and just make them global. You might want to use them across more geoms as you build up your plot, and probably you will want consistent aesthetic mapping choices across your geoms. When a conflict arises, then you can simply override the aesthetic as you need to within the specific geom function, as done below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df) +
+  aes(x = year,
+      y = lifeExp,
+      group = country) +
+  geom_point() +
+  geom_line() +
+  geom_smooth(aes(group = NULL), method = lm)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Wide data to long using the tidyverse (tidyr&#39;s gather function)</title>
       <link>/post/wide-to-long-using-the-tidy-verse/</link>
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/wide-to-long-using-the-tidy-verse/</guid>
-      <description>A wide data storage format is an efficient and compact way to store information. And this organization perhaps it makes data easier to inspect. We have wide monitors our laptops and destops. However, for visualization and analysis you generally need to transform this data from the wide format to a “tidy”, long format.
-We look at the case where just one variable is stored in a spreadsheet.
-library(tidyverse) Suppose you have a data frame of rankings of schools by year, and the initial data set is organized as follows (I just build one with tribble()):</description>
-    </item>
-    
-    <item>
-      <title>Selection effects</title>
-      <link>/post/selection-effects/</link>
-      <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/selection-effects/</guid>
-      <description>Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
-Run this Stata code, and then tell me the logic is sound
-set obs 20000
-gen x =runiform()
-gen y = x + .1*rnormal()
-corr x y
-corr x y if x &amp;gt; .95 https://t.co/z5bE0iAH3I
-&amp;mdash; Nolan McCarty (@Nolan_Mc) June 17, 2018  My limited goals:
- translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with.</description>
+      <description>
+
+
+&lt;p&gt;A wide data storage format is an efficient and compact way to store information. And this organization perhaps it makes data easier to inspect. We have wide monitors our laptops and destops. However, for visualization and analysis you generally need to transform this data from the wide format to a “tidy”, long format.&lt;/p&gt;
+&lt;p&gt;We look at the case where just one variable is stored in a spreadsheet.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Suppose you have a data frame of rankings of schools by year, and the initial data set is organized as follows (I just build one with tribble()):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_wide &amp;lt;- tribble(~rankings_of_schools_by_year, ~`2000`, ~`2001`, ~`2002`,
+        &amp;quot;U of Illinois&amp;quot;, 1, 2,  3, 
+        &amp;quot;TU Dresden&amp;quot;, 2, 3, 1, 
+        &amp;quot;U of Denver&amp;quot;, 3, 1, 1, 
+        &amp;quot;Hogwarts&amp;quot;, 4,4,4)
+
+df_wide&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
+##   rankings_of_schools_by_year `2000` `2001` `2002`
+##   &amp;lt;chr&amp;gt;                        &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 U of Illinois                    1      2      3
+## 2 TU Dresden                       2      3      1
+## 3 U of Denver                      3      1      1
+## 4 Hogwarts                         4      4      4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Restructuring the data with gather, I define the names of columns that will contain the information in the column names (year) and the variable of interest (rank).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_long &amp;lt;- df_wide %&amp;gt;% gather(key = year, value = rank, `2000`:`2002`)
+df_long&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 12 x 3
+##    rankings_of_schools_by_year year   rank
+##    &amp;lt;chr&amp;gt;                       &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 U of Illinois               2000      1
+##  2 TU Dresden                  2000      2
+##  3 U of Denver                 2000      3
+##  4 Hogwarts                    2000      4
+##  5 U of Illinois               2001      2
+##  6 TU Dresden                  2001      3
+##  7 U of Denver                 2001      1
+##  8 Hogwarts                    2001      4
+##  9 U of Illinois               2002      3
+## 10 TU Dresden                  2002      1
+## 11 U of Denver                 2002      1
+## 12 Hogwarts                    2002      4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pretty good! But we are not all the way there. Let’s use the code above a base. We need to change the first column name to be more appropriate. Also, the years are encoded as a character variable whereas they should be numeric (in this case integers, as the years are round numbers).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_long &amp;lt;- df_wide %&amp;gt;% gather(key = year, value = rank, `2000`:`2002`) %&amp;gt;% 
+  rename(school = rankings_of_schools_by_year) %&amp;gt;% 
+  mutate(year = as.integer(year))
+df_long&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 12 x 3
+##    school         year  rank
+##    &amp;lt;chr&amp;gt;         &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 U of Illinois  2000     1
+##  2 TU Dresden     2000     2
+##  3 U of Denver    2000     3
+##  4 Hogwarts       2000     4
+##  5 U of Illinois  2001     2
+##  6 TU Dresden     2001     3
+##  7 U of Denver    2001     1
+##  8 Hogwarts       2001     4
+##  9 U of Illinois  2002     3
+## 10 TU Dresden     2002     1
+## 11 U of Denver    2002     1
+## 12 Hogwarts       2002     4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note to students: Then you might filter by year: filter(year &amp;gt; 2000).&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>The visual taming of a paradox</title>
       <link>/post/sequences-probabilities/</link>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/sequences-probabilities/</guid>
-      <description>@drob has posted code to play with on Twitter today. To illustrate what he calls a veridical paradox he’s posted the set up, the code and result of a coin flipping experiment:
-A #tidyverse simulation to demonstrate that if you wait for two heads in a row, it takes 6 flips on average, while you wait for a heads then a tails, it takes 4 flips on average
-h/t @CutTheKnotMath #rstats pic.</description>
+      <description>
+
+
+&lt;p&gt;@drob has posted code to play with on Twitter today. To illustrate what he calls a veridical paradox he’s posted the set up, the code and result of a coin flipping experiment:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;A &lt;a href=&#34;https://twitter.com/hashtag/tidyverse?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#tidyverse&lt;/a&gt; simulation to demonstrate that if you wait for two heads in a row, it takes 6 flips on average, while you wait for a heads then a tails, it takes 4 flips on average&lt;br&gt;&lt;br&gt;h/t &lt;a href=&#34;https://twitter.com/CutTheKnotMath?ref_src=twsrc%5Etfw&#34;&gt;@CutTheKnotMath&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;https://t.co/V0zgOmCy7t&#34;&gt;pic.twitter.com/V0zgOmCy7t&lt;/a&gt;&lt;/p&gt;&amp;mdash; David Robinson (@drob) &lt;a href=&#34;https://twitter.com/drob/status/1008409373423611904?ref_src=twsrc%5Etfw&#34;&gt;June 17, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;There are some good and exact explanations in the thread, for this at-first-glance puzzle. But I didn’t see a visualization that might give you quick intuition about what is going on.&lt;/p&gt;
+&lt;p&gt;So I prepare one here. We’ll use the tidyverse packages and stringr.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(stringr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;First we simulate one flip’s possible outcomes.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;one_flip &amp;lt;- tribble(
+  ~flip,
+  &amp;quot;Heads&amp;quot;, 
+  &amp;quot;Tails&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also simulate the possible outcomes for histories which have equal probability.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;two_flips &amp;lt;- crossing(one_flip, one_flip)
+two_flips&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 2
+##   flip  flip1
+##   &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
+## 1 Heads Heads
+## 2 Heads Tails
+## 3 Tails Heads
+## 4 Tails Tails&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And so on…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossing(two_flips, one_flip)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 8 x 3
+##   flip  flip1 flip2
+##   &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
+## 1 Heads Heads Heads
+## 2 Heads Heads Tails
+## 3 Heads Tails Heads
+## 4 Heads Tails Tails
+## 5 Tails Heads Heads
+## 6 Tails Heads Tails
+## 7 Tails Tails Heads
+## 8 Tails Tails Tails&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For more flips I use a for-loop. Here I just have the histories for six flips. This give us 2^5 (32) equally probable histories. This is enough, I think, to make a viz that might illuminate the paradox.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;flip_histories &amp;lt;- one_flip
+for(i in 1:4){
+flip_histories &amp;lt;- crossing(flip_histories, one_flip)
+}
+
+dim(flip_histories)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 32  5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let’s plot these histories to give us some insights about the apparent paradox.&lt;/p&gt;
+&lt;p&gt;We’ll use ggplot2(), so first we get the data into tidy form.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(flip_histories) &amp;lt;- paste0(&amp;quot;flip&amp;quot;, 1:ncol(flip_histories))
+flip_histories &amp;lt;- flip_histories %&amp;gt;% mutate(history = 1:n()) 
+
+
+tidy_df = gather(flip_histories, &amp;quot;flip&amp;quot;, &amp;quot;outcome&amp;quot;,  1:5) %&amp;gt;% 
+  mutate(flip = as.numeric(str_extract(flip, &amp;quot;\\d&amp;quot;))) %&amp;gt;% 
+  arrange(history)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we compute the position where we have observed the first heads heads pattern, and where we observed the first heads tails pattern.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tidy_df = tidy_df %&amp;gt;% group_by(history) %&amp;gt;% 
+  mutate(next_flip_outcome = lead(outcome)) %&amp;gt;% 
+  mutate(hh = outcome == &amp;quot;Heads&amp;quot; &amp;amp; next_flip_outcome == &amp;quot;Heads&amp;quot;) %&amp;gt;% 
+  mutate(first_hh = min(flip[hh], na.rm = T) + 1) %&amp;gt;% 
+  mutate(ht = outcome == &amp;quot;Heads&amp;quot; &amp;amp; next_flip_outcome == &amp;quot;Tails&amp;quot;) %&amp;gt;% 
+  mutate(first_ht = min(flip[ht], na.rm = T) + 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can plot the two scenarios of interest side-by-side. The full hypothetical histories are plotted, but the transparency is increased if the goal is reached previously in the flipping space.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(cowplot)
+g_hh &amp;lt;- ggplot(tidy_df) +
+  aes(flip, history, 
+      alpha = flip &amp;lt;= first_hh, 
+      col = outcome) +
+  geom_point() +
+  scale_alpha_discrete(range = c(.3,1)) +
+  theme_classic() +
+  labs(title = &amp;quot;Heads-heads as success case&amp;quot;) +
+  geom_hline(yintercept = seq(.5,32.5, by =1), 
+             lty = &amp;quot;dotted&amp;quot;, col = &amp;quot;grey&amp;quot;)
+
+g_ht &amp;lt;- g_hh +
+  aes(alpha = flip &amp;lt;= first_ht) +
+  labs(title = &amp;quot;Heads-tails as success case&amp;quot;) 
+
+cowplot::plot_grid(g_hh, g_ht)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-19-sequences-probabilities_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;
+You observe that the success in flips 1 and 2 for the heads-heads desired outcome leads less opportunities for flips 2 and 3 to be a success, compared with the heads-tails case. In the heads-heads case, success is the kind of success that quenches more success.&lt;/p&gt;
+&lt;p&gt;It might be fun too plot these as branching might-have-been networks (like with tidygraph!). But I will leave that for someone else or another day.&lt;/p&gt;
+&lt;div id=&#34;packages-used&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Packages used:&lt;/h1&gt;
+&lt;p&gt;H. Wickham. ggplot2: Elegant Graphics for Data
+Analysis. Springer-Verlag New York, 2016.&lt;/p&gt;
+&lt;p&gt;Hadley Wickham, Romain François, Lionel Henry and
+Kirill Müller (2018). dplyr: A Grammar of Data
+Manipulation. R package version 0.7.5.
+&lt;a href=&#34;https://CRAN.R-project.org/package=dplyr&#34; class=&#34;uri&#34;&gt;https://CRAN.R-project.org/package=dplyr&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hadley Wickham and Lionel Henry (2018). tidyr: Easily
+Tidy Data with ‘spread()’ and ‘gather()’ Functions. R
+package version 0.8.1.
+&lt;a href=&#34;https://CRAN.R-project.org/package=tidyr&#34; class=&#34;uri&#34;&gt;https://CRAN.R-project.org/package=tidyr&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Claus O. Wilke (2017).
+cowplot: Streamlined
+Plot Theme and Plot
+Annotations for
+‘ggplot2’. R package
+version 0.9.2.
+&lt;a href=&#34;https://CRAN.R-project.org/package=cowplot&#34; class=&#34;uri&#34;&gt;https://CRAN.R-project.org/package=cowplot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hadley Wickham (2018).
+stringr: Simple,
+Consistent Wrappers for
+Common String
+Operations. R package
+version 1.3.1.
+&lt;a href=&#34;https://CRAN.R-project.org/package=stringr&#34; class=&#34;uri&#34;&gt;https://CRAN.R-project.org/package=stringr&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Federalist Papers</title>
       <link>/post/federalist-papers/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/federalist-papers/</guid>
-      <description>Every couple of weeks I like to explore data that’s brand new to me. I anticipate a one-hour, one-off project. Usually this turns out to be a beautiful lie, and the projects chew up much more time. Still, this enticing time-line is pulling me into new projects from time to time.
-Earlier this week, I heard about the dispute of authorship of some of the Federalist papers.
-&amp;quot;Hamilton wrote the other 51!</description>
+      <description>
+
+
+&lt;p&gt;Every couple of weeks I like to explore data that’s brand new to me. I anticipate a one-hour, one-off project. Usually this turns out to be a beautiful lie, and the projects chew up much more time. Still, this enticing time-line is pulling me into new projects from time to time.&lt;/p&gt;
+&lt;p&gt;Earlier this week, I heard about the dispute of authorship of some of the Federalist papers.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&amp;quot;Hamilton wrote the other 51!&amp;quot;, go the unqualified song lyrics. But did he? 😮 Federalist papers authorship inquiries sound like a great way to introduce &lt;a href=&#34;https://twitter.com/hashtag/textasdata?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#textasdata&lt;/a&gt; ideas, especially to Hamilton the Musical fans. Musings upon read of &lt;a href=&#34;https://twitter.com/arthur_spirling?ref_src=twsrc%5Etfw&#34;&gt;@arthur_spirling&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/ptrckprry?ref_src=twsrc%5Etfw&#34;&gt;@ptrckprry&lt;/a&gt;&amp;#39;s &amp;quot;boring&amp;quot;.👍 &lt;a href=&#34;https://t.co/nm4AoVeOTU&#34;&gt;https://t.co/nm4AoVeOTU&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/1006966922699788290?ref_src=twsrc%5Etfw&#34;&gt;June 13, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;I mentally flagged the topic for one a one-hour, one-off. A who-done-it of text analysis, that conjures up the songs of the biggest Broadway hit since … take your pick. What’s not to like?&lt;/p&gt;
+&lt;p&gt;Also, I’ve been working on a visualization procedure for small corpora like this one; this would be another chance to try it out. The procedure visualizes documents as nodes in a network, and connects the documents with edges only if for the pair, their similarity scores are in the top percentiles for one or the other of the pair members.&lt;/p&gt;
+&lt;p&gt;I don’t see other researchers doing this which makes me worry that: 1) there are principled reasons not to do this or 2) I’m not googling hard enough. Regarding the former, in creating such a graph, there is some arbitrary decision-work to be done: what is the similarity score to be used; what threshold of should be used for drawing connections; and which network layout should be draw?
+&lt;!-- ; random plus the orientation and projection of the layout leads to different plot realized. --&gt;
+A critic might think that, given these decisions, this type of visual summary of a corpus in the best case is impressionistic, and in the worst case invites misinterpretation. The later can be managed, I think, if there is enough time/space to talk/write about the decisions made in creating the graph.&lt;/p&gt;
+&lt;p&gt;Putting aside these concerns, I can put together this visualization contentedly.&lt;/p&gt;
+&lt;p&gt;The deciding factor for moving ahead with this quick project was that the Federalist Papers were ready-to-use in corpus in &lt;a href=&#34;https://CRAN.R-project.org/package=corpus&#34;&gt;the R package “corpus”, by Patrick O. Perry&lt;/a&gt;. Sold! Install and load package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(corpus)    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I was also “sold” by the size of the corpus. The Federalist Paper, with its 85 documents lends to my small-corpus network graph visualization. Network graphs tend to get messy and overwhelming looking with more than 100 nodes. Developing this visualization technique, I’ve used a few corpora that have well beyond 100 documents, like UN Security Council Resolutions (in an ongoing project with &lt;span class=&#34;citation&#34;&gt;@felixhass&lt;/span&gt; and &lt;span class=&#34;citation&#34;&gt;@F_Bethke&lt;/span&gt;, &amp;gt; 2000 documents); Research &amp;amp; Politics Articles (solo, ~ 200 documents); and National Anthems (in ongoing work with &lt;span class=&#34;citation&#34;&gt;@marinkobobic&lt;/span&gt; and &lt;span class=&#34;citation&#34;&gt;@Jarek_Kantor&lt;/span&gt;, ~ 200 documents), and the options with these way-too-large and too-large corpora is to subsample and plot, or to just leave things messy. But the trim Federalist Papers doesn’t present this problem!&lt;/p&gt;
+&lt;div id=&#34;the-question&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The question&lt;/h1&gt;
+&lt;p&gt;My question was whether this visualization method could provide insight into who wrote the disputed essays. Apparently Hamilton claimed quite a few more essays, that later Madison claimed that he wrote. Lin Manuel Miranda’s lyrics are consistent with conservative 51 essays for Hamilton. Of course there is a lot of fantastic work already done on this, but I just ignore this fact for the sake of the exercise. The &lt;em&gt;federalist&lt;/em&gt; dataset in the &lt;em&gt;corpus&lt;/em&gt; package provides authors if known; but disputed authorship is designated NA.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(federalist$author, useNA = &amp;quot;ifany&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Hamilton      Jay  Madison     &amp;lt;NA&amp;gt; 
+##       51        5       14       15&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In fact, in the end, I’ll present two network visualizations, using different preparations of the data. For the first, I use the text preprocessing methods that I’ve previously used with this vis technique, which, I think is appropriate for thematically associating documents. For the second, I reduce the amount of text preprocessing, which might in better who-wrote-it, “textual forensics” work. This mirrors how this mini-project developed, and I think two approaches are interesting to contrast.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;getting-started&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Getting started&lt;/h1&gt;
+&lt;p&gt;One thing that I like about this four-hour-and-counting project (my one-hour one-off dreams elude me again), is that it makes use of so many of my favorite packages. Let’s load them.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(quanteda)  # text analysis
+library(tidyverse) # ggplot for graphing and dplyr for wrangling
+library(tidygraph)  # for relational data manipulation
+library(igraph)    # network graph tools
+library(ggraph)   # the link between ggplot and 
+library(viridis)   # for better color palette for points on map
+library(plotly)  # plan to use this in the future, for mouse-over and view full text. &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we prepare the corpus. We use a bag-of-words approach, where the tokens of each document are counted. This is done using the document feature matrix function or dfm(). I set several preprocessing options to “true”; I think these represent pretty typical preprocessing choices.&lt;/p&gt;
+&lt;p&gt;Using the preprocessed data, we calculate a similarity score. I use the popular &lt;em&gt;cosine similarity&lt;/em&gt; in this exercise. The procedure looks at the “direction” of the vector of a document created with each token as a dimension, and compares this to that calculated for other documents. A similarity scores between 0 (low similarity) and 1 (identical token ratios) results for each document pair. Here is the code, which uses functions from the quanteda package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus &amp;lt;- corpus(federalist)
+
+dfm &amp;lt;- dfm(corpus, 
+            remove_numbers = T,
+             remove_punct = T,
+              remove_separators = T,
+           stem = T,
+            remove = stopwords(&amp;quot;english&amp;quot;)
+           )
+
+# Calculate cosine similarity
+similarity &amp;lt;- 
+  textstat_simil(dfm, 
+                 method = &amp;quot;cosine&amp;quot;,
+                 upper = T, diag = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Arguments upper, diag not used.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resulting-graph&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Resulting Graph&lt;/h1&gt;
+&lt;p&gt;Now the resulting similarity matrix, and treat it as the basis for my network matrix. I simply need to have ones-and-zeros instead of the similarity measure (which takes values between 0 and 1).&lt;/p&gt;
+&lt;p&gt;There are different procedures that I could apply. What I think works well and makes sense for corpus visualizations is to draw an edge (1) when, for a pair of documents, the cosign similarity for the pair is within the top quantile (say .95) of the set of document similarities for either pair member; otherwise don’t draw an edge (0). My rule here is that a connection should be drawn to the top two most similar documents from any document.&lt;/p&gt;
+&lt;p&gt;In this blogpost I’m not going to echo all the code. It is a bit lengthy; it could also stand to be cleaned up a bit. (I haven’t yet implemented the power of the &lt;em&gt;tidygraph&lt;/em&gt; package - which I’ve tried elsewhere; it is all that you would hope for!) Perhaps, it is that want I like to keep a few implementation secrets to myself, at least at this point.&lt;/p&gt;
+&lt;p&gt;So I just give you the resulting graph:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: colour&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;take-2-a-revised-preparation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Take 2: A revised preparation&lt;/h1&gt;
+&lt;p&gt;Now I do the same thing using the alternate preparation. When I used the above preprocessing method, basically the template that I’d used before, I felt disappointed. I expected there to be more “clustering” among the authors; but what seemed to really dominate was topics. It made sense, but I still felt let down.&lt;/p&gt;
+&lt;p&gt;Thankfully, I took a step back from fiddling with the graphing parameters to review all the code. I came back to the preprocessing code. Hmm. What was being done to alter the raw text? Lots! And there could be the idiosyncratic, tell-tale authorship “signatures” in what was being removed and standardized. So, I modified the preprocessing step to do less to the raw text; below I just comment out the options so the difference is clear. Instead of removing stopwords, we keep them. And we don’t do any stemming. We keep punctuation and numbers too. Then I prep the recalculated similarity scores into an adjacency matrix to allow for a revised network graph.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corpus &amp;lt;- corpus(federalist)
+
+dfm &amp;lt;- dfm(corpus, 
+           # remove_numbers = T,
+            # remove_punct = T,
+             remove_separators = T #,
+            # stem = T,
+            # remove = stopwords(&amp;quot;english&amp;quot;)
+           )
+
+# Calculate cosine similarity
+similarity &amp;lt;- 
+  textstat_simil(dfm, 
+                 method = &amp;quot;cosine&amp;quot;,
+                 upper = T, diag = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Arguments upper, diag not used.&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;graphs-when-cosign-similarity-contains-stop-words&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Graphs when cosign similarity contains stop words&lt;/h2&gt;
+&lt;p&gt;The adjacency matrix is prepped in the exact same way as before.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in summary_character(texts(object), n = n, tolower = tolower, ...):
+## verbose argument is defunct&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: colour&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;That’s more like it! I was hoping to observe more separation between authors, and with less preprocessing, that’s exactly what we see. Great!&lt;/p&gt;
+&lt;p&gt;Also in other analyses the disputed texts are in the Madison “zone”, and most scholars that have done textual studies believe the texts were indeed written by Madison, and a few maybe jointly by Madison and Hamilton.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrapping-up&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Wrapping up&lt;/h1&gt;
+&lt;div id=&#34;worries&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Worries&lt;/h2&gt;
+&lt;p&gt;The unsatisfying thing about this exercise is that you don’t know which particular word choices and idiosyncratic features drive similarities. But that is the case when using a summary like cosign similarity. You would have to dig in further to look at influential components, I suppose.&lt;/p&gt;
+&lt;p&gt;I’m always worried that length of documents drive statistic too. Maybe length of documents contributes to finding cosign similarities. Madison’s works on average are longer than Hamilton’s. Could this be driving things. Maybe.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = c(&amp;quot;name&amp;quot;, &amp;quot;title&amp;quot;, &amp;quot;venue&amp;quot;, &amp;quot;date&amp;quot;, &amp;quot;author&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-alternative&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Alternative&lt;/h2&gt;
+&lt;p&gt;Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we aren’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.&lt;/p&gt;
+&lt;p&gt;I make it here, sorting by author, but I don’t really clean it up, maybe to put my technique in the best light, maybe because I’ve really spent too much time on this. But, I think there is something charming and likable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Arguments upper, diag not used.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;1344&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Covariance -- A Visual Walk Through</title>
       <link>/post/geometric-covariance/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/geometric-covariance/</guid>
-      <description>In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.
-Covariance is a measure of the joint variability of two random variables.
-Let’s have a look at the sample covariance equation over all:
-\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)
-And now lets apply the equation to the following case:
-Ready? Okay, now let’s walk through the calculation; there are 7 small steps:</description>
-    </item>
-    
-    <item>
-      <title>Eat near the Big Ben?  That will cost you...</title>
-      <link>/post/eat-near-the-big-ben-that-will-cost-you/</link>
-      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/eat-near-the-big-ben-that-will-cost-you/</guid>
-      <description>What’s the cost of eating near an iconic location? We all might suspect eating in a fun location is pricier. I used the menu and restaurant location data that #MakeoverMonday “assigned” one week last December to demonstrate this among London Wetherspoon Pubs.
-#MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool. But I’ve used R and ggplot() and the organizers and participants have been very welcoming.</description>
-    </item>
-    
-    <item>
-      <title>What’s the IGO dataset?</title>
-      <link>/post/what-s-the-igo-dataset/</link>
-      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/what-s-the-igo-dataset/</guid>
-      <description>## Registered S3 method overwritten by &amp;#39;printr&amp;#39;: ## method from ## knit_print.data.frame rmarkdown The International Organization v2.3 dataset is a rich resource for scholars of international relations. Tracking the existence of international organizations and country memberships in them, the data’s various version have been cited over 450 times. Version 2.3 covers the time period 1815 to 2005, and records information about 529 IGOs and membership information for over two million country-igo-year observations.</description>
+      <description>
+
+
+&lt;p&gt;In a previous post, I’ve looked at walking through the calculation of variance and standard deviation, visualizing each step. This post is dedicated to the visualization of another statistic: covariance.&lt;/p&gt;
+&lt;p&gt;Covariance is a measure of the joint variability of two random variables.&lt;/p&gt;
+&lt;p&gt;Let’s have a look at the &lt;em&gt;sample&lt;/em&gt; covariance equation over all:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And now lets apply the equation to the following case:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;scatter &amp;lt;- ggplot(df) + 
+  theme_classic() +
+  coord_fixed() +
+  aes(x, y, fill = rectangle &amp;gt; 0) +
+  geom_point() 
+
+scatter&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Ready? Okay, now let’s walk through the calculation; there are 7 small steps:&lt;/p&gt;
+&lt;div id=&#34;step-1-find-the-mean-of-x&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 1: find the mean of x:&lt;/h1&gt;
+&lt;div id=&#34;overlinex&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\(\overline{x}\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;scatter + geom_rug(aes(y = NULL)) +
+  geom_vline(xintercept = mean(x), lty = &amp;quot;dashed&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-find-the-mean-of-y&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 2: find the mean of y&lt;/h1&gt;
+&lt;div id=&#34;overliney&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\(\overline{y}\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;scatter_means &amp;lt;- scatter + 
+  geom_vline(xintercept = mean(x), lty = &amp;quot;dashed&amp;quot;) +
+  geom_hline(yintercept = mean(y), lty = &amp;quot;dashed&amp;quot;)
+
+
+scatter_means + geom_rug(aes(x = NULL)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3-calculate-difference-between-x-and-mean-of-x&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 3: calculate difference between x and mean of x&lt;/h1&gt;
+&lt;div id=&#34;x_i-overlinex&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_i-\overline{x}\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;scatter_means +
+  geom_segment(mapping = aes(col = x &amp;gt; mean(x)), xend = mean(x), yend = y,  
+               arrow = arrow(ends = &amp;quot;first&amp;quot;, length = unit(0.1, &amp;quot;inches&amp;quot;))) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4-calculate-difference-between-y-and-mean-of-y&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 4: calculate difference between y and mean of y&lt;/h1&gt;
+&lt;div id=&#34;y_i-overliney&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\(y_i-\overline{y}\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  geom_segment(mapping = aes(col = y &amp;gt; mean(y)), xend = x, yend = mean(y),  
+               arrow = arrow(ends = &amp;quot;first&amp;quot;, length = unit(0.1, &amp;quot;inches&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-5-multiply-these-differences-observation-wise&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 5: multiply these differences (observation-wise)&lt;/h1&gt;
+&lt;div id=&#34;x_i-overlinexy_i-overliney&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\((x_i-\overline{x})(y_i-\overline{y})\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
+  geom_rect(xmin = mean(x), ymin = mean(y), 
+            ymax = y, xmax = x, alpha = .2  ) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-6-add-these-areas&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 6: Add these areas&lt;/h1&gt;
+&lt;div id=&#34;sum_1n-x_i-overlinexy_i-overliney&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sum_1^n (x_i-\overline{x})(y_i-\overline{y})\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df %&amp;gt;% arrange(x)) +
+  aes(y = rectangle, x = as.factor(1:nrow(df)),  fill = rectangle&amp;gt;0) +
+  geom_col(alpha = .2) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-7-divide-through-by-number-of-observations-minus-1-the-result-will-a-bit-larger-in-magnitude-than-the-average&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 7: Divide through by number of observations minus 1 (the result will a bit larger in magnitude than the average)&lt;/h1&gt;
+&lt;div id=&#34;covxy-fracsum_i1n-x_i-overlinexy_i-overlineyn-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;math inline&#34;&gt;\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)&lt;/span&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +
+  geom_col(aes(y = sum(rectangle)/(nrow(df)-1)), 
+           alpha = .2, fill = &amp;quot;grey&amp;quot;) +
+  geom_hline(yintercept = sum(df$rectangle)/(nrow(df)-1), lty = &amp;quot;dotted&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;That’s it.&lt;/p&gt;
+&lt;p&gt;Now we can compare this visualized result to what we would get if we simply trust the R covariance function to calculate this for us.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(df$rectangle)/(nrow(df)-1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4766744&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cov(x,y) # Calculation for **sample** covariance&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4766744&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Great. It’s a match!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discussion-question&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Discussion question&lt;/h1&gt;
+&lt;p&gt;What would the units of unadjusted covariance be for the covariance between life expectancy in years and per capita gdp in dollars?&lt;/p&gt;
+&lt;p&gt;Note: The normalized version of covariance is Pearson’s correlation coefficient.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;p&gt;R Core Team (2018). R: A
+language and environment
+for statistical
+computing. R Foundation
+for Statistical
+Computing, Vienna,
+Austria. URL
+&lt;a href=&#34;https://www.R-project.org/&#34; class=&#34;uri&#34;&gt;https://www.R-project.org/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;H. Wickham. ggplot2:
+Elegant Graphics for
+Data Analysis.
+Springer-Verlag New
+York, 2016.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Central Limit Theorem Demonstration</title>
       <link>/post/central-limit-theorem/</link>
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/central-limit-theorem/</guid>
-      <description>Sir Francis Galton described the Central Limit Theorem in this way:
-I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”
-Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.</description>
+      <description>
+
+
+&lt;p&gt;Sir Francis Galton described the Central Limit Theorem in this way:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.) The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).&lt;/p&gt;
+&lt;p&gt;To think about this more, we conduct a thought experiment accompanied by a computational experiment.&lt;/p&gt;
+&lt;div id=&#34;the-population&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The population&lt;/h1&gt;
+&lt;p&gt;In the experiment we’ll be omniscient, but then we’ll think about the perspective of an observer whose knowledge is limited.&lt;/p&gt;
+&lt;p&gt;As the omniscience being, we will know all about the population and will even create it. Let’s do that now.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- runif(10000) # create a popluation with measurable x&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(x_pop)  # what does the distribution look like for x&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x_pop)  # True mean of x (popluation mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5009756&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-sample&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A sample&lt;/h1&gt;
+&lt;p&gt;Now let’s think about the researcher who is not omniscient, but will only observe a random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a &lt;em&gt;random&lt;/em&gt; sample.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_sample &amp;lt;- 
+  sample(x = x_pop,
+         size = 30)
+mean(x_sample) # sample mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5661418&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Interesting. The sample mean for this one sample is not so far from the population mean.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;samples-that-might-have-been&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Samples that might have been&lt;/h1&gt;
+&lt;p&gt;In general, how far would we expect the sample mean to be from the population mean? What might we have observed if different samples had been taken?&lt;/p&gt;
+&lt;p&gt;We are going to use a “for-loop” consider all the samples that might have been taken.&lt;/p&gt;
+&lt;p&gt;A “for-loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.&lt;/p&gt;
+&lt;p&gt;Here is a simple for loop. The loop performs a task (printing “Number:” and the time through the loop) ten times, where the input i changes from 1 to 10.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:10){
+print(paste(&amp;quot;Number:&amp;quot;, i))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Number: 1&amp;quot;
+## [1] &amp;quot;Number: 2&amp;quot;
+## [1] &amp;quot;Number: 3&amp;quot;
+## [1] &amp;quot;Number: 4&amp;quot;
+## [1] &amp;quot;Number: 5&amp;quot;
+## [1] &amp;quot;Number: 6&amp;quot;
+## [1] &amp;quot;Number: 7&amp;quot;
+## [1] &amp;quot;Number: 8&amp;quot;
+## [1] &amp;quot;Number: 9&amp;quot;
+## [1] &amp;quot;Number: 10&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now back our thought experiment about sampling. What are our expectations about the distribution of sampling means that might be observed for a random sample of the same size?&lt;/p&gt;
+&lt;p&gt;Let’s repeat the procedure we did above, ten times through. We use the for-loop to do this work for us. We need to use print() in a for-loop to display output.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:10){
+  x_sample &amp;lt;- sample(x_pop, 30)
+  print(mean(x_sample)) # sample mean  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5015194
+## [1] 0.4753519
+## [1] 0.4693124
+## [1] 0.5646499
+## [1] 0.5175532
+## [1] 0.6282303
+## [1] 0.4732468
+## [1] 0.4848752
+## [1] 0.5227368
+## [1] 0.4587136&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;expectations-in-the-limit&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Expectations in the limit&lt;/h1&gt;
+&lt;p&gt;By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Expectations for repeated sampling
+all_samples_means &amp;lt;- c() # this vector is an empty container where we will save means
+for(i in 1:10000){
+  x_sample &amp;lt;- sample(x = x_pop, size = 30)
+  all_samples_means[i] &amp;lt;- mean(x_sample) # save the mean for trial i in position i in vector 
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have a vector of sample means that we could have observed, if different samples were realized.&lt;/p&gt;
+&lt;p&gt;Lets use the hist() function to have a quick look at the distribution of the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(all_samples_means)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You will notice that the might-have-been-observed sample means are centered around the true population mean. And that these sample means are normally distributed. This regularity is the observation of the Central Limit Theorem that has Galton (and now you?) so excited.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;going-further-other-population-distributions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Going further: Other population distributions&lt;/h1&gt;
+&lt;p&gt;What if the distribution in our population looked different? What would the expectation for the distribution of sample means look like?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- c(rnorm(400), runif(600))
+hist(x_pop)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x_pop &amp;lt;- c(rnorm(50,mean = 10), rnorm(50, mean = 5)) 
+hist(x_pop)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Galton’s quotation continues: &lt;em&gt;Whenever a large sample of chaotic elements are taken in hand and marshalled in the order of their magnitude, an unsuspected and most beautiful form of regularity proves to have been latent all along.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;What is the regularity that you find in the results, with different populations as the starting point?&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
-      <title>From N to Standard Deviation: Visualizing Univariate Statistics</title>
+      <title>From N to Standard Deviation</title>
       <link>/post/univariate-statistics-visualizing-variance/</link>
       <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/univariate-statistics-visualizing-variance/</guid>
-      <description>This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.
-This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.
-I’m most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across a nice visualization of variance explained but couldn’t find a visualization just focused on explaining the variance itself.</description>
-    </item>
-    
-    <item>
-      <title>Winter Games and Athlete Ages</title>
-      <link>/post/winter-games-and-athlete-ages/</link>
-      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/winter-games-and-athlete-ages/</guid>
-      <description>In February, I made a plot on athletes ages at the Winter Olympics for the data visualization initiative #MakeoverMonday. The initiative is mostly Tableau enthusiasts practicing data visualization techniques. I use it to practice visualization with R. It also serves as a forum for chatting about what works and what doesn’t work in communication data visually which can be good food for thought. My viz had this description:
-Winter games individual medalists are most likely to be athletes in their twenties.</description>
+      <description>
+
+
+&lt;p&gt;This post goes back and forth between computing statistics for a single variable and visualizing these values. I’m using a subset of the gapminder dataset — European countries in 2007, and focusing on the Life Expectancy variable.&lt;/p&gt;
+&lt;p&gt;This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.&lt;/p&gt;
+&lt;p&gt;I’m most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across &lt;a href=&#34;https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/&#34;&gt;a nice visualization of variance explained&lt;/a&gt; but couldn’t find a visualization just focused on explaining the variance itself. So I made one with ggplot(). You’ll find it in the second half of the post! (I’m going back and forth about whether to include to the code for the plots or not.)&lt;/p&gt;
+&lt;p&gt;So first we load the tidyverse, which will load ggplot for data visualization and dplyr which we’ll use for data manipulation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(gapminder)
+gapminder_2007_europe &amp;lt;- 
+  gapminder %&amp;gt;% 
+  filter(year == 2007) %&amp;gt;% 
+  filter(continent == &amp;quot;Europe&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now I prep a very basic plot. It several lines of code, but most of it is styling; you can actually get away with just the first three lines.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;n&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;N&lt;/h1&gt;
+&lt;p&gt;You can count the number of observations in your data set using the function, nrow().&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nrow(gapminder_2007_europe)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 30&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Below is one way to tally the number of observations that are missing (NA) in the variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# how many missing?
+sum(is.na(gapminder_2007_europe$lifeExp))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# how many not missing?
+sum(!is.na(gapminder_2007_europe$lifeExp))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 30&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;measures-of-central-tendancy&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Measures of Central Tendancy&lt;/h1&gt;
+&lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Mean&lt;/h2&gt;
+&lt;p&gt;The mean is the sum of the values of a variable divided by the number of values. It is a measure of “central tendancy.”&lt;/p&gt;
+&lt;p&gt;The mean can also be thought of as a balancing point. It the point that, if the folcrum of a balance, with weights of of equal weight at each of the values of the observations, would result in a balanced scale.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\mu = \frac{\sum_{i=1}^{n}x_i}{n}\]&lt;/span&gt;
+In R you can use the mean function to compute this value.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(gapminder_2007_europe$lifeExp)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 77.6486&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the following plot, the mean is plotted in red.&lt;br /&gt;
+&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;measures-of-central-tendency-median&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Measures of Central Tendency: Median&lt;/h2&gt;
+&lt;p&gt;Another measure of centrality is the median. The median is the value that has the central position when all the values of are arranged in order.&lt;/p&gt;
+&lt;p&gt;In R you can comute the median with the function, median().&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(gapminder_2007_europe$lifeExp)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 78.6085&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the following plot, the median is shown in blue.
+&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;measures-of-spread&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Measures of spread&lt;/h1&gt;
+&lt;div id=&#34;range&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Range&lt;/h2&gt;
+&lt;p&gt;The function range() will return the min and max of a variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;range(gapminder_2007_europe$lifeExp)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 71.777 81.757&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I add the min and max on the plot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;measures-of-spreaddistribution&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Measures of spread/distribution&lt;/h1&gt;
+&lt;div id=&#34;range-median-innerquartile-range&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Range + Median + Innerquartile Range&lt;/h2&gt;
+&lt;p&gt;To find the value at the lower and upper quartile of the data, I usually use quantile, which the argument probs set equal to .25 and .75.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(gapminder_2007_europe$lifeExp, 
+         probs = c(.25,.75))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      25%      75% 
+## 75.02975 79.81225&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;communicating-spreaddistribution&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Communicating spread/distribution&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;boxplot&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Boxplot&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;measure-of-spread&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Measure of spread&lt;/h1&gt;
+&lt;div id=&#34;variance&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Variance&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You can also use summary to calculate all of these things at once.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(gapminder_2007_europe$lifeExp)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   71.78   75.03   78.61   77.65   79.81   81.76&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Summary can be used on an entire dataframe too.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(gapminder_2007_europe)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    country      continent       year         lifeExp     
+##  Albania               : 1   Africa  : 0   Min.   :2007   Min.   :71.78  
+##  Austria               : 1   Americas: 0   1st Qu.:2007   1st Qu.:75.03  
+##  Belgium               : 1   Asia    : 0   Median :2007   Median :78.61  
+##  Bosnia and Herzegovina: 1   Europe  :30   Mean   :2007   Mean   :77.65  
+##  Bulgaria              : 1   Oceania : 0   3rd Qu.:2007   3rd Qu.:79.81  
+##  Croatia               : 1                 Max.   :2007   Max.   :81.76  
+##  (Other)               :24                                               
+##       pop             gdpPercap    
+##  Min.   :  301931   Min.   : 5937  
+##  1st Qu.: 4780560   1st Qu.:14812  
+##  Median : 9493598   Median :28054  
+##  Mean   :19536618   Mean   :25054  
+##  3rd Qu.:20849695   3rd Qu.:33818  
+##  Max.   :82400996   Max.   :49357  
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;variance-visual-walk-through&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Variance: Visual walk through&lt;/h1&gt;
+&lt;p&gt;Now let’s walk through this formula piece by piece. First we need the mean.&lt;/p&gt;
+&lt;p&gt;Variance:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The difference between and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line.&lt;/p&gt;
+
+&lt;p&gt;Variance:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;
+
+Calculation for Romania: &lt;span class=&#34;math inline&#34;&gt;\((x_{Romania} - \mu)\)&lt;/span&gt;
+
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Variance:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Then we need to square that difference. This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy. It is a transparent green square in the plot.&lt;/p&gt;
+
+&lt;p&gt;Calculation for Romania:
+&lt;span class=&#34;math inline&#34;&gt;\((x_{Romania} - \mu)^2\)&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Variance:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-22-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The mean for these areas is the variance.&lt;/p&gt;
+&lt;p&gt;We sum up all of the resulting areas that are shown in the plot (note that these are overlapping):&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sum_{i=1}^{n}(x_i - \mu)^2\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I’m plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square’s area is the average area for all the squares plotted above, and is equal to the variance.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;standard-deviation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Standard Deviation:&lt;/h1&gt;
+&lt;p&gt;Now, calculating the standard deviation is straightforward. Take the square root of the variance.&lt;/p&gt;
+&lt;p&gt;Standard Deviation:
+&lt;span class=&#34;math inline&#34;&gt;\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-24-1.png&#34; width=&#34;672&#34; height=&#34;2in&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Quiz question:&lt;/p&gt;
+&lt;p&gt;What are the units of each?&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>Layered Presentation of Graphics with &#43;aes() in ggplot2</title>
       <link>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/layered-presentation-of-graphics-with-aes-in-ggplot2/</guid>
-      <description>Here is the post is about how to implement a layered presentation of a graphics. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &amp;gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.
-My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:</description>
+      <description>
+
+
+&lt;p&gt;Here is the post is about how to implement a &lt;em&gt;layered presentation of a graphics&lt;/em&gt;. Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of &amp;gt; 1500 likes! Practical, pedegogical stuff tends to get people excited. True for me too.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My best tip on how to give better quantitative presentations is to (a) use more plots and (b) build up your plots on multiple overlays, as in:&lt;br&gt;&lt;br&gt;- Just x-axis (explain it)&lt;br&gt;- Add y-axis (explain it)&lt;br&gt;- Add 1 data point (explain it)&lt;br&gt;- Plot the rest of the data (explain it)&lt;/p&gt;&amp;mdash; Matt Blackwell (@matt_blackwell) &lt;a href=&#34;https://twitter.com/matt_blackwell/status/991004129198854145?ref_src=twsrc%5Etfw&#34;&gt;April 30, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Anyway, this to me sounded a lot like the ggplot “layered grammar of graphics” ideology, and I retweeted this thought which resonated with a lot fewer people!&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Good ideas!  Very &lt;a href=&#34;https://twitter.com/hashtag/ggplot?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot&lt;/a&gt;.  A layered presentation of graphics. &lt;a href=&#34;https://t.co/M4tRB9bGS5&#34;&gt;https://t.co/M4tRB9bGS5&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/991269331257487366?ref_src=twsrc%5Etfw&#34;&gt;May 1, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;So then I set out to write an implementation with ggplot. I actually wrote a couple of implementations and what follows is my favorite, which is demonstrated using a year of data from the gapminder data package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(gapminder)
+data = gapminder %&amp;gt;% filter(continent == &amp;quot;Americas&amp;quot; &amp;amp; year == 2002)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Okay, the data is ready and packages loaded. Now for plotting:&lt;/p&gt;
+&lt;div id=&#34;step-1-just-x-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 1: Just x-axis (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data) +              # declare the data you want to use
+  aes(x = gdpPercap) +      # declare the aesthetic mapping for x
+  theme_bw(base_size = 20)  # we want label sizes to be a bit bigger&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-just-y-axis-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 2: Just y-axis (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() +      # we just add to the last plot
+  aes(y = lifeExp) # add the aesthetic mapping for y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3-add-1-data-point-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 3: Add 1 data point (explain it)&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  geom_point() +  # declare the geom to add 
+  aes(alpha = country == &amp;quot;Chile&amp;quot;) +  # alpha is transparency aesthetic
+  scale_alpha_discrete(guide = FALSE, range = c(0,1)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Using alpha for a discrete variable is not advised.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Above, we use an extreme range, so Chile is fully opaque and the rest of the points are fully transparent. So the point for Chile is the only point that will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4-plot-the-rest-of-the-data-explain-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 4: Plot the rest of the data (explain it)&lt;/h1&gt;
+&lt;p&gt;Now we overwrite the alpha levels so that all are observations (countries) are represented with a fully opaque point.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;last_plot() + 
+  scale_alpha_discrete(guide = FALSE, range = c(1,1)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Using alpha for a discrete variable is not advised.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Scale for &amp;#39;alpha&amp;#39; is already present. Adding another scale for &amp;#39;alpha&amp;#39;,
+## which will replace the existing scale.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Done!&lt;/p&gt;
+&lt;p&gt;So, a (big) bonus of this exercise was discovering that you can use aes() to set global aesthetics outside of the ggplot() function. This is not the usual way that ggplot is taught (see the RStudio Cheatsheats for example) but I &lt;em&gt;really&lt;/em&gt; like it, because using it gives you even more of that “building-up-the-plot”, step-by-step, layered feel that makes ggplot so attractive!&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
       <title>First Blogdown blogpost</title>
       <link>/post/first-blogdown-post/</link>
       <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/first-blogdown-post/</guid>
-      <description>This is my first post just a test of blogdown.
-It seems to be working fine also with this R code.
-x = 5 x^2 ## [1] 25 And this Python code:
-print(&amp;quot;hello&amp;quot; + &amp;quot;there&amp;quot;) ## hellothere Let’s check out how a graph looks too:
-library(ggplot2) ggplot(mtcars) + aes(mpg, disp, col = as.factor(cyl)) + geom_point() Looks good. I’m very satisfied. Hooray for blogdown!</description>
+      <description>
+
+
+&lt;p&gt;This is my first post just a test of blogdown.&lt;/p&gt;
+&lt;p&gt;It seems to be working fine also with this R code.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x = 5
+x^2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And this Python code:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;hello&amp;quot; + &amp;quot;there&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hellothere&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s check out how a graph looks too:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+ggplot(mtcars) +
+  aes(mpg, disp, col = as.factor(cyl)) +
+  geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looks good. I’m very satisfied. Hooray for blogdown!&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Academic Hugo and Blogdown</title>
-      <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0200</pubDate>
-      
-      <guid>/post/getting-started/</guid>
-      <description>About Academic Hugo from the creator:
-Academic is a framework to help you create a beautiful website quickly. Perfect for personal sites, blogs, or business/project sites. Check out the latest demo of what you&amp;rsquo;ll get in less than 10 minutes. Then head on over to the Quick Start guide or take a look at the Release Notes.
+      <title>Hello R Markdown</title>
+      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <description>
 
-About Blogdown:
-https://bookdown.org/yihui/blogdown/
-https://alison.rbind.io/post/up-and-running-with-blogdown/ (very helpful step-by-step instructions)</description>
+
+&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A fancy pie chart.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

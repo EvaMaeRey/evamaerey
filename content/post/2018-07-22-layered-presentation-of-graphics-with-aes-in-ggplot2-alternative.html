@@ -28,7 +28,7 @@ my_data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year =
   aes(x = gdpPercap) +       # declare the aesthetic mapping for x
   theme_bw(base_size = 20) + # we want label sizes to be a bit bigger
   labs(x = &quot;Per capita GDP\n(US$, inflation-adjusted)&quot;) </code></pre>
-<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>                             # instead of variable name, we give x axis a nice name</code></pre>
 </div>
 <div id="step-2-just-y-axis-explain-it" class="section level1">
@@ -36,13 +36,13 @@ my_data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year =
 <pre class="r"><code>last_plot() +        # we just add to the last plot
   aes(y = lifeExp) + # add the aesthetic mapping for y 
   labs(y = &quot;Life Expectancy\n(years)&quot;) # a nice axis label</code></pre>
-<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="step-3-add-1-data-point-explain-it" class="section level1">
 <h1>Step 3: Add 1 data point (explain it)</h1>
 <pre class="r"><code>last_plot() + 
   geom_point(data = my_data %&gt;% filter(country == &quot;Chile&quot;))   # declare the geom to add </code></pre>
-<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>I use geom_point() to add the layer where Chile’s data is shown. I indicate that I want points to be added for onlly a subset of the data by specifying that with the data argument.</p>
 </div>
 <div id="step-4-plot-the-rest-of-the-data-explain-it" class="section level1">
@@ -50,7 +50,7 @@ my_data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year =
 <p>Add another geom_point() layer. This time, the data that will be used is the global data, as there is no data specified in the function.</p>
 <pre class="r"><code>last_plot() + 
   geom_point()</code></pre>
-<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<p><img src="/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 Done!</p>
 <p>Why didn’t I come up with this before? I think it didn’t have the presence of mind because my mind had just been blown by the possibility of adding global aesthetics outside of the ggplot() statement. I was very excited about that discovery! Also, ggplot2 has also had an update since the original implmentation. Perhaps the behavior was different in a previous version. Don’t know. Not gonna check at this point. I guess probably it wasn’t.</p>
 </div>

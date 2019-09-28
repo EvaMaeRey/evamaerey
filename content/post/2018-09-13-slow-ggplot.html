@@ -21,12 +21,12 @@ header:
 {{% tweet "1029104656763572226" %}}
 <p>People reacted positively. Now here is the comparison between a traditional ggplot construction and the more verbose, slow ggplot construction.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
 ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
 ## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
 ## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(gapminder)
@@ -42,7 +42,7 @@ df_2007 &lt;- gapminder %&gt;% filter(year == 2007)</code></pre>
        y = &quot;Life Expectancy&quot;,
        col = &quot;&quot;) +
   theme_bw()</code></pre>
-<p><img src="/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Verbose, slow approach:</p>
 <pre class="r"><code>ggplot(data = df_2007) +
   aes(x = gdpPercap) + 
@@ -54,7 +54,7 @@ df_2007 &lt;- gapminder %&gt;% filter(year == 2007)</code></pre>
   labs(y = &quot;Life Expectancy&quot;) +
   labs(col = &quot;&quot;) +
   theme_bw()</code></pre>
-<p><img src="/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Same result, but students are perhaps more likely to go slow, and mentally make connections between adjustment to product and the functions for making those adjustments, given that each change gets its own line of code and that there is repetition built into this exercise. After using this approach to introduce students to ggplot, students can be alerted to the fact that they can gather up arguments into one function.</p>
 <div id="downsides" class="section level1">
 <h1>Downsides?</h1>

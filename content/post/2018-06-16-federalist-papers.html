@@ -69,7 +69,7 @@ similarity &lt;-
 <p>In this blogpost I’m not going to echo all the code. It is a bit lengthy; it could also stand to be cleaned up a bit. (I haven’t yet implemented the power of the <em>tidygraph</em> package - which I’ve tried elsewhere; it is all that you would hope for!) Perhaps, it is that want I like to keep a few implementation secrets to myself, at least at this point.</p>
 <p>So I just give you the resulting graph:</p>
 <pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
-<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-7-1.png" width="1344" /></p>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-8-1.png" width="1344" /></p>
 </div>
 <div id="take-2-a-revised-preparation" class="section level1">
 <h1>Take 2: A revised preparation</h1>
@@ -97,7 +97,7 @@ similarity &lt;-
 <pre><code>## Warning in summary_character(texts(object), n = n, tolower = tolower, ...):
 ## verbose argument is defunct</code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: colour</code></pre>
-<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-10-1.png" width="1344" /></p>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png" width="1344" /></p>
 <p>That’s more like it! I was hoping to observe more separation between authors, and with less preprocessing, that’s exactly what we see. Great!</p>
 <p>Also in other analyses the disputed texts are in the Madison “zone”, and most scholars that have done textual studies believe the texts were indeed written by Madison, and a few maybe jointly by Madison and Hamilton.</p>
 </div>
@@ -110,13 +110,13 @@ similarity &lt;-
 <p>I’m always worried that length of documents drive statistic too. Maybe length of documents contributes to finding cosign similarities. Madison’s works on average are longer than Hamilton’s. Could this be driving things. Maybe.</p>
 <pre><code>## Joining, by = c(&quot;name&quot;, &quot;title&quot;, &quot;venue&quot;, &quot;date&quot;, &quot;author&quot;)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="the-alternative" class="section level2">
 <h2>The Alternative</h2>
 <p>Perhaps a classic alternative visualization is to show all the cosign similarities with a heat map. Then we aren’t deleting so much information as I do with the network graph — in the network graph we only know if a document is among the top two most similar, or not.</p>
 <p>I make it here, sorting by author, but I don’t really clean it up, maybe to put my technique in the best light, maybe because I’ve really spent too much time on this. But, I think there is something charming and likable about the network approach compared to the heat map. Something friendlier. And that’s where I’ll leave things for now.</p>
 <pre><code>## Warning: Arguments upper, diag not used.</code></pre>
-<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-13-1.png" width="1344" /></p>
+<p><img src="/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-14-1.png" width="1344" /></p>
 </div>
 </div>

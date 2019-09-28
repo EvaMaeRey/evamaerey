@@ -1,25 +1,121 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MakeoverMonday on Evangeline M Reynolds</title>
+    <title>MakeoverMonday | Evangeline Reynolds</title>
     <link>/tags/makeovermonday/</link>
-    <description>Recent content in MakeoverMonday on Evangeline M Reynolds</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 12 Jun 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/makeovermonday/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/tags/makeovermonday/index.xml" rel="self" type="application/rss+xml" />
+    <description>MakeoverMonday</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 12 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>MakeoverMonday</title>
+      <link>/tags/makeovermonday/</link>
+    </image>
     
     <item>
       <title>Eat near the Big Ben?  That will cost you...</title>
-      <link>/post/eat-near-the-big-ben-that-will-cost-you/</link>
+      <link>/post2/eat-near-the-big-ben-that-will-cost-you/</link>
       <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/eat-near-the-big-ben-that-will-cost-you/</guid>
-      <description>What’s the cost of eating near an iconic location? We all might suspect eating in a fun location is pricier. I used the menu and restaurant location data that #MakeoverMonday “assigned” one week last December to demonstrate this among London Wetherspoon Pubs.
-#MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool. But I’ve used R and ggplot() and the organizers and participants have been very welcoming.</description>
+      <guid>/post2/eat-near-the-big-ben-that-will-cost-you/</guid>
+      <description>
+
+
+&lt;p&gt;What’s the cost of eating near an iconic location? We all might suspect eating in a fun location is pricier. I used the menu and restaurant location data that #MakeoverMonday “assigned” one week last December to demonstrate this among London &lt;a href=&#34;https://www.jdwetherspoon.com/&#34;&gt;Wetherspoon Pubs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;#MakeoverMonday is a fun data visualization initiative; most participants use Tableau as their preferred visualization tool. But I’ve used R and ggplot() and the organizers and participants have been very welcoming. (Recently, I’ve noticed an initiative for R has sprouted up — #TidyTuesday, with a focus on visualization and data wrangling. Might #MakeoverMonday have been an inspiration? Probably.)&lt;/p&gt;
+
+&lt;p&gt;The Wetherspoon Pubs plot that I submitted was popular with the organizers of #MakeoverMonday, and it will likely be featured in their soon-to-be-published book on the #MakeoverMonday experience.&lt;/p&gt;
+
+&lt;p&gt;You can read Andy Kreible’s complete “lessons” summary on the entries from the Wetherspoon Pubs week &lt;a href=&#34;http://www.makeovermonday.co.uk/week-49/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I was happy to be working with some spatial data.&lt;/p&gt;
+
+&lt;p&gt;Basically, I did some mapping to explore the data, but suspected that having a closer look at London Pubs might also be interesting. To do that I had to compute distances from longitude and latitude coordinates in R. I just used a pre-written function from the geosphere package to do this.&lt;/p&gt;
+&lt;p&gt;Below is the code (cleaned-up naturally for this post) used in the exercise.&lt;/p&gt;
+&lt;div id=&#34;step-one-load-needed-packages-and-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step one: Load needed packages and data&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(readxl)    # to load excel data
+library(rgdal)     # geospatial library
+library(tidyverse) # data wrangling and plotting
+library(geosphere) # to calculate distances on the earth
+library(viridis)   # for better color palette for points on map
+library(ggmap)     # provides maps and mapping tools for ggplot
+
+# Public holiday data
+data0=read_xlsx(&amp;quot;Wetherspoon.xlsx&amp;quot;, na = &amp;quot;n/a&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2-mapping-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 2: Mapping data&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Loading required package: ggplot2
+# Google Maps API Terms of Service: http://developers.google.com/maps/terms.
+# Please cite ggmap if you use it: see citation(&amp;#39;ggmap&amp;#39;) for details.
+
+# Mapping data
+world_map_df &amp;lt;- map_data(&amp;quot;world&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I map the UK …&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create a ggplot theme
+theme_opts &amp;lt;- list(theme(panel.grid.minor = element_blank(),
+                        panel.grid.major = element_blank(),
+                        panel.background = element_blank(),
+                        plot.background = element_rect(fill=&amp;quot;#e6e8ed&amp;quot;),
+                        panel.border = element_blank(),
+                        axis.line = element_blank(),
+                        axis.text = element_blank(),
+                        axis.ticks = element_blank(),
+                        axis.title = element_blank(),
+                        plot.title = element_text(size=15)))
+
+g &amp;lt;- ggplot(world_map_df %&amp;gt;% 
+              filter(region==&amp;quot;UK&amp;quot;), aes(long,lat, group=group)) + 
+  geom_polygon(fill = &amp;quot;white&amp;quot;) +  # plot polygon (region)
+  coord_equal() +  # 
+  theme_opts +  # use theme - created above
+  ggtitle(&amp;quot;Food Versus Drink Prices&amp;quot;, &amp;quot;@EvaMaeRey | source: data.worldbank.org&amp;quot; )
+
+g&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;
+… and overlay the information about the burger price.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g + geom_point(data = data0, 
+              aes(x=Longitude, y=Latitude, 
+                  group=NULL, fill=`Empire State Burger`), 
+              colour=&amp;quot;white&amp;quot;, shape=21, stroke=1, 
+              alpha=.75, size = 2, shape = 25) + 
+  scale_fill_viridis(option = &amp;quot;magma&amp;quot;, direction = -1)  # use prefered color scale&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looks like there are some pricy places to get a burger on the sea!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3-calculate-restaurant-distances-from-iconic-location-and-plot-prices-as-function-thereof&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 3: Calculate restaurant distances from iconic location and plot prices as function thereof&lt;/h1&gt;
+&lt;p&gt;Zooming in to focus on a London story, I decided to calculate restaurant distances from the Big Ben using the distm() function from the geosphere package …&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# big ben coordinates found on https://www.latlong.net
+LondonLat &amp;lt;- 51.510357
+LondonLong &amp;lt;- -0.116773
+
+# use for loop to calculate distance for each restaurant to Big Ben
+data0$`Kilometers from Big Ben` &amp;lt;- NA
+for (i in 1:nrow(data0)){
+
+  data0$`Kilometers from Big Ben`[i] &amp;lt;- 
+    distm(c(data0$Longitude[i], data0$Latitude[i]), 
+          c(LondonLong, LondonLat))/1000
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;… and to plot prices of different food items as a function of that distance, breaking out the plots by menu item.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_long = data0 %&amp;gt;% 
+  gather(Item, `Menu Item Price`, `Empire State Burger`:MEAL) %&amp;gt;%  # restructure data for graphing
+  filter(Item!=&amp;quot;MEAL&amp;quot;, Item!=&amp;quot;Porn Star (glass)&amp;quot;)  # delete a couple of items, reduntant or aggregates
+
+ggplot(data_long) +  # declare data to use
+  aes(x = `Kilometers from Big Ben`, y = `Menu Item Price`) +  # declare aesthetic mapping
+  geom_point() + # draw points
+  facet_wrap(~Item, scales = &amp;quot;free_y&amp;quot;) + # make unique map for each menu item
+  ggtitle(&amp;quot;Wetherspoon Pubs&amp;#39; Menu Item Prices  v. Distance from Big Ben&amp;quot;, 
+          &amp;quot;Visualization: Gina Reynolds | Source: Financial Times Alphaville&amp;quot;) + 
+  geom_smooth() +  # include loess smoother
+  labs(y = &amp;quot;Price - £&amp;quot;) + 
+  xlim(c(0,10))  # limit distance to closest 10 kilometers&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;All done. Now your’re probably hungry and thirsty. Perhaps you’d like a burger or chicken tikka?&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

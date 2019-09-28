@@ -1,6 +1,6 @@
 ---
-title: 'From N to Standard 
-Deviation: Visualizing Univariate Statistics'
+title: "From N to Standard Deviation"
+Deviation: "Visualizing Univariate Statistics"
 author: Gina Reynolds
 date: '2018-06-06'
 slug: univariate-statistics-visualizing-variance
@@ -10,6 +10,10 @@ header:
   caption: ''
   image: ''
 ---
+
+```{r, include = F}
+knitr::opts_chunk$set(cache = T)
+```
 
 This post goes back and forth between computing statistics for a single variable and visualizing these values.  I'm using a subset of the gapminder dataset --- European countries in 2007, and focusing on the Life Expectancy variable.
 

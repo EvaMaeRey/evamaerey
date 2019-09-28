@@ -10,6 +10,9 @@ header:
   image: ''
 ---
 
+```{r, include = F}
+knitr::opts_chunk$set(cache = T)
+```
 
 In a previous post, I've looked at walking through the calculation of variance and standard deviation, visualizing each step.  This post is dedicated to the visualization of another statistic:  covariance.
 

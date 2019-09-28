@@ -1,58 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Evangeline M Reynolds</title>
+    <title>Categories | Evangeline Reynolds</title>
     <link>/categories/</link>
-    <description>Recent content in Categories on Evangeline M Reynolds</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Categories</title>
+      <link>/categories/</link>
+    </image>
     
     <item>
-      <title>Data visualization</title>
+      <title>data visualization</title>
       <link>/categories/data-visualization/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>/categories/data-visualization/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Maps</title>
-      <link>/categories/maps/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/maps/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nationalism</title>
-      <link>/categories/nationalism/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/nationalism/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Teaching</title>
+      <title>teaching</title>
       <link>/categories/teaching/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>/categories/teaching/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Text analysis</title>
-      <link>/categories/text-analysis/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/text-analysis/</guid>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     

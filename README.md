@@ -1,3 +1,1 @@
-# evamaerey
-
-Personal website of Gina Reynolds.
+# 2019_fall

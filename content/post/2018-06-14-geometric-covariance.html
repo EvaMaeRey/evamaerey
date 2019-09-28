@@ -17,55 +17,87 @@ header:
 <p>Let’s have a look at the <em>sample</em> covariance equation over all:</p>
 <p><span class="math inline">\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></p>
 <p>And now lets apply the equation to the following case:</p>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>scatter &lt;- ggplot(df) + 
+  theme_classic() +
+  coord_fixed() +
+  aes(x, y, fill = rectangle &gt; 0) +
+  geom_point() 
+
+scatter</code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Ready? Okay, now let’s walk through the calculation; there are 7 small steps:</p>
 <div id="step-1-find-the-mean-of-x" class="section level1">
 <h1>Step 1: find the mean of x:</h1>
 <div id="overlinex" class="section level2">
 <h2><span class="math inline">\(\overline{x}\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>scatter + geom_rug(aes(y = NULL)) +
+  geom_vline(xintercept = mean(x), lty = &quot;dashed&quot;) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 </div>
 <div id="step-2-find-the-mean-of-y" class="section level1">
 <h1>Step 2: find the mean of y</h1>
 <div id="overliney" class="section level2">
 <h2><span class="math inline">\(\overline{y}\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>scatter_means &lt;- scatter + 
+  geom_vline(xintercept = mean(x), lty = &quot;dashed&quot;) +
+  geom_hline(yintercept = mean(y), lty = &quot;dashed&quot;)
+
+
+scatter_means + geom_rug(aes(x = NULL)) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
 <div id="step-3-calculate-difference-between-x-and-mean-of-x" class="section level1">
 <h1>Step 3: calculate difference between x and mean of x</h1>
 <div id="x_i-overlinex" class="section level2">
 <h2><span class="math inline">\(x_i-\overline{x}\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>scatter_means +
+  geom_segment(mapping = aes(col = x &gt; mean(x)), xend = mean(x), yend = y,  
+               arrow = arrow(ends = &quot;first&quot;, length = unit(0.1, &quot;inches&quot;))) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 </div>
 <div id="step-4-calculate-difference-between-y-and-mean-of-y" class="section level1">
 <h1>Step 4: calculate difference between y and mean of y</h1>
 <div id="y_i-overliney" class="section level2">
 <h2><span class="math inline">\(y_i-\overline{y}\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>last_plot() + 
+  geom_segment(mapping = aes(col = y &gt; mean(y)), xend = x, yend = mean(y),  
+               arrow = arrow(ends = &quot;first&quot;, length = unit(0.1, &quot;inches&quot;)))</code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 </div>
 <div id="step-5-multiply-these-differences-observation-wise" class="section level1">
 <h1>Step 5: multiply these differences (observation-wise)</h1>
 <div id="x_i-overlinexy_i-overliney" class="section level2">
 <h2><span class="math inline">\((x_i-\overline{x})(y_i-\overline{y})\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>last_plot() +
+  geom_rect(xmin = mean(x), ymin = mean(y), 
+            ymax = y, xmax = x, alpha = .2  ) </code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 </div>
 <div id="step-6-add-these-areas" class="section level1">
 <h1>Step 6: Add these areas</h1>
 <div id="sum_1n-x_i-overlinexy_i-overliney" class="section level2">
 <h2><span class="math inline">\(\sum_1^n (x_i-\overline{x})(y_i-\overline{y})\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(df %&gt;% arrange(x)) +
+  aes(y = rectangle, x = as.factor(1:nrow(df)),  fill = rectangle&gt;0) +
+  geom_col(alpha = .2) +
+  theme_bw()</code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 </div>
 <div id="step-7-divide-through-by-number-of-observations-minus-1-the-result-will-a-bit-larger-in-magnitude-than-the-average" class="section level1">
 <h1>Step 7: Divide through by number of observations minus 1 (the result will a bit larger in magnitude than the average)</h1>
 <div id="covxy-fracsum_i1n-x_i-overlinexy_i-overlineyn-1" class="section level2">
 <h2><span class="math inline">\(cov(x,y) = \frac{\sum_{i=1}^n (x_i-\overline{x})(y_i-\overline{y})}{n-1}\)</span></h2>
-<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>last_plot() +
+  geom_col(aes(y = sum(rectangle)/(nrow(df)-1)), 
+           alpha = .2, fill = &quot;grey&quot;) +
+  geom_hline(yintercept = sum(df$rectangle)/(nrow(df)-1), lty = &quot;dotted&quot;)</code></pre>
+<p><img src="/post/2018-06-14-geometric-covariance_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>That’s it.</p>
 <p>Now we can compare this visualized result to what we would get if we simply trust the R covariance function to calculate this for us.</p>
 <pre class="r"><code>sum(df$rectangle)/(nrow(df)-1)</code></pre>

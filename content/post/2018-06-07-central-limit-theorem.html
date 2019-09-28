@@ -20,12 +20,12 @@ header:
 <h1>The population</h1>
 <p>In the experiment we’ll be omniscient, but then we’ll think about the perspective of an observer whose knowledge is limited.</p>
 <p>As the omniscience being, we will know all about the population and will even create it. Let’s do that now.</p>
-<pre class="r"><code>x_pop &lt;- runif(100) # create a popluation with measurable x</code></pre>
+<pre class="r"><code>x_pop &lt;- runif(10000) # create a popluation with measurable x</code></pre>
 <p>The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().</p>
 <pre class="r"><code>hist(x_pop)  # what does the distribution look like for x</code></pre>
-<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>mean(x_pop)  # True mean of x (popluation mean)</code></pre>
-<pre><code>## [1] 0.4699894</code></pre>
+<pre><code>## [1] 0.5009756</code></pre>
 </div>
 <div id="a-sample" class="section level1">
 <h1>A sample</h1>
@@ -34,7 +34,7 @@ header:
   sample(x = x_pop,
          size = 30)
 mean(x_sample) # sample mean</code></pre>
-<pre><code>## [1] 0.5014906</code></pre>
+<pre><code>## [1] 0.5661418</code></pre>
 <p>Interesting. The sample mean for this one sample is not so far from the population mean.</p>
 </div>
 <div id="samples-that-might-have-been" class="section level1">
@@ -62,16 +62,16 @@ print(paste(&quot;Number:&quot;, i))
   x_sample &lt;- sample(x_pop, 30)
   print(mean(x_sample)) # sample mean  
 }</code></pre>
-<pre><code>## [1] 0.4768042
-## [1] 0.4079448
-## [1] 0.4523429
-## [1] 0.463302
-## [1] 0.4809576
-## [1] 0.5462299
-## [1] 0.3697452
-## [1] 0.4902092
-## [1] 0.5336857
-## [1] 0.5176465</code></pre>
+<pre><code>## [1] 0.5015194
+## [1] 0.4753519
+## [1] 0.4693124
+## [1] 0.5646499
+## [1] 0.5175532
+## [1] 0.6282303
+## [1] 0.4732468
+## [1] 0.4848752
+## [1] 0.5227368
+## [1] 0.4587136</code></pre>
 <p>Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.</p>
 </div>
 <div id="expectations-in-the-limit" class="section level1">
@@ -86,18 +86,18 @@ for(i in 1:10000){
 <p>Now we have a vector of sample means that we could have observed, if different samples were realized.</p>
 <p>Lets use the hist() function to have a quick look at the distribution of the data.</p>
 <pre class="r"><code>hist(all_samples_means)</code></pre>
-<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>You will notice that the might-have-been-observed sample means are centered around the true population mean. And that these sample means are normally distributed. This regularity is the observation of the Central Limit Theorem that has Galton (and now you?) so excited.</p>
 </div>
 <div id="going-further-other-population-distributions" class="section level1">
 <h1>Going further: Other population distributions</h1>
 <p>What if the distribution in our population looked different? What would the expectation for the distribution of sample means look like?</p>
-<pre class="r"><code>x_pop &lt;- c(rnorm(40), runif(60))
+<pre class="r"><code>x_pop &lt;- c(rnorm(400), runif(600))
 hist(x_pop)</code></pre>
-<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre class="r"><code>x_pop &lt;- c(rnorm(50,mean = 10), rnorm(50, mean = 5)) 
 hist(x_pop)</code></pre>
-<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
 <p>Galton’s quotation continues: <em>Whenever a large sample of chaotic elements are taken in hand and marshalled in the order of their magnitude, an unsuspected and most beautiful form of regularity proves to have been latent all along.</em></p>
 <p>What is the regularity that you find in the results, with different populations as the starting point?</p>
 </div>

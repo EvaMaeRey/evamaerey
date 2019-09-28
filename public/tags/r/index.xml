@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R | Evangeline Reynolds</title>
+    <link>/tags/r/</link>
+      <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <description>R</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 09 Oct 2019 12:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>R</title>
+      <link>/tags/r/</link>
+    </image>
+    
+    <item>
+      <title>Dynamic Documents and Reproducibility</title>
+      <link>/talk/korbel-reproducibility/</link>
+      <pubDate>Wed, 09 Oct 2019 12:00:00 +0000</pubDate>
+      <guid>/talk/korbel-reproducibility/</guid>
+      <description>&lt;!-- Slides can be added in a few ways: --&gt;
+
+&lt;!-- - **Create** slides using Academic&#39;s [*Slides*](https://sourcethemes.com/academic/docs/managing-content/#create-slides) feature and link using `slides` parameter in the front matter of the talk file --&gt;
+
+&lt;!-- - **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file --&gt;
+
+&lt;!-- - **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://sourcethemes.com/academic/docs/writing-markdown-latex/). --&gt;
+
+&lt;!-- Further talk details can easily be added to this page using *Markdown* and $\rm \LaTeX$ math code. --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The three Rs: R, Rmarkdown, and Reproducibility</title>
+      <link>/talk/illinois-reproducibility/</link>
+      <pubDate>Mon, 10 Jun 2019 10:30:00 +0000</pubDate>
+      <guid>/talk/illinois-reproducibility/</guid>
+      <description>&lt;!-- Slides can be added in a few ways: --&gt;
+
+&lt;!-- - **Create** slides using Academic&#39;s [*Slides*](https://sourcethemes.com/academic/docs/managing-content/#create-slides) feature and link using `slides` parameter in the front matter of the talk file --&gt;
+
+&lt;!-- - **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file --&gt;
+
+&lt;!-- - **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://sourcethemes.com/academic/docs/writing-markdown-latex/). --&gt;
+
+&lt;!-- Further talk details can easily be added to this page using *Markdown* and $\rm \LaTeX$ math code. --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

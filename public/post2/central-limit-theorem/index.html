@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Evangeline Reynolds">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Sir Francis Galton described the Central Limit Theorem in this way:
+I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”
+Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post2/central-limit-theorem/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.04a87a1cb9027e3c50f566322527c56f.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post2/central-limit-theorem/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Evangeline Reynolds">
+  <meta property="og:url" content="/post2/central-limit-theorem/">
+  <meta property="og:title" content="Central Limit Theorem Demonstration | Evangeline Reynolds">
+  <meta property="og:description" content="Sir Francis Galton described the Central Limit Theorem in this way:
+I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”
+Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2018-06-07T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2018-06-07T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Central Limit Theorem Demonstration | Evangeline Reynolds</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Evangeline Reynolds</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span>Demo</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Central Limit Theorem Demonstration</h1>
+
+  
+
+  
+    
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 7, 2018
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post2/central-limit-theorem/&amp;text=Central%20Limit%20Theorem%20Demonstration" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post2/central-limit-theorem/&amp;t=Central%20Limit%20Theorem%20Demonstration" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Central%20Limit%20Theorem%20Demonstration&amp;body=/post2/central-limit-theorem/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post2/central-limit-theorem/&amp;title=Central%20Limit%20Theorem%20Demonstration" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Central%20Limit%20Theorem%20Demonstration%20/post2/central-limit-theorem/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post2/central-limit-theorem/&amp;title=Central%20Limit%20Theorem%20Demonstration" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>Sir Francis Galton described the Central Limit Theorem in this way:</p>
+<p><em>I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the “Law of Frequency of Error”</em></p>
+<p>Why is Sir Francis Galton so excited? Because the Central Limit Theorem (CLT) gives us such clear expectations for random sample means! (A random sample mean is simply the mean of a value for a random sample from a population of interest.) The CLT gives us insight into the question: if we draw a random sample from a population, and calculate the mean for the sample, how close do we expect our sample mean (observed) to be to the true mean (unobserved).</p>
+<p>To think about this more, we conduct a thought experiment accompanied by a computational experiment.</p>
+<div id="the-population" class="section level1">
+<h1>The population</h1>
+<p>In the experiment we’ll be omniscient, but then we’ll think about the perspective of an observer whose knowledge is limited.</p>
+<p>As the omniscience being, we will know all about the population and will even create it. Let’s do that now.</p>
+<pre class="r"><code>x_pop &lt;- runif(100) # create a popluation with measurable x</code></pre>
+<p>The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().</p>
+<pre class="r"><code>hist(x_pop)  # what does the distribution look like for x</code></pre>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>mean(x_pop)  # True mean of x (popluation mean)</code></pre>
+<pre><code>## [1] 0.5030408</code></pre>
+</div>
+<div id="a-sample" class="section level1">
+<h1>A sample</h1>
+<p>Now let’s think about the researcher who is not omniscient, but will only observe a random sample from the population. We use the function sample to take a random sample of the population. The population has 100 members, and we sample 30 with the function sample(), which takes a <em>random</em> sample.</p>
+<pre class="r"><code>x_sample &lt;- 
+  sample(x = x_pop,
+         size = 30)
+mean(x_sample) # sample mean</code></pre>
+<pre><code>## [1] 0.5328898</code></pre>
+<p>Interesting. The sample mean for this one sample is not so far from the population mean.</p>
+</div>
+<div id="samples-that-might-have-been" class="section level1">
+<h1>Samples that might have been</h1>
+<p>In general, how far would we expect the sample mean to be from the population mean? What might we have observed if different samples had been taken?</p>
+<p>We are going to use a “for-loop” consider all the samples that might have been taken.</p>
+<p>A “for-loop” simply repeats a routine for you, sometimes with different inputs for each time through the routine.</p>
+<p>Here is a simple for loop. The loop performs a task (printing “Number:” and the time through the loop) ten times, where the input i changes from 1 to 10.</p>
+<pre class="r"><code>for(i in 1:10){
+print(paste(&quot;Number:&quot;, i))
+}</code></pre>
+<pre><code>## [1] &quot;Number: 1&quot;
+## [1] &quot;Number: 2&quot;
+## [1] &quot;Number: 3&quot;
+## [1] &quot;Number: 4&quot;
+## [1] &quot;Number: 5&quot;
+## [1] &quot;Number: 6&quot;
+## [1] &quot;Number: 7&quot;
+## [1] &quot;Number: 8&quot;
+## [1] &quot;Number: 9&quot;
+## [1] &quot;Number: 10&quot;</code></pre>
+<p>Now back our thought experiment about sampling. What are our expectations about the distribution of sampling means that might be observed for a random sample of the same size?</p>
+<p>Let’s repeat the procedure we did above, ten times through. We use the for-loop to do this work for us. We need to use print() in a for-loop to display output.</p>
+<pre class="r"><code>for(i in 1:10){
+  x_sample &lt;- sample(x_pop, 30)
+  print(mean(x_sample)) # sample mean  
+}</code></pre>
+<pre><code>## [1] 0.513339
+## [1] 0.4705475
+## [1] 0.5940309
+## [1] 0.5162651
+## [1] 0.5061266
+## [1] 0.4794837
+## [1] 0.4949329
+## [1] 0.4891317
+## [1] 0.4516802
+## [1] 0.5845133</code></pre>
+<p>Nice! We see 10 different sample means that we might have observed in the case of different random draws of 30 cases! We begin to see a pattern. The means are nearby, sometimes lower, sometimes higher to our true value.</p>
+</div>
+<div id="expectations-in-the-limit" class="section level1">
+<h1>Expectations in the limit</h1>
+<p>By doing this experiment more times, we can even more precisely illustrate our expectations about where possible sampling means fall in relation to the true population mean.</p>
+<pre class="r"><code># Expectations for repeated sampling
+all_samples_means &lt;- c() # this vector is an empty container where we will save means
+for(i in 1:10000){
+  x_sample &lt;- sample(x = x_pop, size = 30)
+  all_samples_means[i] &lt;- mean(x_sample) # save the mean for trial i in position i in vector 
+}</code></pre>
+<p>Now we have a vector of sample means that we could have observed, if different samples were realized.</p>
+<p>Lets use the hist() function to have a quick look at the distribution of the data.</p>
+<pre class="r"><code>hist(all_samples_means)</code></pre>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>You will notice that the might-have-been-observed sample means are centered around the true population mean. And that these sample means are normally distributed. This regularity is the observation of the Central Limit Theorem that has Galton (and now you?) so excited.</p>
+</div>
+<div id="going-further-other-population-distributions" class="section level1">
+<h1>Going further: Other population distributions</h1>
+<p>What if the distribution in our population looked different? What would the expectation for the distribution of sample means look like?</p>
+<pre class="r"><code>x_pop &lt;- c(rnorm(40), runif(60))
+hist(x_pop)</code></pre>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>x_pop &lt;- c(rnorm(50,mean = 10), rnorm(50, mean = 5)) 
+hist(x_pop)</code></pre>
+<p><img src="/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<p>Galton’s quotation continues: <em>Whenever a large sample of chaotic elements are taken in hand and marshalled in the order of their magnitude, an unsuspected and most beautiful form of regularity proves to have been latent all along.</em></p>
+<p>What is the regularity that you find in the results, with different populations as the starting point?</p>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Evangeline Reynolds</a></h5>
+      <h6 class="card-subtitle">Visiting Teaching Assistant Professor</h6>
+      <p class="card-text">My research interests include distributed robotics, mobile computing and programmable matter.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://github.com/gcushen" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.130521ecfc6f534c52c158217bbff718.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

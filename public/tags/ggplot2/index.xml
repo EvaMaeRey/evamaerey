@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ggplot2 on Evangeline M Reynolds</title>
+    <title>ggplot2 | Evangeline Reynolds</title>
     <link>/tags/ggplot2/</link>
-    <description>Recent content in Ggplot2 on Evangeline M Reynolds</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 13 Sep 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <description>ggplot2</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>ggplot2</title>
+      <link>/tags/ggplot2/</link>
+    </image>
     
     <item>
       <title>Slow ggplot</title>
       <link>/post/slow-ggplot/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>/post/slow-ggplot/</guid>
-      <description>This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.
-My recent tweet presented the technique:</description>
+      <description>
+
+
+&lt;p&gt;This post has lots in common with previous posts on “the layered presentation of graphics”. It is about building up plots, but now with a focus on this incremental change for teaching ggplot2. The rational is that observing the cause and effect of incremental change is easier to digest, and that the repetition in this approach means students have more chances to learn the ggplot2 functions.&lt;/p&gt;
+&lt;p&gt;My recent tweet presented the technique:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Here, building up a &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; as slowly as possible, &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt;.  Incremental adjustments.  &lt;a href=&#34;https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstatsteachingideas&lt;/a&gt; &lt;a href=&#34;https://t.co/nUulQl8bPh&#34;&gt;pic.twitter.com/nUulQl8bPh&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw&#34;&gt;August 13, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;People reacted positively. Now here is the comparison between a traditional ggplot construction and the more verbose, slow ggplot construction.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
+df_2007 &amp;lt;- gapminder %&amp;gt;% filter(year == 2007)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Traditional approach:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = df_2007, 
+       mapping = aes(x = gdpPercap, 
+                     y = lifeExp, 
+                     col = continent)) +
+  geom_point() +
+  labs(title = &amp;quot;Wealth and life expectancy in 2007&amp;quot;,
+       x = &amp;quot;GDP per capita (inflation adjusted)&amp;quot;,
+       y = &amp;quot;Life Expectancy&amp;quot;,
+       col = &amp;quot;&amp;quot;) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Verbose, slow approach:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = df_2007) +
+  aes(x = gdpPercap) + 
+  aes(y = lifeExp) +
+  geom_point() +
+  aes(col = continent) +
+  labs(title = &amp;quot;Wealth and life expectancy in 2007&amp;quot;) +
+  labs(x = &amp;quot;GDP per capita (inflation adjusted)&amp;quot;) +
+  labs(y = &amp;quot;Life Expectancy&amp;quot;) +
+  labs(col = &amp;quot;&amp;quot;) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Same result, but students are perhaps more likely to go slow, and mentally make connections between adjustment to product and the functions for making those adjustments, given that each change gets its own line of code and that there is repetition built into this exercise. After using this approach to introduce students to ggplot, students can be alerted to the fact that they can gather up arguments into one function.&lt;/p&gt;
+&lt;div id=&#34;downsides&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Downsides?&lt;/h1&gt;
+&lt;p&gt;A possible downside is that most teaching materials don’t take this approach. Perhaps it will be confusing to have the two approaches in students’ head. This is an unanswered empirical question, but my hunch is that newbies won’t find this jump so hard to make.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

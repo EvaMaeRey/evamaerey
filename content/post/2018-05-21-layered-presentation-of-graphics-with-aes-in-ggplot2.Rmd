@@ -10,6 +10,10 @@ header:
   image: ''
 ---
 
+```{r, include = F}
+knitr::opts_chunk$set(cache = T)
+```
+
 Here is the post is about how to implement a *layered presentation of a graphics*.  Matthew Blackwell tweeted about the concept earlier this year, which seemed to reasonated with a lot of folks - to the tune of > 1500 likes! Practical, pedegogical stuff tends to get people excited.  True for me too.
 
 ```{r echo=FALSE}

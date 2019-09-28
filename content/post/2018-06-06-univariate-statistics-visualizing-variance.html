@@ -1,6 +1,6 @@
 ---
-title: 'From N to Standard 
-Deviation: Visualizing Univariate Statistics'
+title: "From N to Standard Deviation"
+Deviation: "Visualizing Univariate Statistics"
 author: Gina Reynolds
 date: '2018-06-06'
 slug: univariate-statistics-visualizing-variance
@@ -24,7 +24,7 @@ gapminder_2007_europe &lt;-
   filter(year == 2007) %&gt;% 
   filter(continent == &quot;Europe&quot;)</code></pre>
 <p>Now I prep a very basic plot. It several lines of code, but most of it is styling; you can actually get away with just the first three lines.</p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <div id="n" class="section level1">
 <h1>N</h1>
 <p>You can count the number of observations in your data set using the function, nrow().</p>
@@ -49,7 +49,7 @@ In R you can use the mean function to compute this value.</p>
 <pre class="r"><code>mean(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 77.6486</code></pre>
 <p>In the following plot, the mean is plotted in red.<br />
-<img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="measures-of-central-tendency-median" class="section level2">
 <h2>Measures of Central Tendency: Median</h2>
@@ -58,7 +58,7 @@ In R you can use the mean function to compute this value.</p>
 <pre class="r"><code>median(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 78.6085</code></pre>
 <p>In the following plot, the median is shown in blue.
-<img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 </div>
 <div id="measures-of-spread" class="section level1">
@@ -69,7 +69,7 @@ In R you can use the mean function to compute this value.</p>
 <pre class="r"><code>range(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 71.777 81.757</code></pre>
 <p>I add the min and max on the plot.</p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 </div>
 <div id="measures-of-spreaddistribution" class="section level1">
@@ -81,7 +81,7 @@ In R you can use the mean function to compute this value.</p>
          probs = c(.25,.75))</code></pre>
 <pre><code>##      25%      75% 
 ## 75.02975 79.81225</code></pre>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 </div>
 <div id="communicating-spreaddistribution" class="section level1">
@@ -89,7 +89,7 @@ In R you can use the mean function to compute this value.</p>
 </div>
 <div id="boxplot" class="section level1">
 <h1>Boxplot</h1>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <div id="measure-of-spread" class="section level1">
 <h1>Measure of spread</h1>
@@ -126,9 +126,9 @@ In R you can use the mean function to compute this value.</p>
 <p>Now let’s walk through this formula piece by piece. First we need the mean.</p>
 <p>Variance:
 <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p>Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Then we do an operation for each of our observations. Take the difference of the value for the observation and square it. Let’s just do that for one of our observations. Romania sounds good. We plot it in green.</p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>The difference between and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line.</p>
 
 <p>Variance:
@@ -137,7 +137,7 @@ In R you can use the mean function to compute this value.</p>
 Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span>
 
 </p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 
 <p>Variance:
 <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
@@ -146,19 +146,19 @@ Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span
 <p>Calculation for Romania:
 <span class="math inline">\((x_{Romania} - \mu)^2\)</span>
 </p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png" width="672" height="2in" /></p>
 
 <p>Variance:
 <span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-22-1.png" width="672" height="2in" /></p>
 <p>The mean for these areas is the variance.</p>
 <p>We sum up all of the resulting areas that are shown in the plot (note that these are overlapping):</p>
 <p><span class="math inline">\(\sum_{i=1}^{n}(x_i - \mu)^2\)</span></p>
 <p>And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>I’m plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square’s area is the average area for all the squares plotted above, and is equal to the variance.</p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-22-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png" width="672" height="2in" /></p>
 </div>
 <div id="standard-deviation" class="section level1">
 <h1>Standard Deviation:</h1>
@@ -166,7 +166,7 @@ Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span
 <p>Standard Deviation:
 <span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
 <p>The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.</p>
-<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png" width="672" height="2in" /></p>
+<p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-24-1.png" width="672" height="2in" /></p>
 <p>Quiz question:</p>
 <p>What are the units of each?</p>
 </div>

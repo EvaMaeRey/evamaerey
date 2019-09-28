@@ -13,7 +13,7 @@ header:
 \@drob has posted code to play with on Twitter today.  To illustrate what he calls a veridical paradox he's posted the set up, the code and result of a coin flipping experiment:   
 
 ```{r, echo = F}
-knitr::opts_chunk$set(warning = F, message = F)
+knitr::opts_chunk$set(warning = F, message = F, cache = T)
 ```
 
 ```{r echo=FALSE}

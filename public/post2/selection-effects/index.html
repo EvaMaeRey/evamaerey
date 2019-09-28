@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Evangeline Reynolds">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
+My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post2/selection-effects/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.04a87a1cb9027e3c50f566322527c56f.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post2/selection-effects/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Evangeline Reynolds">
+  <meta property="og:url" content="/post2/selection-effects/">
+  <meta property="og:title" content="Selection effects | Evangeline Reynolds">
+  <meta property="og:description" content="Saw this tweet by @Nolan_Mc, and thought, this is good fodder for a quick blog post – a true one-hour one-off.
+My limited goals:
+ translate to R code visualize  Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2018-06-25T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2018-06-25T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Selection effects | Evangeline Reynolds</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Evangeline Reynolds</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span>Demo</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Selection effects</h1>
+
+  
+
+  
+    
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 25, 2018
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post2/selection-effects/&amp;text=Selection%20effects" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post2/selection-effects/&amp;t=Selection%20effects" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Selection%20effects&amp;body=/post2/selection-effects/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post2/selection-effects/&amp;title=Selection%20effects" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Selection%20effects%20/post2/selection-effects/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post2/selection-effects/&amp;title=Selection%20effects" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>Saw this tweet by <span class="citation">@Nolan_Mc</span>, and thought, this is good fodder for a quick blog post – a true one-hour one-off.</p>
+
+<p>My limited goals:</p>
+<ul>
+<li>translate to R code</li>
+<li>visualize</li>
+</ul>
+<p>Perhaps the central difference between working in the Stata environment and in R is that in R you always have to be declaring which data frame you are working with. In Stata, you just have one active data frame and then you can refer to the variables by their names alone. The tidyverse tools with piping make working in R feel more like working in Stata in my experience.</p>
+<p>Okay so here again is the code in Stata:</p>
+<ul>
+<li>set obs 20000</li>
+<li>gen x = runiform()</li>
+<li>gen y = x + .1*rnormal()</li>
+<li>corr x y</li>
+<li>corr x y if x &gt; .95</li>
+</ul>
+<p>And here is the translation to R (just using base R):</p>
+<pre class="r"><code>set.seed(39475)
+x &lt;- runif(20000)
+y &lt;- x + .1*rnorm(20000)
+cor.test(x, y)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  x and y
+## t = 408.93, df = 19998, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9435858 0.9465470
+## sample estimates:
+##       cor 
+## 0.9450858</code></pre>
+<pre class="r"><code>cor.test(x[x &gt; .95], y[x &gt; .95])</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  x[x &gt; 0.95] and y[x &gt; 0.95]
+## t = 4.8262, df = 987, p-value = 1.612e-06
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.09035602 0.21216667
+## sample estimates:
+##       cor 
+## 0.1518378</code></pre>
+<p>It is interesting to note that the strength of the relationship (the correlation coefficient) is estimated to be much lower in the case where we have subset to only the top x values. That’s the whole point of the twitter post.</p>
+<p>Now, I’ve only actually used base R up to this point. For the visualization, we will use ggplot2, which works best if you have your data in a data frame. Let’s load the tidyverse tools (ggplot2, dplyr, etc.), make that data frame, and visualize! I also compute the model that is overlaid on the scatterplot.</p>
+<pre class="r"><code>library(tidyverse)
+df &lt;- data_frame(x,y)</code></pre>
+<p>Now we can use ggplot() to explore the simulated data. First the full data:</p>
+<pre class="r"><code>ggplot(df) +
+  aes(x = x, y = y) + 
+  geom_point(alpha = .2) +
+  theme_bw() + geom_smooth(method = lm)</code></pre>
+<p><img src="/post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+And fitting a linear model:</p>
+<pre class="r"><code>summary(lm(y ~ x, data = df))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.42066 -0.06696 -0.00022  0.06786  0.35901 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -8.884e-06  1.414e-03  -0.006    0.995    
+## x            9.989e-01  2.443e-03 408.934   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.09969 on 19998 degrees of freedom
+## Multiple R-squared:  0.8932, Adjusted R-squared:  0.8932 
+## F-statistic: 1.672e+05 on 1 and 19998 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>In this model the R squared (variance explained) is high – .89. The variable x does seems to do a good job of predicting y.</p>
+<p>Now plotting the subset:</p>
+<pre class="r"><code>ggplot(df %&gt;% filter(x &gt; .95)) +
+  aes(x = x, y = y) + 
+  geom_point(data = df, col = &quot;grey&quot;) +
+  geom_point() +
+  theme_bw() + geom_smooth(method = lm)</code></pre>
+<p><img src="/post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+or:</p>
+<pre class="r"><code>ggplot(df %&gt;% filter(x &gt; .95)) +
+  aes(x = x, y = y) + 
+  geom_point() +
+  theme_bw() + geom_smooth(method = lm)</code></pre>
+<p><img src="/post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>summary(lm(y ~ x, data = df %&gt;% filter(x &gt; .95)))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = df %&gt;% filter(x &gt; 0.95))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.303991 -0.060496 -0.001536  0.070209  0.312612 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.05074    0.21263  -0.239    0.811    
+## x            1.05294    0.21817   4.826 1.61e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1001 on 987 degrees of freedom
+## Multiple R-squared:  0.02305,    Adjusted R-squared:  0.02206 
+## F-statistic: 23.29 on 1 and 987 DF,  p-value: 1.612e-06</code></pre>
+<p>Looking at this data, x seems to explain very little. The variance explained (R^2) is very small. The variable x seems not to do such a good job of explaining y given the subset of data.</p>
+<p>This exercise reminds us that the R2, or variance explained, in bivariate linear regression is equivalent to the Pearson Correlation Coefficient squared.</p>
+<pre class="r"><code>cor(x,y)^2</code></pre>
+<pre><code>## [1] 0.8931872</code></pre>
+<pre class="r"><code>summary(lm(y ~ x, data = df))$r.squared</code></pre>
+<pre><code>## [1] 0.8931872</code></pre>
+<p>Which makes me want to link to this wonderful gif from assessingpsyche.files.wordpress.com:</p>
+<p><img src="https://assessingpsyche.files.wordpress.com/2014/07/varianceexplained.gif" /></p>
+<p>Found at:</p>
+<p><a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/" class="uri">https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/</a></p>
+<p>Did I spend only an hour with this post? No, sadly, but not too too too much more!</p>
+<div id="now-lets-montecarlo" class="section level1">
+<h1>Now let’s montecarlo</h1>
+<p>Not part of original goals! Why am I still updating this post!</p>
+<p>Let’s think about what we might have observed upon multiple realizations of this experiment.</p>
+<pre class="r"><code>estimate &lt;- c()
+case &lt;- c()
+
+for(i in 1:2000){
+x &lt;- runif(20000)
+y &lt;- x + .1*rnorm(20000)
+if(i&lt;=1000){
+estimate[i] &lt;- summary(lm(y~x))$coefficients[2,1]
+case[i] &lt;- &quot;full&quot;
+}else{
+estimate[i] &lt;- summary(lm(y[.95 &lt; x] ~ x[.95 &lt; x]))$coefficients[2,1]
+case[i] &lt;- &quot;selection&quot;
+}
+}
+
+df &lt;- data_frame(estimate, case)
+
+ggplot(df) +
+  aes(x = estimate, fill = case) +
+  geom_density(alpha =.2) +
+  geom_rug() +
+  facet_wrap(~case, scales = &quot;free&quot;)</code></pre>
+<p><img src="/post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Look at how the distributions differ. The estimates that we might observe very narrow in the case of observing all the data, and rather wide in the case where we observe the subset of data.</p>
+</div>
+<div id="selection-bias" class="section level1">
+<h1>Selection <em>bias</em></h1>
+<p>Above we see how looking at a subset of our data, just a small range of our independent variable, results in inefficiency. The variance explained will likely be less.</p>
+<p>Selection on <em>dependent variable</em> can be hazardus as it introduces bias. Here is an example of that case with a similar set up. Let’s just start with the montecarlo:</p>
+<pre class="r"><code>estimate &lt;- c()
+case &lt;- c()
+
+for(i in 1:2000){
+x &lt;- runif(20000)
+y &lt;- x + .1*rnorm(20000)
+if(i&lt;=1000){
+estimate[i] &lt;- summary(lm(y~x))$coefficients[2,1]
+case[i] &lt;- &quot;full&quot;
+}else{
+estimate[i] &lt;- summary(lm(y[.5 &lt; y] ~ x[.5 &lt; y]))$coefficients[2,1]
+case[i] &lt;- &quot;selection&quot;
+}
+}
+
+df &lt;- data_frame(estimate, case)
+
+ggplot(df) +
+  aes(x = estimate, fill = case) +
+  geom_density(alpha =.2) +
+  geom_rug() +
+  facet_wrap(~case, scales = &quot;free&quot;)</code></pre>
+<p><img src="/post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div id="plotting-one-of-these-simulations" class="section level2">
+<h2>plotting one of these simulations</h2>
+<pre class="r"><code>df &lt;- data_frame(x, y)
+ggplot(df %&gt;% filter(y &gt; .5)) +
+  aes(x,y) + 
+  geom_point(data = df, col = &quot;grey&quot;) +
+  geom_point() + 
+  geom_smooth(method = lm)</code></pre>
+<p><img src="/post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>You can see how the linear model underestimates the trend.</p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Evangeline Reynolds</a></h5>
+      <h6 class="card-subtitle">Visiting Teaching Assistant Professor</h6>
+      <p class="card-text">My research interests include distributed robotics, mobile computing and programmable matter.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://github.com/gcushen" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.130521ecfc6f534c52c158217bbff718.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

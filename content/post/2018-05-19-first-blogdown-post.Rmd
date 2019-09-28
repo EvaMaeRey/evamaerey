@@ -10,6 +10,11 @@ header:
   image: ''
 ---
 
+```{r, include = F}
+knitr::opts_chunk$set(cache = T)
+```
+
+
 This is my first post just a test of blogdown.  
 
 It seems to be working fine also with this R code.

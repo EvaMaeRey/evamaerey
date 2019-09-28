@@ -10,6 +10,11 @@ header:
   image: ''
 ---
 
+
+```{r, include = F}
+knitr::opts_chunk$set(cache = T)
+```
+
 Sir Francis Galton described the Central Limit Theorem in this way:
 
 *I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the "Law of Frequency of Error"*
@@ -25,7 +30,7 @@ In the experiment we'll be omniscient, but then we'll think about the perspectiv
 As the omniscience being, we will know all about the population and will even create it.  Let's do that now.   
 
 ```{r}
-x_pop <- runif(100) # create a popluation with measurable x
+x_pop <- runif(10000) # create a popluation with measurable x
 ```
 
 The population observations has a feature, x, which we measure for all the units of the population. We can look at the distribution of the variable, and its mean, using the functions hist() and mean().
@@ -103,7 +108,7 @@ You will notice that the might-have-been-observed sample means are centered arou
 What if the distribution in our population looked different?  What would the expectation for the distribution of sample means look like?
 
 ```{r}
-x_pop <- c(rnorm(40), runif(60))
+x_pop <- c(rnorm(400), runif(600))
 hist(x_pop)
 x_pop <- c(rnorm(50,mean = 10), rnorm(50, mean = 5)) 
 hist(x_pop)
