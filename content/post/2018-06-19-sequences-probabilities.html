@@ -13,7 +13,6 @@ header:
 
 
 <p>@drob has posted code to play with on Twitter today. To illustrate what he calls a veridical paradox he’s posted the set up, the code and result of a coin flipping experiment:</p>
-{{% tweet "1008409373423611904" %}}
 <p>There are some good and exact explanations in the thread, for this at-first-glance puzzle. But I didn’t see a visualization that might give you quick intuition about what is going on.</p>
 <p>So I prepare one here. We’ll use the tidyverse packages and stringr.</p>
 <pre class="r"><code>library(tidyverse)
@@ -27,26 +26,8 @@ library(stringr)</code></pre>
 <p>We can also simulate the possible outcomes for histories which have equal probability.</p>
 <pre class="r"><code>two_flips &lt;- crossing(one_flip, one_flip)
 two_flips</code></pre>
-<pre><code>## # A tibble: 4 x 2
-##   flip  flip1
-##   &lt;chr&gt; &lt;chr&gt;
-## 1 Heads Heads
-## 2 Heads Tails
-## 3 Tails Heads
-## 4 Tails Tails</code></pre>
 <p>And so on…</p>
 <pre class="r"><code>crossing(two_flips, one_flip)</code></pre>
-<pre><code>## # A tibble: 8 x 3
-##   flip  flip1 flip2
-##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 Heads Heads Heads
-## 2 Heads Heads Tails
-## 3 Heads Tails Heads
-## 4 Heads Tails Tails
-## 5 Tails Heads Heads
-## 6 Tails Heads Tails
-## 7 Tails Tails Heads
-## 8 Tails Tails Tails</code></pre>
 <p>For more flips I use a for-loop. Here I just have the histories for six flips. This give us 2^5 (32) equally probable histories. This is enough, I think, to make a viz that might illuminate the paradox.</p>
 <pre class="r"><code>flip_histories &lt;- one_flip
 for(i in 1:4){
@@ -54,7 +35,6 @@ flip_histories &lt;- crossing(flip_histories, one_flip)
 }
 
 dim(flip_histories)</code></pre>
-<pre><code>## [1] 32  5</code></pre>
 <p>Now let’s plot these histories to give us some insights about the apparent paradox.</p>
 <p>We’ll use ggplot2(), so first we get the data into tidy form.</p>
 <pre class="r"><code>names(flip_histories) &lt;- paste0(&quot;flip&quot;, 1:ncol(flip_histories))
@@ -81,7 +61,7 @@ g_hh &lt;- ggplot(tidy_df) +
   scale_alpha_discrete(range = c(.3,1)) +
   theme_classic() +
   labs(title = &quot;Heads-heads as success case&quot;) +
-  geom_hline(yintercept = seq(.5,32.5, by =1), 
+  geom_hline(yintercept = seq(.5,32.5, by = 1), 
              lty = &quot;dotted&quot;, col = &quot;grey&quot;)
 
 g_ht &lt;- g_hh +
@@ -89,8 +69,7 @@ g_ht &lt;- g_hh +
   labs(title = &quot;Heads-tails as success case&quot;) 
 
 cowplot::plot_grid(g_hh, g_ht)</code></pre>
-<p><img src="/post/2018-06-19-sequences-probabilities_files/figure-html/unnamed-chunk-10-1.png" width="672" />
-You observe that the success in flips 1 and 2 for the heads-heads desired outcome leads less opportunities for flips 2 and 3 to be a success, compared with the heads-tails case. In the heads-heads case, success is the kind of success that quenches more success.</p>
+<p>You observe that the success in flips 1 and 2 for the heads-heads desired outcome leads less opportunities for flips 2 and 3 to be a success, compared with the heads-tails case. In the heads-heads case, success is the kind of success that quenches more success.</p>
 <p>It might be fun too plot these as branching might-have-been networks (like with tidygraph!). But I will leave that for someone else or another day.</p>
 <div id="packages-used" class="section level1">
 <h1>Packages used:</h1>

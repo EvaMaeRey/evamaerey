@@ -14,7 +14,7 @@ event: Talk/Workshop
 # event_url: https://example.org
 featured: false
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  caption: 'Image credit: [**Photo by Natalia Y on Unsplash**](unsplash.com)'
   focal_point: Right
 # links:
 # - icon: twitter

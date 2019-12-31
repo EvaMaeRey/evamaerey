@@ -13,7 +13,7 @@ header:
 \@drob has posted code to play with on Twitter today.  To illustrate what he calls a veridical paradox he's posted the set up, the code and result of a coin flipping experiment:   
 
 ```{r, echo = F}
-knitr::opts_chunk$set(warning = F, message = F, cache = T)
+knitr::opts_chunk$set(warning = F, message = F, cache = T, eval = F)
 ```
 
 ```{r echo=FALSE}
@@ -103,7 +103,7 @@ g_hh <- ggplot(tidy_df) +
   scale_alpha_discrete(range = c(.3,1)) +
   theme_classic() +
   labs(title = "Heads-heads as success case") +
-  geom_hline(yintercept = seq(.5,32.5, by =1), 
+  geom_hline(yintercept = seq(.5,32.5, by = 1), 
              lty = "dotted", col = "grey")
 
 g_ht <- g_hh +

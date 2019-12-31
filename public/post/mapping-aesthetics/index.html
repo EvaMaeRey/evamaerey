@@ -600,16 +600,8 @@ Below is an example that, I hope, will persuade you to my preference. We graph t
 
 <p>Where should you declare aesthetics? Globally or in the geom_*() function? The answer to this question, in some sense is personal preference, because there are simply different ways to get the same job done in the ggplot architecture. My preference is declaring all aesthetic mappings as global unless there are conflicts.</p>
 <p>Below is an example that, I hope, will persuade you to my preference. We graph the increase in life expectancy by year for three countries. First, subset some data from the gapminder dataset and we create a scatterplot.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>df &lt;- gapminder::gapminder %&gt;% 
+<pre class="r"><code>library(tidyverse)
+df &lt;- gapminder::gapminder %&gt;% 
   filter(country %in% c(&quot;Germany&quot;, &quot;United States&quot;, &quot;Italy&quot;))
 
 ggplot(df) +
@@ -694,7 +686,7 @@ This is where I think the gain is. You don’t have to make the grouping declara
   <div class="media author-card">
     
       
-      <img class="portrait mr-3" src="/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
+      <img class="portrait mr-3" src="/authors/admin/avatar%2011.20.27%20AM_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
     
 
     <div class="media-body">

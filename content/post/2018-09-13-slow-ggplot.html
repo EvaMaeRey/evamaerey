@@ -20,16 +20,8 @@ header:
 <p>My recent tweet presented the technique:</p>
 {{% tweet "1029104656763572226" %}}
 <p>People reacted positively. Now here is the comparison between a traditional ggplot construction and the more verbose, slow ggplot construction.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(gapminder)
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
 df_2007 &lt;- gapminder %&gt;% filter(year == 2007)</code></pre>
 <p>Traditional approach:</p>
 <pre class="r"><code>ggplot(data = df_2007, 

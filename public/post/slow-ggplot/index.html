@@ -608,16 +608,8 @@ My recent tweet presented the technique:"><meta property="og:image" content="/im
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>People reacted positively. Now here is the comparison between a traditional ggplot construction and the more verbose, slow ggplot construction.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(gapminder)
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
 df_2007 &lt;- gapminder %&gt;% filter(year == 2007)</code></pre>
 <p>Traditional approach:</p>
 <pre class="r"><code>ggplot(data = df_2007, 
@@ -692,7 +684,7 @@ df_2007 &lt;- gapminder %&gt;% filter(year == 2007)</code></pre>
   <div class="media author-card">
     
       
-      <img class="portrait mr-3" src="/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
+      <img class="portrait mr-3" src="/authors/admin/avatar%2011.20.27%20AM_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
     
 
     <div class="media-body">

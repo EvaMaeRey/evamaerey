@@ -14,7 +14,7 @@ event: Korbel Research Series
 # event_url: https://example.org
 featured: false
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  caption: 'Image credit: [**Photo by William Iven on Unsplash**](unsplash.com)'
   focal_point: Right
 # links:
 # - icon: twitter
