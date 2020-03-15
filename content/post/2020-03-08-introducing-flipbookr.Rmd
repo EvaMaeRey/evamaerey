@@ -50,7 +50,7 @@ The package {flipbookr} helps creators build flipbooks by allowing them to creat
 2. creates partial pipeline builds
 3. delivers the partial pipelines and output to slides in slide show tool (xaringan)
 
-Bam! You'll have a tool to precisely communicate about code pipelines with collegues, studuents, or "your future self".  More details about how exactly to get started are also at the [flipbooks home page](https://evamaerey.github.io/flipbooks/about).
+Bam! You'll have a tool to precisely communicate about code pipelines with colleagues, students, or "your future self".  More details about how exactly to get started are also at the [flipbooks home page](https://evamaerey.github.io/flipbooks/about).
 
 
 <!-- The intent is that {flipbookr} will help creators painlessly build flipbooks for reference or to communicate with colleagues or students.  In the long run, I'm personally hopeful that {flipbookr} will also see much student use.  Students might build their own bespoke flipbooks --- portfolios of data visualizations and data manipulation for personal reference.     -->
@@ -77,13 +77,13 @@ At the RStudio conference I made the claim:
 
 > "With {flipbookr}, you can build a flipbook in 5 minutes".  
 
-Such promises are inticing but in my experience rarely exactly true! The *you* in these types of claims never seem to be referring to *me*, at least.  It is a really impersonal, genaric *you*, that actually refers to the person delivering demo.  What would ring a little more true is "Let me show you how *I* can build a flipbook in 5 minutes."    
+Such promises are enticing but in my experience rarely quite true! The *you* in these types of claims never seem to be referring to *me*, at least.  It is a really impersonal, generic *you*, that actually refers to the person delivering demo.  What would ring a little more true is "Let me show you how *I* can build a flipbook in 5 minutes."    
 
 <!-- > "*If* you have the package successfully installed, *and if* you are really concentrated  *and if* follow the demo very carefully  *and if* you do not deviate from the instructions *then* building your first flipbook *might* take you 5 minutes."   -->
 
 Yup, saying "5 minutes" was probably a little disingenuous.  I don't feel too bad though --- these promises have worked on me --- getting me to try a package building and blogdown tutorials for example.  Just took me, you know, 4 to 7 times longer than promised that first time through!  But I learned the new tools and skills!
 
-And so now **I'd love to know what the *real life* {flipbookr} experience is**!    Have you tried to build a flipbook?  How much of an exageration was "5 minutes"?    How was installation?   Did you find it easy/difficult/confusing?  Were you successful? Did you maybe give up?  Was there some particular code that you tried to "flipbook" that threw an error instead? Would you be willing to share your flipbook itself? 
+And so now **I'd love to know what the *real life* {flipbookr} experience is**!    Have you tried to build a flipbook?  How much of an exaggeration was "5 minutes"?    How was installation?   Did you find it easy/difficult/confusing?  Were you successful? Did you maybe give up?  Was there some particular code that you tried to "flipbook" that threw an error instead? Would you be willing to share your flipbook itself? 
 
 The easiest way to reach me is probably on Twitter @EvaMaeRey or submitting an issue on Github --- please say it nicely if you've got gripes! Or, if you'd like to make your comments privately, just "at" me and we can arrange another way!  Thanks.
 

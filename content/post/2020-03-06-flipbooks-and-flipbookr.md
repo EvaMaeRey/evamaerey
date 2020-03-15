@@ -18,9 +18,9 @@ projects: []
 ---
 
 
-I was scheduled to be on the panel "Public Engagement: Blogging, Twitter & Podcasts" at the 2020 Midwest Political Science Association Conference.  I thought I might use the chance to tell collegues about flipbooks and the new package {flipbookr}; lots of the story unfolded on Twitter.  
+I was scheduled to be on the panel "Public Engagement: Blogging, Twitter & Podcasts" at the 2020 Midwest Political Science Association Conference.  I thought I might use the chance to tell colleagues about flipbooks and the new package {flipbookr}; lots of the story unfolded on Twitter.  
 
-With worry reasonably growing about the Covid-19, I and the other panalists are unable to make it for the conference.  
+With worry reasonably growing about the COVID-19, I and the other panelists are unable to make it for the conference.  
 
 But I have this story to tell.  It's a story about getting things done at distance, reaching out to people that you don't know in real life to collaborate --- all to create a tool that I think helps communicate at distance.   I think we need stories like this now, with all the change on the horizon (at least in the short term) for how we get things done. I feel nervous about the big move to online for my classes, amidst the other worries of these times.  And, I've also just been wanting to write down an account of the influences and key moments on the way to {flipbookr} for some time, just for myself, before time slips by and I start forgetting.
 
@@ -36,7 +36,7 @@ The very beginning I guess is grad school --- when I started learning R.  It was
 
 ## Learning Dynamic Documents
 
-Later on in grad school I was hearing about murmurings about dynamic documents ---   documents that combined prose and code. I was intrigued.   I ultimately compiled my first dynamic document under the tutalidge of Roger Peng, whose Coursera class was a part of the wildly popular Johns Hopkins data science series.  Peng also taught me how to right a function.  So useful.  It was probably around this time I started hearing the murmorings about ggplot and some new data manipulation tools too.  But I didn't really get into them.
+Later on in grad school I was hearing about murmurings about dynamic documents ---   documents that combined prose and code. I was intrigued.   I ultimately compiled my first dynamic document under the tutelage of Roger Peng, whose Coursera class was a part of the wildly popular Johns Hopkins data science series.  Peng also taught me how to right a function.  So useful.  It was probably around this time I started hearing the murmurings about ggplot and some new data manipulation tools too.  But I didn't really get into them.
 
 
 # Getting on Twitter
@@ -53,11 +53,11 @@ The next phase is basically about learning ggplot2, which I and so many people l
 
 ## December 2016
 
-In December 2016, I learned about #MakeoverMonday.  It happened by listening to the podcast "Data Stories".  One of the first episodes I heard was and [interview with Andy Kriebel and Andy Cotgreave](https://datastori.es/88-re-designing-visualizations-on-makeovermonday-with-andy-kriebel-and-andy-cotgreave/) who were talking about the data visualization initiative #MakeoverMonday that they were running on Twitter to practice data viz with Tableau.  They were posting datasets on a weekly basis and whoever could try their hand at building a viz and sharing with the #MakeoverMonday community.
+In December 2016, I heard about #MakeoverMonday.  Somehow I'd  found the podcast "Data Stories".  One of the first episodes I heard was an [interview with Andy Kriebel and Andy Cotgreave](https://datastori.es/88-re-designing-visualizations-on-makeovermonday-with-andy-kriebel-and-andy-cotgreave/) who were talking about the data visualization initiative #MakeoverMonday that they were running on Twitter to practice data viz with Tableau.  They were posting datasets on a weekly basis and whoever could try their hand at building a viz and share with the #MakeoverMonday community.
 
 ## Dec 19, 2016
 
-I thought #MakeoverMonday sounded fantastic and posted a submission within a week or two.  I used base R graphics.  My viz wasn't too pretty (though I was trying to be fancy with some "enhanced histogram" idea that I'd been working with) but I got a "Welcome to #Makeovermonday" message.  I was hooked.   There just a few of us #rstats people in the #MakeoverMonday mix, but we were always welcomed!  Eva Murry and Andy Kriebel, who were issuing feedback cared more about the composition of plots than tools used to build them. 
+I thought #MakeoverMonday sounded fantastic and posted a submission within a week or two.  I used base R graphics.  My viz wasn't too pretty (though I was trying to be fancy with some "enhanced histogram" idea that I'd been working with) but I got a "Welcome to #MakeoverMonday" message.  I was hooked.   There just a few of us #rstats people in the #MakeoverMonday mix, but we were always welcomed!  Eva Murry and Andy Kriebel, who were issuing feedback cared more about the composition of plots than tools used to build them. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">My first <a href="https://twitter.com/hashtag/makeovermonday?src=hash&amp;ref_src=twsrc%5Etfw">#makeovermonday</a>! Just one week late with the dangerous driving data. Information enhanced histograms for small # of observations. <a href="https://t.co/Zkf9cZOw5T">pic.twitter.com/Zkf9cZOw5T</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/810956761893113857?ref_src=twsrc%5Etfw">December 19, 2016</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -83,7 +83,7 @@ The tip resonated with tons of people.  It was a great idea.  With me, it resona
 
 In the comments of the tweet it didn't sound like an efficient of doing this was totally worked out, and definitely not with ggplot2; the discussion for doing so was about using Stata.  
 
-I turned to the problem immediately, although I'm sure I was meant to be doing something else that morning; I guess I still feel some guilt as failing to stay focused.  Probably with a bunch of ggplot2::last_plot() statements, you manage the task pretty effeciently. ggplot2::last_plot() (which I learned in Zurich) lets you keep progress from a previous version of a plot to a new phase; in Matt's case, an incomplete plot to the next phase of the plot for the slow presentation. 
+I turned to the problem immediately, although I'm sure I was meant to be doing something else that morning; I guess I still feel some guilt as failing to stay focused.  Probably with a bunch of ggplot2::last_plot() statements, you manage the task pretty efficiently. ggplot2::last_plot() (which I learned in Zurich) lets you keep progress from a previous version of a plot to a new phase; in Matt's case, an incomplete plot to the next phase of the plot for the slow presentation. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">an implementation w/ <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> <a href="https://t.co/sDxUDrlMcw">pic.twitter.com/sDxUDrlMcw</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/991576057424867329?ref_src=twsrc%5Etfw">May 2, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -103,18 +103,18 @@ Garrick Aden-Buie created something like a modern flipbook in early 2018.  Mara 
 
 ## August 13, 2018
 
-Kindly enough, Garrick had shared the Xaringan rmarkdown file from his slides, so I could isolated the "flipbook part".  And I was using Xaringan in teaching my classes too, so wasn't feeling too overwhelmed.  I built my own side-by-side code-plot slow build.  I titled the frames "Slow ggplot2" and tweeted about it.  
+Kindly enough, Garrick had shared the Xaringan rmarkdown file from his slides, so I managed to isolated the "flipbook part".  And I was using Xaringan in teaching my classes too, so wasn't feeling too overwhelmed.  I built my own side-by-side code-plot slow build.  I titled the frames "Slow ggplot2" and tweeted about it.  
 
-I was pleased, but I did have to back off from a much more ambitious project --- which would have shown a much more complicated plot of 25 or so lines of code.  I chose one made up of about 10.  It was too confusing to keep track of how much code was needed on all the slides and for the longer case.  Better methods would be needed for a longer case.
+I was pleased, but I did have to back off from a much more ambitious project --- which would have shown a much more complicated plot of 25 or so lines of code.  I chose one made up of about 10.  It was too confusing to keep track of how much code was needed on each slides for the longer case.  Better methods would be needed for a longer ggplot.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here, building up a <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> as slowly as possible, <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>. Incremental adjustments. <a href="https://twitter.com/hashtag/rstatsteachingideas?src=hash&amp;ref_src=twsrc%5Etfw">#rstatsteachingideas</a> <a href="https://t.co/nUulQl8bPh">pic.twitter.com/nUulQl8bPh</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1029104656763572226?ref_src=twsrc%5Etfw">August 13, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-Thereafter, Garrick also wrote about his methods in [a blog post]( https://www.garrickadenbuie.com/blog/decouple-code-and-output-in-xaringan-slides/)... "A recent tweet by Gina Reynolds reminded me that I’ve been sitting on this blog post for a while." 
+Thereafter, Garrick also wrote about his methods in [a blog post]( https://www.garrickadenbuie.com/blog/decouple-code-and-output-in-xaringan-slides/)... "A recent tweet by Gina Reynolds reminded me that I've been sitting on this blog post for a while." 
 
 ## Sept 16, 2018
 
-A month or so later, Emi Tanaka joined in tweeting about a code-evolution set of slides she'd built.  She was using her gorgeous Xaringan styles kunoichi and ninjutsu, and she had embraced the fully sequential and incremental workflow of "Slow ggplot2" that I'd put forth - totally sequential, totally incremental.  Unbenounced to me, this process got her thinking about *full fledged* flipbooks - flipbooks that would be build automatically from a single input of code. 
+A month or so later, Emi Tanaka joined in tweeting about a code-evolution set of slides she'd built.  She was using her gorgeous Xaringan styles kunoichi and ninjutsu, and she had embraced the fully sequential and incremental workflow of "Slow ggplot2" that I'd put forth - totally sequential, totally incremental.  Unbeknownst to me, this process got her thinking about *full fledged* flipbooks - flipbooks that would be build automatically from a single input of code. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Inspired by <a href="https://twitter.com/grrrck?ref_src=twsrc%5Etfw">@grrrck</a> and <a href="https://twitter.com/EvaMaeRey?ref_src=twsrc%5Etfw">@EvaMaeRey</a>, made the kunoichi + ninjutsu (ninja-theme) version of <a href="https://twitter.com/hashtag/ggplot?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot</a> tutorial although Garrick already does explaining this in his excellent blog <a href="https://t.co/msXfg14Ztn">https://t.co/msXfg14Ztn</a>. Gist for ninja-theme here: <a href="https://t.co/soHH4Qvz4F">https://t.co/soHH4Qvz4F</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/YlRHAGnaUm">pic.twitter.com/YlRHAGnaUm</a></p>&mdash; Emi Tanaka 🌾 (@statsgen) <a href="https://twitter.com/statsgen/status/1041279648452108289?ref_src=twsrc%5Etfw">September 16, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -123,7 +123,9 @@ A month or so later, Emi Tanaka joined in tweeting about a code-evolution set of
 
 ### April 5, 2018
 
-Meanwhile Andy Kiebel and Eva Murry were busy with a new project, they planned to write a book for  #Ma[keovermonday.  ](https://www.makeovermonday.co.uk/book/)They approached me among many other participants about contributed visualizations that might be included in the book.  I was glad to have been asked and sent a couple of higher resolution visualizations and my permission to incushe womTheir project also got me thinking, was it time to put together some kind of gallary forof own visualizations?  They were scattered on Twitter and on my laptop, but might be more compelling in some kind of collection.  On the internet would be fine. Modest goals.  
+Meanwhile Andy Kriebel and Eva Murry were busy with a new project, they planned to write a book for  [#Makeovermonday](https://www.makeovermonday.co.uk/book/).  They approached me among many other participants about contributed visualizations that might be included in the book.  I was glad to have been asked and sent a couple of higher resolution visualizations and my permission to use them.
+
+Their project also got me thinking, was it time to put together some kind of gallery of my own visualizations?  They were scattered on Twitter and on my laptop, but might be more compelling in some kind of collection.  On the internet would be fine. Modest goals.  
 
 
 
@@ -132,7 +134,7 @@ Meanwhile Andy Kiebel and Eva Murry were busy with a new project, they planned t
 
 ### July 27, 2018
 
-RStudio announced the first bookdown competition in September 2018.  *There* was a thought.  What if I put together a book of my data visualizations in one place, maybe in the bookdown tool.  And it wouldn't it be really marvellous to show the figures all being built --- as Garrick, and I and Emi had done with the simple plots!  The bookdown competition was a great pretext for getting in touch with them too.  Proposing a colab for the contest.
+RStudio announced the first bookdown competition in September 2018.  *There* was a thought.  What if I put together a book of my data visualizations in one place, maybe in the bookdown tool.  And it wouldn't it be really marvelous to show the figures all being built --- as Garrick, and I and Emi had done with the simple plots!  The bookdown competition was a great pretext for getting in touch with them too.  Proposing a collab for the contest.
 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Announcing the 1st Bookdown Contest: <a href="https://t.co/oCB20Lhv9k">https://t.co/oCB20Lhv9k</a> We cordially invite you to submit your bookdown examples, so that future authors may create more beautiful/free/open-access books and future students no longer need to struggle with formatting their dissertations! <a href="https://t.co/fIf5eovg4z">pic.twitter.com/fIf5eovg4z</a></p>&mdash; RStudio (@rstudio) <a href="https://twitter.com/rstudio/status/1022865820869976065?ref_src=twsrc%5Etfw">July 27, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -160,7 +162,9 @@ I express that I've had the same wish.
 
 ### Sept 24, 2018
 
-Emi sends us to partial automation, she'd already worked out with a then-secret-and-possibly-dangerous knitr function knitr:::knit_code$get(), and even blo[gged ab](https://emitanaka.rbind.io/post/knitr-knitr-code/)out days before: h.he quoted Yihui Xie in her post:
+Emi sends us to partial automation, she'd already worked out with a then-secret-and-possibly-dangerous knitr function knitr:::knit_code$get(), and even [blogged](https://emitanaka.rbind.io/post/knitr-knitr-code/) about days before.
+
+She quoted Yihui Xie in her post:
 
 > There was only one thing upon which I hesitated when deciding whether I should give users the access. That is knitr:::knit_code. Here the triple-colon is obviously a danger sign. When you can even modify the content of a code chunk, I have no idea what can happen. Evil or creative? I’ll leave it to you to think about.
 
@@ -177,19 +181,19 @@ Her gist is here: https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab
 
 ### Sept 24, 2018
 
-Garrick adds some know-how, kniglue::glue() to prepare the series of code chunks with the partial builds.  Then, that delivered as text to tr::knit(text = ?) an.dre were at full automation!
+Garrick adds some know-how, glue::glue() to prepare the series of code chunks with the partial builds.  Then, that delivered as text to knitr::knit(text = ?). We're were at full automation!
 
 His gist is here: https://gist.github.com/gadenbuie/634060984f0007bf390a931dd3b31bab
 
 # the ggplot2 flipbook
 
-After the September 24th rush of productivity, things slowed down a bit.  Mostly, I was writing *the ggplot flipbook*.  Also, we decided bookdown was not the best plotform for the decision-by-decision reveals for ggplot2.  Xaringan, the slide show tool, was already perfect suited to this, so I went back to that.  The code that had been originally used to produce the #MakeoverMonday plots was adjusted to a set of "Slowggplot2" rules that I had made, the tried to deliver feedback in the plot for each new code reveal.  AlsIt was a very bird-by-bird  o, there was cleaning up to do in terms of naming arguments --- which I thought would help in communicating.  And I wanted to write up a bit of explanation about each plot too to introduce them.  It was managible, but took some time.
+After the September 24th rush of productivity, things slowed down a bit.  Mostly, I was writing *the ggplot flipbook*.  Also, we decided bookdown was not the best platform for the decision-by-decision reveals for ggplot2.  Xaringan, the slide show tool, was already perfect suited to this, so I went back to that.  The code that had been originally used to produce the #MakeoverMonday plots was adjusted to a set of "Slowggplot2" rules that I had made, the tried to deliver feedback in the plot for each new code reveal.  It was a very bird-by-bird  Also, there was cleaning up to do in terms of naming arguments --- which I thought would help in communicating.  And I wanted to write up a bit of explanation about each plot too to introduce them.  It was manageable, but took some time.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">my <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> flipbook project is online! 😎🤓🤓 Incrementally walks through plotting code (<a href="https://twitter.com/hashtag/MakeoverMonday?src=hash&amp;ref_src=twsrc%5Etfw">#MakeoverMonday</a>, soon <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> plots). Using <a href="https://twitter.com/hashtag/xaringan?src=hash&amp;ref_src=twsrc%5Etfw">#xaringan</a> with reveal function; thanks, <a href="https://twitter.com/statsgen?ref_src=twsrc%5Etfw">@statsgen</a> <a href="https://twitter.com/grrrck?ref_src=twsrc%5Etfw">@grrrck</a>. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>. <a href="https://t.co/bBBzv0iZLw">https://t.co/bBBzv0iZLw</a> <a href="https://t.co/tFtD78IOHZ">pic.twitter.com/tFtD78IOHZ</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1095102690936291328?ref_src=twsrc%5Etfw">February 11, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 # the rest is history:  {flipbookr}
 
-The rest of the story is just details.  The (and I'm tired of writing) response to the ggplot flipbook was really fantastic and demonstrated a hunger for tools like flipbooks.  There were a ton of obvious features to be added out of the gate (extending the flipbooks to data manipulation, and allowing code to span multiple lines), and features that I added as I felt that I "needed" them in teaching (like non-sequential reveals and multiple realizations of the exact same code) and user requests (reveal only the output).  And it was clear that eventually the tools would need to be packaged up.  {flipbookr} was born.  
+The rest of the story is just details (and I'm tired of writing).  The response to the ggplot flipbook was really fantastic and demonstrated a hunger for tools like flipbooks.  There were a ton of obvious features to be added out of the gate (extending the flipbooks to data manipulation, and allowing code to span multiple lines), and features that I added as I felt that I "needed" them in teaching (like non-sequential reveals and multiple realizations of the exact same code) and user requests (reveal only the output).  And it was clear that eventually the tools would need to be packaged up.  {flipbookr} was born.  
 
 
 
