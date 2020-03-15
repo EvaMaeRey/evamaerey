@@ -5,12 +5,60 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 09 Oct 2019 12:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 08 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>code</title>
+      <link>/tags/code/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>communication</title>
+      <link>/tags/communication/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/communication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flipbookr</title>
+      <link>/tags/flipbookr/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/flipbookr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flipbooks</title>
+      <link>/tags/flipbooks/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/flipbooks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slowggplot2</title>
+      <link>/tags/slowggplot2/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/slowggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>teaching</title>
+      <link>/tags/teaching/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/teaching/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>R</title>
@@ -65,14 +113,6 @@
       <link>/tags/ggplot2/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/ggplot2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>flipbooks</title>
-      <link>/tags/flipbooks/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/tags/flipbooks/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,58 @@
+---
+title: 'Three classes of flipbooks (or "getting organized")'
+author: ~
+date: '2020-03-08'
+slug: three-classes-of-flipbooks
+categories: []
+tags: [flipbooks, flipbookr, teaching, communication, code]
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-03-08T22:33:40-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+I kept sending links to students for reference. Here's the link for the data cleaning examples. Here's the link for reshaping data.  Here's the link for ggplot basics.  But would they actually be able to find these references again?  Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a [resources page](https://evamaerey.github.io/fall_2019/fall_2019) for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents. An improvement, but not totally orderly and not sustainable.
+
+A fundamental problem was me chucking every flipbook into the same github repository; this repository was getting bloated.
+
+Over the last couple weeks, I’ve been taking on a new approach - breaking up the big repo into smaller, thematic ones — Visualization, Manipulation, and Statistical Analysis — and working on directories for each.  A race to get references organized before *my students'* race to get things done at the end of the quarter.  
+
+I think the strategy has worked fairly well.  Students are working more independently through their data manipulation problems --- definitely more so than when I just started teaching.  There are several factors at play here, but I think having the flipbook references and having them organizes is playing a part.  And even if students do come in for office hours, facing some hurdle, I often find it easiest to direct them to an example where they see their problem mirrored and a solution. 
+
+Now I have three main portal's of flipbooks: Visualization with ggplot2, Data Manipulation, and Statistical Analysis.
+
+# [Visualization with ggplot2](https://evamaerey.github.io/ggplot2_grammar_guide/about){target="_blank"}
+
+Flipbooks were originally developed for a single use case:  data visualization with {ggplot2}. ggplot2’s flexibility allows for organizing the code so that new decisions and additions to the ggplot can be added incrementally and sequentially. This fact meant that a single input of ggplot2 code could be automatically parsed and reconstruted and presented a flipbook that would communicate pretty meaningfully, giving feedback in the output at every additional code reveal. - a style that I’ve called “SLOWggplot2” (SLOWggplot2’s Literally Only the Wonderful/Wayfairing/Wickham’s ggplot2; SLOWggplot2 is a bit verbose but it is native to ggplot2 and fully supported). the ggplot2 flipbook one of the earliest use cases, but resource is more about understanding the grammar.  
+
+
+```{r, echo = F}
+knitr::include_url("https://evamaerey.github.io/ggplot2_grammar_guide/about")
+```
+
+
+# [Manipulation](https://evamaerey.github.io/data_manipulation/about){target="_blank"}
+
+The second use for flipbooks was data manipulation. While less visually compelling, I think these flipbooks can help newcomers and seasoned practicioners alike navigate how to get wrangling tasks done. The magrittr pipe operator is the break point at which intermediate output is shown. The flipbooks I’ve built use mostly the dplyr and tidyr data manipulation tools. Wrangling with base R and data.table is also possible using flipbooks with our without the magrittr pipe.
+
+```{r, echo = F}
+knitr::include_url("https://evamaerey.github.io/data_manipulation/about")
+```
+
+
+# [Statistical Analysis](https://evamaerey.github.io/statistics/about){target="_blank"}
+
+A third class of flipbooks is in the area of statistical analysis and communication. This feels like the most experiemental (and for me right now is perhaps most exciting area!). Not only is the task of communicating how-to of statistical tasks an objective, but flipbook may serve to illustrate concepts, like bootstrapping, false positive rates under statistical independence. They may even be used for walking through how statistics themselves are calculated.
+
+
+```{r, echo = F}
+knitr::include_url("https://evamaerey.github.io/statistics/about")
+```
+
+

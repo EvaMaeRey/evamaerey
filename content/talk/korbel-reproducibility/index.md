@@ -1,5 +1,5 @@
 ---
-abstract:  Reproducible workflows provide transparency and are helpful in tracking progress in a projects.  What are the tools that may be useful to this end?  They vary across What does that look like?  This workshop will walk you through a minimal example of how you might set up a research project using popular tools of R and Rmarkdown files with reproducibility as a goal.  Additionally, we'll have a look at some new resources --- "flipbooks" made with "Xaringan" -- that walk through data manipulation pipelines and plotting.  Time permitting, you'll compile your own flipbook, which you can modify to communicate about each decision you make in your analysis.
+abstract:  Reproducible workflows provide transparency and are helpful in tracking progress in a projects.  What are the tools that may be useful to this end? And what does a reproducible workflow look like?  This workshop will walk you through a minimal example of how you might set up a research project using popular tools of R and Rmarkdown files with reproducibility as a goal.  
 address:
   city: Denver
   country: USA
@@ -27,7 +27,7 @@ math: true
 # - internal-project
 publishDate: "2017-01-01T00:00:00Z"
 # slides: example
-summary: What are project organization best practices? Discussion will emphasize on dynamic documents with the aim of getting participants up and running with these tools.  
+summary: What are project organization best practices? Discussion will emphasize dynamic documents with the aim of getting participants up and running with these tools.  
 tags: [reproduciblility, workflow, R, ]
 title: "Dynamic Documents and Reproducibility"
 url_code: ""

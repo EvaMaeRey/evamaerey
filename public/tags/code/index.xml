@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>code | Evangeline Reynolds</title>
+    <link>/tags/code/</link>
+      <atom:link href="/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <description>code</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 08 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>code</title>
+      <link>/tags/code/</link>
+    </image>
+    
+    <item>
+      <title>Three classes of flipbooks (or &#34;getting organized&#34;)</title>
+      <link>/post/three-classes-of-flipbooks/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/three-classes-of-flipbooks/</guid>
+      <description>
+
+
+&lt;p&gt;I kept sending links to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a &lt;a href=&#34;https://evamaerey.github.io/fall_2019/fall_2019&#34;&gt;resources page&lt;/a&gt; for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents. An improvement, but not totally orderly and not sustainable.&lt;/p&gt;
+&lt;p&gt;A fundamental problem was me chucking every flipbook into the same github repository; this repository was getting bloated.&lt;/p&gt;
+&lt;p&gt;Over the last couple weeks, I’ve been taking on a new approach - breaking up the big repo into smaller, thematic ones — Visualization, Manipulation, and Statistical Analysis — and working on directories for each. A race to get references organized before &lt;em&gt;my students’&lt;/em&gt; race to get things done at the end of the quarter.&lt;/p&gt;
+&lt;p&gt;I think the strategy has worked fairly well. Students are working more independently through their data manipulation problems — definitely more so than when I just started teaching. There are several factors at play here, but I think having the flipbook references and having them organizes is playing a part. And even if students do come in for office hours, facing some hurdle, I often find it easiest to direct them to an example where they see their problem mirrored and a solution.&lt;/p&gt;
+&lt;p&gt;Now I have three main portal’s of flipbooks: Visualization with ggplot2, Data Manipulation, and Statistical Analysis.&lt;/p&gt;
+&lt;div id=&#34;visualization-with-ggplot2&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;a href=&#34;https://evamaerey.github.io/ggplot2_grammar_guide/about&#34; target=&#34;_blank&#34;&gt;Visualization with ggplot2&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Flipbooks were originally developed for a single use case: data visualization with {ggplot2}. ggplot2’s flexibility allows for organizing the code so that new decisions and additions to the ggplot can be added incrementally and sequentially. This fact meant that a single input of ggplot2 code could be automatically parsed and reconstruted and presented a flipbook that would communicate pretty meaningfully, giving feedback in the output at every additional code reveal. - a style that I’ve called “SLOWggplot2” (SLOWggplot2’s Literally Only the Wonderful/Wayfairing/Wickham’s ggplot2; SLOWggplot2 is a bit verbose but it is native to ggplot2 and fully supported). the ggplot2 flipbook one of the earliest use cases, but resource is more about understanding the grammar.&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/ggplot2_grammar_guide/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manipulation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;a href=&#34;https://evamaerey.github.io/data_manipulation/about&#34; target=&#34;_blank&#34;&gt;Manipulation&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The second use for flipbooks was data manipulation. While less visually compelling, I think these flipbooks can help newcomers and seasoned practicioners alike navigate how to get wrangling tasks done. The magrittr pipe operator is the break point at which intermediate output is shown. The flipbooks I’ve built use mostly the dplyr and tidyr data manipulation tools. Wrangling with base R and data.table is also possible using flipbooks with our without the magrittr pipe.&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/data_manipulation/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistical-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;a href=&#34;https://evamaerey.github.io/statistics/about&#34; target=&#34;_blank&#34;&gt;Statistical Analysis&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A third class of flipbooks is in the area of statistical analysis and communication. This feels like the most experiemental (and for me right now is perhaps most exciting area!). Not only is the task of communicating how-to of statistical tasks an objective, but flipbook may serve to illustrate concepts, like bootstrapping, false positive rates under statistical independence. They may even be used for walking through how statistics themselves are calculated.&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/statistics/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

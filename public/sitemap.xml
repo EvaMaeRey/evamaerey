@@ -18,12 +18,67 @@
   </url>
   
   <url>
-    <loc>/talk/korbel-reproducibility/</loc>
-    <lastmod>2019-10-09T12:00:00+00:00</lastmod>
+    <loc>/tags/code/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/communication/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/flipbookr/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/flipbooks/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/slowggplot2/</loc>
+    <lastmod>2020-03-08T19:12:13-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/teaching/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/three-classes-of-flipbooks/</loc>
+    <lastmod>2020-03-08T22:33:40-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/introducing-flipbookr/</loc>
+    <lastmod>2020-03-08T19:12:13-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/flipbooks-and-flipbookr/</loc>
+    <lastmod>2020-03-06T22:53:37-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/korbel-reproducibility/</loc>
     <lastmod>2019-10-09T12:00:00+00:00</lastmod>
   </url>
   
@@ -39,11 +94,6 @@
   
   <url>
     <loc>/tags/reproduciblility/</loc>
-    <lastmod>2019-10-09T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-10-09T12:00:00+00:00</lastmod>
   </url>
   
@@ -104,11 +154,6 @@
   
   <url>
     <loc>/tags/ggplot2/</loc>
-    <lastmod>2018-09-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2018-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -194,11 +239,6 @@
   
   <url>
     <loc>/project/external-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/flipbooks/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -289,6 +329,11 @@
   
   <url>
     <loc>/authors/admin/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2020-03-06-flipbooks-and-flipbookr/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

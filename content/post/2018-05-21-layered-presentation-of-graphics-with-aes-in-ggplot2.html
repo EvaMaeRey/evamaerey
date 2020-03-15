@@ -40,7 +40,6 @@ data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2
   geom_point() +  # declare the geom to add 
   aes(alpha = country == &quot;Chile&quot;) +  # alpha is transparency aesthetic
   scale_alpha_discrete(guide = FALSE, range = c(0,1)) </code></pre>
-<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
 <p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Above, we use an extreme range, so Chile is fully opaque and the rest of the points are fully transparent. So the point for Chile is the only point that will appear.</p>
 </div>
@@ -49,9 +48,6 @@ data = gapminder %&gt;% filter(continent == &quot;Americas&quot; &amp; year == 2
 <p>Now we overwrite the alpha levels so that all are observations (countries) are represented with a fully opaque point.</p>
 <pre class="r"><code>last_plot() + 
   scale_alpha_discrete(guide = FALSE, range = c(1,1)) </code></pre>
-<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
-<pre><code>## Scale for &#39;alpha&#39; is already present. Adding another scale for &#39;alpha&#39;, which
-## will replace the existing scale.</code></pre>
 <p><img src="/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Done!</p>
 <p>So, a (big) bonus of this exercise was discovering that you can use aes() to set global aesthetics outside of the ggplot() function. This is not the usual way that ggplot is taught (see the RStudio Cheatsheats for example) but I <em>really</em> like it, because using it gives you even more of that “building-up-the-plot”, step-by-step, layered feel that makes ggplot so attractive!</p>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flipbookr | Evangeline Reynolds</title>
+    <link>/tags/flipbookr/</link>
+      <atom:link href="/tags/flipbookr/index.xml" rel="self" type="application/rss+xml" />
+    <description>flipbookr</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 08 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>flipbookr</title>
+      <link>/tags/flipbookr/</link>
+    </image>
+    
+    <item>
+      <title>Three classes of flipbooks (or &#34;getting organized&#34;)</title>
+      <link>/post/three-classes-of-flipbooks/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/three-classes-of-flipbooks/</guid>
+      <description>
+
+
+&lt;p&gt;I kept sending links to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a &lt;a href=&#34;https://evamaerey.github.io/fall_2019/fall_2019&#34;&gt;resources page&lt;/a&gt; for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents. An improvement, but not totally orderly and not sustainable.&lt;/p&gt;
+&lt;p&gt;A fundamental problem was me chucking every flipbook into the same github repository; this repository was getting bloated.&lt;/p&gt;
+&lt;p&gt;Over the last couple weeks, I’ve been taking on a new approach - breaking up the big repo into smaller, thematic ones — Visualization, Manipulation, and Statistical Analysis — and working on directories for each. A race to get references organized before &lt;em&gt;my students’&lt;/em&gt; race to get things done at the end of the quarter.&lt;/p&gt;
+&lt;p&gt;I think the strategy has worked fairly well. Students are working more independently through their data manipulation problems — definitely more so than when I just started teaching. There are several factors at play here, but I think having the flipbook references and having them organizes is playing a part. And even if students do come in for office hours, facing some hurdle, I often find it easiest to direct them to an example where they see their problem mirrored and a solution.&lt;/p&gt;
+&lt;p&gt;Now I have three main portal’s of flipbooks: Visualization with ggplot2, Data Manipulation, and Statistical Analysis.&lt;/p&gt;
+&lt;div id=&#34;visualization-with-ggplot2&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;a href=&#34;https://evamaerey.github.io/ggplot2_grammar_guide/about&#34; target=&#34;_blank&#34;&gt;Visualization with ggplot2&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Flipbooks were originally developed for a single use case: data visualization with {ggplot2}. ggplot2’s flexibility allows for organizing the code so that new decisions and additions to the ggplot can be added incrementally and sequentially. This fact meant that a single input of ggplot2 code could be automatically parsed and reconstruted and presented a flipbook that would communicate pretty meaningfully, giving feedback in the output at every additional code reveal. - a style that I’ve called “SLOWggplot2” (SLOWggplot2’s Literally Only the Wonderful/Wayfairing/Wickham’s ggplot2; SLOWggplot2 is a bit verbose but it is native to ggplot2 and fully supported). the ggplot2 flipbook one of the earliest use cases, but resource is more about understanding the grammar.&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/ggplot2_grammar_guide/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manipulation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;a href=&#34;https://evamaerey.github.io/data_manipulation/about&#34; target=&#34;_blank&#34;&gt;Manipulation&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The second use for flipbooks was data manipulation. While less visually compelling, I think these flipbooks can help newcomers and seasoned practicioners alike navigate how to get wrangling tasks done. The magrittr pipe operator is the break point at which intermediate output is shown. The flipbooks I’ve built use mostly the dplyr and tidyr data manipulation tools. Wrangling with base R and data.table is also possible using flipbooks with our without the magrittr pipe.&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/data_manipulation/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistical-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;a href=&#34;https://evamaerey.github.io/statistics/about&#34; target=&#34;_blank&#34;&gt;Statistical Analysis&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;A third class of flipbooks is in the area of statistical analysis and communication. This feels like the most experiemental (and for me right now is perhaps most exciting area!). Not only is the task of communicating how-to of statistical tasks an objective, but flipbook may serve to illustrate concepts, like bootstrapping, false positive rates under statistical independence. They may even be used for walking through how statistics themselves are calculated.&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/statistics/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What the flipbook?!</title>
+      <link>/post/introducing-flipbookr/</link>
+      <pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/introducing-flipbookr/</guid>
+      <description>
+
+
+&lt;p&gt;At the end of January, I was lucky enough to present at the RStudio 2020 Conference about flipbooks and {flipbookr}.&lt;/p&gt;
+&lt;p&gt;About a year earlier, I’d tweeted about &lt;a href=&#34;https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html&#34;&gt;&lt;em&gt;the ggplot flipbook&lt;/em&gt;&lt;/a&gt; a collection of data visualizations I’d made — presenting the &lt;em&gt;builds&lt;/em&gt; of the code and visualizations. For my standards, the tweet got an &lt;em&gt;amazing&lt;/em&gt; response and was widely shared.&lt;/p&gt;
+&lt;p&gt;Heading to the conference, I felt like the word was out about flipbooks and I’d mostly be presenting about {flipbookr}, the new package I was developing to help people make their own flipbooks. But actually, many people that I met had never heard of or seen any flipbooks.&lt;/p&gt;
+&lt;p&gt;So, maybe you &lt;em&gt;too&lt;/em&gt; haven’t heard of flipbooks. What are they? Well, flipbooks present code step-by-step and side-by-side with output. It’s probably easiest to understand by looking at an example. A flipbook is embedded below. Click in the box and then use the arrow keys to navigate through it:&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/flipbooks/racing_bars/racing_barcharts.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;The idea of flipbooks is to deliver “readers” insights about behavior of specific functions in the context of a larger project. The “reader” can isolate unfamiliar functions and toggle between output states before and after a function is used — seeing how that function affects the outcome.&lt;/p&gt;
+&lt;div id=&#34;where-to-get-informed&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Where to get informed&lt;/h1&gt;
+&lt;p&gt;Now the whole flipbook project has a new &lt;a href=&#34;https://evamaerey.github.io/flipbooks/about&#34; target=&#34;_blank&#34;&gt;home page&lt;/a&gt; where I’ve tried to provide information on all things flipbooks. It includes links to many examples, info on how to build your own flipbooks with {flipbookr}, details about how {flipbookr} works, and a bit on the flipbooks origin story. Please check it out if you want to know more!&lt;/p&gt;
+&lt;iframe src=&#34;https://evamaerey.github.io/flipbooks/about&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;the-flipbook-building-package-flipbookr&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The flipbook building package, {flipbookr}&lt;/h2&gt;
+&lt;p&gt;The package {flipbookr} helps creators build flipbooks by allowing them to create &lt;em&gt;a single pipeline of code as an input&lt;/em&gt;, and then apply a single function which:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;parses their source pipeline&lt;/li&gt;
+&lt;li&gt;creates partial pipeline builds&lt;/li&gt;
+&lt;li&gt;delivers the partial pipelines and output to slides in slide show tool (xaringan)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Bam! You’ll have a tool to precisely communicate about code pipelines with collegues, studuents, or “your future self”. More details about how exactly to get started are also at the &lt;a href=&#34;https://evamaerey.github.io/flipbooks/about&#34;&gt;flipbooks home page&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- The intent is that {flipbookr} will help creators painlessly build flipbooks for reference or to communicate with colleagues or students.  In the long run, I&#39;m personally hopeful that {flipbookr} will also see much student use.  Students might build their own bespoke flipbooks --- portfolios of data visualizations and data manipulation for personal reference.     --&gt;
+&lt;!-- # Getting started with {flipbookr} --&gt;
+&lt;!-- Here are the steps to getting started with {flipbookr} in RStudio. --&gt;
+&lt;!-- 1. `install.packages(&#34;xaringan&#34;)`  *{xaringan} is a tool that allows you to create remark.js slide shows from an Rmarkdown file -- so you are able to embed code and output therein* --&gt;
+&lt;!-- 2.  --&gt;
+&lt;!--     a. `install.packages(&#34;remotes&#34;)` *since {flipbookr} is just a development package, we need to install it from github* --&gt;
+&lt;!--     b. `remotes::install_github(&#34;flipbookr&#34;)`  --&gt;
+&lt;!-- 3. **Restart R and RStudio** --&gt;
+&lt;!-- 4. **Files -&gt; New File -&gt; Rmarkdonw -&gt; from template -&gt; A Minimal Flipbook ** *This template will be made available to you upon installation of the flipbookr package* --&gt;
+&lt;!-- 5. **&#34;knit&#34; the template** *the template contains a lot of examples about the different modes for using {flipbookr}* --&gt;
+&lt;!-- 6. modify the template to make it your own! --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;feedback-for-flipbookr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Feedback for {flipbookr}?&lt;/h1&gt;
+&lt;p&gt;At the RStudio conference I made the claim:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“With {flipbookr}, you can build a flipbook in 5 minutes”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Such promises are inticing but in my experience rarely exactly true! The &lt;em&gt;you&lt;/em&gt; in these types of claims never seem to be referring to &lt;em&gt;me&lt;/em&gt;, at least. It is a really impersonal, genaric &lt;em&gt;you&lt;/em&gt;, that actually refers to the person delivering demo. What would ring a little more true is “Let me show you how &lt;em&gt;I&lt;/em&gt; can build a flipbook in 5 minutes.”&lt;/p&gt;
+&lt;!-- &gt; &#34;*If* you have the package successfully installed, *and if* you are really concentrated  *and if* follow the demo very carefully  *and if* you do not deviate from the instructions *then* building your first flipbook *might* take you 5 minutes.&#34;   --&gt;
+&lt;p&gt;Yup, saying “5 minutes” was probably a little disingenuous. I don’t feel too bad though — these promises have worked on me — getting me to try a package building and blogdown tutorials for example. Just took me, you know, 4 to 7 times longer than promised that first time through! But I learned the new tools and skills!&lt;/p&gt;
+&lt;p&gt;And so now &lt;strong&gt;I’d love to know what the &lt;em&gt;real life&lt;/em&gt; {flipbookr} experience is&lt;/strong&gt;! Have you tried to build a flipbook? How much of an exageration was “5 minutes”? How was installation? Did you find it easy/difficult/confusing? Were you successful? Did you maybe give up? Was there some particular code that you tried to “flipbook” that threw an error instead? Would you be willing to share your flipbook itself?&lt;/p&gt;
+&lt;p&gt;The easiest way to reach me is probably on Twitter &lt;span class=&#34;citation&#34;&gt;@EvaMaeRey&lt;/span&gt; or submitting an issue on Github — please say it nicely if you’ve got gripes! Or, if you’d like to make your comments privately, just “at” me and we can arrange another way! Thanks.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

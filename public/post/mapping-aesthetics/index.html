@@ -632,6 +632,7 @@ ggplot(df) +
   geom_point() +
   geom_line() +
   geom_smooth(method = lm)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 This is where I think the gain is. You don’t have to make the grouping declaration twice. (And you can override the global grouping aesthetic, should you so desire, in the geom_smooth() The alternative is redundant:</p>
 <pre class="r"><code>ggplot(df) +
@@ -640,6 +641,7 @@ This is where I think the gain is. You don’t have to make the grouping declara
   geom_point() +
   geom_line(aes(group = country)) +
   geom_smooth(aes(group = country), method = lm)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>In conclusion, trust your aesthetic mapping decisions, and just make them global. You might want to use them across more geoms as you build up your plot, and probably you will want consistent aesthetic mapping choices across your geoms. When a conflict arises, then you can simply override the aesthetic as you need to within the specific geom function, as done below.</p>
 <pre class="r"><code>ggplot(df) +
@@ -649,6 +651,7 @@ This is where I think the gain is. You don’t have to make the grouping declara
   geom_point() +
   geom_line() +
   geom_smooth(aes(group = NULL), method = lm)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2018-07-16-mapping-aesthetics_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 
     </div>
@@ -684,9 +687,6 @@ This is where I think the gain is. You don’t have to make the grouping declara
   
   
   <div class="media author-card">
-    
-      
-      <img class="portrait mr-3" src="/authors/admin/avatar%2011.20.27%20AM_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
     
 
     <div class="media-body">
