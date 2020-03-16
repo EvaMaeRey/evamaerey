@@ -114,7 +114,7 @@
 
 &lt;p&gt;With worry reasonably growing about the COVID-19, I and the other panelists are unable to make it for the conference.&lt;/p&gt;
 
-&lt;p&gt;But I have this story to tell.  It&amp;rsquo;s a story about getting things done at distance, reaching out to people that you don&amp;rsquo;t know in real life to collaborate &amp;mdash; all to create a tool that I think helps communicate at distance.   I think we need stories like this now, with all the change on the horizon (at least in the short term) for how we get things done. I feel nervous about the big move to online for my classes, amidst the other worries of these times.  And, I&amp;rsquo;ve also just been wanting to write down an account of the influences and key moments on the way to {flipbookr} for some time, just for myself, before time slips by and I start forgetting.&lt;/p&gt;
+&lt;p&gt;But I have this story to tell.  It&amp;rsquo;s a story about getting things done at distance, reaching out to people that you don&amp;rsquo;t know in real life to collaborate &amp;mdash; all to create a tool that I think helps communicate at distance.   I think we need stories like this now, with all the change on the horizon (at least in the short term) for how we get things done. I feel nervous about the big move to online for my classes, even though this is really small potatoes amid the other much bigger worries of the moment.  Well and, I&amp;rsquo;ve also just been wanting to write down an account of the influences and key moments on the way to {flipbookr} for some time, just for myself, before time slips by and I start forgetting details.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s begin. I hope that it reaches some of the same audience that would have been there live at the panel and maybe a few more folks here and there.&lt;/p&gt;
 
@@ -154,11 +154,11 @@
 
 &lt;h2 id=&#34;summer-2017&#34;&gt;Summer 2017&lt;/h2&gt;
 
-&lt;p&gt;In Spring 2017, a Quantitative Political Methodology Summer School for Women was announced to be held at the University of Zurich. I applied and was lucky enough to go!  Especially because there was a workshop one afternoon on ggplot2.  I&amp;rsquo;d done some ggplot2 plotting here and there &amp;mdash; using the popular copy-paste-tweek method (zero theory) &amp;mdash; but hadn&amp;rsquo;t really had a formal introduction.  After the workshop, I decided to focus on learning that tool for the #MakeoverMonday submissions.&lt;/p&gt;
+&lt;p&gt;In Spring 2017, a Quantitative Political Methodology Summer School for Women was announced to be held at the University of Zurich. I applied and was lucky enough to go!  Especially because there was a workshop one afternoon on ggplot2.  I&amp;rsquo;d done some ggplot2 plotting here and there &amp;mdash; using the popular copy-paste-tweek method (zero theory) &amp;mdash; but hadn&amp;rsquo;t really had a formal introduction.&lt;/p&gt;
+
+&lt;p&gt;After the workshop, I decided to focus on learning that tool for the #MakeoverMonday submissions.  Especially as I explored the new-to-me ggplot2 tool, I found #MakeoverMonday to be totally addictive.  I built a lot of plots.&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Zurich Summer School, class of 2017 (+organizers) &lt;a href=&#34;https://twitter.com/hashtag/ZurichSummerSch?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ZurichSummerSch&lt;/a&gt; &lt;a href=&#34;https://t.co/YFmL44um7v&#34;&gt;pic.twitter.com/YFmL44um7v&lt;/a&gt;&lt;/p&gt;&amp;mdash; Anita Gohdes (@ARGohdes) &lt;a href=&#34;https://twitter.com/ARGohdes/status/895307910032617472?ref_src=twsrc%5Etfw&#34;&gt;August 9, 2017&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;Especially as I explored the new-to-me ggplot2 tool, I found #MakeoverMonday to be totally addictive.  I built a lot of plots.&lt;/p&gt;
 
 &lt;h1 id=&#34;slow-ggplot&#34;&gt;Slow ggplot&lt;/h1&gt;
 
@@ -178,11 +178,9 @@
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;an implementation w/ &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; &lt;a href=&#34;https://t.co/sDxUDrlMcw&#34;&gt;pic.twitter.com/sDxUDrlMcw&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/991576057424867329?ref_src=twsrc%5Etfw&#34;&gt;May 2, 2018&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;I found the problem really engaging, and kept mulling it over.  Came back to it two days later.  &amp;ldquo;It sure would be nice if you could add aes() outside of ggplot, and one at a time&amp;rdquo;.  I wanted it to be true.  I tried it.  AND. IT. WAS. TRUE!!!  Slow ggplot was allowed!&lt;/p&gt;
+&lt;p&gt;I found the problem really engaging, and kept mulling it over.  Came back to it two days later.  &amp;ldquo;It sure would be nice if you could add aes() outside of ggplot, and one at a time&amp;rdquo;.  I wanted it to be true.  I tried it.  AND. IT. WAS. TRUE!!!  Slow ggplot was allowed!  Though it seemed to be a bit of well kept secret, it was so handy in this situation and I loved it and felt a bit clever for having found it.&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I like this implementation even better. I&amp;#39;m using aes() outside of the ggplot() function or a geom function seems not to be conventional. I just tried and see that it works in this case as I was hoping. But, should it be avoided? bad style? &lt;a href=&#34;https://twitter.com/StatGarrett?ref_src=twsrc%5Etfw&#34;&gt;@StatGarrett&lt;/a&gt; &lt;a href=&#34;https://t.co/GxUGo1agHU&#34;&gt;pic.twitter.com/GxUGo1agHU&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/992341968125493248?ref_src=twsrc%5Etfw&#34;&gt;May 4, 2018&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;And not many people seemed to know about it.  It was a well kept secret, but so handy and I loved it and felt a very clever for having found it.&lt;/p&gt;
 
 &lt;h1 id=&#34;proto-flipbooks&#34;&gt;Proto flipbooks&lt;/h1&gt;
 
@@ -244,7 +242,7 @@
 
 &lt;h3 id=&#34;sept-24-2018-2&#34;&gt;Sept 24, 2018&lt;/h3&gt;
 
-&lt;p&gt;Emi sends us to partial automation, she&amp;rsquo;d already worked out with a then-secret-and-possibly-dangerous knitr function knitr:::knit_code$get(), and even &lt;a href=&#34;https://emitanaka.rbind.io/post/knitr-knitr-code/&#34; target=&#34;_blank&#34;&gt;blogged&lt;/a&gt; about days before.&lt;/p&gt;
+&lt;p&gt;Emi sent us a link to her &lt;a href=&#34;https://emitanaka.rbind.io/post/knitr-knitr-code/&#34; target=&#34;_blank&#34;&gt;blog post&lt;/a&gt; &amp;mdash; she&amp;rsquo;d already worked out partial automation with a then-secret-and-possibly-dangerous knitr function knitr:::knit_code$get().&lt;/p&gt;
 
 &lt;p&gt;She quoted Yihui Xie in her post:&lt;/p&gt;
 
@@ -252,7 +250,9 @@
 &lt;p&gt;There was only one thing upon which I hesitated when deciding whether I should give users the access. That is knitr:::knit_code. Here the triple-colon is obviously a danger sign. When you can even modify the content of a code chunk, I have no idea what can happen. Evil or creative? I’ll leave it to you to think about.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;I&amp;rsquo;m so happy that he didn&amp;rsquo;t let the hesitations get in the way! And Emi expressed her motivations as coming from exactly the same frustrations that I&amp;rsquo;d experienced when I tried to &amp;ldquo;flipbook&amp;rdquo; the initial 25 line ggplot2 pipeline.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m so happy that Yihui didn&amp;rsquo;t let the hesitations get in the way!&lt;/p&gt;
+
+&lt;p&gt;And Emi expressed her motivations as coming from exactly the same frustrations that I&amp;rsquo;d experienced when I tried to &amp;ldquo;flipbook&amp;rdquo; the initial 25 line ggplot2 pipeline:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;The slide was made using xaringan and the incremental reveal was made by copying and pasting the slide multiple times, deleting lines and then adding highlight to the right line. It did the job but this was far from ideal especially when I decided to change the order of the line so that theme_bw appears last.&lt;/p&gt;
@@ -264,7 +264,7 @@
 &lt;p&gt;Now that I know how knitr:::knit_code works, it’s giving me ideas.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Her gist is here: &lt;a href=&#34;https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab15ea&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab15ea&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Her gist where the partial automation is accomplished is here: &lt;a href=&#34;https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab15ea&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab15ea&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;sept-24-2018-3&#34;&gt;Sept 24, 2018&lt;/h3&gt;
 
@@ -274,7 +274,13 @@
 
 &lt;h1 id=&#34;the-ggplot2-flipbook&#34;&gt;the ggplot2 flipbook&lt;/h1&gt;
 
-&lt;p&gt;After the September 24th rush of productivity, things slowed down a bit.  Mostly, I was writing &lt;em&gt;the ggplot flipbook&lt;/em&gt;.  Also, we decided bookdown was not the best platform for the decision-by-decision reveals for ggplot2.  Xaringan, the slide show tool, was already perfect suited to this, so I went back to that.  The code that had been originally used to produce the #MakeoverMonday plots was adjusted to a set of &amp;ldquo;Slowggplot2&amp;rdquo; rules that I had made, the tried to deliver feedback in the plot for each new code reveal.  It was a very bird-by-bird  Also, there was cleaning up to do in terms of naming arguments &amp;mdash; which I thought would help in communicating.  And I wanted to write up a bit of explanation about each plot too to introduce them.  It was manageable, but took some time.&lt;/p&gt;
+&lt;p&gt;After the September 24th rush of productivity, things slowed down a bit.  Mostly, I was writing &lt;em&gt;the ggplot flipbook&lt;/em&gt;.  Also, we decided bookdown was not the best platform for the decision-by-decision reveals for ggplot2.  Xaringan, the slide show tool, was already perfect suited to this, so I went back to that.  The code that had been originally used to produce the #MakeoverMonday plots was adjusted to a set of &amp;ldquo;Slowggplot2&amp;rdquo; rules that I had made, the tried to deliver feedback in the plot for each new code reveal.   Also, there was cleaning up to do in terms of naming arguments &amp;mdash; which I thought would help in communicating.  And I wanted to write up a bit of explanation about each plot too to introduce them.  It was manageable, but took some time &amp;mdash; it was a &lt;a href=&#34;https://www.goodreads.com/book/show/12543.Bird_by_Bird&#34; target=&#34;_blank&#34;&gt;&amp;ldquo;bird-by-bird&amp;rdquo;&lt;/a&gt; style project.&lt;/p&gt;
+
+&lt;p&gt;The last thing to figure out was how to disseminate.  Right as I was finishing up the flipbook, Roger Peng tweeted out a tutorial by Brian Caffo.&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;.&lt;a href=&#34;https://twitter.com/bcaffo?ref_src=twsrc%5Etfw&#34;&gt;@bcaffo&lt;/a&gt; has returned to YouTube! &lt;a href=&#34;https://t.co/xnGOgVABzm&#34;&gt;https://t.co/xnGOgVABzm&lt;/a&gt;&lt;/p&gt;&amp;mdash; Roger D. Peng (@rdpeng) &lt;a href=&#34;https://twitter.com/rdpeng/status/1093315073139974144?ref_src=twsrc%5Etfw&#34;&gt;February 7, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Perfect timing. I followed the tutorial, pushing the flipbook to github, turned on git hub pages,  asked Emi and Garrick for feedback, figured out how to screen capture the flipbook, and proudly tweeted:&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;my &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; flipbook project is online! 😎🤓🤓 Incrementally walks through plotting code (&lt;a href=&#34;https://twitter.com/hashtag/MakeoverMonday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#MakeoverMonday&lt;/a&gt;, soon &lt;a href=&#34;https://twitter.com/hashtag/TidyTuesday?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TidyTuesday&lt;/a&gt; plots). Using &lt;a href=&#34;https://twitter.com/hashtag/xaringan?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#xaringan&lt;/a&gt; with reveal function; thanks, &lt;a href=&#34;https://twitter.com/statsgen?ref_src=twsrc%5Etfw&#34;&gt;@statsgen&lt;/a&gt; &lt;a href=&#34;https://twitter.com/grrrck?ref_src=twsrc%5Etfw&#34;&gt;@grrrck&lt;/a&gt;. &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt;. &lt;a href=&#34;https://t.co/bBBzv0iZLw&#34;&gt;https://t.co/bBBzv0iZLw&lt;/a&gt; &lt;a href=&#34;https://t.co/tFtD78IOHZ&#34;&gt;pic.twitter.com/tFtD78IOHZ&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gina Reynolds (@EvaMaeRey) &lt;a href=&#34;https://twitter.com/EvaMaeRey/status/1095102690936291328?ref_src=twsrc%5Etfw&#34;&gt;February 11, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 

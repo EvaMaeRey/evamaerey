@@ -4,7 +4,7 @@ author: ~
 date: '2020-03-06'
 slug: flipbooks-and-flipbookr
 categories: []
-tags: []
+tags: [flipbooks, flipbookr, teaching, communication, code]
 subtitle: ''
 summary: ''
 authors: []
@@ -22,7 +22,7 @@ I was scheduled to be on the panel "Public Engagement: Blogging, Twitter & Podca
 
 With worry reasonably growing about the COVID-19, I and the other panelists are unable to make it for the conference.  
 
-But I have this story to tell.  It's a story about getting things done at distance, reaching out to people that you don't know in real life to collaborate --- all to create a tool that I think helps communicate at distance.   I think we need stories like this now, with all the change on the horizon (at least in the short term) for how we get things done. I feel nervous about the big move to online for my classes, amidst the other worries of these times.  And, I've also just been wanting to write down an account of the influences and key moments on the way to {flipbookr} for some time, just for myself, before time slips by and I start forgetting.
+But I have this story to tell.  It's a story about getting things done at distance, reaching out to people that you don't know in real life to collaborate --- all to create a tool that I think helps communicate at distance.   I think we need stories like this now, with all the change on the horizon (at least in the short term) for how we get things done. I feel nervous about the big move to online for my classes, even though this is really small potatoes amid the other much bigger worries of the moment.  Well and, I've also just been wanting to write down an account of the influences and key moments on the way to {flipbookr} for some time, just for myself, before time slips by and I start forgetting details.
 
 Let's begin. I hope that it reaches some of the same audience that would have been there live at the panel and maybe a few more folks here and there. 
 
@@ -63,11 +63,13 @@ I thought #MakeoverMonday sounded fantastic and posted a submission within a wee
 
 ## Summer 2017
 
-In Spring 2017, a Quantitative Political Methodology Summer School for Women was announced to be held at the University of Zurich. I applied and was lucky enough to go!  Especially because there was a workshop one afternoon on ggplot2.  I'd done some ggplot2 plotting here and there --- using the popular copy-paste-tweek method (zero theory) --- but hadn't really had a formal introduction.  After the workshop, I decided to focus on learning that tool for the #MakeoverMonday submissions.
+In Spring 2017, a Quantitative Political Methodology Summer School for Women was announced to be held at the University of Zurich. I applied and was lucky enough to go!  Especially because there was a workshop one afternoon on ggplot2.  I'd done some ggplot2 plotting here and there --- using the popular copy-paste-tweek method (zero theory) --- but hadn't really had a formal introduction.  
+
+After the workshop, I decided to focus on learning that tool for the #MakeoverMonday submissions.  Especially as I explored the new-to-me ggplot2 tool, I found #MakeoverMonday to be totally addictive.  I built a lot of plots. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Zurich Summer School, class of 2017 (+organizers) <a href="https://twitter.com/hashtag/ZurichSummerSch?src=hash&amp;ref_src=twsrc%5Etfw">#ZurichSummerSch</a> <a href="https://t.co/YFmL44um7v">pic.twitter.com/YFmL44um7v</a></p>&mdash; Anita Gohdes (@ARGohdes) <a href="https://twitter.com/ARGohdes/status/895307910032617472?ref_src=twsrc%5Etfw">August 9, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Especially as I explored the new-to-me ggplot2 tool, I found #MakeoverMonday to be totally addictive.  I built a lot of plots. 
+
 
 # Slow ggplot
 
@@ -87,11 +89,11 @@ I turned to the problem immediately, although I'm sure I was meant to be doing s
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">an implementation w/ <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> <a href="https://t.co/sDxUDrlMcw">pic.twitter.com/sDxUDrlMcw</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/991576057424867329?ref_src=twsrc%5Etfw">May 2, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I found the problem really engaging, and kept mulling it over.  Came back to it two days later.  "It sure would be nice if you could add aes() outside of ggplot, and one at a time".  I wanted it to be true.  I tried it.  AND. IT. WAS. TRUE!!!  Slow ggplot was allowed!
+I found the problem really engaging, and kept mulling it over.  Came back to it two days later.  "It sure would be nice if you could add aes() outside of ggplot, and one at a time".  I wanted it to be true.  I tried it.  AND. IT. WAS. TRUE!!!  Slow ggplot was allowed!  Though it seemed to be a bit of well kept secret, it was so handy in this situation and I loved it and felt a bit clever for having found it. 
+
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I like this implementation even better. I&#39;m using aes() outside of the ggplot() function or a geom function seems not to be conventional. I just tried and see that it works in this case as I was hoping. But, should it be avoided? bad style? <a href="https://twitter.com/StatGarrett?ref_src=twsrc%5Etfw">@StatGarrett</a> <a href="https://t.co/GxUGo1agHU">pic.twitter.com/GxUGo1agHU</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/992341968125493248?ref_src=twsrc%5Etfw">May 4, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-And not many people seemed to know about it.  It was a well kept secret, but so handy and I loved it and felt a very clever for having found it. 
 
 # Proto flipbooks
 
@@ -162,13 +164,15 @@ I express that I've had the same wish.
 
 ### Sept 24, 2018
 
-Emi sends us to partial automation, she'd already worked out with a then-secret-and-possibly-dangerous knitr function knitr:::knit_code$get(), and even [blogged](https://emitanaka.rbind.io/post/knitr-knitr-code/) about days before.
+Emi sent us a link to her [blog post](https://emitanaka.rbind.io/post/knitr-knitr-code/) --- she'd already worked out partial automation with a then-secret-and-possibly-dangerous knitr function knitr:::knit_code$get().
 
 She quoted Yihui Xie in her post:
 
 > There was only one thing upon which I hesitated when deciding whether I should give users the access. That is knitr:::knit_code. Here the triple-colon is obviously a danger sign. When you can even modify the content of a code chunk, I have no idea what can happen. Evil or creative? I’ll leave it to you to think about.
 
-I'm so happy that he didn't let the hesitations get in the way! And Emi expressed her motivations as coming from exactly the same frustrations that I'd experienced when I tried to "flipbook" the initial 25 line ggplot2 pipeline.
+I'm so happy that Yihui didn't let the hesitations get in the way! 
+
+And Emi expressed her motivations as coming from exactly the same frustrations that I'd experienced when I tried to "flipbook" the initial 25 line ggplot2 pipeline:
 
 > The slide was made using xaringan and the incremental reveal was made by copying and pasting the slide multiple times, deleting lines and then adding highlight to the right line. It did the job but this was far from ideal especially when I decided to change the order of the line so that theme_bw appears last.
 
@@ -177,7 +181,7 @@ Emi concluded:
 
 > Now that I know how knitr:::knit_code works, it’s giving me ideas.
 
-Her gist is here: https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab15ea
+Her gist where the partial automation is accomplished is here: https://gist.github.com/emitanaka/99c5673ddc8f9103dd3c8fec05ab15ea
 
 ### Sept 24, 2018
 
@@ -187,13 +191,22 @@ His gist is here: https://gist.github.com/gadenbuie/634060984f0007bf390a931dd3b3
 
 # the ggplot2 flipbook
 
-After the September 24th rush of productivity, things slowed down a bit.  Mostly, I was writing *the ggplot flipbook*.  Also, we decided bookdown was not the best platform for the decision-by-decision reveals for ggplot2.  Xaringan, the slide show tool, was already perfect suited to this, so I went back to that.  The code that had been originally used to produce the #MakeoverMonday plots was adjusted to a set of "Slowggplot2" rules that I had made, the tried to deliver feedback in the plot for each new code reveal.  It was a very bird-by-bird  Also, there was cleaning up to do in terms of naming arguments --- which I thought would help in communicating.  And I wanted to write up a bit of explanation about each plot too to introduce them.  It was manageable, but took some time.
+After the September 24th rush of productivity, things slowed down a bit.  Mostly, I was writing *the ggplot flipbook*.  Also, we decided bookdown was not the best platform for the decision-by-decision reveals for ggplot2.  Xaringan, the slide show tool, was already perfect suited to this, so I went back to that.  The code that had been originally used to produce the #MakeoverMonday plots was adjusted to a set of "Slowggplot2" rules that I had made, the tried to deliver feedback in the plot for each new code reveal.   Also, there was cleaning up to do in terms of naming arguments --- which I thought would help in communicating.  And I wanted to write up a bit of explanation about each plot too to introduce them.  It was manageable, but took some time --- it was a ["bird-by-bird"](https://www.goodreads.com/book/show/12543.Bird_by_Bird) style project.
+
+
+The last thing to figure out was how to disseminate.  Right as I was finishing up the flipbook, Roger Peng tweeted out a tutorial by Brian Caffo.    
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/bcaffo?ref_src=twsrc%5Etfw">@bcaffo</a> has returned to YouTube! <a href="https://t.co/xnGOgVABzm">https://t.co/xnGOgVABzm</a></p>&mdash; Roger D. Peng (@rdpeng) <a href="https://twitter.com/rdpeng/status/1093315073139974144?ref_src=twsrc%5Etfw">February 7, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Perfect timing. I followed the tutorial, pushing the flipbook to github, turned on git hub pages,  asked Emi and Garrick for feedback, figured out how to screen capture the flipbook, and proudly tweeted:
+
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">my <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> flipbook project is online! 😎🤓🤓 Incrementally walks through plotting code (<a href="https://twitter.com/hashtag/MakeoverMonday?src=hash&amp;ref_src=twsrc%5Etfw">#MakeoverMonday</a>, soon <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> plots). Using <a href="https://twitter.com/hashtag/xaringan?src=hash&amp;ref_src=twsrc%5Etfw">#xaringan</a> with reveal function; thanks, <a href="https://twitter.com/statsgen?ref_src=twsrc%5Etfw">@statsgen</a> <a href="https://twitter.com/grrrck?ref_src=twsrc%5Etfw">@grrrck</a>. <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>. <a href="https://t.co/bBBzv0iZLw">https://t.co/bBBzv0iZLw</a> <a href="https://t.co/tFtD78IOHZ">pic.twitter.com/tFtD78IOHZ</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1095102690936291328?ref_src=twsrc%5Etfw">February 11, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 # the rest is history:  {flipbookr}
 
 The rest of the story is just details (and I'm tired of writing).  The response to the ggplot flipbook was really fantastic and demonstrated a hunger for tools like flipbooks.  There were a ton of obvious features to be added out of the gate (extending the flipbooks to data manipulation, and allowing code to span multiple lines), and features that I added as I felt that I "needed" them in teaching (like non-sequential reveals and multiple realizations of the exact same code) and user requests (reveal only the output).  And it was clear that eventually the tools would need to be packaged up.  {flipbookr} was born.  
+
 
 
 
