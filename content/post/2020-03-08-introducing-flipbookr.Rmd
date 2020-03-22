@@ -19,11 +19,11 @@ projects: []
 
 At the end of January, I was lucky enough to present at the RStudio 2020 Conference about flipbooks and {flipbookr}.  
 
-About a year earlier, I'd tweeted about [*the ggplot flipbook*](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html) a collection of data visualizations I'd made  ---  presenting the *builds* of the code and visualizations.  For my standards, the tweet got an *amazing* response and was widely shared.  
+About a year earlier, I'd tweeted about [*the ggplot flipbook*](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html), a collection of data visualizations I'd made  ---  presenting the *builds* of the code and visualizations.  For my standards, the tweet got an *amazing* response and was widely shared.  
 
 Heading to the conference, I felt like the word was out about flipbooks and I'd mostly be presenting about {flipbookr}, the new package I was developing to help people make their own flipbooks. But actually, many people that I met had never heard of or seen any flipbooks.  
 
-So, maybe you *too* haven't heard of flipbooks.  What are they?  Well, flipbooks present code step-by-step and side-by-side with output.  It's probably easiest to understand by looking at an example.  A flipbook is embedded below.  Click in the box and then use the arrow keys to navigate through it: 
+So, maybe you *too* haven't heard of flipbooks.  What are they?  Well, flipbooks present code step-by-step and side-by-side with output.  It's probably easiest to understand by looking at an example.  A flipbook is embedded below.  Click in the box and then use arrow keys to navigate through it: 
 
 ```{r, echo = F}
 knitr::include_url("https://evamaerey.github.io/flipbooks/racing_bars/racing_barcharts.html")

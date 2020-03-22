@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="I kept sending links to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a resources page for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents.">
+  <meta name="description" content="I kept sending links in e-mails to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a resources page for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/three-classes-of-flipbooks/">
@@ -112,7 +112,7 @@
   <meta property="og:site_name" content="Evangeline Reynolds">
   <meta property="og:url" content="/post/three-classes-of-flipbooks/">
   <meta property="og:title" content="Three classes of flipbooks (or &#34;getting organized&#34;) | Evangeline Reynolds">
-  <meta property="og:description" content="I kept sending links to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a resources page for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:description" content="I kept sending links in e-mails to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a resources page for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents."><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
     
@@ -175,7 +175,7 @@
       "url": "/img/icon-512.png"
     }
   },
-  "description": "I kept sending links to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a resources page for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents."
+  "description": "I kept sending links in e-mails to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a resources page for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents."
 }
 </script>
 
@@ -470,7 +470,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -598,28 +598,31 @@
       
 
 
-<p>I kept sending links to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a <a href="https://evamaerey.github.io/fall_2019/fall_2019">resources page</a> for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents. An improvement, but not totally orderly and not sustainable.</p>
-<p>A fundamental problem was me chucking every flipbook into the same github repository; this repository was getting bloated.</p>
+<p><!-- Recently, I found myself regularly sending links to students for various references; links for data cleaning examples, how to reshape data, ggplot2 basics…but would they be able to find these references again? There has to be something more efficient than going through a jumble of emails every time they needed coding references. --></p>
+<p>I kept sending links in e-mails to students for reference. Here’s the link for the data cleaning examples. Here’s the link for reshaping data. Here’s the link for ggplot basics. But would they actually be able to find these references again? Did I expect them to go through the jumble of emails I’d sent? Last quarter, I created a <a href="https://evamaerey.github.io/fall_2019/fall_2019">resources page</a> for one of my classes, with a collection of the links that I’d sent and some visual cues to remind them of contents. An improvement, but not totally orderly and not sustainable.</p>
+<p>A fundamental problem was my chucking every flipbook into the same github repository; this repository was getting bloated.</p>
 <p>Over the last couple weeks, I’ve been taking on a new approach - breaking up the big repo into smaller, thematic ones — Visualization, Manipulation, and Statistical Analysis — and working on directories for each. A race to get references organized before <em>my students’</em> race to get things done at the end of the quarter.</p>
-<p>I think the strategy has worked fairly well. Students are working more independently through their data manipulation problems — definitely more so than when I just started teaching. There are several factors at play here, but I think having the flipbook references and having them organizes is playing a part. And even if students do come in for office hours, facing some hurdle, I often find it easiest to direct them to an example where they see their problem mirrored and a solution.</p>
+<p>I think the strategy has worked fairly well. Students are working more independently through their data manipulation problems — definitely more so than when I just started teaching. There are several factors at play here, but I think having the flipbook references <em>and</em> having them organized is playing a part. When students do come in for office hours for trouble shooting, I often direct them to an example in a flipbook where they see their problem mirrored.</p>
 <p>Now I have three main portal’s of flipbooks: Visualization with ggplot2, Data Manipulation, and Statistical Analysis.</p>
 <div id="visualization-with-ggplot2" class="section level1">
-<h1><a href="https://evamaerey.github.io/ggplot2_grammar_guide/about" target="_blank">Visualization with ggplot2</a></h1>
-<p>Flipbooks were originally developed for a single use case: data visualization with {ggplot2}. ggplot2’s flexibility allows for organizing the code so that new decisions and additions to the ggplot can be added incrementally and sequentially. This fact meant that a single input of ggplot2 code could be automatically parsed and reconstructed and presented a flipbook that would communicate pretty meaningfully, giving feedback in the output at every additional code reveal. - a style that I’ve called “SLOWggplot2” (SLOWggplot2’s Literally Only the Wonderful/Wayfaring/Wickham’s ggplot2; SLOWggplot2 is a bit verbose but it is native to ggplot2 and fully supported). the ggplot2 flipbook one of the earliest use cases, but data visualizations resource is more about understanding the grammar.</p>
+<h1>Visualization with ggplot2</h1>
+<p>Flipbooks were originally developed for a single use case: data visualization with {ggplot2}. {ggplot2} is an implementation of the Grammar of Graphics (Wilkinson 1999); the package was developed by Hadley Wickham and now has many contributors. ggplot2’s flexibility allows working incrementally and sequentially — building up a plot decision by decision. This fact means that a single input of ggplot2 code can be automatically parsed, reconstructed, and presented in a flipbook that communicates meaningfully, giving feedback in the output at every additional code reveal. The organization needed for effective communicationn in flipbooks is a style that I’ve called “SLOWggplot2” (Nerd fun: <em>SLOWggplot2’s Literally Only the Wonderful/Wayfaring/Wickham’s ggplot2</em>… like ‘YAML ain’t markup language’ or ‘FIJI is just Imagej’). SLOWggplot2 is a bit verbose but it is native to ggplot2 and fully supported, and delivers valuable feedback. <a href="https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html" target="_blank">the ggplot2 flipbook</a> is one of the earliest use cases of flipbooks and provides a lot of examples of using ggplot2. But I’ve written a more theoretical treatment, <a href="https://evamaerey.github.io/ggplot2_grammar_guide/about" target="_blank">a ggplot grammar guide</a> embedded below, which provides more explanation and discussion about the specific grammar of {ggplot2}.</p>
 <iframe src="https://evamaerey.github.io/ggplot2_grammar_guide/about" width="672" height="400px">
 </iframe>
 </div>
 <div id="manipulation" class="section level1">
-<h1><a href="https://evamaerey.github.io/data_manipulation/about" target="_blank">Manipulation</a></h1>
-<p>The second use for flipbooks was data manipulation. While less visually compelling, I think these flipbooks can help newcomers and seasoned practitioners alike navigate how to get wrangling tasks done. The magrittr pipe operator is the break point at which intermediate output is shown. The flipbooks I’ve built use mostly the dplyr and tidyr data manipulation tools. Wrangling with base R and data.table is also possible using flipbooks with our without the magrittr pipe.</p>
+<h1>Manipulation</h1>
+<p>The second use-case explored for flipbooks was data manipulation. While less visually compelling, I think these flipbooks can help newcomers and seasoned practitioners alike navigate getting wrangling tasks done. The magrittr pipe operator, <code>%&gt;%</code>, is usually the break point at which intermediate output is shown. The <a href="https://evamaerey.github.io/data_manipulation/about" target="_blank">data manipultaion flipbooks</a> mostly demonstrate dplyr and tidyr data manipulation functions. Wrangling with base R and data.table is also possible using flipbooks with or without the magrittr pipe, and I’m building up examples using these workflows too.</p>
 <iframe src="https://evamaerey.github.io/data_manipulation/about" width="672" height="400px">
 </iframe>
 </div>
 <div id="statistical-analysis" class="section level1">
-<h1><a href="https://evamaerey.github.io/statistics/about" target="_blank">Statistical Analysis</a></h1>
-<p>A third class of flipbooks is in the area of statistical analysis and communication. This feels like the most experimental (and for me right now is perhaps most exciting area!). Not only is the task of communicating how-to of statistical tasks an objective, but flipbook may serve to illustrate concepts, like bootstrapping, false positive rates under statistical independence. They may even be used for walking through how statistics themselves are calculated.</p>
+<h1>Statistical Analysis</h1>
+<p>A third class of flipbooks are about <a href="https://evamaerey.github.io/statistics/about" target="_blank">statistical analysis and communication</a>. This feels like the most experimental (and for me, right now, is perhaps the most exciting area!). Not only is the task of communicating how-to of statistical tasks an objective, but flipbooks may serve to illustrate concepts, like bootstrapping and false positive rates under statistical independence. They may even be used for walking through how statistics themselves are calculated.</p>
 <iframe src="https://evamaerey.github.io/statistics/about" width="672" height="400px">
 </iframe>
+<p>That’s it! Student’s should now be able to more easily find a relevant flipbook for the problem they are working on.</p>
+<p>[UPDATE 2020-03-21] - I’m trying to do a meta organization - “flipbooks textbook”. A go-to guide for getting stuff done in R.</p>
 </div>
 
     </div>
@@ -756,7 +759,7 @@
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/flipbooks-and-flipbookr/">A detailed flipbooks origin story</a></li>
+          <li><a href="/post/flipbooks-and-flipbookr/">A detailed flipbooks origin story (a collection of tweets)</a></li>
           
           <li><a href="/post/introducing-flipbookr/">What the flipbook?!</a></li>
           
