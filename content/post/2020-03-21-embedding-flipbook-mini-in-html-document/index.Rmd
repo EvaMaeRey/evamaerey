@@ -19,6 +19,7 @@ projects: []
 
 
 ```{r setup, include=F}
+knitr::opts_chunk$set(warning = F, message = F)
 library(tidyverse)
 ```
 
@@ -66,7 +67,7 @@ You might of course want to show the code and the output side-by-side -- the cla
 
 ```{r}
 chunk_gif_flipbook_embed(chunk_name = "cars_plot", 
-                         display_type = "output")
+                         display_type = "both")
 ```
 
 # Limitations!
