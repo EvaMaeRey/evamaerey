@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Evangeline Reynolds">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Xaringan is a fantastic rmarkdown presentation tool from Yihui Xie which uses remark.js as its platform. (Yihui Xie has a lot to say about the greatness of remark.js itself in a blogpost — worth a read)
+One shortcoming of the format is that the slide shows are not self-contained. So a presentation is usually a whole collection of files. This is obviously true for flipbooks created with the {xaringan} platform.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/embedding-flipbook-mini-in-html-document/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.04a87a1cb9027e3c50f566322527c56f.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/embedding-flipbook-mini-in-html-document/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Evangeline Reynolds">
+  <meta property="og:url" content="/post/embedding-flipbook-mini-in-html-document/">
+  <meta property="og:title" content="Embedding a flipbook mini in an html document | Evangeline Reynolds">
+  <meta property="og:description" content="Xaringan is a fantastic rmarkdown presentation tool from Yihui Xie which uses remark.js as its platform. (Yihui Xie has a lot to say about the greatness of remark.js itself in a blogpost — worth a read)
+One shortcoming of the format is that the slide shows are not self-contained. So a presentation is usually a whole collection of files. This is obviously true for flipbooks created with the {xaringan} platform."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-03-21T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-03-21T18:52:53-06:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/embedding-flipbook-mini-in-html-document/"
+  },
+  "headline": "Embedding a flipbook mini in an html document",
+  
+  "datePublished": "2020-03-21T00:00:00Z",
+  "dateModified": "2020-03-21T18:52:53-06:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Evangeline Reynolds"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Evangeline Reynolds",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "Xaringan is a fantastic rmarkdown presentation tool from Yihui Xie which uses remark.js as its platform. (Yihui Xie has a lot to say about the greatness of remark.js itself in a blogpost — worth a read)\nOne shortcoming of the format is that the slide shows are not self-contained. So a presentation is usually a whole collection of files. This is obviously true for flipbooks created with the {xaringan} platform."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Embedding a flipbook mini in an html document | Evangeline Reynolds</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Evangeline Reynolds</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/cv.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Embedding a flipbook mini in an html document</h1>
+
+  
+
+  
+    
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Mar 21, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/embedding-flipbook-mini-in-html-document/&amp;text=Embedding%20a%20flipbook%20mini%20in%20an%20html%20document" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/embedding-flipbook-mini-in-html-document/&amp;t=Embedding%20a%20flipbook%20mini%20in%20an%20html%20document" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Embedding%20a%20flipbook%20mini%20in%20an%20html%20document&amp;body=/post/embedding-flipbook-mini-in-html-document/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/embedding-flipbook-mini-in-html-document/&amp;title=Embedding%20a%20flipbook%20mini%20in%20an%20html%20document" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Embedding%20a%20flipbook%20mini%20in%20an%20html%20document%20/post/embedding-flipbook-mini-in-html-document/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/embedding-flipbook-mini-in-html-document/&amp;title=Embedding%20a%20flipbook%20mini%20in%20an%20html%20document" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>Xaringan is a fantastic rmarkdown presentation tool from Yihui Xie which uses remark.js as its platform. (Yihui Xie has a lot to say about the greatness of remark.js itself in a <a href="https://yihui.org/en/2017/08/why-xaringan-remark-js/" target="_blank">blogpost</a> — worth a read)<br />
+One shortcoming of the format is that the slide shows are not self-contained. So a presentation is usually a whole collection of files. This is obviously true for <a href=""><em>flipbooks</em></a> created with the {xaringan} platform.</p>
+<p>Having so many files might feel a bit overwhelming, especially when it comes time to share your work. So some time ago, I had the idea of working on something self-contained: a flipbook mini (yup, like “ipod mini”). What’s been worked out is using all the parsing code from {flipbookr} and then plotting the code itself in a ggplot, and producing the plot output. Then using {cowplot} the images are pasted side-by-side together. This is done for each partial build of the code. The resultant side-by-side figures are then combined into a gif for the movie effect.</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+And checking out new magic in <a href="https://twitter.com/hashtag/ggforce?src=hash&amp;ref_src=twsrc%5Etfw">#ggforce</a>. Adapted from <a href="https://twitter.com/thomasp85?ref_src=twsrc%5Etfw"><span class="citation">@thomasp85</span></a>'s examples: <a href="https://t.co/aYMKuV7uIn">https://t.co/aYMKuV7uIn</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/LNpci0h8OL">pic.twitter.com/LNpci0h8OL</a>
+</p>
+— Gina Reynolds (<span class="citation">@EvaMaeRey</span>) <a href="https://twitter.com/EvaMaeRey/status/1162680699834556418?ref_src=twsrc%5Etfw">August 17, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>At the RStudio conference someone asked if flipbooks can be embedded in blog posts or other html documents. By conference time, I thought I’d have the mini to demo — but I didn’t, as a lot of work needed to be done on fundamental {flipbookr} internal functions. I also didn’t think of directly embedding into html. But now the embed too is basically worked out. After the gif is saved out with flipbookr::chunk_create_gif_flipbook(), I can pull it back in to embed it (this is done with knitr::include_graphics()). The {flipookr} function used to get all this done is <code>chunk_gif_flipbook_embed()</code>. Sadly, this doesn’t work in blogdown!</p>
+<p>All of this feels a little awkward so if there are better ways of going about it, do let me know! Check out the details of the implementation <a href="https://github.com/EvaMaeRey/flipbookr/blob/master/R/mini.R">here</a>.</p>
+<p>So, first you’ll have an input code chunk that you’ll refer to by name (I’m calling it cars_plot, and I have echo set to true, but you can do echo = F):</p>
+<pre class="r"><code>ggplot(data = cars) +
+  aes(x = speed) +
+  aes(y = dist) +
+  geom_point(shape = 21, 
+             alpha = .75,
+             color = &quot;white&quot;) +
+  aes(fill = dist) +
+  aes(size = speed) +
+  scale_fill_viridis_c(end = .9, 
+                       option = &quot;magma&quot;) +
+  theme_minimal() +
+  theme(plot.background = 
+          element_rect(fill = &quot;grey90&quot;))</code></pre>
+<p><img src="/post/2020-03-21-embedding-flipbook-mini-in-html-document_files/figure-html/cars_plot-1.png" width="672" /></p>
+<p>Then you can embed the flipbook mini as follows (again you might want to set echo to false in the code chunk options):</p>
+<pre class="r"><code>library(flipbookr)
+chunk_gif_flipbook_embed(chunk_name = &quot;cars_plot&quot;, 
+                         display_type = &quot;output&quot;)</code></pre>
+<pre><code>## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;</code></pre>
+<pre><code>## Warning in dir.create(path = dir): &#39;temp_mini_figurescars_plot&#39; already exists</code></pre>
+<p><img src="temp_minicars_plotoutput.gif" /><!-- --></p>
+<p>You might of course want to show the code and the output side-by-side – the classic flipbook.</p>
+<pre class="r"><code>chunk_gif_flipbook_embed(chunk_name = &quot;cars_plot&quot;, 
+                         display_type = &quot;output&quot;)</code></pre>
+<pre><code>## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;</code></pre>
+<pre><code>## Warning in dir.create(path = dir): &#39;temp_mini_figurescars_plot&#39; already exists</code></pre>
+<p><img src="temp_minicars_plotoutput.gif" /><!-- --></p>
+<div id="limitations" class="section level1">
+<h1>Limitations!</h1>
+<p>The flipbook mini function works with plot outputs <em>only</em> for the time being.</p>
+<p>Also, Claus Wilke has noted that the flipbooks aspect ratio control needs some work – which is really apparent in the flipbook mini and is also an issue on the {xaringan} platform. This has been duely noted and is logged as an issue in the development package — help welcome!</p>
+</div>
+<div id="more-ways-of-embedding" class="section level1">
+<h1>More ways of embedding…</h1>
+<p>Another way you can share flipbooks is using the knitr function include_url() within a code chunk. I think I learned this from Emi Tanaka initially!</p>
+<pre class="r"><code>knitr::include_url(&quot;https://evamaerey.github.io/tidytuesday_walk_through/tidytuesday_highlights.html&quot;)</code></pre>
+<iframe src="https://evamaerey.github.io/tidytuesday_walk_through/tidytuesday_highlights.html" width="672" height="400px">
+</iframe>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Evangeline Reynolds</a></h5>
+      <h6 class="card-subtitle">Visiting Teaching Assistant Professor</h6>
+      <p class="card-text">My research interests include international institutions, causal inference, data visualization, and computational social science and pedagogy.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://twitter.com/EvaMaeRey" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://scholar.google.com/citations?user=VfkVW3sAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a href="https://github.com/evamaerey" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.130521ecfc6f534c52c158217bbff718.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

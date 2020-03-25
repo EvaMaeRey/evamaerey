@@ -1,0 +1,79 @@
+---
+title: Embedding a flipbook mini in an html document
+author: ~
+date: '2020-03-21'
+slug: embedding-flipbook-mini-in-html-document
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-03-21T18:52:53-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Xaringan is a fantastic rmarkdown presentation tool from Yihui Xie which uses remark.js as its platform. (Yihui Xie has a lot to say about the greatness of remark.js itself in a <a href="https://yihui.org/en/2017/08/why-xaringan-remark-js/" target="_blank">blogpost</a> — worth a read)<br />
+One shortcoming of the format is that the slide shows are not self-contained. So a presentation is usually a whole collection of files. This is obviously true for <a href=""><em>flipbooks</em></a> created with the {xaringan} platform.</p>
+<p>Having so many files might feel a bit overwhelming, especially when it comes time to share your work. So some time ago, I had the idea of working on something self-contained: a flipbook mini (yup, like “ipod mini”). What’s been worked out is using all the parsing code from {flipbookr} and then plotting the code itself in a ggplot, and producing the plot output. Then using {cowplot} the images are pasted side-by-side together. This is done for each partial build of the code. The resultant side-by-side figures are then combined into a gif for the movie effect.</p>
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+And checking out new magic in <a href="https://twitter.com/hashtag/ggforce?src=hash&amp;ref_src=twsrc%5Etfw">#ggforce</a>. Adapted from <a href="https://twitter.com/thomasp85?ref_src=twsrc%5Etfw"><span class="citation">@thomasp85</span></a>'s examples: <a href="https://t.co/aYMKuV7uIn">https://t.co/aYMKuV7uIn</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/LNpci0h8OL">pic.twitter.com/LNpci0h8OL</a>
+</p>
+— Gina Reynolds (<span class="citation">@EvaMaeRey</span>) <a href="https://twitter.com/EvaMaeRey/status/1162680699834556418?ref_src=twsrc%5Etfw">August 17, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>At the RStudio conference someone asked if flipbooks can be embedded in blog posts or other html documents. By conference time, I thought I’d have the mini to demo — but I didn’t, as a lot of work needed to be done on fundamental {flipbookr} internal functions. I also didn’t think of directly embedding into html. But now the embed too is basically worked out. After the gif is saved out with flipbookr::chunk_create_gif_flipbook(), I can pull it back in to embed it (this is done with knitr::include_graphics()). The {flipookr} function used to get all this done is <code>chunk_gif_flipbook_embed()</code>. Sadly, this doesn’t work in blogdown!</p>
+<p>All of this feels a little awkward so if there are better ways of going about it, do let me know! Check out the details of the implementation <a href="https://github.com/EvaMaeRey/flipbookr/blob/master/R/mini.R">here</a>.</p>
+<p>So, first you’ll have an input code chunk that you’ll refer to by name (I’m calling it cars_plot, and I have echo set to true, but you can do echo = F):</p>
+<pre class="r"><code>ggplot(data = cars) +
+  aes(x = speed) +
+  aes(y = dist) +
+  geom_point(shape = 21, 
+             alpha = .75,
+             color = &quot;white&quot;) +
+  aes(fill = dist) +
+  aes(size = speed) +
+  scale_fill_viridis_c(end = .9, 
+                       option = &quot;magma&quot;) +
+  theme_minimal() +
+  theme(plot.background = 
+          element_rect(fill = &quot;grey90&quot;))</code></pre>
+<p><img src="/post/2020-03-21-embedding-flipbook-mini-in-html-document_files/figure-html/cars_plot-1.png" width="672" /></p>
+<p>Then you can embed the flipbook mini as follows (again you might want to set echo to false in the code chunk options):</p>
+<pre class="r"><code>library(flipbookr)
+chunk_gif_flipbook_embed(chunk_name = &quot;cars_plot&quot;, 
+                         display_type = &quot;output&quot;)</code></pre>
+<pre><code>## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;</code></pre>
+<pre><code>## Warning in dir.create(path = dir): &#39;temp_mini_figurescars_plot&#39; already exists</code></pre>
+<p><img src="temp_minicars_plotoutput.gif" /><!-- --></p>
+<p>You might of course want to show the code and the output side-by-side – the classic flipbook.</p>
+<pre class="r"><code>chunk_gif_flipbook_embed(chunk_name = &quot;cars_plot&quot;, 
+                         display_type = &quot;output&quot;)</code></pre>
+<pre><code>## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;
+## Joining, by = &quot;line&quot;</code></pre>
+<pre><code>## Warning in dir.create(path = dir): &#39;temp_mini_figurescars_plot&#39; already exists</code></pre>
+<p><img src="temp_minicars_plotoutput.gif" /><!-- --></p>
+<div id="limitations" class="section level1">
+<h1>Limitations!</h1>
+<p>The flipbook mini function works with plot outputs <em>only</em> for the time being.</p>
+<p>Also, Claus Wilke has noted that the flipbooks aspect ratio control needs some work – which is really apparent in the flipbook mini and is also an issue on the {xaringan} platform. This has been duely noted and is logged as an issue in the development package — help welcome!</p>
+</div>
+<div id="more-ways-of-embedding" class="section level1">
+<h1>More ways of embedding…</h1>
+<p>Another way you can share flipbooks is using the knitr function include_url() within a code chunk. I think I learned this from Emi Tanaka initially!</p>
+<pre class="r"><code>knitr::include_url(&quot;https://evamaerey.github.io/tidytuesday_walk_through/tidytuesday_highlights.html&quot;)</code></pre>
+<iframe src="https://evamaerey.github.io/tidytuesday_walk_through/tidytuesday_highlights.html" width="672" height="400px">
+</iframe>
+</div>
