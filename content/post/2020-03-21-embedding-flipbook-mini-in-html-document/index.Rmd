@@ -1,5 +1,5 @@
 ---
-title: Embedding a flipbook mini in an html document
+title: "Embedding a 'flipbook mini' in an html document"
 author: ~
 date: '2020-03-21'
 slug: embedding-flipbook-mini-in-html-document
@@ -25,18 +25,56 @@ library(tidyverse)
 
 
 Xaringan is a fantastic rmarkdown presentation tool from Yihui Xie which uses remark.js as its platform. (Yihui Xie has a lot to say about the greatness of remark.js itself in a [blogpost](https://yihui.org/en/2017/08/why-xaringan-remark-js/){target="_blank"} --- worth a read)  
-One shortcoming of the format is that the slide shows are not self-contained. So a presentation is usually a whole collection of files.   This is obviously true for [*flipbooks*]() created with the {xaringan} platform. 
 
-Having so many files might feel a bit overwhelming, especially when it comes time to share your work. So some time ago, I had the idea of working on something self-contained: a flipbook mini (yup, like "ipod mini"). What's been worked out is using all the parsing code from {flipbookr} and then plotting the code itself in a ggplot, and producing the plot output.  Then using {cowplot} the images are pasted side-by-side together.  This is done for each partial build of the code.  The resultant side-by-side figures are then combined into a gif for the movie effect.  
+One shortcoming of the format might be that the slide shows are not self-contained. So a presentation is usually a whole collection of files.   This is obviously true for the [*flipbooks*](https://evamaerey.github.io/flipbooks/about){target="_blank"} created with the {xaringan} platform. 
+
+Having so many files can feel overwhelming -- especially when it comes time to share your work. So some time ago, I had the idea of working on something self-contained: a flipbook mini (yup, like "ipod mini"). 
+
+The same parsing code is used as for the Xaringan presentation platform.   But then instead of *printing* the code in xaringan, the code is *plotted* as text in a ggplot object.   This code is also  evaluated to producing a plot.   Then I used the {cowplot} package to pasted these two images side-by-side; the composite is saved as a .png which is a single "frame" of the flipbook. Those steps are performed for each partial build of the code.  The resultant side-by-side figures (.png frames) are then combined into a gif for the movie effect.  
+
+Currently, I'm calling the function that does this `flipbookr::chunk_create_gif_flipbook()`.  It looks at code in a code chunk, creates frames of a flipbook, and combines them into a gif. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">And checking out new magic in <a href="https://twitter.com/hashtag/ggforce?src=hash&amp;ref_src=twsrc%5Etfw">#ggforce</a>. Adapted from <a href="https://twitter.com/thomasp85?ref_src=twsrc%5Etfw">@thomasp85</a>&#39;s examples: <a href="https://t.co/aYMKuV7uIn">https://t.co/aYMKuV7uIn</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/LNpci0h8OL">pic.twitter.com/LNpci0h8OL</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1162680699834556418?ref_src=twsrc%5Etfw">August 17, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-At the RStudio conference someone asked if flipbooks can be embedded in blog posts or other html documents. By conference time, I thought I'd have the mini to demo --- but I didn't, as a lot of work needed to be done on fundamental {flipbookr} internal functions.  I also didn't think of directly embedding into html.  But now the embed too is basically worked out.  After the gif is saved out with flipbookr::chunk_create_gif_flipbook(), I can pull it back in to embed it (this is done with knitr::include_graphics()). The {flipookr} function used to get all this done is `chunk_gif_flipbook_embed()`.  Sadly, this doesn't work in blogdown!  
+Then, At the RStudio conference someone asked if flipbooks can be directly embedded in blog posts or other html documents in a single call.    I fact, I didn't even present the "mini" at the conference --- a lot of work needed to be done on fundamental {flipbookr} internal functions.  *And it hadn't even occured to me to try to arrange this embedding function.*  But this was a great (perhaps obvious?) idea!  I've been working on the implementation
 
-All of this feels a little awkward so if there are better ways of going about it, do let me know! Check out the details of the implementation [here](https://github.com/EvaMaeRey/flipbookr/blob/master/R/mini.R).
+After the gif is saved out with flipbookr::chunk_create_gif_flipbook(), I pull it back in to embed it  with knitr::include_graphics(). The {flipookr} function that wraps all of this up is `chunk_gif_flipbook_embed()`.  
 
-So, first you'll have an input code chunk that you'll refer to by name (I'm calling it cars_plot, and I have echo set to true, but you can do echo = F): 
+I still have questions about the internals of this function.  Should I be using {gifski}, {majick}?  Is there a way for the files to *just embed* like gganimate files seem to be able to? i.e. not saving out the gif and then pulling back in? With gganimate feels like a "true embed" --- I don't really have the terminology to talk about this...  This seems relevant: https://yihui.org/en/2018/08/gifski-knitr/
+
+The details of the implementation in the development package [here](https://github.com/EvaMaeRey/flipbookr/blob/master/R/mini.R).
+
+
+# Trouble upon rollout...
+
+Then I tried to embed in blogdown, but when I served the site, the paths to the gifs were broken.  So I instead made a pseudo-blogpost (just pushing an html to github pages), whined and asked for help, and called it a day.    
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Working on that self-contained, flipbook that you can just embed into an HTML from an Rmarkdown file. But finding it tricky, esp. w/ blogdown. More here: <a href="https://t.co/E3YDb1UOMT">https://t.co/E3YDb1UOMT</a> ideas &amp; insights welcome! <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a><a href="https://twitter.com/xieyihui?ref_src=twsrc%5Etfw">@xieyihui</a> <a href="https://twitter.com/grrrck?ref_src=twsrc%5Etfw">@grrrck</a> <a href="https://twitter.com/statsgen?ref_src=twsrc%5Etfw">@statsgen</a> <a href="https://t.co/NK1058C7CD">pic.twitter.com/NK1058C7CD</a></p>&mdash; Gina Reynolds (@EvaMaeRey) <a href="https://twitter.com/EvaMaeRey/status/1241590070278144000?ref_src=twsrc%5Etfw">March 22, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+# Expert help
+
+I failed to 'mention' @apreshill in my initial plea.  But she is so knowledge about all thinks {rmarkdown}.  When I got around to asking her, she was kind enough to do lots of trouble shooting, to get to solutions.  
+
+Basically, "bundling" my blogpost was going to be the solution to make sure the file path to the .gif would be maintained. 
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It might be easier to debug if you used bundled blog posts (<a href="https://t.co/GzxYGUx79C">https://t.co/GzxYGUx79C</a>) and set the fig path for each individual post to export the Rmd fig to the page bundle itself (<a href="https://t.co/u0D8IVME2T">https://t.co/u0D8IVME2T</a>)</p>&mdash; Alison Presmanes Hill (@apreshill) <a href="https://twitter.com/apreshill/status/1242871331214872581?ref_src=twsrc%5Etfw">March 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+I did this manually.  
+
+1. I created a folder in my content/post folder, giving it the name that the blog post file had (no .Rmd extension obviously)
+2. I put the .Rmd, .html and associated files in the that folder
+3. I changed the name of the .Rmd and .html to "index".
+
+You can check the organization [here](https://github.com/rstudio/education.rstudio.com/blob/354666329450202ad15249ed1c48fe8b4a2bd393/content/blog/2019-10-15-a-summer-of-rstudio-and-ggplot2/index.Rmarkdown#L16).
+
+For more on bundling in blogdown (you can set the posts to automatically bundle) check out Alison Hill's [A Spoonful of Hugo: Page Bundles](https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/).
+
+# Back in business with blogdown: Let's embed a flipbook mini
+
+So with the having addressed bundling, we can now talk about embedding the gif. 
+
+First you'll have an input code chunk that you'll refer to by name (I'm calling it cars_plot, and I have echo set to true, but you can do echo = F): 
 
 ```{r cars_plot, echo = T, eval = T}
 ggplot(data = cars) +
@@ -72,9 +110,15 @@ chunk_gif_flipbook_embed(chunk_name = "cars_plot",
 
 # Limitations!
 
-The flipbook mini function  works with plot outputs *only* for the time being.  
+- The flipbook mini function  works with plot outputs *only* for the time being.  
 
-Also, Claus Wilke has noted that the flipbooks aspect ratio control needs some work -- which is really apparent in the flipbook mini and is also an issue on the {xaringan} platform.  This has been duely noted and is logged as an issue in the development package --- help welcome! 
+- You cannot copy and paste code from a flipbook mini.
+
+- The embedded gif moves at a constant rate forward, you can't toggle between states as you might do with the traditional flipbook.
+
+- Also, Claus Wilke has noted that the flipbooks aspect ratio control needs some work -- which is really apparent in the flipbook mini and is also an issue on the {xaringan} platform.  This has been duely noted and is logged as an issue in the development package --- ideas welcome! 
+
+- One must bundle in blogdown (see above).
 
 # More ways of embedding...
 
