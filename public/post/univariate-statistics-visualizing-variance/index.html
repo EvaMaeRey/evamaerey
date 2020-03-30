@@ -111,6 +111,9 @@ I’m most excited about the walk-through of the variance calculation.">
   
   <meta property="twitter:card" content="summary">
   
+  <meta property="twitter:site" content="@EvaMaeRey">
+  <meta property="twitter:creator" content="@EvaMaeRey">
+  
   <meta property="og:site_name" content="Evangeline Reynolds">
   <meta property="og:url" content="/post/univariate-statistics-visualizing-variance/">
   <meta property="og:title" content="From N to Standard Deviation | Evangeline Reynolds">
@@ -472,7 +475,7 @@ I’m most excited about the walk-through of the variance calculation."><meta pr
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    6 min read
   </span>
   
 
@@ -631,7 +634,7 @@ sum(!is.na(gapminder_2007_europe$lifeExp))</code></pre>
 <h2>Mean</h2>
 <p>The mean is the sum of the values of a variable divided by the number of values. It is a measure of “central tendancy.”</p>
 <p>The mean can also be thought of as a balancing point. It the point that, if the folcrum of a balance, with weights of of equal weight at each of the values of the observations, would result in a balanced scale.</p>
-<p><span class="math display">\[\mu = \frac{\sum_{i=1}^{n}x_i}{n}\]</span>
+<p><span class="math display">\[ \mu = \frac{\sum_{i=1}^{n}x_i}{n} \]</span>
 In R you can use the mean function to compute this value.</p>
 <pre class="r"><code>mean(gapminder_2007_europe$lifeExp)</code></pre>
 <pre><code>## [1] 77.6486</code></pre>
@@ -719,31 +722,58 @@ In R you can use the mean function to compute this value.</p>
 <p>The difference between and the life expectancy for Romania is represented by a distance in our graph. This difference is shown as a green line.</p>
 
 <p>Variance:
-<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span>
+<span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\]</span>
 
-Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span>
+Calculation for Romania: <span class="math display">\[ (x_{Romania} - \mu) \]</span>
 
 </p>
+<pre><code>## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 
 <p>Variance:
-<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n} \]</span></p>
 <p>Then we need to square that difference. This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy. It is a transparent green square in the plot.</p>
 
 <p>Calculation for Romania:
 <span class="math inline">\((x_{Romania} - \mu)^2\)</span>
 </p>
+<pre><code>## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-21-1.png" width="672" height="2in" /></p>
 
 <p>Variance:
-<span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n} \]</span></p>
 <p>Now we need to do the same for all of our observations. Not just Romania, but also Germany, Italy, Sweden, France, and so on.</p>
+<pre><code>## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.
+
+## Warning: Use of `gapminder_2007_europe$lifeExp` is discouraged. Use `lifeExp`
+## instead.</code></pre>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-22-1.png" width="672" height="2in" /></p>
 <p>The mean for these areas is the variance.</p>
 <p>We sum up all of the resulting areas that are shown in the plot (note that these are overlapping):</p>
-<p><span class="math inline">\(\sum_{i=1}^{n}(x_i - \mu)^2\)</span></p>
+<p><span class="math display">\[ \sum_{i=1}^{n}(x_i - \mu)^2 \]</span></p>
 <p>And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as <span class="math inline">\(\sigma^2\)</span>:</p>
-<p><span class="math inline">\(\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<p><span class="math display">\[\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\]</span></p>
 <p>I’m plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square’s area is the average area for all the squares plotted above, and is equal to the variance.</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-23-1.png" width="672" height="2in" /></p>
 </div>
@@ -751,7 +781,7 @@ Calculation for Romania: <span class="math inline">\((x_{Romania} - \mu)\)</span
 <h1>Standard Deviation:</h1>
 <p>Now, calculating the standard deviation is straightforward. Take the square root of the variance.</p>
 <p>Standard Deviation:
-<span class="math inline">\(\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\)</span></p>
+<span class="math display">\[\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}\]</span></p>
 <p>The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.</p>
 <p><img src="/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-24-1.png" width="672" height="2in" /></p>
 <p>Quiz question:</p>

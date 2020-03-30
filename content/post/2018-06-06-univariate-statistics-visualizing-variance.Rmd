@@ -17,13 +17,9 @@ knitr::opts_chunk$set(cache = T)
 
 This post goes back and forth between computing statistics for a single variable and visualizing these values.  I'm using a subset of the gapminder dataset --- European countries in 2007, and focusing on the Life Expectancy variable.
 
-
 This post is developed from lecture slides for my great students in my intro to data science and statistics course at TU Dresden.  
 
 I'm most excited about the walk-through of the variance calculation. In preparing to lecture on univariate stats, I came across [a nice visualization of variance explained](https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/) but couldn't find a visualization just focused on explaining the variance itself.  So I made one with ggplot().  You'll find it in the second half of the post! (I'm going back and forth about whether to include to the code for the plots or not.)
-
-
-
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(message = F, warning = F)
@@ -85,7 +81,7 @@ The mean is the sum of the values of a variable divided by the number of values.
 
 The mean can also be thought of as a balancing point. It the point that, if the folcrum of a balance, with weights of of equal weight at each of the values of the observations, would result in a balanced scale.
 
-$$\mu = \frac{\sum_{i=1}^{n}x_i}{n}$$
+$$ \mu = \frac{\sum_{i=1}^{n}x_i}{n} $$
 In R you can use the mean function to compute this value.
 
 ```{r}
@@ -218,9 +214,9 @@ The difference between \mu and the life expectancy for Romania is represented by
 
 \huge
 Variance:
-$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+$$ \sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$$
 \Large
-Calculation for Romania:  $(x_{Romania} - \mu)$
+Calculation for Romania:  $$ (x_{Romania} - \mu) $$
 \normalsize
 \bigskip
 
@@ -237,7 +233,7 @@ last_plot() + aes(xend = mean(gapminder_2007_europe$lifeExp), yend = 0) +
 
 \huge
 Variance:
-$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+$$ \sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n} $$
 
 
 Then we need to square that difference.  This resultant value is equal to the area of a square that has the length of the distance between of our life expectancy for Romania and the mean life expectancy.  It is a transparent green square in the plot. 
@@ -263,7 +259,7 @@ last_plot() + aes(xmin = mean(gapminder_2007_europe$lifeExp),
 
 \huge
 Variance:
-$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+$$ \sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n} $$
 
 Now we need to do the same for all of our observations.  Not just Romania, but also Germany, Italy, Sweden, France, and so on.  
 
@@ -282,11 +278,11 @@ The mean for these areas is the variance.
 
 We sum up all of the resulting areas that are shown in the plot (note that these are overlapping): 
 
-$\sum_{i=1}^{n}(x_i - \mu)^2$
+$$ \sum_{i=1}^{n}(x_i - \mu)^2 $$
 
 And then we divide through by the number of observations (e.g. the total number of squares) which gives us our aim - the variance, represented as $\sigma^2$:
 
-$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+$$\sigma^2 = \frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$$
 
 I'm plotting the variance as a square where the area is the variance, and a corner of this square (in purple) happens to be at the mean value. The square's area is the average area for all the squares plotted above, and is equal to the variance. 
 
@@ -309,7 +305,7 @@ plot_mean +
 Now, calculating the standard deviation is straightforward.  Take the square root of the variance.
 
 Standard Deviation: 
-$\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$
+$$\sigma = \sqrt\frac{\sum_{i=1}^{n}(x_i - \mu)^2} {n}$$
 
 The standard deviation on the plot can be represented as simply the length of the edge of the square whose area is the variance.  
 

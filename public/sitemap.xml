@@ -18,17 +18,22 @@
   </url>
   
   <url>
-    <loc>/post/embedding-flipbook-mini-in-html-document/</loc>
-    <lastmod>2020-03-21T18:52:53-06:00</lastmod>
+    <loc>/post/data-viz-day-one/</loc>
+    <lastmod>2020-03-27T15:40:56-06:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-03-21T18:52:53-06:00</lastmod>
+    <lastmod>2020-03-27T15:40:56-06:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2020-03-27T15:40:56-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/embedding-flipbook-mini-in-html-document/</loc>
     <lastmod>2020-03-21T18:52:53-06:00</lastmod>
   </url>
   
@@ -248,6 +253,11 @@
   </url>
   
   <url>
+    <loc>/project/ggplot_gallery/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
@@ -338,6 +348,11 @@
   
   <url>
     <loc>/post/2020-03-06-flipbooks-and-flipbookr/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2020-03-27-data-viz-day-one/</loc>
     <priority>0</priority>
   </url>
   
