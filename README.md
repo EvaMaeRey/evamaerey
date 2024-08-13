@@ -1,6 +1,8 @@
 # Hi. I'm Gina Reynolds.
 
-My popular projects include flipbookr and ggplot2 extensions like ggcalendar, ggcirclepack and others.  Professionally, I've worked in higher education and government where my work involved analytics, teaching, and policy implementation.   
+My popular projects include [flipbookr](https://github.com/EvaMaeRey/flipbookr) and ggplot2 extensions like [ggcalendar](https://evamaerey.github.io/ggcalendar/), ggcirclepack]([https://evamaerey.github.io/ggcirclepack](https://github.com/EvaMaeRey/ggcirclepack)) and others.  
+
+Professionally, I've worked in higher education and government where my work involved analytics, teaching, and policy implementation.   
 
 I'm interested in lightening cognative load, first, for interpreting data visualization and, second, for writing and reading code used to build data visualizations.  I believe the latter --- attention to coding tools --- can greatly complement the former -- communication via visualizations. When we have logical, easy-to-use tools to build compelling, easy-to-interpret visualizations well suited to the data we are presenting, we're more likely to build compelling, easy-to-interpret visualizations, rather than stop at 'good enough'.   Given this, I'm a big fan of the elegant, flexible, and intuitive grammar of graphics visualization frameworks. 
 
