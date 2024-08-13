@@ -6,7 +6,7 @@ I'm interested in lightening cognative load, first, for interpreting data visual
 
 My technical expertise is in the ggplot2 library of the R language and currently focus a great deal on extension.  I co-organize the ggplot2 extenders club, have created 'easy geom recipes' together with students, am writing ggplot2 extension cookbook, and developing 'express' methodologies for Stat extension (why shouldn't everyone be creating and using Stats?).  I've studied some of these new educational materials via survey response and focus groups. For more on the rationale for these efforts, see 'everyday ggplot2 extension'.
 
-Previously, I had a greater focus on base ggplot2, creating materials like [a ggplot2 grammar guide](https://evamaerey.github.io/ggplot2_grammar_guide/about) and [the ggplot2 flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1).
+Previously, I had a greater focus on illuminating the grammar of *base* ggplot2, creating materials like [a ggplot2 grammar guide](https://evamaerey.github.io/ggplot2_grammar_guide/about) and [the ggplot2 flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1).
 
 
 
