@@ -1,6 +1,6 @@
 # Hi. I'm Gina Reynolds.
 
-My popular projects include [flipbookr](https://github.com/EvaMaeRey/flipbookr) and ggplot2 extensions like [ggcalendar](https://evamaerey.github.io/ggcalendar/), [ggcirclepack](https://evamaerey.github.io/ggcirclepack)(https://github.com/EvaMaeRey/ggcirclepack)) and others.  
+My popular projects include [flipbookr](https://github.com/EvaMaeRey/flipbookr) and ggplot2 extensions like [ggcalendar](https://evamaerey.github.io/ggcalendar/), [ggcirclepack](https://github.com/EvaMaeRey/ggcirclepack)) and others.  
 
 Professionally, I've worked in higher education and government where my work involved analytics, teaching, and policy implementation.   
 
