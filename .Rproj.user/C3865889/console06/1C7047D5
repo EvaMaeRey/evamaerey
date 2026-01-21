@@ -1,1002 +1,0 @@
-
- delete mode 100644 public/post/2018-06-08-what-s-the-igo-dataset_files/plotly-main/plotly-latest.min.js
- delete mode 100644 public/post/2018-06-08-what-s-the-igo-dataset_files/typedarray/typedarray.min.js
- delete mode 100644 public/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-10-1.png
- delete mode 100644 public/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-7-1.png
- delete mode 100644 public/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-8-1.png
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-9-1.png => unnamed-chunk-10-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-2-1.png => unnamed-chunk-3-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-3-1.png => unnamed-chunk-4-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-4-1.png => unnamed-chunk-5-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-5-1.png => unnamed-chunk-6-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-6-1.png => unnamed-chunk-7-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-7-1.png => unnamed-chunk-8-1.png} (100%)
- rename public/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-8-1.png => unnamed-chunk-9-1.png} (100%)
- delete mode 100644 public/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-10-1.png
- rewrite public/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png (82%)
- copy public/post/2018-06-16-federalist-papers_files/figure-html/{unnamed-chunk-11-1.png => unnamed-chunk-12-1.png} (100%)
- rename public/post/2018-06-16-federalist-papers_files/figure-html/{unnamed-chunk-13-1.png => unnamed-chunk-14-1.png} (100%)
- delete mode 100644 public/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-7-1.png
- create mode 100644 public/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-8-1.png
- delete mode 100644 public/post/2018-07-09-tuition-for-tidy-tuesday_files/figure-html/unnamed-chunk-1-1.png
- rename public/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-1-1.png => unnamed-chunk-2-1.png} (100%)
- rename public/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-2-1.png => unnamed-chunk-3-1.png} (100%)
- rename public/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-3-1.png => unnamed-chunk-4-1.png} (100%)
- rename public/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-4-1.png => unnamed-chunk-6-1.png} (100%)
- rename public/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-6-1.png => unnamed-chunk-7-1.png} (100%)
- rename public/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/{unnamed-chunk-4-1.png => unnamed-chunk-5-1.png} (100%)
- rename public/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/{unnamed-chunk-5-1.png => unnamed-chunk-6-1.png} (100%)
- rename public/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/{unnamed-chunk-6-1.png => unnamed-chunk-7-1.png} (100%)
- rename public/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/{unnamed-chunk-7-1.png => unnamed-chunk-8-1.png} (100%)
- delete mode 100644 public/post/2018-08-04-national-anthems-sentiment-scores-mapped-and-interactive_files/figure-html/unnamed-chunk-2-1.png
- delete mode 100644 public/post/2018-08-04-national-anthems-sentiment-scores-mapped-and-interactive_files/figure-html/unnamed-chunk-2-2.png
- delete mode 100644 public/post/2018-08-04-national-anthems-sentiment-scores-mapped-and-interactive_files/figure-html/unnamed-chunk-3-1.png
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-10-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-3-1.png (96%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png (95%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-7-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-8-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-9-1.png (97%)
- rename public/post/2018-09-13-slow-ggplot_files/figure-html/{unnamed-chunk-3-1.png => unnamed-chunk-5-1.png} (100%)
- delete mode 100644 public/post/Winter Olympic Medals.xlsx
- delete mode 100644 public/post/eat-near-the-big-ben-that-will-cost-you/index.html
- rewrite public/post/first-blogdown-post/index.html (64%)
- create mode 100644 public/post/getting-started/featured.jpg
- create mode 100644 public/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_1200x0_resize_q90_lanczos.jpg
- create mode 100644 public/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q90_lanczos.jpg
- rewrite public/post/getting-started/index.html (78%)
- rewrite public/post/index.html (78%)
- rewrite public/post/index.xml (76%)
- create mode 100644 public/post/jupyter/featured.png
- create mode 100644 public/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png
- create mode 100644 public/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_720x0_resize_lanczos_2.png
- create mode 100644 public/post/jupyter/index.html
- create mode 100644 public/post/jupyter/index_1_0.png
- delete mode 100644 public/post/national-anthems-sentiment-scores-mapped-and-interactive/index.html
- rewrite public/post/page/2/index.html (82%)
- delete mode 100644 public/post/page/3/index.html
- delete mode 100644 public/post/raw_data/us_avg_tuition.xlsx
- delete mode 100644 public/post/selection-effects/index.html
- delete mode 100644 public/post/tuition-for-tidy-tuesday/index.html
- delete mode 100644 public/post/tuition_plot.png
- delete mode 100644 public/post/what-s-the-igo-dataset/index.html
- delete mode 100644 public/post/winter-games-and-athlete-ages/index.html
- create mode 100644 public/post/writing-technical-content/featured.jpg
- create mode 100644 public/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_2560x2560_fit_q90_lanczos.jpg
- create mode 100644 public/post/writing-technical-content/index.html
- rename static/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-3-1.png => public/post2/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-4-1.png (100%)
- create mode 100644 public/post2/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-7-1.png
- create mode 100644 public/post2/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-8-1.png
- create mode 100644 public/post2/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-9-1.png
- rename public/{post => post2}/2018-06-08-what-s-the-igo-dataset_files/figure-html/unnamed-chunk-3-1.png (100%)
- rename public/{post => post2}/2018-06-08-what-s-the-igo-dataset_files/figure-html/unnamed-chunk-4-1.png (100%)
- rename public/{post => post2}/2018-06-08-what-s-the-igo-dataset_files/figure-html/unnamed-chunk-7-1.png (100%)
- rename public/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-10-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-11-1.png} (100%)
- rename public/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-11-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-12-1.png} (100%)
- rename public/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-12-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-13-1.png} (100%)
- rename public/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-4-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-5-1.png} (100%)
- rename public/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-7-1.png} (100%)
- rename public/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-7-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-8-1.png} (100%)
- rename static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-4-1.png => public/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png (100%)
- copy static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png => public/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png (100%)
- copy static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png => public/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png (100%)
- copy static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png => public/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-8-1.png (100%)
- rename static/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-3-1.png => public/post2/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png (100%)
- create mode 100644 public/post2/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-5-1.png
- rename {content/post => public/post2}/Winter Olympic Medals.xlsx (100%)
- create mode 100644 public/post2/central-limit-theorem/index.html
- create mode 100644 public/post2/eat-near-the-big-ben-that-will-cost-you/index.html
- create mode 100644 public/post2/federalist-papers/index.html
- create mode 100644 public/post2/first-blogdown-post/index.html
- create mode 100644 public/post2/geometric-covariance/index.html
- create mode 100644 public/post2/getting-started/index.html
- create mode 100644 public/post2/index.html
- create mode 100644 public/post2/index.xml
- create mode 100644 public/post2/layered-presentation-of-graphics-take-2/index.html
- create mode 100644 public/post2/layered-presentation-of-graphics-with-aes-in-ggplot2/index.html
- create mode 100644 public/post2/mapping-aesthetics/index.html
- create mode 100644 public/post2/national-anthems-sentiment-scores-mapped-and-interactive/index.html
- create mode 100644 public/post2/page/1/index.html
- create mode 100644 public/post2/page/2/index.html
- rename {content/post => public/post2}/raw_data/us_avg_tuition.xlsx (100%)
- create mode 100644 public/post2/selection-effects/index.html
- create mode 100644 public/post2/sequences-probabilities/index.html
- create mode 100644 public/post2/slow-ggplot/index.html
- rename {content/post => public/post2}/tuition_plot.png (100%)
- create mode 100644 public/post2/univariate-statistics-visualizing-variance/index.html
- create mode 100644 public/post2/variance-and-sd-visualization/index.html
- create mode 100644 public/post2/what-s-the-igo-dataset/index.html
- create mode 100644 public/post2/wide-to-long-using-the-tidy-verse/index.html
- create mode 100644 public/post2/winter-games-and-athlete-ages/index.html
- create mode 100644 public/privacy/index.html
- create mode 100644 public/project/external-project/featured.jpg
- create mode 100644 public/project/external-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_329522_550x0_resize_q90_lanczos.jpg
- create mode 100644 public/project/external-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_329522_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/project/external-project/index.html
- create mode 100644 public/project/index.html
- rewrite public/project/index.xml (85%)
- create mode 100644 public/project/internal-project/featured.jpg
- create mode 100644 public/project/internal-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_550x0_resize_q90_lanczos.jpg
- create mode 100644 public/project/internal-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/project/internal-project/index.html
- create mode 100644 public/project/page/1/index.html
- delete mode 100644 public/project/supranational-law/index.html
- create mode 100644 public/publication/brazil-compliance/cite.bib
- create mode 100644 public/publication/brazil-compliance/featured.jpg
- create mode 100644 public/publication/brazil-compliance/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/brazil-compliance/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/brazil-compliance/index.html
- delete mode 100644 public/publication/clothing-search/index.html
- create mode 100644 public/publication/conference-paper/cite.bib
- create mode 100644 public/publication/conference-paper/featured.jpg
- create mode 100644 public/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_918x517_fill_q90_lanczos_smart1.jpg
- create mode 100644 public/publication/conference-paper/index.html
- create mode 100644 public/publication/foreign-aid/cite.bib
- create mode 100644 public/publication/foreign-aid/featured.jpg
- create mode 100644 public/publication/foreign-aid/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/foreign-aid/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/foreign-aid/index.html
- rewrite public/publication/index.html (71%)
- rewrite public/publication/index.xml (62%)
- create mode 100644 public/publication/journal-article/cite.bib
- create mode 100644 public/publication/journal-article/featured.jpg
- create mode 100644 public/publication/journal-article/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/journal-article/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/journal-article/index.html
- delete mode 100644 public/publication/person-re-identification/index.html
- create mode 100644 public/publication/preprint/featured.jpg
- create mode 100644 public/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/publication/preprint/index.html
- create mode 100644 public/publication_types/1/index.html
- create mode 100644 public/publication_types/1/index.xml
- create mode 100644 public/publication_types/1/page/1/index.html
- rewrite public/publication_types/2/index.html (71%)
- rewrite public/publication_types/2/index.xml (61%)
- create mode 100644 public/publication_types/3/index.html
- create mode 100644 public/publication_types/3/index.xml
- create mode 100644 public/publication_types/3/page/1/index.html
- rewrite public/publication_types/index.html (69%)
- delete mode 100644 public/site.webmanifest
- rewrite public/sitemap.xml (97%)
- create mode 100644 public/slides/example/index.html
- create mode 100644 public/slides/index.xml
- delete mode 100644 public/styles.css
- rewrite public/tags/academic-hugo/index.html (72%)
- rewrite public/tags/academic-hugo/index.xml (80%)
- rewrite public/tags/academic/index.html (71%)
- rewrite public/tags/academic/index.xml (71%)
- create mode 100644 public/tags/communicating-about-code/index.html
- create mode 100644 public/tags/communicating-about-code/index.xml
- create mode 100644 public/tags/communicating-about-code/page/1/index.html
- create mode 100644 public/tags/communicating-code-pipelines/index.html
- create mode 100644 public/tags/communicating-code-pipelines/index.xml
- create mode 100644 public/tags/communicating-code-pipelines/page/1/index.html
- create mode 100644 public/tags/communicating-code/index.html
- create mode 100644 public/tags/communicating-code/index.xml
- create mode 100644 public/tags/communicating-code/page/1/index.html
- rewrite public/tags/data-visualization/index.html (66%)
- rewrite public/tags/data-visualization/index.xml (70%)
- create mode 100644 public/tags/deep-learning/index.html
- create mode 100644 public/tags/deep-learning/index.xml
- create mode 100644 public/tags/deep-learning/page/1/index.html
- create mode 100644 public/tags/demo/index.html
- create mode 100644 public/tags/demo/index.xml
- create mode 100644 public/tags/demo/page/1/index.html
- create mode 100644 public/tags/flipbooks/index.html
- create mode 100644 public/tags/flipbooks/index.xml
- create mode 100644 public/tags/flipbooks/page/1/index.html
- rewrite public/tags/ggplot2/index.html (67%)
- rewrite public/tags/ggplot2/index.xml (70%)
- rewrite public/tags/index.html (68%)
- rewrite public/tags/index.xml (67%)
- delete mode 100644 public/tags/international-law/index.html
- delete mode 100644 public/tags/international-law/index.xml
- delete mode 100644 public/tags/international-law/page/1/index.html
- create mode 100644 public/tags/journalism/index.html
- create mode 100644 public/tags/journalism/index.xml
- create mode 100644 public/tags/journalism/page/1/index.html
- rewrite public/tags/makeovermonday/index.html (66%)
- rewrite public/tags/makeovermonday/index.xml (76%)
- rewrite public/tags/maps/index.html (67%)
- rewrite public/tags/maps/index.xml (75%)
- rewrite public/tags/nationalism/index.html (67%)
- rewrite public/tags/nationalism/index.xml (76%)
- create mode 100644 public/tags/page/2/index.html
- create mode 100644 public/tags/plot/index.html
- create mode 100644 public/tags/plot/index.xml
- create mode 100644 public/tags/plot/page/1/index.html
- create mode 100644 public/tags/r-markdown/index.html
- create mode 100644 public/tags/r-markdown/index.xml
- create mode 100644 public/tags/r-markdown/page/1/index.html
- create mode 100644 public/tags/r/index.html
- create mode 100644 public/tags/r/index.xml
- create mode 100644 public/tags/r/page/1/index.html
- create mode 100644 public/tags/regression/index.html
- create mode 100644 public/tags/regression/index.xml
- create mode 100644 public/tags/regression/page/1/index.html
- create mode 100644 public/tags/reproduciblility/index.html
- create mode 100644 public/tags/reproduciblility/index.xml
- create mode 100644 public/tags/reproduciblility/page/1/index.html
- create mode 100644 public/tags/social-media/index.html
- create mode 100644 public/tags/social-media/index.xml
- create mode 100644 public/tags/social-media/page/1/index.html
- create mode 100644 public/tags/source-themes/index.html
- create mode 100644 public/tags/source-themes/index.xml
- create mode 100644 public/tags/source-themes/page/1/index.html
- create mode 100644 public/tags/stats-viz/index.html
- create mode 100644 public/tags/stats-viz/index.xml
- create mode 100644 public/tags/stats-viz/page/1/index.html
- rewrite public/tags/text-analysis/index.html (67%)
- rewrite public/tags/text-analysis/index.xml (76%)
- create mode 100644 public/tags/workflow/index.html
- create mode 100644 public/tags/workflow/index.xml
- create mode 100644 public/tags/workflow/page/1/index.html
- create mode 100644 public/tags/workflows/index.html
- create mode 100644 public/tags/workflows/index.xml
- create mode 100644 public/tags/workflows/page/1/index.html
- create mode 100644 public/talk/copyofreproducibility/featured.jpg
- create mode 100644 public/talk/copyofreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/copyofreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/copyofreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 public/talk/copyofreproducibility/index.html
- delete mode 100644 public/talk/example-talk/index.html
- create mode 100644 public/talk/example/featured.jpg
- create mode 100644 public/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 public/talk/example/index.html
- create mode 100644 public/talk/ggplotgrammar/featured.jpg
- create mode 100644 public/talk/ggplotgrammar/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/ggplotgrammar/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/ggplotgrammar/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 public/talk/ggplotgrammar/featured_huac7706fa600de949ca8268e1756f7e79_3995521_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/ggplotgrammar/featured_huac7706fa600de949ca8268e1756f7e79_3995521_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/ggplotgrammar/index.html
- create mode 100644 public/talk/illinois-reproducibility/featured.jpg
- create mode 100644 public/talk/illinois-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/illinois-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/illinois-reproducibility/featured_huff2f79bfc1161271cfee8ed31ba061cb_2871042_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/illinois-reproducibility/featured_huff2f79bfc1161271cfee8ed31ba061cb_2871042_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/illinois-reproducibility/index.html
- rewrite public/talk/index.html (69%)
- rewrite public/talk/index.xml (80%)
- create mode 100644 public/talk/korbel-reproducibility/featured.jpg
- create mode 100644 public/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/korbel-reproducibility/index.html
- create mode 100644 public/talk/korbelreproducibility/featured.jpg
- create mode 100644 public/talk/korbelreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/korbelreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/korbelreproducibility/index.html
- create mode 100644 public/talk/leiden/featured.jpg
- create mode 100644 public/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 public/talk/leiden/index.html
- create mode 100644 public/talk/reproducibility/featured.jpg
- create mode 100644 public/talk/reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 public/talk/reproducibility/index.html
- create mode 100644 public/talk/reproducibility1/featured.jpg
- create mode 100644 public/talk/reproducibility1/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/reproducibility1/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/reproducibility1/index.html
- create mode 100644 public/talk/shallow-fakes/featured.jpg
- create mode 100644 public/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/shallow-fakes/index.html
- create mode 100644 public/talk/shallow_fakes/featured.jpg
- create mode 100644 public/talk/shallow_fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/shallow_fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/shallow_fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 public/talk/shallow_fakes/index.html
- create mode 100644 public/talk/three_rs_uofi/featured.jpg
- create mode 100644 public/talk/three_rs_uofi/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/three_rs_uofi/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/three_rs_uofi/index.html
- create mode 100644 public/terms/index.html
- create mode 100644 resources/_gen/assets/scss/sass/main.scss_5605ecb7fa3240a2f23d47aaede4565f.content
- create mode 100644 resources/_gen/assets/scss/sass/main.scss_5605ecb7fa3240a2f23d47aaede4565f.json
- create mode 100644 resources/_gen/images/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg
- create mode 100644 resources/_gen/images/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg
- create mode 100644 resources/_gen/images/home/gallery/gallery/arctic_ice copy_hucc13f5764a2e136c951f82cb02a01fdf_1653610_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/away_from_ben_hu25387b38522d8e186490cbbd4bd889fd_100629_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/baseball_hu9773be1041e6c75f42cfe4c3cb109b3f_72384_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/brexit_1_hu221d0a8cf50c0adb57dbc1fb25bff17c_79593_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/christmas_hue4747feebec02495bc2841e902820fed_48784_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/college_majors copy_hu96d56b0f92ebc39bf7b7765ce258cf94_1841699_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/company_ranks_hue3b6d642df8cf3e591599ae530891f22_66394_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/flipping_seats_hu82f118a29207ca6702193eb30dabc947_67968_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/incarceration_01_hub5e88d345d4cfda813e133443e02e433_70759_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/incarceration_02_hubea20bdbdbbae5b2e110e5e143a99269_76530_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/life_expect_hu257b7272b30a3635019e1c9d14ece30e_73639_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/makeovermonday copy_hu46703e27a27396413d7d6eda27913e7f_680978_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/map_curry_hu6d285365d146cb26edb0817c8b4d429f_137307_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/milk_cow_cost copy_hu69a57af95cb577de8dfb89e4668645b2_123273_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/movies_hu5d6461911d0546ddc6fe1267b491f679_467364_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/myers_briggs_hu473b415a75448b80b6879deee338eab0_56095_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/oecd_entitlement copy_hubb8deed9ad22323663a6fbea9bb8556d_476838_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/parental_leave_hu9773be1041e6c75f42cfe4c3cb109b3f_72384_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/ramen_rater_hu6be727b20b9d8e53973509e66218600c_66304_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/recent_grads_02_hud86f45e44b685196a5a41a63fbde8173_142401_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/sotu_timing_delivery copy_hu3dbcf0beba6db6294e0afafe5897551d_253090_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/theme-strawberry_hu36b0b347fcca08bd39e2df22dcedbdfb_39532_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/white_house_hu0b30048632170d01f9a60c9fa89a7100_78086_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/wind_01_hu654ef50ff70bf9872e8165b6aede66b1_55920_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/wine_hu6e88bcbf53aae02c6b0ebaf5a56cd220_295111_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/home/gallery/gallery/women_hu3e78f46df4bda39cb586cda73b8eb4d9_91879_0x190_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_1200x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_720x0_resize_lanczos_2.png
- create mode 100644 resources/_gen/images/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_2560x2560_fit_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/project/external-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_329522_550x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/project/external-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_329522_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/project/internal-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_550x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/project/internal-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/brazil-compliance/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/brazil-compliance/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_918x517_fill_q90_lanczos_smart1.jpg
- create mode 100644 resources/_gen/images/publication/foreign-aid/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/foreign-aid/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/journal-article/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/journal-article/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/CopyOfreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/CopyOfreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/CopyOfreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 resources/_gen/images/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 resources/_gen/images/talk/ggplotgrammar/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/ggplotgrammar/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/ggplotgrammar/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 resources/_gen/images/talk/ggplotgrammar/featured_huac7706fa600de949ca8268e1756f7e79_3995521_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/ggplotgrammar/featured_huac7706fa600de949ca8268e1756f7e79_3995521_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/illinois-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/illinois-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/illinois-reproducibility/featured_huff2f79bfc1161271cfee8ed31ba061cb_2871042_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/illinois-reproducibility/featured_huff2f79bfc1161271cfee8ed31ba061cb_2871042_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/korbelreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/korbelreproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 resources/_gen/images/talk/reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 resources/_gen/images/talk/reproducibility1/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/reproducibility1/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow_fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow_fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow_fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_918x517_fill_q90_lanczos_right.jpg
- create mode 100644 resources/_gen/images/talk/three_rs_uofi/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/three_rs_uofi/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_720x0_resize_q90_lanczos.jpg
- delete mode 100644 static/.DS_Store
- delete mode 100644 static/files/citations/clothing-search.bib
- create mode 100644 static/files/cv.pdf
- delete mode 100644 static/img/.DS_Store
- delete mode 100644 static/img/2018_08_13_fisher_max_sd.png
- delete mode 100644 static/img/bubbles.jpg
- delete mode 100644 static/img/headers/getting-started.png
- create mode 100644 static/img/hero-academic.png
- delete mode 100644 static/img/portrait.jpg
- delete mode 100644 static/img/portrait1.jpg
- create mode 100644 static/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
- create mode 100644 static/post/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-4-1.png
- rename static/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/{unnamed-chunk-5-1.png => unnamed-chunk-6-1.png} (100%)
- rename static/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/{unnamed-chunk-6-1.png => unnamed-chunk-7-1.png} (100%)
- rename static/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/{unnamed-chunk-7-1.png => unnamed-chunk-8-1.png} (100%)
- rename static/post/2018-05-21-layered-presentation-of-graphics-with-aes-in-ggplot2_files/figure-html/{unnamed-chunk-8-1.png => unnamed-chunk-9-1.png} (100%)
- delete mode 100644 static/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-6-1.png
- delete mode 100644 static/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-7-1.png
- delete mode 100644 static/post/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-8-1.png
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-9-1.png => unnamed-chunk-10-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-11-1.png => unnamed-chunk-12-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-13-1.png => unnamed-chunk-14-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-14-1.png => unnamed-chunk-15-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-17-1.png => unnamed-chunk-18-1.png} (100%)
- rewrite static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/unnamed-chunk-20-1.png (97%)
- copy static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-20-1.png => unnamed-chunk-21-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-21-1.png => unnamed-chunk-22-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-22-1.png => unnamed-chunk-23-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-23-1.png => unnamed-chunk-24-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-3-1.png => unnamed-chunk-4-1.png} (100%)
- rename static/post/2018-06-06-univariate-statistics-visualizing-variance_files/figure-html/{unnamed-chunk-7-1.png => unnamed-chunk-8-1.png} (100%)
- delete mode 100644 static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-2-1.png
- create mode 100644 static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-3-1.png
- delete mode 100644 static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-7-1.png
- rewrite static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png (97%)
- delete mode 100644 static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-2.png
- create mode 100644 static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-1.png
- create mode 100644 static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-2.png
- delete mode 100644 static/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-10-1.png
- delete mode 100644 static/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-7-1.png
- delete mode 100644 static/post/2018-06-12-eat-near-the-big-ben-that-will-cost-you_files/figure-html/unnamed-chunk-8-1.png
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-9-1.png => unnamed-chunk-10-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-2-1.png => unnamed-chunk-3-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-3-1.png => unnamed-chunk-4-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-4-1.png => unnamed-chunk-5-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-5-1.png => unnamed-chunk-6-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-6-1.png => unnamed-chunk-7-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-7-1.png => unnamed-chunk-8-1.png} (100%)
- rename static/post/2018-06-14-geometric-covariance_files/figure-html/{unnamed-chunk-8-1.png => unnamed-chunk-9-1.png} (100%)
- delete mode 100644 static/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-10-1.png
- rewrite static/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png (82%)
- copy static/post/2018-06-16-federalist-papers_files/figure-html/{unnamed-chunk-11-1.png => unnamed-chunk-12-1.png} (100%)
- rename static/post/2018-06-16-federalist-papers_files/figure-html/{unnamed-chunk-13-1.png => unnamed-chunk-14-1.png} (100%)
- delete mode 100644 static/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-7-1.png
- create mode 100644 static/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-8-1.png
- delete mode 100644 static/post/2018-07-09-tuition-for-tidy-tuesday_files/figure-html/unnamed-chunk-1-1.png
- rename static/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-1-1.png => unnamed-chunk-2-1.png} (100%)
- rename static/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-2-1.png => unnamed-chunk-3-1.png} (100%)
- rename static/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-3-1.png => unnamed-chunk-4-1.png} (100%)
- rename static/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-4-1.png => unnamed-chunk-6-1.png} (100%)
- rename static/post/2018-07-16-mapping-aesthetics_files/figure-html/{unnamed-chunk-6-1.png => unnamed-chunk-7-1.png} (100%)
- rewrite static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png (98%)
- rewrite static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png (96%)
- rewrite static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png (97%)
- create mode 100644 static/post/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-8-1.png
- delete mode 100644 static/post/2018-08-04-national-anthems-sentiment-scores-mapped-and-interactive_files/figure-html/unnamed-chunk-2-1.png
- delete mode 100644 static/post/2018-08-04-national-anthems-sentiment-scores-mapped-and-interactive_files/figure-html/unnamed-chunk-2-2.png
- delete mode 100644 static/post/2018-08-04-national-anthems-sentiment-scores-mapped-and-interactive_files/figure-html/unnamed-chunk-3-1.png
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-10-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-3-1.png (96%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png (95%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-7-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-8-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-9-1.png (97%)
- create mode 100644 static/post/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-5-1.png
- create mode 100644 static/post2/2018-05-19-first-blogdown-post_files/figure-html/unnamed-chunk-4-1.png
- create mode 100644 static/post2/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-7-1.png
- create mode 100644 static/post2/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-8-1.png
- create mode 100644 static/post2/2018-06-02-winter-games-and-athlete-ages_files/figure-html/unnamed-chunk-9-1.png
- rename static/{post => post2}/2018-06-08-what-s-the-igo-dataset_files/figure-html/unnamed-chunk-3-1.png (100%)
- rename static/{post => post2}/2018-06-08-what-s-the-igo-dataset_files/figure-html/unnamed-chunk-4-1.png (100%)
- rename static/{post => post2}/2018-06-08-what-s-the-igo-dataset_files/figure-html/unnamed-chunk-7-1.png (100%)
- rename static/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-10-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-11-1.png} (100%)
- rename static/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-11-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-12-1.png} (100%)
- rename static/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-12-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-13-1.png} (100%)
- rename static/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-4-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-5-1.png} (100%)
- rename static/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-6-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-7-1.png} (100%)
- rename static/{post/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-7-1.png => post2/2018-06-25-selection-effects_files/figure-html/unnamed-chunk-8-1.png} (100%)
- create mode 100644 static/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-5-1.png
- create mode 100644 static/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-6-1.png
- create mode 100644 static/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-7-1.png
- create mode 100644 static/post2/2018-07-22-layered-presentation-of-graphics-with-aes-in-ggplot2-alternative_files/figure-html/unnamed-chunk-8-1.png
- create mode 100644 static/post2/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-4-1.png
- create mode 100644 static/post2/2018-09-13-slow-ggplot_files/figure-html/unnamed-chunk-5-1.png
- create mode 100644 themes/hugo-academic/.github/FUNDING.yml
- create mode 100644 themes/hugo-academic/.github/stale.yml
- create mode 100644 themes/hugo-academic/.github/support.md
- rewrite themes/hugo-academic/README.md (81%)
- rewrite themes/hugo-academic/academic.png (96%)
- rewrite themes/hugo-academic/archetypes/default.md (95%)
- create mode 100644 themes/hugo-academic/archetypes/docs.md
- delete mode 100644 themes/hugo-academic/archetypes/post.md
- create mode 100644 themes/hugo-academic/archetypes/post/index.md
- delete mode 100644 themes/hugo-academic/archetypes/project.md
- create mode 100644 themes/hugo-academic/archetypes/project/index.md
- delete mode 100644 themes/hugo-academic/archetypes/publication.md
- create mode 100644 themes/hugo-academic/archetypes/publication/index.md
- create mode 100644 themes/hugo-academic/archetypes/slides/index.md
- delete mode 100644 themes/hugo-academic/archetypes/talk.md
- create mode 100644 themes/hugo-academic/archetypes/talk/index.md
- create mode 100644 themes/hugo-academic/assets/css/reveal.css
- rename themes/hugo-academic/{layouts/home/list.html => assets/css/reveal_custom.css} (100%)
- create mode 100644 themes/hugo-academic/assets/js/academic-search.js
- create mode 100644 themes/hugo-academic/assets/js/academic.js
- create mode 100644 themes/hugo-academic/assets/js/algolia-search.js
- create mode 100644 themes/hugo-academic/assets/js/mathjax-config.js
- create mode 100644 themes/hugo-academic/assets/js/vendor/bootstrap.min.js
- create mode 100644 themes/hugo-academic/assets/sass/academic/_card.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_content.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_dark.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_docs.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_integrations.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_listings.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_nav.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_root.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_search.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/_widgets.scss
- create mode 100644 themes/hugo-academic/assets/sass/academic/academic.scss
- create mode 100644 themes/hugo-academic/assets/sass/bootstrap_variables.scss
- create mode 100644 themes/hugo-academic/assets/sass/main.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_alert.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_badge.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_breadcrumb.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_button-group.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_buttons.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_card.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_carousel.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_close.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_code.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_custom-forms.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_dropdown.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_forms.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_functions.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_grid.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_images.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_input-group.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_jumbotron.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_list-group.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_media.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_mixins.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_modal.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_nav.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_navbar.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_pagination.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_popover.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_print.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_progress.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_reboot.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_root.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_spinners.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_tables.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_toasts.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_tooltip.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_transitions.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_type.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_utilities.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/_variables.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/bootstrap-grid.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/bootstrap-reboot.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/bootstrap.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_alert.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_background-variant.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_badge.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_border-radius.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_box-shadow.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_breakpoints.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_buttons.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_caret.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_clearfix.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_deprecate.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_float.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_forms.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_gradients.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_grid-framework.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_grid.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_hover.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_image.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_list-group.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_lists.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_nav-divider.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_pagination.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_reset-text.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_resize.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_screen-reader.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_size.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_table-row.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_text-emphasis.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_text-hide.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_text-truncate.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_transition.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/mixins/_visibility.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_align.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_background.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_borders.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_clearfix.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_display.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_embed.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_flex.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_float.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_overflow.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_position.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_screenreaders.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_shadows.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_sizing.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_spacing.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_stretched-link.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_text.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/utilities/_visibility.scss
- create mode 100644 themes/hugo-academic/assets/sass/vendor/bootstrap/vendor/_rfs.scss
- create mode 100644 themes/hugo-academic/data/academic.toml
- create mode 100644 themes/hugo-academic/data/assets.toml
- delete mode 100644 themes/hugo-academic/data/fonts/default.toml
- create mode 100644 themes/hugo-academic/data/fonts/minimal.toml
- create mode 100644 themes/hugo-academic/data/fonts/mr_robot.toml
- delete mode 100644 themes/hugo-academic/data/fonts/playfair.toml
- create mode 100644 themes/hugo-academic/data/fonts/rose.toml
- create mode 100644 themes/hugo-academic/data/page_sharer.toml
- create mode 100644 themes/hugo-academic/data/publication_types.toml
- delete mode 100644 themes/hugo-academic/data/sri.toml
- create mode 100644 themes/hugo-academic/data/themes/apogee.toml
- delete mode 100644 themes/hugo-academic/data/themes/default.toml
- create mode 100644 themes/hugo-academic/data/themes/minimal.toml
- create mode 100644 themes/hugo-academic/data/themes/mr_robot.toml
- create mode 100644 themes/hugo-academic/data/themes/rose.toml
- create mode 100644 themes/hugo-academic/data/themes/strawberry.toml
- create mode 100644 themes/hugo-academic/demo.sh
- delete mode 100644 themes/hugo-academic/exampleSite/config.toml
- create mode 100644 themes/hugo-academic/exampleSite/config/_default/config.toml
- create mode 100644 themes/hugo-academic/exampleSite/config/_default/languages.toml
- create mode 100644 themes/hugo-academic/exampleSite/config/_default/menus.toml
- create mode 100644 themes/hugo-academic/exampleSite/config/_default/params.toml
- create mode 100644 themes/hugo-academic/exampleSite/content/authors/admin/_index.md
- rename public/img/portrait1.jpg => themes/hugo-academic/exampleSite/content/authors/admin/avatar.jpg (100%)
- create mode 100644 themes/hugo-academic/exampleSite/content/courses/_index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/courses/example/_index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/courses/example/example1.md
- create mode 100644 themes/hugo-academic/exampleSite/content/courses/example/example2.md
- rewrite themes/hugo-academic/exampleSite/content/home/about.md (99%)
- create mode 100644 themes/hugo-academic/exampleSite/content/home/accomplishments.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/demo.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/experience.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/featured.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-1950s.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-apogee.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-coffee-playfair.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-dark.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-default.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-forest.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-ocean.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/gallery/theme-strawberry.png
- create mode 100644 themes/hugo-academic/exampleSite/content/home/gallery/index.md
- rewrite themes/hugo-academic/exampleSite/content/home/hero.md (97%)
- create mode 100644 themes/hugo-academic/exampleSite/content/home/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/people.md
- rewrite themes/hugo-academic/exampleSite/content/home/posts.md (89%)
- rewrite themes/hugo-academic/exampleSite/content/home/projects.md (94%)
- rewrite themes/hugo-academic/exampleSite/content/home/publications.md (91%)
- delete mode 100644 themes/hugo-academic/exampleSite/content/home/publications_selected.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/skills.md
- create mode 100644 themes/hugo-academic/exampleSite/content/home/slider.md
- rewrite themes/hugo-academic/exampleSite/content/home/tags.md (74%)
- rewrite themes/hugo-academic/exampleSite/content/home/talks.md (80%)
- delete mode 100644 themes/hugo-academic/exampleSite/content/home/teaching.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/post/getting-started.md
- create mode 100644 themes/hugo-academic/exampleSite/content/post/getting-started/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/post/getting-started/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/post/jupyter/featured.png
- create mode 100644 themes/hugo-academic/exampleSite/content/post/jupyter/index.ipynb
- create mode 100644 themes/hugo-academic/exampleSite/content/post/jupyter/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/post/jupyter/index_1_0.png
- create mode 100644 themes/hugo-academic/exampleSite/content/post/writing-technical-content/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/post/writing-technical-content/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/privacy.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/project/deep-learning.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/project/example-external-project.md
- create mode 100644 themes/hugo-academic/exampleSite/content/project/external-project/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/project/external-project/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/project/internal-project/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/project/internal-project/index.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/publication/clothing-search.md
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/conference-paper/cite.bib
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/conference-paper/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/conference-paper/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/journal-article/cite.bib
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/journal-article/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/journal-article/index.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/publication/person-re-identification.md
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/preprint/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/publication/preprint/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/slides/example/index.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/tags/academic/_index.md
- delete mode 100644 themes/hugo-academic/exampleSite/content/talk/example-talk.md
- create mode 100644 themes/hugo-academic/exampleSite/content/talk/example/featured.jpg
- create mode 100644 themes/hugo-academic/exampleSite/content/talk/example/index.md
- create mode 100644 themes/hugo-academic/exampleSite/content/terms.md
- delete mode 100644 themes/hugo-academic/exampleSite/static/files/citations/clothing-search.bib
- delete mode 100644 themes/hugo-academic/exampleSite/static/img/bubbles.jpg
- delete mode 100644 themes/hugo-academic/exampleSite/static/img/headers/getting-started.png
- create mode 100644 themes/hugo-academic/exampleSite/static/img/hero-academic.png
- delete mode 100644 themes/hugo-academic/exampleSite/static/img/portrait.jpg
- create mode 100644 themes/hugo-academic/i18n/ca.yaml
- create mode 100644 themes/hugo-academic/i18n/da.yaml
- create mode 100644 themes/hugo-academic/i18n/hu.yaml
- create mode 100644 themes/hugo-academic/i18n/ja.yaml
- create mode 100644 themes/hugo-academic/i18n/ro.yaml
- create mode 100644 themes/hugo-academic/images/theme-apogee.png
- create mode 100644 themes/hugo-academic/images/theme-cupcake.png
- create mode 100644 themes/hugo-academic/images/theme-strawberry.png
- create mode 100644 themes/hugo-academic/images/themes.png
- rewrite themes/hugo-academic/layouts/404.html (90%)
- create mode 100644 themes/hugo-academic/layouts/_default/baseof.html
- rewrite themes/hugo-academic/layouts/_default/list.html (64%)
- create mode 100644 themes/hugo-academic/layouts/_default/rss.xml
- rewrite themes/hugo-academic/layouts/_default/single.html (83%)
- create mode 100644 themes/hugo-academic/layouts/authors/list.html
- create mode 100644 themes/hugo-academic/layouts/authors/terms.html
- create mode 100644 themes/hugo-academic/layouts/docs/list.html
- create mode 100644 themes/hugo-academic/layouts/docs/single.html
- delete mode 100644 themes/hugo-academic/layouts/index.css
- create mode 100644 themes/hugo-academic/layouts/index.json
- create mode 100644 themes/hugo-academic/layouts/index.webmanifest
- delete mode 100644 themes/hugo-academic/layouts/partials/article_metadata.html
- create mode 100644 themes/hugo-academic/layouts/partials/citation.html
- create mode 100644 themes/hugo-academic/layouts/partials/comments/commento.html
- create mode 100644 themes/hugo-academic/layouts/partials/comments/disqus.html
- delete mode 100644 themes/hugo-academic/layouts/partials/css/academic.css
- delete mode 100644 themes/hugo-academic/layouts/partials/css/parse_theme.css
- create mode 100644 themes/hugo-academic/layouts/partials/custom_head.html
- create mode 100644 themes/hugo-academic/layouts/partials/custom_js.html
- create mode 100644 themes/hugo-academic/layouts/partials/docs_layout.html
- create mode 100644 themes/hugo-academic/layouts/partials/docs_sidebar.html
- rename themes/hugo-academic/layouts/{home/single.html => partials/docs_toc_foot.html} (100%)
- delete mode 100644 themes/hugo-academic/layouts/partials/footer.html
- delete mode 100644 themes/hugo-academic/layouts/partials/footer_container.html
- create mode 100644 themes/hugo-academic/layouts/partials/functions/get_event_dates.html
- create mode 100644 themes/hugo-academic/layouts/partials/functions/get_pub_types.html
- create mode 100644 themes/hugo-academic/layouts/partials/functions/parse_theme.html
- delete mode 100644 themes/hugo-academic/layouts/partials/header.html
- delete mode 100644 themes/hugo-academic/layouts/partials/header_image.html
- create mode 100644 themes/hugo-academic/layouts/partials/jsonld/article.html
- create mode 100644 themes/hugo-academic/layouts/partials/jsonld/business.html
- create mode 100644 themes/hugo-academic/layouts/partials/jsonld/event.html
- create mode 100644 themes/hugo-academic/layouts/partials/jsonld/main.html
- create mode 100644 themes/hugo-academic/layouts/partials/jsonld/website.html
- create mode 100644 themes/hugo-academic/layouts/partials/li_card.html
- create mode 100644 themes/hugo-academic/layouts/partials/li_citation.html
- create mode 100644 themes/hugo-academic/layouts/partials/li_compact.html
- create mode 100644 themes/hugo-academic/layouts/partials/li_list.html
- rewrite themes/hugo-academic/layouts/partials/navbar.html (60%)
- create mode 100644 themes/hugo-academic/layouts/partials/page_author.html
- create mode 100644 themes/hugo-academic/layouts/partials/page_edit.html
- create mode 100644 themes/hugo-academic/layouts/partials/page_header.html
- create mode 100644 themes/hugo-academic/layouts/partials/page_links.html
- create mode 100644 themes/hugo-academic/layouts/partials/page_links_div.html
- create mode 100644 themes/hugo-academic/layouts/partials/page_metadata.html
- create mode 100644 themes/hugo-academic/layouts/partials/page_metadata_authors.html
- create mode 100644 themes/hugo-academic/layouts/partials/portfolio_li_card.html
- create mode 100644 themes/hugo-academic/layouts/partials/portfolio_li_compact.html
- create mode 100644 themes/hugo-academic/layouts/partials/portfolio_li_list.html
- create mode 100644 themes/hugo-academic/layouts/partials/portfolio_li_showcase.html
- delete mode 100644 themes/hugo-academic/layouts/partials/post_li_detailed.html
- delete mode 100644 themes/hugo-academic/layouts/partials/post_li_simple.html
- delete mode 100644 themes/hugo-academic/layouts/partials/publication_li_apa.html
- delete mode 100644 themes/hugo-academic/layouts/partials/publication_li_detailed.html
- delete mode 100644 themes/hugo-academic/layouts/partials/publication_li_mla.html
- delete mode 100644 themes/hugo-academic/layouts/partials/publication_li_simple.html
- delete mode 100644 themes/hugo-academic/layouts/partials/publication_links.html
- create mode 100644 themes/hugo-academic/layouts/partials/search.html
- rewrite themes/hugo-academic/layouts/partials/section_pager.html (60%)
- rewrite themes/hugo-academic/layouts/partials/share.html (92%)
- create mode 100644 themes/hugo-academic/layouts/partials/site_footer.html
- create mode 100644 themes/hugo-academic/layouts/partials/site_head.html
- create mode 100644 themes/hugo-academic/layouts/partials/site_js.html
- create mode 100644 themes/hugo-academic/layouts/partials/slides.html
- delete mode 100644 themes/hugo-academic/layouts/partials/talk_li_detailed.html
- delete mode 100644 themes/hugo-academic/layouts/partials/talk_li_simple.html
- delete mode 100644 themes/hugo-academic/layouts/partials/talk_links.html
- rewrite themes/hugo-academic/layouts/partials/widget_page.html (91%)
- rewrite themes/hugo-academic/layouts/partials/widgets/about.html (70%)
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/accomplishments.html
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/blank.html
- rewrite themes/hugo-academic/layouts/partials/widgets/contact.html (75%)
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/custom.html
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/experience.html
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/featured.html
- rewrite themes/hugo-academic/layouts/partials/widgets/hero.html (76%)
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/pages.html
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/people.html
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/portfolio.html
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/posts.html
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/projects.html
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/publications.html
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/publications_selected.html
- create mode 100644 themes/hugo-academic/layouts/partials/widgets/slider.html
- rewrite themes/hugo-academic/layouts/partials/widgets/tag_cloud.html (65%)
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/talks.html
- delete mode 100644 themes/hugo-academic/layouts/partials/widgets/talks_selected.html
- rewrite themes/hugo-academic/layouts/project/single.html (86%)
- rewrite themes/hugo-academic/layouts/publication/single.html (75%)
- delete mode 100644 themes/hugo-academic/layouts/rss.xml
- create mode 100644 themes/hugo-academic/layouts/section/docs.html
- delete mode 100644 themes/hugo-academic/layouts/section/home.html
- rewrite themes/hugo-academic/layouts/section/post.html (66%)
- delete mode 100644 themes/hugo-academic/layouts/section/project.html
- rewrite themes/hugo-academic/layouts/section/publication.html (69%)
- rewrite themes/hugo-academic/layouts/section/talk.html (69%)
- create mode 100644 themes/hugo-academic/layouts/shortcodes/diagram.html
- create mode 100644 themes/hugo-academic/layouts/shortcodes/fragment.html
- create mode 100644 themes/hugo-academic/layouts/shortcodes/list_categories.html
- create mode 100644 themes/hugo-academic/layouts/shortcodes/list_tags.html
- create mode 100644 themes/hugo-academic/layouts/shortcodes/slide.html
- create mode 100644 themes/hugo-academic/layouts/shortcodes/speaker_note.html
- rewrite themes/hugo-academic/layouts/shortcodes/video.html (84%)
- delete mode 100644 themes/hugo-academic/layouts/sitemap.xml
- create mode 100644 themes/hugo-academic/layouts/slides/baseof.html
- rename themes/hugo-academic/layouts/{partials/head_custom.html => slides/list.html} (100%)
- create mode 100644 themes/hugo-academic/layouts/slides/single.html
- rewrite themes/hugo-academic/layouts/talk/single.html (75%)
- create mode 100644 themes/hugo-academic/layouts/widget_page/single.html
- create mode 100644 themes/hugo-academic/netlify.toml
- create mode 100644 themes/hugo-academic/package-lock.json
- create mode 100644 themes/hugo-academic/package.json
- create mode 100644 themes/hugo-academic/scripts/sync_i18n.py
- create mode 100644 themes/hugo-academic/scripts/update_bootstrap.sh
- rewrite themes/hugo-academic/static/img/icon-192.png (99%)
- create mode 100644 themes/hugo-academic/static/img/icon-32.png
- create mode 100644 themes/hugo-academic/static/img/icon-512.png
- delete mode 100644 themes/hugo-academic/static/img/icon.png
- delete mode 100644 themes/hugo-academic/static/img/portrait.jpg
- delete mode 100644 themes/hugo-academic/static/js/hugo-academic.js
- create mode 100644 themes/hugo-academic/static/js/vendor/reveal.js/plugin/notes/notes.html
- create mode 100644 themes/hugo-academic/static/js/vendor/reveal.js/plugin/notes/notes.js
- delete mode 100644 themes/hugo-academic/static/site.webmanifest
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git push
-Counting objects: 1079, done.
-Delta compression using up to 4 threads.
-Compressing objects:   0% (1/903)   Compressing objects:   1% (10/903)   Compressing objects:   2% (19/903)   Compressing objects:   3% (28/903)   Compressing objects:   4% (37/903)   Compressing objects:   5% (46/903)   Compressing objects:   6% (55/903)   Compressing objects:   7% (64/903)   Compressing objects:   8% (73/903)   Compressing objects:   9% (82/903)   Compressing objects:  10% (91/903)   Compressing objects:  11% (100/903)   Compressing objects:  12% (109/903)   Compressing objects:  13% (118/903)   Compressing objects:  14% (127/903)   Compressing objects:  15% (136/903)   Compressing objects:  16% (145/903)   Compressing objects:  17% (154/903)   Compressing objects:  18% (163/903)   Compressing objects:  19% (172/903)   Compressing objects:  20% (181/903)   Compressing objects:  21% (190/903)   Compressing objects:  22% (199/903)   Compressing objects:  23% (208/903)   Compressing objects:  24% (217/903)   Compressing objects:  25% (226/903)   Compressing objects:  26% (235/903)   Compressing objects:  27% (244/903)   Compressing objects:  28% (253/903)   Compressing objects:  29% (262/903)   Compressing objects:  30% (271/903)   Compressing objects:  31% (280/903)   Compressing objects:  32% (289/903)   Compressing objects:  33% (298/903)   Compressing objects:  34% (308/903)   Compressing objects:  35% (317/903)   Compressing objects:  36% (326/903)   Compressing objects:  37% (335/903)   Compressing objects:  38% (344/903)   Compressing objects:  39% (353/903)   Compressing objects:  40% (362/903)   Compressing objects:  41% (371/903)   Compressing objects:  42% (380/903)   Compressing objects:  43% (389/903)   Compressing objects:  44% (398/903)   Compressing objects:  45% (407/903)   Compressing objects:  46% (416/903)   Compressing objects:  47% (425/903)   Compressing objects:  48% (434/903)   Compressing objects:  49% (443/903)   Compressing objects:  50% (452/903)   Compressing objects:  51% (461/903)   Compressing objects:  52% (470/903)   Compressing objects:  53% (479/903)   Compressing objects:  54% (488/903)   Compressing objects:  55% (497/903)   Compressing objects:  56% (506/903)   Compressing objects:  57% (515/903)   Compressing objects:  58% (524/903)   Compressing objects:  59% (533/903)   Compressing objects:  60% (542/903)   Compressing objects:  61% (551/903)   Compressing objects:  62% (560/903)   Compressing objects:  63% (569/903)   Compressing objects:  64% (578/903)   Compressing objects:  65% (587/903)   Compressing objects:  66% (596/903)   Compressing objects:  67% (606/903)   Compressing objects:  68% (615/903)   Compressing objects:  69% (624/903)   Compressing objects:  70% (633/903)   Compressing objects:  71% (642/903)   Compressing objects:  72% (651/903)   Compressing objects:  73% (660/903)   Compressing objects:  74% (669/903)   Compressing objects:  75% (678/903)   Compressing objects:  76% (687/903)   Compressing objects:  77% (696/903)   Compressing objects:  78% (705/903)   Compressing objects:  79% (714/903)   Compressing objects:  80% (723/903)   Compressing objects:  81% (732/903)   Compressing objects:  82% (741/903)   Compressing objects:  83% (750/903)   Compressing objects:  84% (759/903)   Compressing objects:  85% (768/903)   Compressing objects:  86% (777/903)   Compressing objects:  87% (786/903)   Compressing objects:  88% (795/903)   Compressing objects:  89% (804/903)   Compressing objects:  90% (813/903)   Compressing objects:  91% (822/903)   Compressing objects:  92% (831/903)   Compressing objects:  93% (840/903)   Compressing objects:  94% (849/903)   Compressing objects:  95% (858/903)   Compressing objects:  96% (867/903)   Compressing objects:  97% (876/903)   Compressing objects:  98% (885/903)   Compressing objects:  99% (894/903)   Compressing objects: 100% (903/903)   Compressing objects: 100% (903/903), done.
-Writing objects:   0% (1/1079)   Writing objects:   1% (11/1079)   Writing objects:   2% (22/1079)   Writing objects:   3% (33/1079)   Writing objects:   4% (44/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:   4% (45/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:   5% (54/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:   6% (65/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:   7% (76/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:   8% (87/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:   9% (98/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:  10% (108/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:  11% (119/1079), 1.07 MiB | 1.17 MiB/s   Writing objects:  12% (130/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  12% (134/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  13% (141/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  14% (154/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  15% (163/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  16% (176/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  17% (184/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  18% (195/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  19% (206/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  20% (216/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  21% (227/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  22% (238/1079), 6.49 MiB | 4.15 MiB/s   Writing objects:  23% (249/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  24% (259/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  25% (270/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  26% (281/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  27% (293/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  28% (303/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  29% (313/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  30% (324/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  31% (335/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  32% (346/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  33% (357/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  34% (367/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  35% (378/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  36% (389/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  37% (400/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  38% (412/1079), 13.37 MiB | 6.47 MiB/s   Writing objects:  39% (421/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  40% (432/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  41% (443/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  42% (454/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  43% (464/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  44% (475/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  45% (486/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  46% (497/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  47% (508/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  48% (518/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  49% (530/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  50% (540/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  51% (551/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  52% (562/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  53% (572/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  54% (583/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  55% (594/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  56% (605/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  57% (616/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  58% (626/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  59% (637/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  60% (648/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  61% (659/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  62% (669/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  63% (680/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  64% (691/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  65% (702/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  66% (713/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  67% (723/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  68% (734/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  69% (745/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  70% (756/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  71% (767/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  72% (777/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  73% (788/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  74% (799/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  75% (810/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  76% (821/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  77% (831/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  78% (842/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  79% (853/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  80% (864/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  81% (874/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  82% (885/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  83% (896/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  84% (907/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  85% (918/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  86% (928/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  87% (939/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  88% (950/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  89% (961/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  90% (972/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  91% (982/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  92% (993/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  93% (1004/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  94% (1015/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  95% (1026/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  96% (1036/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  97% (1047/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  98% (1058/1079), 19.51 MiB | 7.35 MiB/s   Writing objects:  99% (1069/1079), 19.51 MiB | 7.35 MiB/s   Writing objects: 100% (1079/1079), 19.51 MiB | 7.35 MiB/s   Writing objects: 100% (1079/1079), 21.57 MiB | 7.25 MiB/s, done.
-Total 1079 (delta 315), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/315)[Kremote: Resolving deltas:   1% (4/315)[Kremote: Resolving deltas:   2% (7/315)[Kremote: Resolving deltas:   3% (10/315)[Kremote: Resolving deltas:   4% (13/315)[Kremote: Resolving deltas:   5% (18/315)[Kremote: Resolving deltas:   6% (19/315)[Kremote: Resolving deltas:   8% (26/315)[Kremote: Resolving deltas:   9% (29/315)[Kremote: Resolving deltas:  10% (33/315)[Kremote: Resolving deltas:  11% (35/315)[Kremote: Resolving deltas:  32% (102/315)[Kremote: Resolving deltas:  33% (104/315)[Kremote: Resolving deltas:  35% (111/315)[Kremote: Resolving deltas:  48% (152/315)[Kremote: Resolving deltas:  50% (159/315)[Kremote: Resolving deltas:  51% (161/315)[Kremote: Resolving deltas:  52% (164/315)[Kremote: Resolving deltas:  54% (171/315)[Kremote: Resolving deltas:  55% (174/315)[Kremote: Resolving deltas:  56% (177/315)[Kremote: Resolving deltas:  57% (180/315)[Kremote: Resolving deltas:  58% (184/315)[Kremote: Resolving deltas:  59% (186/315)[Kremote: Resolving deltas:  60% (190/315)[Kremote: Resolving deltas:  61% (193/315)[Kremote: Resolving deltas:  63% (200/315)[Kremote: Resolving deltas:  64% (202/315)[Kremote: Resolving deltas:  66% (208/315)[Kremote: Resolving deltas:  68% (215/315)[Kremote: Resolving deltas:  73% (230/315)[Kremote: Resolving deltas:  74% (234/315)[Kremote: Resolving deltas:  75% (237/315)[Kremote: Resolving deltas:  76% (240/315)[Kremote: Resolving deltas:  77% (243/315)[Kremote: Resolving deltas:  78% (246/315)[Kremote: Resolving deltas:  79% (249/315)[Kremote: Resolving deltas:  80% (252/315)[Kremote: Resolving deltas:  90% (286/315)[Kremote: Resolving deltas:  91% (287/315)[Kremote: Resolving deltas:  92% (290/315)[Kremote: Resolving deltas:  93% (293/315)[Kremote: Resolving deltas:  94% (297/315)[Kremote: Resolving deltas:  95% (300/315)[Kremote: Resolving deltas:  96% (303/315)[Kremote: Resolving deltas:  97% (306/315)[Kremote: Resolving deltas:  98% (310/315)[Kremote: Resolving deltas:  99% (312/315)[Kremote: Resolving deltas: 100% (315/315)[Kremote: Resolving deltas: 100% (315/315), completed with 52 local objects.[K
-To https://github.com/EvaMaeRey/evamaerey
-   c6f1c08..f5b7031  master -> master
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ [KEvangelines-MacBook-Air:evamaerey evangelinereynolds$ [KEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git [Khu[K[K[K[K[Kg[Kgit add .
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git commit .[K-m "adding netlify toml"
-[master 6d94d42] adding netlify toml
- 1 file changed, 11 insertions(+)
- create mode 100644 netlify.toml
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ t[Kgit push
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
-Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 474 bytes | 474.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
-To https://github.com/EvaMaeRey/evamaerey
-   f5b7031..6d94d42  master -> master
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git pushcommit -m "adding netlify toml"add .[K
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git add .[1Ppushcommit -m "adding netlify toml" "."5"8"."2"[1P"1" "i"s" "v"e"r"s" [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci""o"n"
-[master 30c33c5] adding netlify toml .58.1 is version
- 1 file changed, 2 insertions(+), 2 deletions(-)
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git commit -m "adding netlify toml .58.1 is versioon"[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cadd .[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Ppush
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
-Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 320 bytes | 320.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
-To https://github.com/EvaMaeRey/evamaerey
-   6d94d42..30c33c5  master -> master
-git commi[K[K[K[K[Kadd .
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git commit - [Km "addes[Kd some new photos - themate [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci c, and updat[K[K[K[K[Ktried t [Ko change profile photo"[K [K, no luck... [K[K[K[K [K,not sure why"
-[master c05cf06] added some new photos - thematic, and tried to change profile photo, no luck,not sure why
- 176 files changed, 123 insertions(+), 581 deletions(-)
- rename content/{home/gallery => authors}/.DS_Store (87%)
- create mode 100644 content/authors/admin/.DS_Store
- copy content/authors/admin/{avatar.jpg => avatar 11.20.27 AM.jpg} (100%)
- rewrite content/authors/admin/avatar.jpg (86%)
- create mode 100644 content/authors/admin/avatar.png
- delete mode 100644 content/home/gallery/gallery/arctic_ice copy.png
- delete mode 100644 content/home/gallery/gallery/away_from_ben.png
- delete mode 100644 content/home/gallery/gallery/baseball.png
- delete mode 100644 content/home/gallery/gallery/brexit_1.png
- delete mode 100644 content/home/gallery/gallery/christmas.png
- delete mode 100644 content/home/gallery/gallery/college_majors copy.png
- delete mode 100644 content/home/gallery/gallery/company_ranks.png
- delete mode 100644 content/home/gallery/gallery/flipping_seats.png
- delete mode 100644 content/home/gallery/gallery/incarceration_01.png
- delete mode 100644 content/home/gallery/gallery/incarceration_02.png
- delete mode 100644 content/home/gallery/gallery/life_expect.png
- delete mode 100644 content/home/gallery/gallery/makeovermonday copy.png
- delete mode 100644 content/home/gallery/gallery/map_curry.png
- delete mode 100644 content/home/gallery/gallery/milk_cow_cost copy.png
- delete mode 100644 content/home/gallery/gallery/movies.png
- delete mode 100644 content/home/gallery/gallery/myers_briggs.png
- delete mode 100644 content/home/gallery/gallery/oecd_entitlement copy.png
- delete mode 100644 content/home/gallery/gallery/parental_leave.png
- delete mode 100644 content/home/gallery/gallery/ramen_rater.png
- delete mode 100644 content/home/gallery/gallery/recent_grads_02.png
- delete mode 100644 content/home/gallery/gallery/sotu_timing_delivery copy.png
- delete mode 100644 content/home/gallery/gallery/white_house.png
- delete mode 100644 content/home/gallery/gallery/wind_01.png
- delete mode 100644 content/home/gallery/gallery/wine.png
- delete mode 100644 content/home/gallery/gallery/women.png
- delete mode 100644 content/home/gallery/index.md
- create mode 100644 content/publication/brazil-compliance/Untitled 2.png
- rewrite content/publication/brazil-compliance/featured.jpg (97%)
- rewrite content/publication/foreign-aid/featured.jpg (96%)
- create mode 100644 content/publication/foreign-aid/featured.png
- rewrite content/talk/korbel-reproducibility/featured.jpg (85%)
- rewrite content/talk/leiden/featured.jpg (95%)
- rewrite content/talk/shallow-fakes/featured.jpg (83%)
- create mode 100644 public/authors/admin/.DS_Store
- copy public/authors/admin/{avatar.jpg => avatar 11.20.27 AM.jpg} (100%)
- rename public/authors/admin/{avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg => avatar 11.20.27 AM_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg} (100%)
- rewrite public/authors/admin/avatar.jpg (86%)
- create mode 100644 public/authors/admin/avatar.jpg.png
- create mode 100644 public/authors/admin/avatar.png
- rename resources/_gen/images/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg => public/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center 11.20.27 AM.jpg (100%)
- create mode 100644 public/authors/admin/avatar_hu9475e40123017607cf3e014e405fbc8c_204190_250x250_fill_q90_lanczos_center.jpg
- create mode 100644 public/categories/.DS_Store
- rewrite public/index.json (72%)
- rewrite public/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-3-1.png (97%)
- rewrite public/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png (97%)
- rewrite public/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-1.png (97%)
- rewrite public/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-2.png (96%)
- rewrite public/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png (84%)
- rewrite public/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-8-1.png (84%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png (91%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png (92%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-3-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png (87%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png (97%)
- rewrite public/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png (95%)
- create mode 100644 public/publication/brazil-compliance/Untitled 2.png
- rewrite public/publication/brazil-compliance/featured.jpg (97%)
- create mode 100644 public/publication/brazil-compliance/featured_hu9475e40123017607cf3e014e405fbc8c_124831_150x0_resize_q90_lanczos.jpg
- rewrite public/publication/foreign-aid/featured.jpg (96%)
- create mode 100644 public/publication/foreign-aid/featured.png
- create mode 100644 public/publication/foreign-aid/featured_hu9475e40123017607cf3e014e405fbc8c_165475_150x0_resize_q90_lanczos.jpg
- rewrite public/talk/korbel-reproducibility/featured.jpg (85%)
- create mode 100644 public/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1130835_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1130835_720x0_resize_q90_lanczos.jpg
- rewrite public/talk/leiden/featured.jpg (95%)
- create mode 100644 public/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_285861_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_285861_720x0_resize_q90_lanczos.jpg
- rewrite public/talk/shallow-fakes/featured.jpg (83%)
- create mode 100644 public/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1342633_150x0_resize_q90_lanczos.jpg
- create mode 100644 public/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1342633_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/authors/.DS_Store
- rename {content/home/gallery/gallery => resources/_gen/images/authors/admin}/.DS_Store (70%)
- create mode 100644 resources/_gen/images/authors/admin/avatar 11.20.27 AM_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center.jpg
- rename public/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg => resources/_gen/images/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center 11.20.26 AM.jpg (100%)
- delete mode 100644 resources/_gen/images/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg
- create mode 100644 resources/_gen/images/authors/admin/avatar_hu54c633de7baa2b5daeccdae05a55fa13_23412_250x250_fill_q90_lanczos_center 11.20.10 AM.jpg
- create mode 100644 resources/_gen/images/authors/admin/avatar_hu9475e40123017607cf3e014e405fbc8c_204190_250x250_fill_q90_lanczos_center.jpg
- create mode 100644 resources/_gen/images/publication/brazil-compliance/featured_hu9475e40123017607cf3e014e405fbc8c_124831_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/publication/foreign-aid/featured_hu9475e40123017607cf3e014e405fbc8c_165475_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1130835_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/korbel-reproducibility/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1130835_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_285861_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/leiden/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_285861_720x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1342633_150x0_resize_q90_lanczos.jpg
- create mode 100644 resources/_gen/images/talk/shallow-fakes/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1342633_720x0_resize_q90_lanczos.jpg
- rewrite static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-3-1.png (97%)
- rewrite static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-8-1.png (97%)
- rewrite static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-1.png (97%)
- rewrite static/post/2018-06-07-central-limit-theorem_files/figure-html/unnamed-chunk-9-2.png (96%)
- rewrite static/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-11-1.png (84%)
- rewrite static/post/2018-06-16-federalist-papers_files/figure-html/unnamed-chunk-8-1.png (84%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-11-1.png (91%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-12-1.png (92%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-3-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-4-1.png (87%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-5-1.png (97%)
- rewrite static/post/2018-08-15-variance-and-sd-visualization_files/figure-html/unnamed-chunk-6-1.png (95%)
- create mode 100644 themes/hugo-academic/exampleSite/content/authors/.DS_Store
- create mode 100644 themes/hugo-academic/exampleSite/content/authors/admin/.DS_Store
- rename themes/hugo-academic/exampleSite/content/authors/admin/{avatar.jpg => avatar 11.20.27 AM 11.20.27 AM.jpg} (100%)
-]0;~/Desktop/evamaereyEvangelines-MacBook-Air:evamaerey evangelinereynolds$ git push
-Counting objects: 170, done.
-Delta compression using up to 4 threads.
-Compressing objects:   0% (1/151)   Compressing objects:   1% (2/151)   Compressing objects:   2% (4/151)   Compressing objects:   3% (5/151)   Compressing objects:   4% (7/151)   Compressing objects:   5% (8/151)   Compressing objects:   6% (10/151)   Compressing objects:   7% (11/151)   Compressing objects:   8% (13/151)   Compressing objects:   9% (14/151)   Compressing objects:  10% (16/151)   Compressing objects:  11% (17/151)   Compressing objects:  12% (19/151)   Compressing objects:  13% (20/151)   Compressing objects:  14% (22/151)   Compressing objects:  15% (23/151)   Compressing objects:  16% (25/151)   Compressing objects:  17% (26/151)   Compressing objects:  18% (28/151)   Compressing objects:  19% (29/151)   Compressing objects:  20% (31/151)   Compressing objects:  21% (32/151)   Compressing objects:  22% (34/151)   Compressing objects:  23% (35/151)   Compressing objects:  24% (37/151)   Compressing objects:  25% (38/151)   Compressing objects:  26% (40/151)   Compressing objects:  27% (41/151)   Compressing objects:  28% (43/151)   Compressing objects:  29% (44/151)   Compressing objects:  30% (46/151)   Compressing objects:  31% (47/151)   Compressing objects:  32% (49/151)   Compressing objects:  33% (50/151)   Compressing objects:  34% (52/151)   Compressing objects:  35% (53/151)   Compressing objects:  36% (55/151)   Compressing objects:  37% (56/151)   Compressing objects:  38% (58/151)   Compressing objects:  39% (59/151)   Compressing objects:  40% (61/151)   Compressing objects:  41% (62/151)   Compressing objects:  42% (64/151)   Compressing objects:  43% (65/151)   Compressing objects:  44% (67/151)   Compressing objects:  45% (68/151)   Compressing objects:  46% (70/151)   Compressing objects:  47% (71/151)   Compressing objects:  48% (73/151)   Compressing objects:  49% (74/151)   Compressing objects:  50% (76/151)   Compressing objects:  51% (78/151)   Compressing objects:  52% (79/151)   Compressing objects:  53% (81/151)   Compressing objects:  54% (82/151)   Compressing objects:  55% (84/151)   Compressing objects:  56% (85/151)   Compressing objects:  57% (87/151)   Compressing objects:  58% (88/151)   Compressing objects:  59% (90/151)   Compressing objects:  60% (91/151)   Compressing objects:  61% (93/151)   Compressing objects:  62% (94/151)   Compressing objects:  63% (96/151)   Compressing objects:  64% (97/151)   Compressing objects:  65% (99/151)   Compressing objects:  66% (100/151)   Compressing objects:  67% (102/151)   Compressing objects:  68% (103/151)   Compressing objects:  69% (105/151)   Compressing objects:  70% (106/151)   Compressing objects:  71% (108/151)   Compressing objects:  72% (109/151)   Compressing objects:  73% (111/151)   Compressing objects:  74% (112/151)   Compressing objects:  75% (114/151)   Compressing objects:  76% (115/151)   Compressing objects:  77% (117/151)   Compressing objects:  78% (118/151)   Compressing objects:  79% (120/151)   Compressing objects:  80% (121/151)   Compressing objects:  81% (123/151)   Compressing objects:  82% (124/151)   Compressing objects:  83% (126/151)   Compressing objects:  84% (127/151)   Compressing objects:  85% (129/151)   Compressing objects:  86% (130/151)   Compressing objects:  87% (132/151)   Compressing objects:  88% (133/151)   Compressing objects:  89% (135/151)   Compressing objects:  90% (136/151)   Compressing objects:  91% (138/151)   Compressing objects:  92% (139/151)   Compressing objects:  93% (141/151)   Compressing objects:  94% (142/151)   Compressing objects:  95% (144/151)   Compressing objects:  96% (145/151)   Compressing objects:  97% (147/151)   Compressing objects:  98% (148/151)   Compressing objects:  99% (150/151)   Compressing objects: 100% (151/151)   Compressing objects: 100% (151/151), done.
-Writing objects:   0% (1/170)   Writing objects:   1% (2/170)   Writing objects:   2% (4/170)   Writing objects:   3% (6/170)   Writing objects:   4% (7/170)   Writing objects:   5% (10/170)   Writing objects:   6% (11/170)   Writing objects:   7% (12/170)   Writing objects:   8% (14/170)   Writing objects:   9% (16/170)   Writing objects:  10% (17/170)   Writing objects:  11% (19/170)   Writing objects:  12% (21/170)   Writing objects:  14% (24/170)   Writing objects:  15% (27/170)   Writing objects:  16% (28/170)   Writing objects:  17% (29/170)   Writing objects:  18% (31/170)   Writing objects:  18% (31/170), 2.00 MiB | 698.00 KiB/s   Writing objects:  18% (32/170), 2.00 MiB | 698.00 KiB/s   Writing objects:  19% (33/170), 2.00 MiB | 698.00 KiB/s   Writing objects:  20% (34/170), 2.00 MiB | 698.00 KiB/s   Writing objects:  21% (36/170), 2.13 MiB | 622.00 KiB/s   Writing objects:  21% (37/170), 2.56 MiB | 655.00 KiB/s   Writing objects:  21% (37/170), 3.31 MiB | 644.00 KiB/s   Writing objects:  21% (37/170), 3.44 MiB | 586.00 KiB/s   Writing objects:  22% (38/170), 3.44 MiB | 586.00 KiB/s   Writing objects:  23% (40/170), 3.44 MiB | 586.00 KiB/s   Writing objects:  24% (41/170), 3.44 MiB | 586.00 KiB/s   Writing objects:  25% (43/170), 3.44 MiB | 586.00 KiB/s   Writing objects:  26% (45/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  27% (46/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  28% (48/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  29% (50/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  30% (51/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  31% (53/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  32% (55/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  33% (57/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  34% (58/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  35% (60/170), 3.69 MiB | 578.00 KiB/s   Writing objects:  35% (61/170), 4.31 MiB | 580.00 KiB/s   Writing objects:  36% (62/170), 4.31 MiB | 580.00 KiB/s   Writing objects:  37% (63/170), 4.31 MiB | 580.00 KiB/s   Writing objects:  37% (64/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  38% (65/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  39% (67/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  40% (68/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  41% (70/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  42% (72/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  43% (74/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  44% (75/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  45% (77/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  46% (79/170), 4.38 MiB | 444.00 KiB/s   Writing objects:  46% (79/170), 5.29 MiB | 555.00 KiB/s   Writing objects:  47% (80/170), 5.35 MiB | 538.00 KiB/s   Writing objects:  47% (80/170), 6.10 MiB | 544.00 KiB/s   Writing objects:  47% (80/170), 6.66 MiB | 586.00 KiB/s   Writing objects:  47% (81/170), 6.66 MiB | 586.00 KiB/s   Writing objects:  48% (82/170), 6.66 MiB | 586.00 KiB/s   Writing objects:  49% (84/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  50% (85/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  51% (87/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  52% (89/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  53% (91/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  54% (92/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  55% (94/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  56% (96/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  57% (97/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  58% (99/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  59% (101/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  60% (102/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  61% (104/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  62% (106/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  63% (108/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  64% (109/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  65% (111/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  66% (113/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  67% (114/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  68% (116/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  69% (118/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  70% (119/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  71% (121/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  72% (123/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  73% (125/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  74% (126/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  75% (128/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  76% (130/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  77% (131/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  78% (133/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  79% (135/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  80% (136/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  81% (138/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  82% (140/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  83% (142/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  84% (144/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  85% (145/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  86% (147/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  87% (148/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  88% (150/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  89% (152/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  90% (153/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  91% (155/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  92% (157/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  93% (159/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  94% (160/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  95% (162/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  96% (164/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  97% (165/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  98% (167/170), 6.79 MiB | 504.00 KiB/s   Writing objects:  99% (169/170), 6.79 MiB | 504.00 KiB/s   Writing objects: 100% (170/170), 6.79 MiB | 504.00 KiB/s   Writing objects: 100% (170/170), 7.38 MiB | 597.00 KiB/s, done.
-Total 170 (delta 93), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/93)[Kremote: Resolving deltas:   7% (7/93)[Kremote: Resolving deltas:  12% (12/93)[Kremote: Resolving deltas:  13% (13/93)[Kremote: Resolving deltas:  16% (15/93)[Kremote: Resolving deltas:  17% (16/93)[Kremote: Resolving deltas:  18% (17/93)[Kremote: Resolving deltas:  19% (18/93)[Kremote: Resolving deltas:  20% (19/93)[Kremote: Resolving deltas:  21% (20/93)[Kremote: Resolving deltas:  22% (21/93)[Kremote: Resolving deltas:  23% (22/93)[Kremote: Resolving deltas:  24% (23/93)[Kremote: Resolving deltas:  25% (24/93)[Kremote: Resolving deltas:  26% (25/93)[Kremote: Resolving deltas:  27% (26/93)[Kremote: Resolving deltas:  29% (27/93)[Kremote: Resolving deltas:  30% (28/93)[Kremote: Resolving deltas:  31% (29/93)[Kremote: Resolving deltas:  32% (30/93)[Kremote: Resolving deltas:  33% (31/93)[Kremote: Resolving deltas:  34% (32/93)[Kremote: Resolving deltas:  35% (33/93)[Kremote: Resolving deltas:  36% (34/93)[Kremote: Resolving deltas:  38% (36/93)[Kremote: Resolving deltas:  39% (37/93)[Kremote: Resolving deltas:  40% (38/93)[Kremote: Resolving deltas:  41% (39/93)[Kremote: Resolving deltas:  43% (40/93)[Kremote: Resolving deltas:  44% (41/93)[Kremote: Resolving deltas:  45% (42/93)[Kremote: Resolving deltas:  47% (44/93)[Kremote: Resolving deltas:  48% (45/93)[Kremote: Resolving deltas:  49% (46/93)[Kremote: Resolving deltas:  50% (47/93)[Kremote: Resolving deltas:  51% (48/93)[Kremote: Resolving deltas:  52% (49/93)[Kremote: Resolving deltas:  53% (50/93)[Kremote: Resolving deltas:  54% (51/93)[Kremote: Resolving deltas:  55% (52/93)[Kremote: Resolving deltas:  56% (53/93)[Kremote: Resolving deltas:  58% (54/93)[Kremote: Resolving deltas:  59% (55/93)[Kremote: Resolving deltas:  61% (57/93)[Kremote: Resolving deltas:  63% (59/93)[Kremote: Resolving deltas:  64% (60/93)[Kremote: Resolving deltas:  65% (61/93)[Kremote: Resolving deltas:  66% (62/93)[Kremote: Resolving deltas:  67% (63/93)[Kremote: Resolving deltas:  68% (64/93)[Kremote: Resolving deltas:  69% (65/93)[Kremote: Resolving deltas:  70% (66/93)[Kremote: Resolving deltas:  72% (67/93)[Kremote: Resolving deltas:  73% (68/93)[Kremote: Resolving deltas:  74% (69/93)[Kremote: Resolving deltas:  77% (72/93)[Kremote: Resolving deltas:  80% (75/93)[Kremote: Resolving deltas:  81% (76/93)[Kremote: Resolving deltas:  82% (77/93)[Kremote: Resolving deltas:  83% (78/93)[Kremote: Resolving deltas:  84% (79/93)[Kremote: Resolving deltas:  86% (80/93)[Kremote: Resolving deltas:  88% (82/93)[Kremote: Resolving deltas:  90% (84/93)[Kremote: Resolving deltas:  91% (85/93)[Kremote: Resolving deltas:  93% (87/93)[Kremote: Resolving deltas:  94% (88/93)[Kremote: Resolving deltas:  95% (89/93)[Kremote: Resolving deltas:  96% (90/93)[Kremote: Resolving deltas:  97% (91/93)[Kremote: Resolving deltas:  98% (92/93)[Kremote: Resolving deltas: 100% (93/93)[Kremote: Resolving deltas: 100% (93/93), completed with 67 local objects.[K
-To https://github.com/EvaMaeRey/evamaerey
-   30c33c5..c05cf06  master -> master
-[Kc-73-3-217-147:evamaerey evangelinereynolds$ 
