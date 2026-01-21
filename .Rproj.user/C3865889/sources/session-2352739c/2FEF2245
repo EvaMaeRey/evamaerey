@@ -5,14 +5,14 @@
     "type": "gitignore",
     "hash": "0",
     "contents": "",
-    "dirty": false,
+    "dirty": true,
     "created": 1769016413828.0,
     "source_on_save": false,
     "relative_order": 8,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "0,6",
+        "cursorPosition": "4,0",
         "scrollLine": "0"
     },
     "folds": "",
@@ -20,7 +20,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1769017167260,
+    "last_content_update": 1769017625446,
     "read_only": false,
     "read_only_alternatives": []
 }
