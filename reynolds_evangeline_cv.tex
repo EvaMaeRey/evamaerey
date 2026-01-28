@@ -1,0 +1,508 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Graduate Curriculum Vitae
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rensselaer Polytechnic Institute (http://www.rpi.edu/dept/arc/training/latex/resumes/)
+%
+% Important note:
+% This template requires the res.cls file to be in the same directory as the
+% .tex file. The res.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Style guide -
+% no final periods for talks
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[margin, 10pt]{res}\usepackage[]{graphicx}\usepackage[dvipsnames]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlsng}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hldef}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt} % Use the res.cls style, the font size can be changed to 11pt or 12pt here
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% \lhead{This is my name}
+% \rhead{this is page \thepage}
+\cfoot{\footnotesize{Page \thepage\ of 4 \\ Evangeline `Gina' Reynolds CV}}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=MidnightBlue,
+    urlcolor=MidnightBlue,
+}
+\usepackage{fixltx2e}
+
+\usepackage{helvet} % Default font is the helvetica postscript font
+%\usepackage{newcent} % To change the default font to the new century schoolbook postscript font uncomment this line and comment the one above
+
+\setlength{\textwidth}{5.1in} % Text width of the document
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND ADDRESS SECTION
+%----------------------------------------------------------------------------------------
+
+\moveleft2.143\hoffset\centerline{\Large\textsc{Evangeline `Gina' Reynolds}}% Your name at the top
+%\moveleft.5\hoffset\centerline{\normalsize\bf University of Illinois, Urbana-Champaign} % Your name at the top
+
+%\moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip % Horizontal line after name; adjust line thickness by changing the '1pt'
+
+%\moveright-.68\hoffset\centerline{\normalsize{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%Hoyerswerdaer Stra\ss{}e 23 01099,
+%West Point, New York  $\bullet$  \url{evangeline.reynolds@westpoint.edu}} $\bullet$ \href{evangelinereynolds.netlify.com}{evangelinereynolds.netlify.com}} % Your name at the top
+% \moveleft-1.7\hoffset\centerline{\normalsize{ $\bullet$ \href{evangelinereynolds.netlify.com}{evangelinereynolds.netlify.com}}} % Your name at the top
+
+% Department of Political Science     ~~~~~~~~~~~~~~   \\Tel: 708-308-8037\\
+% David Kinley Hall    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    \texttt{ereynoL4[at]illinois[dot]edu} \\
+% Champaign, IL 61820          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ sites.google.com/site/evangelinemreynolds%github:  YupThatsRight
+
+%Website: \hyperref{sites.google.com/site/evangelinemreynolds}{https://sites.google.com/site/evangelinemreynolds/home} \\
+%\\
+
+%----------------------------------------------------------------------------------------
+
+\begin{resume}
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVE SECTION
+%----------------------------------------------------------------------------------------
+\section{Current: Supporting grammar of graphics data visualization developer community, 2022-Present}
+
+Since March 2025, developer advocacy supported by Posit PBC, contract.  \\[6pt]
+Building and maintaining \href{https://ggplot2-extenders.github.io/ggplot-extension-club/}{gathering space} for data scientist visualization tool developers and enthusiasts \\[6pt]
+Coordination of speaker series \\[6pt]
+Raise awareness of developer pain points and collaborate on solutions \\[6pt]
+Moderate and contribute to discussion on discussion boards \\[6pt]
+Build educational materials for extension newcomers \\[6pt]
+
+Select presenters: David Sjoberg (ggbump), June Choe (ggtrace), Claus Wilke (cowplot, ggtext, ggridges), Di Cook (GGally), Thomas Lin Pedersen (marquee), Winston Chang (ggproto extension mechanism), Teun van den Brand (ggh4x, legendry, ggplot2 maintainer), Hadley Wickham (ggplot2), Cory Brunson (ggalluvial, ordr), Mitchell O’Hara-Wild (ggtime, distributional), Matthew Kay (ggdist, ggblend) \\[6pt]
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Previous}
+
+Assistant Professor in Department of Mathematical Sciences and Data Manager in the Dean's Data Cell at US Military Academy West Point August 2020-August 2023, 40 hr per week \\[6pt]
+Visiting Teaching Assistant Professor, Korbel School of International Studies, University of Denver,  September 2018-June 2020, 40 hours per week\\[6pt]
+% Lecturer, Technische Universit\"{a}t Dresden, 2017-2018 4 hours per week\\
+% Consulting Analyst, University of California Davis, contract, 2017-2018 12 hours per week\\
+License Officer, US Department of Commerce July 2005-July 2007, 40 hours per week\\[6pt]
+Laboratory Assistant, Argonne National Laboratory May 2004-July 2005, 20 hours per week\\
+
+  % Public Policy and Nuclear Threats, UCSD summer, 2013 \\[6pt]%
+  % Empirical Implications of Theoretical Models (EITM), Berkeley California, 2010 \\[6pt]%July
+  % Coursework at Universidad Nacional de San Martin-Georgetown University Public Policy Masters, Buenos  Aires, on Fulbright Scholarship, 2008\\[6pt]%
+%  Portuguese I \& III, The Graduate School, USDA,  2005--2006\\[6pt]%fall spring
+%  Strategy and Policy, course  Johns Hopkins University, School for Advanced International Studies, Summer 2006.%
+  % \end{quotation}
+
+% \section{Featured teaching and advising projects}
+
+
+
+\section{Education}
+PhD 2016, University of Illinois, Urbana-Champaign
+  \begin{quotation} \noindent
+  Dissertation Title: ``Supranational Law and Compliance"\\
+  Chair: Xinyuan Dai\\
+  Committee members: Paul Diehl, Brian Gaines, Matthew Winters
+  \end{quotation}
+BS 2004, Wheaton College, Magna Cum Laude
+  \begin{quotation} \noindent
+  Majors: Chemistry \& Spanish \\
+  Minors: International Relations \& Music
+  \end{quotation}
+%
+
+\section{Software}
+
+- flipbookr ($>$20000 downloads)
+
+
+\section{Teaching Experience}
+
+Individual Student Advising \& Assistantships:
+
+\begin{quotation} \noindent
+Independent Studies West Point:  Morgan Brown, Fall AY2022; Madison McGovern, Fall AY2022; Morgan Brown, Spring AY2022; Isaac Folorunso, Spring AY2023; Michael Jax, Spring AY2023.\\
+
+
+\noindent Graduate Research Assistantships, University of Denver: Rachel Goodman, Luca Picci, Conner Surrency, Suraj Thapa, Brittany Woodram, Spring 2020; Ryan Granier, Summer 2019
+
+\end{quotation}
+
+
+Courses at West Point
+\begin{quotation} \noindent
+Introduction to Statistics and Probability MA206, (Spring AY2021; Fall AY2023, 2 sections)
+\end{quotation}
+
+Courses at University of Denver
+\begin{quotation} \noindent
+Defense and Security Quantitative Analysis (Winter AY2019, Winter AY2020) \\[6pt]
+Data Science for International Relations  (Winter AY2019; Spring 2019; Winter AY2020; Spring AY2020) \\[6pt]
+Defense and Security Methods (Fall AY2019, 2 sections; Fall AY2020, 2 sections) \\[6pt]
+Data Visualization (Spring 2020)
+\end{quotation}
+
+
+Courses at Technische Universit\"{a}t Dresden
+\begin{quotation} \noindent
+Introduction to Data Science and Statistics for Political Analysis Spring AY2018 \\[6pt]
+International Organization and Regimes, Spring AY2018, Spring AY2017 %Fall
+\end{quotation}
+
+Selected PhD Teaching Assistantships at University of Illinois
+\begin{quotation}
+
+\noindent Research Design, PS 522 (Graduate Level) with James Kuklinski, 2015 \\[6pt] %Fall
+Quantitative Political Analysis I, PS 530 (Graduate Level) with Brian Gaines, 2015 \\[6pt] %Fall
+Statistical Methods Teaching Support, Research Design PS 199 with James Kuklinski, 2015\\[6pt] %Fall
+Statistical Methods Teaching Support, PS 495/496  with Senior Honors Seminar/Senior Thesis, Jeffery Mondak, 2015\\[6pt] %Fall
+% Comparative Politics in Developing Nations with Dr. Matthew Winters, PS 241 2012 \\[6pt]%% %Spring 2012
+% Instructor for Introduction to Political Science (online), PS 100, 2011 \\[6pt]%%%Fall
+% American Politics with Dr. Michael Krassa, PS 101, 2009 \\[6pt]%%%Spring 2009
+% Introduction to International Relations, PS 280 with Dr. Ryan Hendrickson, 2007%%%  Fall 2007
+\end{quotation}
+%
+%
+%
+% \section{Research and Teaching Interests}
+%
+% Methodology\\
+% \emph{Causal and Randomization Inference, Text Analysis, Panel and TSCS Data Analysis, Data Visualization Techniques, Human-Computer Interaction}
+%
+% International Relations\\
+% \emph{International Organizations, International Law and Compliance, International Security}
+%
+% Comparative Politics\\
+% \emph{Latin American Politcs}
+%
+\section{Awards}%, and Offers}
+
+R Consortium Grant, 2019-2020, R Statistical Software Ecosystem award for the creation of the flipbookr package\\[6pt]
+%Offer Assistant Professor of International Relations, Universidad Cat\'{o}lica de Chile (Declined)\\%%
+Best Dissertation in Political Science, 2015/2016 at the University of Illinois, Kathleen L. Burkholder Prize  \\[6pt]
+Lemann Institute Collaborative Research Grant, 2015 with Am\^{a}ncio Jorge Silva Nunes de Oliveira and Matthew S. Winters\\[6pt]%%
+University of Illinois `Incomplete' List of Teachers Ranked as Excellent by their Students, Spring 2012, Fall 2016\\[6pt]%
+Nelle M. Signor Graduate Scholarship for field research in International Relations, Fall 2011\\[6pt]%
+Foreign Language and Area Studies Fellowship, Summer 2009 - Salvador, Brazil and academic years 2009-2010 \& 2010-2011\\[6pt]%
+Fulbright Argentina Country Program, March-December, 2008\\[6pt]%
+National Security Education Program Scholarship, for study in Chile, 2003\\[6pt]%
+
+% \section{Service and Affiliations}
+%
+% Cofounder with June Choe\href{https://teunbrand.github.io/ggplot-extension-club/}{ggplot2 Extenders}, 2022-present \\[6pt]
+% Cofounder with Meghan Sposato \href{https://www.meetup.com/rladies-denver/}{RLadies Denver}, 2019-present \\[6pt]
+% Member/Presenter \href{https://www.meetup.com/DenverRUG/}{Denver R Users Group}, 2018-present \\[6pt]
+% %Conference Discussant
+% %\begin{quotation} \noindent
+% %Ideal Point Estimation Panel, MPSA 2016
+% %\end{quotation}
+% %
+% Peer Review
+% \begin{quotation} \noindent
+% American Journal of Political Science \\
+% International Interactions
+% \end{quotation}
+%
+%
+% \section{Publications}
+%
+% E. Reynolds, A. Oliveira, J. Onuki,
+%  and M. Winters. 2017. \emph{\href{http://www.tandfonline.com/doi/abs/10.1080/03050629.2018.1408012}{Attitudes Toward Consent-Based and Non-Consent-Based International Law in a Regional Power Context}}, International Interactions.\\[6pt]
+% E. Reynolds and M. Winters. 2016. \emph{\href{http://rap.sagepub.com/content/3/1/2053168015626167}{Foreign Aid Funnel? A Placebo-Based Assessment of Aid Flows to Non-Permanent U.N. Security Council Members}}, Research and Politics. \\[6pt]%April
+% D. Abraham, E. Reynolds, P. Schultz, A. Jansen, and D. Dees. 2006. \emph{\href{http://jes.ecsdl.org/content/153/8/A1610.abstract}{Temperature Dependence of Capacity and Impedance Data from Fresh and Aged High-Power Lithium-Ion Cells}}, Journal of Electrochemical. Society, 153(8): A1610-A1616. \\[6pt]%
+% D. Abraham, E. Reynolds, E. Sammann , A. Jansen,  D. Dees. 2005. \emph{\href{http://www.sciencedirect.com/science/article/pii/S0013468605004433}{Aging Characteristics of High-Power Lithium-Ion Cells with LiNi\textsubscript{0.8}Co\textsubscript{0.15}Al\textsubscript{0.05}O\textsubscript{2} and Li\textsubscript{4/3}Ti\textsubscript{5/3}O\textsubscript{4} electrodes}}, Electrochimica Acta 51(3): 502-510.%
+%
+\section{Dynamic Learning Resources}
+
+
+\emph{\href{https://evamaerey.github.io/easy-geom-recipes/}{Easy geom recipes: A introduction ggplot2 layer extension}}
+
+\emph{\href{https://evamaerey.github.io/ggplot2-extension-cookbook/}{ggplot2 Extension Cookbook}}
+
+
+\emph{\href{https://evamaerey.github.io/flipbooks/textbook}{The R Flipbook Textbook: A introduction to data manipulation, visualization, and statistical analysis with dynamic examples}}
+
+\emph{\href{https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html}{the ggplot2 flipbook: a collection of ggplot2 plot builds}}
+
+\emph{\href{https://evamaerey.github.io/ggplot2_grammar_guide/about}{a ggplot2 grammar guide: a systematic tour through ggplot2 elements}}
+%
+%
+%
+%
+\section{Selected Working Papers}
+
+Report for Posit, PBC: \emph{'Easy Geom Recipes' insights from survey and focus group feedback}\\[6pt]
+\emph{Who are the ggplot2 extenders?} with Joyce Robbins, Vivian Zheng and H. Sherry Zhang\\[6pt]
+\emph{Flipbooks: presenting incremental, side-by-side, aligned code-output evolution}\\[6pt]
+\emph{Shallow Fakes: Assessing the potential for spoofing and faking in data visualization and what to do about it}\\[6pt]
+\emph{Reputation, participation, and compliance on the UN Security Council}\\[6pt]
+\emph{How much do \emph{fake} international obligations matter?  Testing false-positive rates in dyadic difference-in-difference designs using synthetic interventions}\\[6pt]
+
+% \section{Tool and Resource Development}
+%
+% \href{https://evamaerey.github.io/little_flipbooks_library/about/what_the_flipbook}{Flipbooks} are new tools for presenting side-by-side, aligned, incremental code-output evolution via automated code parsing and reconstruction, a concept I developed with colleagues in 2018.
+%
+% % \begin{quotation} \emph{flipbookr is a game-changer for explaining code to new programmers! --- Maria Tackett} \end{quotation}
+%
+%
+% My R package, \href{https://github.com/EvaMaeRey/flipbookr}{flipbookr} (2019), helps other easily and reliably create their own flipbooks.
+%
+% Examples of flipbooks that clarify tools and concepts: \href{https://github.com/EvaMaeRey/ggplot_flipbook}{the ggplot flipbook}
+% $|$ \href{https://evamaerey.github.io/ggplot2_grammar_guide/ggplot2_grammar_guide}{A ggplot2 grammar guide.}
+% $|$ \href{https://github.com/EvaMaeRey/tidyverse_in_action}{The Tidyverse in Action}
+% $|$  \href{https://evamaerey.github.io/little_flipbooks_library/data.table/data.table}{a data.table flipbook}
+% $|$ \href{https://evamaerey.github.io/little_flipbooks_library/dhondt_jefferson_allocation/dhondt_jefferson_allocation}{D’Hondt/Jefferson Allocation}
+% $|$ \href{https://evamaerey.github.io/little_flipbooks_library/galton_board/galton_board.html#1}{Galton Board}
+% $|$ \href{https://evamaerey.github.io/little_flipbooks_library/racing_bars/racing_barcharts.html}{racing barchart}
+% $|$  \href{https://evamaerey.github.io/tidytuesday_walk_through/tidytuesday_highlights.html}{\#TidyTuesday walk through}
+% $|$  \href{https://evamaerey.github.io/little_flipbooks_library/leaflet/leaflet#1}{leaflet for R (interactive maps)}
+% $|$ \href{https://evamaerey.github.io/little_flipbooks_library/data_cleaning/data_cleaning#1}{a data cleaning flipbook}
+% $|$  \href{https://evamaerey.github.io/little_flipbooks_library/wbstats/wbstats#1}{Accessing the World Bank's country indicators}
+%
+%
+%
+% Selected guide development
+%
+% \begin{quotation}\noindent
+% \emph{\href{https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes}{A companion guide to `How to write an R package in 20 minutes'}}, 2019 \\[6pt]
+% \emph{\href{https://github.com/EvaMaeRey/from_raw_data_to_paper_and_presentation}{The how-to of reproducibility: A minimal example taking you from raw data to paper and presentation}}, 2018 \\[6pt]
+% % \emph{A Step-By-Step Introduction to \LaTeX}, 2015\\[6pt]%%%Jan
+% \emph{Introduction to Reproducible Research with RStudio, for Applied Technologies of the Arts and Science 2015}%%%Jan
+% \end{quotation}
+% %
+%
+% % Minimal examples:
+% %
+% % -
+% %
+% %
+% % You might also be interested in  and  which have their own GitHub repositories and respectively.
+%
+%
+\section{Recent Talks \\and Conference\\ Presentations}
+
+\emph{Who are the ggplot2 extenders and how to become one?}, Posit Conference, September 2025.
+
+\emph{Who are the ggplot2 extenders and how to become one?}, Joint Statistical Meeting, American Statistical Association, August 2025.
+
+\emph{Updating 'Easy Geom Recipes' for the ggplot2 4.0.0 release}, ggplot2 extenders meetup, July 2025.
+
+\emph{Everyday ggplot2 extension: light-weight 'geom' extension}, Colorado-Wyoming Chapter, American Statistical Association, April 2025.
+
+\emph{Supporting a new wave of ggplot2 extenders: New points of entry for ggplot2 super-users}, Colorado-Wyoming Chapter, American Statistical Association, October 2023.
+
+\emph{ggcirclepack}, ggplot2 extenders meetup, March 2023.
+
+\emph{Flipbooks: Helping people make sense of code by presenting it step-by-step and side-by-side with its output},
+RStudio Conference, January 2020 /
+Max Plank Institute for Biology, Dresden Germany, December 2019.
+
+%
+\emph{Is it time to rethinking how we teach the grammar of graphics with ggplot2?}, RLadies Denver, November 2019\\[6pt]
+%
+\emph{Toward a reproducible workflow},  Korbel PhD Student Professionalization Series, October 2019 \\[6pt]
+%
+\emph{A ggplot2 grammar guide}, Technische Universit\"{a}t, Dresden, Germany, August 2019 / The Max Planck Institute for Biology, Dresden, July 2019 \\[6pt]
+%
+\emph{Shallow fakes: Assessing the potential for spoofing and faking in data visualization and what to do about it}, Korbel School of International Studies Research Seminar, May 2019 \\[6pt]
+%
+\emph{Much Obliged: Reputation, Participation, Compliance, and the UN Security Council}, Political Methodology Conference, 2018 \\[6pt]
+%
+\emph{RI for IR (Randomization Inference in International Relations Research)}, Lorentz Center, Leiden University, 2018\\[6pt] %April
+%
+\emph{How Much Does Fictitious International Law `Matter'?}, with Brian Gaines, American Political Science Association, 2017 \\[6pt]%April
+%
+%
+% \section{Recent \\Workshop \\Attendance}
+%
+% RStudio Conference, Workshop: RMarkdown and Interactive Dashboards, 2020 \\[6pt]
+% Empirical Research on International Organizations, Lorentz Center, Leiden, Netherlands, 2018 \\[6pt]
+% Zurich Summer School for Women in Political Methodology, 2017\\[6pt]
+% Berkeley Initiative for Transparency in the Social Sciences, 2015\\[6pt]%Summer
+%
+% % ``Foreign Aid Funnel?
+% % A Placebo-Based Assessment of Aid Spikes
+% % to Non-Permanent U.N. Security Council Members" with Matthew Winters
+% % Midwest Political Science Association (MPSA), 2015\\[6pt]%April
+% % ``Best of All Plausible Worlds? Checking Robustness of Time-Series Cross-Sectional Models with Fictitious Plausible Alternate Treatments",
+% % Summer Methods Meeting of the Society of Political Methodology (PolMeth) (poster), 2014. %July \\
+% % Visions in Methodology (VIM), 2014;  %May
+% % Midwest Political Science Association (MPSA), 2014\\[6pt]%April
+% % ``Do (Fake) International Institutions `Matter'?  Using Placebo Interventions in International Relations Analyses",
+% % Graduate Student Exchange University of Iowa,  2014; %September
+% % St. Louis Area Methods Meeting (SLAMM), 2013; %April Graduate Student
+% % MPSA, 2013;
+% % PolMeth (poster) 2012, \\[6pt]%
+% % ``New Robustness Checks in Time-Series Cross-Sectional Data Analyses", MPSA (poster) 2013\\[6pt]%Methods Poster Session;April
+% % ``Reputation as a Mechanism for Compliance with International Law Evidence from Survey of Brazilian Federal Deputies", MPSA, 2012\\[6pt]%April
+% % ``Source of Obligation Matters to International Legal Compliance:  Evidence from UN Security Council Resolutions", MPSA (poster), 2011\\[6pt]%April
+% % ``Effects of International Obligations on Domestic Politics", Empirical Implications of Theoretical Models (EITM) Institute, 2010\\[6pt]%Berkeley California July
+% % ``Much Obliged? Compliance with Exogenously Arising International Obligations", MPSA, 2010\\[6pt]%April
+% % ``Export Controls in the Republic of Argentina", Presentation for University of Illinois Arms Control, Disarmament, and International Security Program (ACDIS)\\[6pt]%
+% %
+%
+%
+%
+% % \section{Research Experiences and Skills}
+%
+% % Assistantships
+% % \begin{quotation}\noindent
+% % Statistics Consultant, Applied Technologies of the Arts and Science (ATLAS) 2013-2015\\[6pt]%%% August
+% % Research, Dr. Gisela Sin, University of Illinois, 2012-2013\\[6pt]%%%Fall 2012-Summer 2013
+% % Research, Arms Control and Disarmament Program, University of Illinois, 2009\\[6pt]%%Summer and Fall
+% % Research, Esperanza Maria Casullo, Buenos Aires, Argentina, Universidad Nacional de San Martin,  2008%%%Spring
+% % \end{quotation}
+% % %
+%
+\section{Software}
+
+R, Stata, SPSS, Git, \LaTeX, Markdown, Tableau, Excel
+
+
+%
+\section{Languages}
+
+English --- native,
+Spanish --- fluent,
+Portuguese --- fluent,
+German --- intermediate
+%
+%
+% %
+% % Affiliations
+% % \begin{quotation} \noindent
+% % Midwest Political Science Association, since 2009 \\%
+% % American Political Science Association, since 2013 %
+% % \end{quotation}
+% %
+% % \section{Non-Academic Employment}
+% % %
+% % Chemist, Dual-Use Export Licensing Officer, Bureau of Industry and Security, U.S. Department of Commerce, 2005-2007 %Jun to Jun
+% % % \begin{itemize}
+% % % \item Reviewed license applications for exports controlled for potential biological/chemical weapons uses
+% % % \item Coordinated license condition agreement among exporters and government agencies
+% % % \end{itemize}
+% % %
+% % Research Assistant, Lithium-ion Battery Diagnostics for high power applications, Argonne National Laboratory, 2004-2005\\[6pt]%May-June
+% % Biochemistry Research Assistant - isolation of the c-DNA analogous to phosphotyrosine phosphatase enzyme, Wheaton College, 2003 % summer
+% %Worked toward isolation of the c-DNA analogous to phosphotyrosine phosphatase enzyme using polymerase chain reaction, electrophoresis, and bacteria-phage infection\\[6pt]%
+%
+%
+%
+% %
+% % Workshops Instructed
+% % \begin{quotation}\noindent
+% % ``Introduction to Reproducible Research with RStudio" February and April, 2015\\[6pt]
+% % ``Getting Started with R", for Applied Technologies of the Arts and Science (ATLAS), 2014 \\[6pt]%%%workshop February and internal workshop August 2014 \\
+% % ``Inferential Statistics with R", ATLAS, 2014, 2015\\[6pt]%% %,workshop September  internal workshop August 2014, Feb 2015\\
+% % ``Tips for Consulting",  Co-Taught ATLAS internal micro workshop 2014\\[6pt]%%%August
+% % ``Getting Started with Stata", ATLAS, 2013 and in-class demo 2014\\[6pt]%% October Feb
+% % ``Inferential Statistics with Stata", ATLAS 2013,  Oct. \& Mar. 2014\\[6pt]% October
+% % Assistant for ``Getting Started with SAS" and ``Inferential Statistics with SAS", 2014, 2015 \\[6pt]%%  October, March
+% % ``Export Licensing", with US Department of Commerce, Bishkek, Kyrgyzstan, 2006\\[6pt]%
+% % ``Export Licensing", with US Department of Commerce, Zagreb, Croatia, 2006%
+% % \end{quotation}
+%
+%
+%
+%
+% %----------------------------------------------------------------------------------------
+% %  COMPUTER SKILLS SECTION
+% %----------------------------------------------------------------------------------------
+%
+% %----------------------------------------------------------------------------------------
+% %	COMMUNITY SERVICE SECTION
+% %----------------------------------------------------------------------------------------
+%
+%
+%----------------------------------------------------------------------------------------
+%	EXTRA-CURRICULAR ACTIVITIES SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Community \\ Activities}
+
+
+Co-founder \emph{RLadies} Denver, 2019 \\
+Choir member \emph{The Spirituals Project} of Denver, 2018 \\
+English language tutor \emph{Nachhilfe GBZ Emmaus} Dresden, 2018 \\
+Soloist, Small Ensemble Organizer/Performer \emph{First Mennonite Church of Urbana} 2012 - 2016\\
+Vocals, \emph{Bate Calado} Musica Popular Brasiliera, 2009-2012\\
+
+\section{References}
+\href{https://www.ramapo.edu/college-leadership/}{Dr. Michael Yankovich}, Vice President for Operational and Administrative Integration, +1-201-684-7765, myankovi@ramapo.edu\\
+\href{https://www.westpoint.edu/deans-staff/profile/susan_richardson-carter}{Dr. Susan Richardson (Carter)} Vice Dean for Academic Affairs \& Associate Professor, Susan.Richardson@westpoint.edu \\
+\href{https://korbel.du.edu/about/directory/rachel-epstein}{Dr. Rachel Epstein} Professor \& Faculty
+Josef Korbel School of International Studies, rachel.epstein@du.edu
++1-303-871-3843\\
+\href{http://www.pol.illinois.edu/people/bjgaines}{Professor Brian Gaines}, Professor of Political Science, +1-217-333-4367, bjgaines@illinois.edu\\
+\href{http://www.pol.illinois.edu/people/mwinters}{Professor Matthew Winters}, Associate Professor of Political Science, +1-217-333-3881, mwinters@illinois.edu\\
+% \href{https://health.ucdavis.edu/vprp/ourteam/index.html}{Dr. Rose Kagawa}, Assistant Professor Ph.D, M.P.H., UC Davis, rkagawa@ucdavis.edu\\
+% %----------------------------------------------------------------------------------------
+\end{resume}
+\end{document}

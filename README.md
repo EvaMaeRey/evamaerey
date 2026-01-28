@@ -1,29 +1,90 @@
 
-# Hi. I’m Gina Reynolds.
+# 👋 Thanks for dropping by!
+
+Stuff I do:
+
+- [x] Descriptive Statistics, Statistical Modeling, Machine Learning
+- [x] Visualization (ggplot2, plotnine, Tableau), Table Generation
+  (tidypivot, gt, greattables, flextable)
+- [x] Dashboarding (shiny, powerBI, Tableau)
+- [x] Research Reporting (Scholarly, Institutional)
+- [x] Workflow/Pipeline Management
+- [x] Software Engineering (experienced R package maintainer, \> 5
+  years)
+- [x] Statistical Consulting
+- [x] Technical Communication (oral and written)
+- [x] Data Science Education (in-person and global)
+- [x] Version Control, Collaborative Workflows, Git, Github, Github
+  Actions
+- [x] Productive, Professional, and Friendly Working Relationships with
+  Diverse Collaborators
+- [x] Database Fluency
+- [x] Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc)
+- [x] R Packaging Expertise (workflow tools, documentation, testing)
+- [x] Visualization Frameworks
+- [x] Open source contributor (ggplot2, plotnine), author (see below)
+
+<!-- Bachelor's degree in software development or a directly related field from an accredited institution. -->
+
+<!-- Three (3) years of software development, software or system engineering, bioinformatics, or directly related IT professional experience. -->
+
+<!-- Two (2) years of experience in data analysis using R with common analysis utilities (Tidyverse, dplyr, etc.). -->
+
+<!-- Two (2) years of experience with manipulating large datasets to transform, profile, sanitize, explore, analyze, and present information in a reproducible way. -->
+
+<!-- Two (2) years of experience with version control, preferably with Git -->
+
+<!-- Experience developing and deploying reusable and robust R packages, including familiarity with testing frameworks (testthat) and documentation generation (roxygen2). -->
+
+<!-- A combination of education and related technical/military/paraprofessional experience may be substituted for a bachelor’s degree on a year for year basis. An advanced degree (Masters or Doctorate) may be substituted for experience on a year for year basis if the degree is in a field of study directly related to the work assignment. -->
+
+<!-- - [x]  Reproducible computing environments, containerization -->
 
 I work on tools that make data analytics more fluid and intuitive and
-which expose this fluidity and elegance. These tools also allow us to
+which exposes this fluidity and elegance. These tools also allow us to
 better record ‘conversations’ with data and workflows.
 
 More fluid:
 
-ggplyr - allows
+ggplyr allows
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+exported functions: last_plot_data, data_unfilter, data_slice_sample,
+data_refilter, aes_dims, data_var_split, data_include, data_filter,
+data_arrange, dims_unpack, data_replace, last_plot_wipe_last,
+last_plot_wipe, data_slice_max, intercept, dims0, aes_from_data,
+data_slice
 
 tidypivot -
 
+exported functions: `getNamespaceExports("tidypivot")`
+
 ggdims -
 
-ggregions -
+exported functions: StatTsneGroup, theme_ggdims, compute_pca_rows, dims,
+compute_tsne_group_label, GeomPointFill, geom_tsne_label, StatPcaRows,
+geom_pca, StatTsne, geom_umap0, geom_tsne_label0, geom_pca0,
+compute_umap, vars_unpack, geom_tsne, data_vars_unpack, geom_tsne0,
+compute_tsne, dims_listed, geom_umap, dims_expand, StatUmap
 
-statexpress -
+ggregions - write_stamp_region_locale, write_geom_region_locale,
+write_stamp_region_text_locale, write_geom_region_text_locale,
+compute_panel_regions
+
+statexpress - proto_update, qstat_group, qproto_update, qstat,
+qstat_panel, qstat_layer, qlayer
 
 Record conversations:
 
-ggprop.test -
+ggprop.test - geom_normal_prop_null_sds, geom_support, geom_prop,
+geom_normal_prop_null, geom_stack, stamp_prop, geom_prop_label,
+stamp_eq_norm_prop, geom_stack_label, stamp_prop_label
 
 Expose this fluidity and elegance:
 
-flipbookr -
+flipbookr - embed_flipbook, text_reveal, %\>%, create_base_pipe_code,
+return_chunk_code, chunk_reveal
 
 ggram -
 
@@ -39,8 +100,9 @@ knitrExpress
 
 My popular projects include
 [flipbookr](https://github.com/EvaMaeRey/flipbookr) (on CRAN and
-maintained since 2020, with \>20000 downloads) and ggplot2 extensions
-like [ggcalendar](https://evamaerey.github.io/ggcalendar/),
+maintained since 2020, with \>20000 downloads and used across
+disciplines) and ggplot2 extensions like
+[ggcalendar](https://evamaerey.github.io/ggcalendar/),
 [ggcirclepack](https://github.com/EvaMaeRey/ggcirclepack) and others.
 
 Professionally, I’ve worked in higher education and government where my
@@ -87,9 +149,9 @@ ggplot2
 flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1).
 
 I am also especially interested in entry points to R package writing,
-working on resources like a [‘companion guide to to Jim Hester’s talk
-how to write and R package in 20 minutes’
-(2000)](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes)
+working on resources like a [’companion
+guide](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes)
+to to Jim Hester’s talk how to write and R package in 20 minutes’ (2000)
 I have also looked comparatively at literate package writing tools of
 [{fusen}](https://thinkr-open.github.io/fusen/),
 [{litr}](https://jacobbien.github.io/litr-project/), and my own

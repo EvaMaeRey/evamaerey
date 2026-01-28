@@ -5,32 +5,92 @@ output:
     toc_depth: 3
 ---
 
-# Hi. I'm Gina Reynolds.
+# 👋 Thanks for dropping by!
 
-I work on tools that make data analytics more fluid and intuitive and which expose this fluidity and elegance. These tools also allow us to better record 'conversations' with data and workflows.
 
-More fluid:
+Stuff I do:
 
-ggplyr - allows
+- [x]  Descriptive Statistics, Statistical Modeling, Machine Learning
+- [x]  Visualization (ggplot2, plotnine, Tableau), Table Generation (tidypivot, gt, greattables, flextable)
+- [x]  Dashboarding (shiny, powerBI, Tableau)
+- [x]  Research Reporting (Scholarly, Institutional)
+- [x]  Workflow/Pipeline Management
+- [x]  Software Engineering (experienced R package maintainer, > 5 years)
+- [x]  Statistical Consulting
+- [x]  Technical Communication (oral and written)
+- [x]  Data Science Education (in-person and global)
+- [x]  Version Control, Collaborative Workflows, Git, Github, Github Actions
+- [x]  Productive, Professional, and Friendly Working Relationships with Diverse Collaborators
+- [x]  Database Fluency
+- [x]  Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc)
+- [x]  R Packaging Expertise (workflow tools, documentation, testing)
+- [x]  Visualization Frameworks
+- [x]  Open source contributor (ggplot2, plotnine), author (see below)
+
+<!-- Bachelor's degree in software development or a directly related field from an accredited institution. -->
+
+<!-- Three (3) years of software development, software or system engineering, bioinformatics, or directly related IT professional experience. -->
+
+<!-- Two (2) years of experience in data analysis using R with common analysis utilities (Tidyverse, dplyr, etc.). -->
+
+<!-- Two (2) years of experience with manipulating large datasets to transform, profile, sanitize, explore, analyze, and present information in a reproducible way. -->
+
+<!-- Two (2) years of experience with version control, preferably with Git -->
+
+<!-- Experience developing and deploying reusable and robust R packages, including familiarity with testing frameworks (testthat) and documentation generation (roxygen2). -->
+
+
+<!-- A combination of education and related technical/military/paraprofessional experience may be substituted for a bachelor’s degree on a year for year basis. An advanced degree (Masters or Doctorate) may be substituted for experience on a year for year basis if the degree is in a field of study directly related to the work assignment. -->
+
+
+<!-- - [x]  Reproducible computing environments, containerization -->
+
+```{r, include = F}
+library(tidyverse)
+knitr::opts_chunk$set(warning = F, message = F, echo = F)
+
+```
+
+
+
+I work on tools that make data analytics more fluid and intuitive and on tools which expose this fluidity and elegance. These tools also allow us to better record 'conversations' with data and workflows.
+
+
+
+```{r}
+
+
+```
+
+
+exported functions: `r getNamespaceExports("ggplyr")`
 
 tidypivot -
 
+exported functions: `getNamespaceExports("tidypivot")`
+
 ggdims -
 
-ggregions -
+exported functions: `r getNamespaceExports("ggdims")`
+
+ggregions - `r getNamespaceExports("ggregions")`
 
 
-statexpress -
+
+
+
+statexpress - `r getNamespaceExports("statexpress")`
+
 
 Record conversations:
 
-ggprop.test -
+ggprop.test - `r getNamespaceExports("ggprop.test")`
 
 
 
 Expose this fluidity and elegance:
 
-flipbookr -
+flipbookr - `r getNamespaceExports("flipbookr")`
 
 ggram -
 
@@ -47,7 +107,7 @@ knitrExpress
 
 
 
-My popular projects include [flipbookr](https://github.com/EvaMaeRey/flipbookr) (on CRAN and maintained since 2020, with \>20000 downloads) and ggplot2 extensions like [ggcalendar](https://evamaerey.github.io/ggcalendar/), [ggcirclepack](https://github.com/EvaMaeRey/ggcirclepack) and others.
+My popular projects include [flipbookr](https://github.com/EvaMaeRey/flipbookr) (on CRAN and maintained since 2020, with \>20000 downloads and used across disciplines) and ggplot2 extensions like [ggcalendar](https://evamaerey.github.io/ggcalendar/), [ggcirclepack](https://github.com/EvaMaeRey/ggcirclepack) and others.
 
 Professionally, I've worked in higher education and government where my work involved analytics, teaching, and policy implementation.
 
@@ -63,4 +123,113 @@ I'm interested in the transformational effects that access to tailored, principl
 
 Previously, I had a greater focus on illuminating the grammar of *base* ggplot2, creating materials like [a ggplot2 grammar guide](https://evamaerey.github.io/ggplot2_grammar_guide/about) and [the ggplot2 flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1).
 
-I am also especially interested in entry points to R package writing, working on resources like a ['companion guide to to Jim Hester's talk how to write and R package in 20 minutes' (2000)](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes) I have also looked comparatively at literate package writing tools of [{fusen}](https://thinkr-open.github.io/fusen/), [{litr}](https://jacobbien.github.io/litr-project/), and my own 'readme-to-package' approach, including via an coordinating a virtual meeting with the authors at RLadies Denver, [March 2024 meeting](meetup.com/rladies-denver/events/299879858/?eventOrigin=group_past_events). The [note package (2025)](https://github.com/musician-tools/note) uses my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to create the note package (a lightly rewritten version of what Jim Hester presented) from within a README.
+I am also especially interested in entry points to R package writing, working on resources like a ['companion guide](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes) to to Jim Hester's talk how to write and R package in 20 minutes' (2000) I have also looked comparatively at literate package writing tools of [{fusen}](https://thinkr-open.github.io/fusen/), [{litr}](https://jacobbien.github.io/litr-project/), and my own 'readme-to-package' approach, including via an coordinating a virtual meeting with the authors at RLadies Denver, [March 2024 meeting](meetup.com/rladies-denver/events/299879858/?eventOrigin=group_past_events). The [note package (2025)](https://github.com/musician-tools/note) uses my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to create the note package (a lightly rewritten version of what Jim Hester presented) from within a README.
+
+
+
+```{r, fig.width=10, fig.height=6, dpi = 300, eval = F}
+new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",
+                                            paper_color = "cornsilk1" |> alpha(.4), highlight_colors = c("grey90" |> alpha(.4), "orange" |> alpha(.3) ))
+
+'library(ggdims)
+
+iris |> 
+  ggplot() + 
+  aes(dims = #<<
+        dims( #<<
+        Sepal.Length:Petal.Width #<<
+        ), #<<
+      fill = Species) + 
+  geom_tsne()  #<<' |>
+ggram::ggram(code = _ , "ggdims API EvaMaeRey/ggdims", widths = c(2, 1.5), code_style_args = new_style,
+             caption = "github.com/EvaMaeRey/ggdims")
+
+```
+
+
+
+```{r, eval = F}
+library(ggplot2)
+# panel_gray_gradient <- 
+  
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scales::pal_grey()(10) |> 
+  grid::linearGradient() |> 
+  theme(panel.background = _)
+
+gray_gradient <- grid::linearGradient(scales::pal_grey()(10))
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  theme(panel.background = element_rect(fill = gray_gradient))
+
+
+library(ggplot2)
+
+my_gradient <- c("lightblue", #<<
+                 "pink") |> #<<
+  grid::linearGradient() #<<
+
+ggplot(cars) +
+  aes(speed, dist) + 
+  geom_point(shape = "🎈",
+             size =7) +
+  theme(
+    panel.background = 
+      element_rect(
+        fill = my_gradient) #<<
+        )
+
+ggram::ggram("The sky's the limit!", subtitle = "R 4.1.0 started supporting patterns and gradients which meant new possibilities for using ggplot2\nincluding fill gradients")
+
+
+ggplot(cars) +
+  aes(speed, dist) + 
+  geom_point(shape = "🎈",
+             size =7) +
+  theme_panel.background()
+
+
+```
+
+```{r}
+library(teethr)
+
+mb11_caries_long <- mb11_caries %>% 
+  dental_longer(-id) %>%
+  dental_join()
+#> Joining with `by = join_by(tooth)`
+
+caries_ratios <- mb11_caries_long %>% 
+  count_caries(caries = score, no_lesion = "none") %>% # convert location to lesion count
+  group_by(tooth) %>% 
+  dental_ratio(count = caries_count)
+
+caries_ratios %>%
+  dental_recode(tooth, "FDI", "text") %>% # notation needs to be text
+  left_join(as_tibble(dental_arcade_mapping), by = "tooth") 
+
+dental_arcade_mapping$tooth
+
+ggseg::aseg$data
+
+dental_arcade_mapping$geometry |> 
+  sf::st_as_sf() |> 
+  sf::st_cast("POLYGON") |> 
+  tibble(sf = _, tooth = dental_arcade_mapping$tooth) |>
+  ggplot() + 
+  aes(geometry = sf) +
+  geom_sf()
+
+dental_arcade_mapping$geometry |> 
+  sf::st_as_sf() |> 
+  sf::st_cast("POLYGON") |> 
+  sf::st_cast("MULTIPOLYGON") |>
+  plot()
+
+
+
+
+```
