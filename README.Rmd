@@ -10,22 +10,23 @@ output:
 
 Stuff I do:
 
-- [x]  Descriptive Statistics, Statistical Modeling, Machine Learning
+- [x]  Descriptive Statistics, Statistical Modeling, Machine Learning (with emphasis on viz)
 - [x]  Visualization (ggplot2, plotnine, Tableau), Table Generation (tidypivot, gt, greattables, flextable)
-- [x]  Dashboarding (shiny, powerBI, Tableau)
-- [x]  Research Reporting (Scholarly, Institutional)
-- [x]  Workflow/Pipeline Management
-- [x]  Software Engineering (experienced R package maintainer, > 5 years)
+- [x]  Dashboarding (Experience with Shiny, powerBI, Tableau)
+- [x]  Research Reporting (Scholarly, Institutional; Rmarkdown, Quarto)
+- [x]  Workflow/Pipeline Management (tidyverse, base R, SQL)
+- [x]  Research Software Engineering (experienced R package maintainer, > 5 years)
 - [x]  Statistical Consulting
-- [x]  Technical Communication (oral and written)
-- [x]  Data Science Education (in-person and global)
+<!-- - [x]  Technical Communication (oral and written) -->
+- [x]  Data Science Education (excellence in class, and world wide)
 - [x]  Version Control, Collaborative Workflows, Git, Github, Github Actions
-- [x]  Productive, Professional, and Friendly Working Relationships with Diverse Collaborators
-- [x]  Database Fluency
+- [x]  Productive, Professional, and Friendly Working Relationships with Collaborators with diverse technical and subject area backgrounds
 - [x]  Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc)
 - [x]  R Packaging Expertise (workflow tools, documentation, testing)
-- [x]  Visualization Frameworks
-- [x]  Open source contributor (ggplot2, plotnine), author (see below)
+- [x]  Visualization Frameworks (spatial, network, grammar of graphics)
+- [x]  Contributor to popular open source libraries (ggplot2, plotnine)
+- [x]  Author, maintainer of popular libraries (flipbookr, ggcirclepack)
+- [x]  Experience with CRAN submission process and maintanance (flipbookr, tidytitanic)
 
 <!-- Bachelor's degree in software development or a directly related field from an accredited institution. -->
 
@@ -57,53 +58,53 @@ I work on tools that make data analytics more fluid and intuitive and on tools w
 
 
 
-```{r}
+<!-- ```{r} -->
 
 
-```
+<!-- ``` -->
 
 
-exported functions: `r getNamespaceExports("ggplyr")`
+<!-- exported functions: `r getNamespaceExports("ggplyr")` -->
 
-tidypivot -
+<!-- tidypivot - -->
 
-exported functions: `getNamespaceExports("tidypivot")`
+<!-- exported functions: `getNamespaceExports("tidypivot")` -->
 
-ggdims -
+<!-- ggdims - -->
 
-exported functions: `r getNamespaceExports("ggdims")`
+<!-- exported functions: `r getNamespaceExports("ggdims")` -->
 
-ggregions - `r getNamespaceExports("ggregions")`
-
-
-
-
-
-statexpress - `r getNamespaceExports("statexpress")`
-
-
-Record conversations:
-
-ggprop.test - `r getNamespaceExports("ggprop.test")`
+<!-- ggregions - `r getNamespaceExports("ggregions")` -->
 
 
 
-Expose this fluidity and elegance:
-
-flipbookr - `r getNamespaceExports("flipbookr")`
-
-ggram -
-
-Education:
-
-easy-geom-recipes
-
-easy-geom-recipes-python
-
-easy.geom.recipes.package
 
 
-knitrExpress
+<!-- statexpress - `r getNamespaceExports("statexpress")` -->
+
+
+<!-- Record conversations: -->
+
+<!-- ggprop.test - `r getNamespaceExports("ggprop.test")` -->
+
+
+
+<!-- Expose this fluidity and elegance: -->
+
+<!-- flipbookr - `r getNamespaceExports("flipbookr")` -->
+
+<!-- ggram - -->
+
+<!-- Education: -->
+
+<!-- easy-geom-recipes -->
+
+<!-- easy-geom-recipes-python -->
+
+<!-- easy.geom.recipes.package -->
+
+
+<!-- knitrExpress -->
 
 
 
@@ -125,9 +126,11 @@ Previously, I had a greater focus on illuminating the grammar of *base* ggplot2,
 
 I am also especially interested in entry points to R package writing, working on resources like a ['companion guide](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes) to to Jim Hester's talk how to write and R package in 20 minutes' (2000) I have also looked comparatively at literate package writing tools of [{fusen}](https://thinkr-open.github.io/fusen/), [{litr}](https://jacobbien.github.io/litr-project/), and my own 'readme-to-package' approach, including via an coordinating a virtual meeting with the authors at RLadies Denver, [March 2024 meeting](meetup.com/rladies-denver/events/299879858/?eventOrigin=group_past_events). The [note package (2025)](https://github.com/musician-tools/note) uses my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to create the note package (a lightly rewritten version of what Jim Hester presented) from within a README.
 
+Some projects that I'm especially excited about at the moment are:
 
 
-```{r, fig.width=10, fig.height=6, dpi = 300, eval = F}
+
+```{r, fig.width=10, fig.height=6, dpi = 300, eval = T}
 new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",
                                             paper_color = "cornsilk1" |> alpha(.4), highlight_colors = c("grey90" |> alpha(.4), "orange" |> alpha(.3) ))
 
@@ -194,42 +197,4 @@ ggplot(cars) +
 
 ```
 
-```{r}
-library(teethr)
 
-mb11_caries_long <- mb11_caries %>% 
-  dental_longer(-id) %>%
-  dental_join()
-#> Joining with `by = join_by(tooth)`
-
-caries_ratios <- mb11_caries_long %>% 
-  count_caries(caries = score, no_lesion = "none") %>% # convert location to lesion count
-  group_by(tooth) %>% 
-  dental_ratio(count = caries_count)
-
-caries_ratios %>%
-  dental_recode(tooth, "FDI", "text") %>% # notation needs to be text
-  left_join(as_tibble(dental_arcade_mapping), by = "tooth") 
-
-dental_arcade_mapping$tooth
-
-ggseg::aseg$data
-
-dental_arcade_mapping$geometry |> 
-  sf::st_as_sf() |> 
-  sf::st_cast("POLYGON") |> 
-  tibble(sf = _, tooth = dental_arcade_mapping$tooth) |>
-  ggplot() + 
-  aes(geometry = sf) +
-  geom_sf()
-
-dental_arcade_mapping$geometry |> 
-  sf::st_as_sf() |> 
-  sf::st_cast("POLYGON") |> 
-  sf::st_cast("MULTIPOLYGON") |>
-  plot()
-
-
-
-
-```

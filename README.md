@@ -4,25 +4,28 @@
 Stuff I do:
 
 - [x] Descriptive Statistics, Statistical Modeling, Machine Learning
+  (with emphasis on viz)
 - [x] Visualization (ggplot2, plotnine, Tableau), Table Generation
   (tidypivot, gt, greattables, flextable)
-- [x] Dashboarding (shiny, powerBI, Tableau)
-- [x] Research Reporting (Scholarly, Institutional)
-- [x] Workflow/Pipeline Management
-- [x] Software Engineering (experienced R package maintainer, \> 5
-  years)
+- [x] Dashboarding (Experience with Shiny, powerBI, Tableau)
+- [x] Research Reporting (Scholarly, Institutional; Rmarkdown, Quarto)
+- [x] Workflow/Pipeline Management (tidyverse, base R, SQL)
+- [x] Research Software Engineering (experienced R package maintainer,
+  \> 5 years)
 - [x] Statistical Consulting
-- [x] Technical Communication (oral and written)
-- [x] Data Science Education (in-person and global)
+  <!-- - [x]  Technical Communication (oral and written) -->
+- [x] Data Science Education (excellence in class, and world wide)
 - [x] Version Control, Collaborative Workflows, Git, Github, Github
   Actions
 - [x] Productive, Professional, and Friendly Working Relationships with
-  Diverse Collaborators
-- [x] Database Fluency
+  Collaborators with diverse technical and subject area backgrounds
 - [x] Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc)
 - [x] R Packaging Expertise (workflow tools, documentation, testing)
-- [x] Visualization Frameworks
-- [x] Open source contributor (ggplot2, plotnine), author (see below)
+- [x] Visualization Frameworks (spatial, network, grammar of graphics)
+- [x] Contributor to popular open source libraries (ggplot2, plotnine)
+- [x] Author, maintainer of popular libraries (flipbookr, ggcirclepack)
+- [x] Experience with CRAN submission process and maintanance
+  (flipbookr, tidytitanic)
 
 <!-- Bachelor's degree in software development or a directly related field from an accredited institution. -->
 
@@ -40,63 +43,47 @@ Stuff I do:
 
 <!-- - [x]  Reproducible computing environments, containerization -->
 
-I work on tools that make data analytics more fluid and intuitive and
-which exposes this fluidity and elegance. These tools also allow us to
-better record ‘conversations’ with data and workflows.
+I work on tools that make data analytics more fluid and intuitive and on
+tools which expose this fluidity and elegance. These tools also allow us
+to better record ‘conversations’ with data and workflows.
 
-More fluid:
+<!-- ```{r} -->
 
-ggplyr allows
+<!-- ``` -->
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+<!-- exported functions: last_plot_data, data_unfilter, data_slice_sample, data_refilter, aes_dims, data_var_split, data_include, data_filter, data_arrange, dims_unpack, data_replace, last_plot_wipe_last, last_plot_wipe, data_slice_max, intercept, dims0, aes_from_data, data_slice -->
 
-exported functions: last_plot_data, data_unfilter, data_slice_sample,
-data_refilter, aes_dims, data_var_split, data_include, data_filter,
-data_arrange, dims_unpack, data_replace, last_plot_wipe_last,
-last_plot_wipe, data_slice_max, intercept, dims0, aes_from_data,
-data_slice
+<!-- tidypivot - -->
 
-tidypivot -
+<!-- exported functions: `getNamespaceExports("tidypivot")` -->
 
-exported functions: `getNamespaceExports("tidypivot")`
+<!-- ggdims - -->
 
-ggdims -
+<!-- exported functions: StatTsneGroup, theme_ggdims, compute_pca_rows, dims, compute_tsne_group_label, GeomPointFill, geom_tsne_label, StatPcaRows, geom_pca, StatTsne, geom_umap0, geom_tsne_label0, geom_pca0, compute_umap, vars_unpack, geom_tsne, data_vars_unpack, geom_tsne0, compute_tsne, dims_listed, geom_umap, dims_expand, StatUmap -->
 
-exported functions: StatTsneGroup, theme_ggdims, compute_pca_rows, dims,
-compute_tsne_group_label, GeomPointFill, geom_tsne_label, StatPcaRows,
-geom_pca, StatTsne, geom_umap0, geom_tsne_label0, geom_pca0,
-compute_umap, vars_unpack, geom_tsne, data_vars_unpack, geom_tsne0,
-compute_tsne, dims_listed, geom_umap, dims_expand, StatUmap
+<!-- ggregions - write_stamp_region_locale, write_geom_region_locale, write_stamp_region_text_locale, write_geom_region_text_locale, compute_panel_regions -->
 
-ggregions - write_stamp_region_locale, write_geom_region_locale,
-write_stamp_region_text_locale, write_geom_region_text_locale,
-compute_panel_regions
+<!-- statexpress - proto_update, qstat_group, qproto_update, qstat, qstat_panel, qstat_layer, qlayer -->
 
-statexpress - proto_update, qstat_group, qproto_update, qstat,
-qstat_panel, qstat_layer, qlayer
+<!-- Record conversations: -->
 
-Record conversations:
+<!-- ggprop.test - geom_normal_prop_null_sds, geom_support, geom_prop, geom_normal_prop_null, geom_stack, stamp_prop, geom_prop_label, stamp_eq_norm_prop, geom_stack_label, stamp_prop_label -->
 
-ggprop.test - geom_normal_prop_null_sds, geom_support, geom_prop,
-geom_normal_prop_null, geom_stack, stamp_prop, geom_prop_label,
-stamp_eq_norm_prop, geom_stack_label, stamp_prop_label
+<!-- Expose this fluidity and elegance: -->
 
-Expose this fluidity and elegance:
+<!-- flipbookr - embed_flipbook, text_reveal, %>%, create_base_pipe_code, return_chunk_code, chunk_reveal, reveal_live -->
 
-flipbookr - embed_flipbook, text_reveal, %\>%, create_base_pipe_code,
-return_chunk_code, chunk_reveal
+<!-- ggram - -->
 
-ggram -
+<!-- Education: -->
 
-Education:
+<!-- easy-geom-recipes -->
 
-easy-geom-recipes
+<!-- easy-geom-recipes-python -->
 
-easy-geom-recipes-python
+<!-- easy.geom.recipes.package -->
 
-easy.geom.recipes.package
-
-knitrExpress
+<!-- knitrExpress -->
 
 My popular projects include
 [flipbookr](https://github.com/EvaMaeRey/flipbookr) (on CRAN and
@@ -162,3 +149,7 @@ The [note package (2025)](https://github.com/musician-tools/note) uses
 my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to
 create the note package (a lightly rewritten version of what Jim Hester
 presented) from within a README.
+
+Some projects that I’m especially excited about at the moment are:
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->

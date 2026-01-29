@@ -80,12 +80,17 @@
 %----------------------------------------------------------------------------------------
 \section{Current: Supporting grammar of graphics data visualization developer community, 2022-Present}
 
-Since March 2025, developer advocacy supported by Posit PBC, contract.  \\[6pt]
-Building and maintaining \href{https://ggplot2-extenders.github.io/ggplot-extension-club/}{gathering space} for data scientist visualization tool developers and enthusiasts \\[6pt]
-Coordination of speaker series \\[6pt]
-Raise awareness of developer pain points and collaborate on solutions \\[6pt]
-Moderate and contribute to discussion on discussion boards \\[6pt]
-Build educational materials for extension newcomers \\[6pt]
+
+\begin{itemize}
+\item Built and maintain \href{https://ggplot2-extenders.github.io/ggplot-extension-club/}{developer gathering space} for data scientist visualization tool developers and enthusiasts 
+\item Coordinating speaker series 
+\item Raise awareness of developer pain points, develop solutions 
+\item Moderate discussion boards 
+\item Build educational materials for extension newcomers 
+\item Partnering with Posit PBC on developer advocacy.  \\[6pt]
+
+\end{itemize}
+
 
 Select presenters: David Sjoberg (ggbump), June Choe (ggtrace), Claus Wilke (cowplot, ggtext, ggridges), Di Cook (GGally), Thomas Lin Pedersen (marquee), Winston Chang (ggproto extension mechanism), Teun van den Brand (ggh4x, legendry, ggplot2 maintainer), Hadley Wickham (ggplot2), Cory Brunson (ggalluvial, ordr), Mitchell O’Hara-Wild (ggtime, distributional), Matthew Kay (ggdist, ggblend) \\[6pt]
 
@@ -95,7 +100,11 @@ Select presenters: David Sjoberg (ggbump), June Choe (ggtrace), Claus Wilke (cow
 
 \section{Previous}
 
-Assistant Professor in Department of Mathematical Sciences and Data Manager in the Dean's Data Cell at US Military Academy West Point August 2020-August 2023, 40 hr per week \\[6pt]
+US Military Academy West Point August 2020-August 2023, 40 hr per week: \\
+\begin{quotation} \noindent
+Department of Mathematical Sciences, Assistant Professor \\
+Dean's Data Cell Data Manager \\
+\end{quotation}
 Visiting Teaching Assistant Professor, Korbel School of International Studies, University of Denver,  September 2018-June 2020, 40 hours per week\\[6pt]
 % Lecturer, Technische Universit\"{a}t Dresden, 2017-2018 4 hours per week\\
 % Consulting Analyst, University of California Davis, contract, 2017-2018 12 hours per week\\
@@ -112,6 +121,27 @@ Laboratory Assistant, Argonne National Laboratory May 2004-July 2005, 20 hours p
 % \section{Featured teaching and advising projects}
 
 
+\section{Software}
+
+CRAN
+
+\begin{itemize}
+\item \href{https://github.com/EvaMaeRey/flipbookr}{flipbookr} 
+\item \href{https://github.com/EvaMaeRey/tidytitanic}{tidytitanic} 
+\end{itemize}
+
+Select GitHub
+
+\begin{itemize}
+\item \href{https://github.com/EvaMaeRey/ggregions}{ggregions} 
+\item \href{https://github.com/EvaMaeRey/ggdims}{ggdims} 
+\item \href{https://github.com/EvaMaeRey/ggcalendar}{ggcalendar} 
+\item \href{https://github.com/EvaMaeRey/ggcirclepack}{ggcirclepack} 
+\item \href{https://github.com/EvaMaeRey/tidypivot}{tidypivot} 
+\item \href{https://github.com/EvaMaeRey/knitrExtra}{knitrExtra} 
+\item \href{https://github.com/EvaMaeRey/statexpress}{statexpress} 
+
+\end{itemize}
 
 \section{Education}
 PhD 2016, University of Illinois, Urbana-Champaign
