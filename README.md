@@ -21,7 +21,8 @@ Stuff I do:
   Collaborators with diverse technical and subject area backgrounds
 - [x] Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc)
 - [x] R Packaging Expertise (workflow tools, documentation, testing)
-- [x] Visualization Frameworks (spatial, network, grammar of graphics)
+- [x] Visualization Frameworks (spatial, network, grammar of graphics,
+  ggdims)
 - [x] Contributor to popular open source libraries (ggplot2, plotnine)
 - [x] Author, maintainer of popular libraries (flipbookr, ggcirclepack)
 - [x] Experience with CRAN submission process and maintanance
@@ -150,6 +151,4 @@ my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to
 create the note package (a lightly rewritten version of what Jim Hester
 presented) from within a README.
 
-Some projects that I’m especially excited about at the moment are:
-
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+<!-- Some projects that I'm especially excited about at the moment are: -->

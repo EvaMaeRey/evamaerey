@@ -23,7 +23,7 @@ Stuff I do:
 - [x]  Productive, Professional, and Friendly Working Relationships with Collaborators with diverse technical and subject area backgrounds
 - [x]  Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc)
 - [x]  R Packaging Expertise (workflow tools, documentation, testing)
-- [x]  Visualization Frameworks (spatial, network, grammar of graphics)
+- [x]  Visualization Frameworks (spatial, network, grammar of graphics, ggdims)
 - [x]  Contributor to popular open source libraries (ggplot2, plotnine)
 - [x]  Author, maintainer of popular libraries (flipbookr, ggcirclepack)
 - [x]  Experience with CRAN submission process and maintanance (flipbookr, tidytitanic)
@@ -126,11 +126,11 @@ Previously, I had a greater focus on illuminating the grammar of *base* ggplot2,
 
 I am also especially interested in entry points to R package writing, working on resources like a ['companion guide](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes) to to Jim Hester's talk how to write and R package in 20 minutes' (2000) I have also looked comparatively at literate package writing tools of [{fusen}](https://thinkr-open.github.io/fusen/), [{litr}](https://jacobbien.github.io/litr-project/), and my own 'readme-to-package' approach, including via an coordinating a virtual meeting with the authors at RLadies Denver, [March 2024 meeting](meetup.com/rladies-denver/events/299879858/?eventOrigin=group_past_events). The [note package (2025)](https://github.com/musician-tools/note) uses my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to create the note package (a lightly rewritten version of what Jim Hester presented) from within a README.
 
-Some projects that I'm especially excited about at the moment are:
+<!-- Some projects that I'm especially excited about at the moment are: -->
 
 
 
-```{r, fig.width=10, fig.height=6, dpi = 300, eval = T}
+```{r, fig.width=10, fig.height=6, dpi = 300, eval = F}
 new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",
                                             paper_color = "cornsilk1" |> alpha(.4), highlight_colors = c("grey90" |> alpha(.4), "orange" |> alpha(.3) ))
 
