@@ -32,7 +32,7 @@
 \pagestyle{fancy}
 % \lhead{This is my name}
 % \rhead{this is page \thepage}
-\cfoot{\footnotesize{Page \thepage\ of 4 \\ Evangeline `Gina' Reynolds CV}}
+\cfoot{\footnotesize{Page \thepage\ of 5 \\ Evangeline `Gina' Reynolds CV}}
 \renewcommand{\headrulewidth}{0.0pt}
 \renewcommand{\footrulewidth}{0.0pt}
 \usepackage{hyperref}
@@ -56,7 +56,7 @@
 %----------------------------------------------------------------------------------------
 
 \moveleft2.143\hoffset\centerline{\Large\textsc{Evangeline `Gina' Reynolds}}% Your name at the top
-%\moveleft.5\hoffset\centerline{\normalsize\bf University of Illinois, Urbana-Champaign} % Your name at the top
+% \moveleft.5\hoffset\centerline{\normalsize\bf University of Illinois, Urbana-Champaign} % Your name at the top
 
 %\moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip % Horizontal line after name; adjust line thickness by changing the '1pt'
 
@@ -78,21 +78,41 @@
 %----------------------------------------------------------------------------------------
 %	OBJECTIVE SECTION
 %----------------------------------------------------------------------------------------
-\section{Current: Supporting grammar of graphics data visualization developer community, 2022-Present}
+\section{Current}
 
+Innovation and Developer Relations, Open Source Data Visualization, 2022-Present
 
 \begin{itemize}
-\item Built and maintain \href{https://ggplot2-extenders.github.io/ggplot-extension-club/}{developer gathering space} for data scientist visualization tool developers and enthusiasts 
-\item Coordinating speaker series 
-\item Raise awareness of developer pain points, develop solutions 
-\item Moderate discussion boards 
-\item Build educational materials for extension newcomers 
-\item Partnering with Posit PBC on developer advocacy.  \\[6pt]
+\item Founded and maintain \href{https://ggplot2-extenders.github.io/ggplot-extension-club/}{developer gathering space} for data scientist visualization tool developers and enthusiasts 
+\item Raise awareness of developer pain points, develop solutions (e.g. \href{https://github.com/EvaMaeRey/statexpress}{statexpress}, \href{https://github.com/EvaMaeRey/ggregions}{ggregions}, \href{https://github.com/EvaMaeRey/ggdims}{ggdims})
+\item Moderate \href{https://github.com/ggplot2-extenders/ggplot-extension-club/discussions}{discussion board}
+\item Build educational materials for extension newcomers (e.g. \href{}{easy geom recipes}, \href{https://evamaerey.github.io/easy-geom-recipes/}{easy.geom.recipes.package}, \href{https://evamaerey.github.io/ggplot2-extension-cookbook/}{ggplot2 extension cookbook}, \href{https://github.com/EvaMaeRey/easy.geom.recipes.package}{easy.geom.recipes.package}) and for ggplot2 newcomers (e.g. \href{https://evamaerey.github.io/ggplot2_grammar_guide/about}{a ggplot2 grammar guide}, \href{https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1}{the ggplot2 flipbook})
+\item Posit PBC partnership for developer advocacy.  
+\item Coordinating \href{https://ggplot2-extenders.github.io/ggplot-extension-club/meetings.html}{speaker series}, select presenters:
+\begin{quotation}
+\noindent Daniel Sjoberg (ggsurvfit), June Choe (ggtrace), Claus Wilke (cowplot, ggtext, ggridges), Di Cook (GGally), Barret Schloerke (GGally), Thomas Lin Pedersen (marquee), Winston Chang (ggproto extension mechanism), Teun van den Brand (ggh4x, legendry, ggplot2 maintainer), Hadley Wickham (ggplot2), Jason 'Cory' Brunson (ggalluvial, ordr), Mitchell O’Hara-Wild (ggtime, distributional), Matthew Kay (ggdist, ggblend), Hassan Kibirige (plotnine) \\[6pt]
+\end{quotation}
 
 \end{itemize}
 
 
-Select presenters: David Sjoberg (ggbump), June Choe (ggtrace), Claus Wilke (cowplot, ggtext, ggridges), Di Cook (GGally), Thomas Lin Pedersen (marquee), Winston Chang (ggproto extension mechanism), Teun van den Brand (ggh4x, legendry, ggplot2 maintainer), Hadley Wickham (ggplot2), Cory Brunson (ggalluvial, ordr), Mitchell O’Hara-Wild (ggtime, distributional), Matthew Kay (ggdist, ggblend) \\[6pt]
+\section{Skills \& Tools}
+
+Statistical Modeling, Machine Learning (with emphasis on viz), Descriptive Statistics (R, Stata, SPSS, Python);
+ Visualization (ggplot2, plotnine, Tableau); Table Generation (pivot tables, gt, flextable);
+ Dashboarding (Shiny, PowerBI, Tableau);
+ Research Reporting (Scholarly, Institutional; markdown, Quarto, \LaTeX);
+ Workflow/Pipeline Management (base R, tidyverse, SQL);
+ Research Software Engineering (experienced R package maintainer, 5 years);
+ Statistical Consulting;
+ Data Science Education (in-person and global);
+ Version Control, Collaborative Workflows, Git, Github, Github Actions;
+ Interpersonal skills (Maintain congenial and productive working relationships with collaborators with diverse technical and subject area backgrounds);
+ Tidyverse Fluency (dplyr, ggplot2, tidyr, purrr, etc);
+ R Packaging Expertise (workflow tools, documentation, testing);
+ Visualization Frameworks (spatial, network, grammar of graphics, ggdims);
+ Contributor to popular open source libraries (ggplot2, plotnine);
+CRAN submission process (flipbookr, tidytitanic)
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -100,16 +120,40 @@ Select presenters: David Sjoberg (ggbump), June Choe (ggtrace), Claus Wilke (cow
 
 \section{Previous}
 
-US Military Academy West Point August 2020-August 2023, 40 hr per week: \\
-\begin{quotation} \noindent
-Department of Mathematical Sciences, Assistant Professor \\
-Dean's Data Cell Data Manager \\
-\end{quotation}
-Visiting Teaching Assistant Professor, Korbel School of International Studies, University of Denver,  September 2018-June 2020, 40 hours per week\\[6pt]
+US Military Academy West Point August 2020-August 2023 \\ %, 40 hr per week: \\
+\begin{itemize} 
+
+
+\item Developed data products for stakeholders across the Academy, enhancing communication of organization statistics. 
+\item Created standard, semi-automated reports that streamlined data analysis processes. 
+\item Taught 'Introduction to Probability and Statistics' in Department of Mathematical Sciences
+\item Guiding students through independent studies in statistical software develpment.
+
+
+\end{itemize}
+Visiting Teaching Assistant Professor, Korbel School of International Studies, University of Denver,  September 2018-June 2020\\ %, 40 hours per week\\[6pt]
 % Lecturer, Technische Universit\"{a}t Dresden, 2017-2018 4 hours per week\\
 % Consulting Analyst, University of California Davis, contract, 2017-2018 12 hours per week\\
-License Officer, US Department of Commerce July 2005-July 2007, 40 hours per week\\[6pt]
-Laboratory Assistant, Argonne National Laboratory May 2004-July 2005, 20 hours per week\\
+\begin{itemize} 
+\item Instructor of graduate and undergraduate courses in quantitative methodology
+\item Statistical software development and research
+\item Oversaw graduate student researchers
+\end{itemize}
+
+License Officer, US Department of Commerce July 2005-July 2007\\ %, 40 hours per week\\[6pt]
+\begin{itemize}
+\item Export License Application Review and coordinating with cooperation agencies
+\item Developed methods for streamlining review and summary
+\end{itemize}
+
+
+Laboratory Assistant, Argonne National Laboratory May 2004-July 2005\\ %, 20 hours per week\\
+
+\begin{itemize}
+\item Executing requirements for battery diagnostic experiments
+\item Reporting experimental results
+\end{itemize}
+
 
   % Public Policy and Nuclear Threats, UCSD summer, 2013 \\[6pt]%
   % Empirical Implications of Theoretical Models (EITM), Berkeley California, 2010 \\[6pt]%July
@@ -121,7 +165,9 @@ Laboratory Assistant, Argonne National Laboratory May 2004-July 2005, 20 hours p
 % \section{Featured teaching and advising projects}
 
 
-\section{Software}
+\section{Software \\ \href{https://github.com/EvaMaeRey}{@EvaMaeRey} \\ on GitHub}
+
+
 
 CRAN
 
@@ -130,7 +176,7 @@ CRAN
 \item \href{https://github.com/EvaMaeRey/tidytitanic}{tidytitanic} 
 \end{itemize}
 
-Select GitHub
+Select GitHub packages 
 
 \begin{itemize}
 \item \href{https://github.com/EvaMaeRey/ggregions}{ggregions} 
@@ -146,6 +192,7 @@ Select GitHub
 \section{Education}
 PhD 2016, University of Illinois, Urbana-Champaign
   \begin{quotation} \noindent
+  Political Science, International Relations, Comparative Politics with quantitative methods emphasis
   Dissertation Title: ``Supranational Law and Compliance"\\
   Chair: Xinyuan Dai\\
   Committee members: Paul Diehl, Brian Gaines, Matthew Winters
@@ -157,9 +204,6 @@ BS 2004, Wheaton College, Magna Cum Laude
   \end{quotation}
 %
 
-\section{Software}
-
-- flipbookr ($>$20000 downloads)
 
 
 \section{Teaching Experience}
@@ -167,10 +211,23 @@ BS 2004, Wheaton College, Magna Cum Laude
 Individual Student Advising \& Assistantships:
 
 \begin{quotation} \noindent
-Independent Studies West Point:  Morgan Brown, Fall AY2022; Madison McGovern, Fall AY2022; Morgan Brown, Spring AY2022; Isaac Folorunso, Spring AY2023; Michael Jax, Spring AY2023.\\
+West Point:  
+\begin{itemize}
+\item Morgan Brown, Fall AY2022, Spring AY2022
+\item Madison McGovern, Fall AY2022
+\item Isaac Folorunso, Spring AY2023
+\item Michael Jax, Spring AY2023
+\end{itemize}
 
-
-\noindent Graduate Research Assistantships, University of Denver: Rachel Goodman, Luca Picci, Conner Surrency, Suraj Thapa, Brittany Woodram, Spring 2020; Ryan Granier, Summer 2019
+\noindent University of Denver: 
+\begin{itemize}
+\item Ryan Granier, 2019
+\item Rachel Goodman, 2020
+\item Luca Picci, 2020
+\item Conner Surrency, 2020
+\item Suraj Thapa, 2020
+\item Brittany Woodram, 2020
+\end{itemize}
 
 \end{quotation}
 
@@ -258,31 +315,31 @@ National Security Education Program Scholarship, for study in Chile, 2003\\[6pt]
 % D. Abraham, E. Reynolds, P. Schultz, A. Jansen, and D. Dees. 2006. \emph{\href{http://jes.ecsdl.org/content/153/8/A1610.abstract}{Temperature Dependence of Capacity and Impedance Data from Fresh and Aged High-Power Lithium-Ion Cells}}, Journal of Electrochemical. Society, 153(8): A1610-A1616. \\[6pt]%
 % D. Abraham, E. Reynolds, E. Sammann , A. Jansen,  D. Dees. 2005. \emph{\href{http://www.sciencedirect.com/science/article/pii/S0013468605004433}{Aging Characteristics of High-Power Lithium-Ion Cells with LiNi\textsubscript{0.8}Co\textsubscript{0.15}Al\textsubscript{0.05}O\textsubscript{2} and Li\textsubscript{4/3}Ti\textsubscript{5/3}O\textsubscript{4} electrodes}}, Electrochimica Acta 51(3): 502-510.%
 %
-\section{Dynamic Learning Resources}
-
-
-\emph{\href{https://evamaerey.github.io/easy-geom-recipes/}{Easy geom recipes: A introduction ggplot2 layer extension}}
-
-\emph{\href{https://evamaerey.github.io/ggplot2-extension-cookbook/}{ggplot2 Extension Cookbook}}
-
-
-\emph{\href{https://evamaerey.github.io/flipbooks/textbook}{The R Flipbook Textbook: A introduction to data manipulation, visualization, and statistical analysis with dynamic examples}}
-
-\emph{\href{https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html}{the ggplot2 flipbook: a collection of ggplot2 plot builds}}
-
-\emph{\href{https://evamaerey.github.io/ggplot2_grammar_guide/about}{a ggplot2 grammar guide: a systematic tour through ggplot2 elements}}
+% \section{Dynamic Learning Resources}
+% 
+% 
+% \emph{\href{https://evamaerey.github.io/easy-geom-recipes/}{Easy geom recipes: A introduction ggplot2 layer extension}}
+% 
+% \emph{\href{https://evamaerey.github.io/ggplot2-extension-cookbook/}{ggplot2 Extension Cookbook}}
+% 
+% 
+% \emph{\href{https://evamaerey.github.io/flipbooks/textbook}{The R Flipbook Textbook: A introduction to data manipulation, visualization, and statistical analysis with dynamic examples}}
+% 
+% \emph{\href{https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html}{the ggplot2 flipbook: a collection of ggplot2 plot builds}}
+% 
+% \emph{\href{https://evamaerey.github.io/ggplot2_grammar_guide/about}{a ggplot2 grammar guide: a systematic tour through ggplot2 elements}}
 %
 %
 %
 %
-\section{Selected Working Papers}
+\section{Working Papers}
 
-Report for Posit, PBC: \emph{'Easy Geom Recipes' insights from survey and focus group feedback}\\[6pt]
-\emph{Who are the ggplot2 extenders?} with Joyce Robbins, Vivian Zheng and H. Sherry Zhang\\[6pt]
-\emph{Flipbooks: presenting incremental, side-by-side, aligned code-output evolution}\\[6pt]
-\emph{Shallow Fakes: Assessing the potential for spoofing and faking in data visualization and what to do about it}\\[6pt]
-\emph{Reputation, participation, and compliance on the UN Security Council}\\[6pt]
-\emph{How much do \emph{fake} international obligations matter?  Testing false-positive rates in dyadic difference-in-difference designs using synthetic interventions}\\[6pt]
+Report for Posit, PBC: ``'Easy Geom Recipes' insights from survey and focus group feedback"\\[6pt]
+``Who are the ggplot2 extenders?" with Joyce Robbins, Vivian Zheng and H. Sherry Zhang\\[6pt]
+``Flipbooks: presenting incremental, side-by-side, aligned code-output evolution" \\[6pt]
+``Shallow Fakes: Assessing the potential for spoofing and faking in data visualization and what to do about it"\\[6pt]
+``Reputation, participation, and compliance on the UN Security Council"\\[6pt]
+``How much do \emph{fake} international obligations matter?  Testing false-positive rates in dyadic difference-in-difference designs using synthetic interventions"\\[6pt]
 
 % \section{Tool and Resource Development}
 %
@@ -327,38 +384,27 @@ Report for Posit, PBC: \emph{'Easy Geom Recipes' insights from survey and focus 
 %
 \section{Recent Talks \\and Conference\\ Presentations}
 
-\emph{Who are the ggplot2 extenders and how to become one?}, Posit Conference, September 2025.
-
-\emph{Who are the ggplot2 extenders and how to become one?}, Joint Statistical Meeting, American Statistical Association, August 2025.
-
-\emph{Updating 'Easy Geom Recipes' for the ggplot2 4.0.0 release}, ggplot2 extenders meetup, July 2025.
-
-\emph{Everyday ggplot2 extension: light-weight 'geom' extension}, Colorado-Wyoming Chapter, American Statistical Association, April 2025.
-
-\emph{Supporting a new wave of ggplot2 extenders: New points of entry for ggplot2 super-users}, Colorado-Wyoming Chapter, American Statistical Association, October 2023.
-
-\emph{ggcirclepack}, ggplot2 extenders meetup, March 2023.
-
-\emph{Flipbooks: Helping people make sense of code by presenting it step-by-step and side-by-side with its output},
-RStudio Conference, January 2020 /
-Max Plank Institute for Biology, Dresden Germany, December 2019.
-
+``ggdims: Toward a viz- and code-first hitchhiker’s guide to dimensionality reduction", Fall 2026 CO-WY Chapter meeting of the ASA \\[6pt]
+``Who are the ggplot2 extenders and how to become one?", Posit Conference, September 2025.\\[6pt]
+``Who are the ggplot2 extenders and how to become one?", Joint Statistical Meeting, American Statistical Association, August 2025.\\[6pt]
+``What the ggplot2 4.0.0 release means for the 'Easy Geom Recipes'", ggplot2 extenders meetup, July 2025.\\[6pt]
+``Everyday ggplot2 extension: light-weight 'geom' extension", Colorado-Wyoming Chapter, American Statistical Association, April 2025.\\[6pt]
+``Supporting a new wave of ggplot2 extenders: New points of entry for ggplot2 super-users", Colorado-Wyoming Chapter, American Statistical Association, October 2023.\\[6pt]
+``ggcirclepack", ggplot2 extenders meetup, March 2023. \\[6pt]
+``Flipbooks: Helping people make sense of code by presenting it step-by-step and side-by-side with its output",
+RStudio Conference, January 2020 \\[6pt]
+Max Plank Institute for Biology, Dresden Germany, December 2019. \\[6pt]
+``Is it time to rethinking how we teach the grammar of graphics with ggplot2?", RLadies Denver, November 2019\\[6pt]
+``Toward a reproducible workflow",  Korbel PhD Student Professionalization Series, October 2019 \\[6pt]
+``A ggplot2 grammar guide", Technische Universit\"{a}t, Dresden, Germany, August 2019 / The Max Planck Institute for Biology, Dresden
+July 2019 \\[6pt]
+``Shallow fakes: Assessing the potential for spoofing and faking in data visualization and what to do about it", Korbel School of
+International Studies Research Seminar, May 2019 \\[6pt]
+``Much Obliged: Reputation, Participation, Compliance, and the UN Security Council", Political Methodology Conference, 2018 \\[6pt]
+``RI for IR (Randomization Inference in International Relations Research)", Lorentz Center, Leiden University, 2018\\[6pt] %Apri
+``How Much Does Fictitious International Law `Matter'?", with Brian Gaines, American Political Science Association, 2017 \\[6pt]%April
 %
-\emph{Is it time to rethinking how we teach the grammar of graphics with ggplot2?}, RLadies Denver, November 2019\\[6pt]
-%
-\emph{Toward a reproducible workflow},  Korbel PhD Student Professionalization Series, October 2019 \\[6pt]
-%
-\emph{A ggplot2 grammar guide}, Technische Universit\"{a}t, Dresden, Germany, August 2019 / The Max Planck Institute for Biology, Dresden, July 2019 \\[6pt]
-%
-\emph{Shallow fakes: Assessing the potential for spoofing and faking in data visualization and what to do about it}, Korbel School of International Studies Research Seminar, May 2019 \\[6pt]
-%
-\emph{Much Obliged: Reputation, Participation, Compliance, and the UN Security Council}, Political Methodology Conference, 2018 \\[6pt]
-%
-\emph{RI for IR (Randomization Inference in International Relations Research)}, Lorentz Center, Leiden University, 2018\\[6pt] %April
-%
-\emph{How Much Does Fictitious International Law `Matter'?}, with Brian Gaines, American Political Science Association, 2017 \\[6pt]%April
-%
-%
+% %
 % \section{Recent \\Workshop \\Attendance}
 %
 % RStudio Conference, Workshop: RMarkdown and Interactive Dashboards, 2020 \\[6pt]
@@ -400,9 +446,6 @@ Max Plank Institute for Biology, Dresden Germany, December 2019.
 % % \end{quotation}
 % % %
 %
-\section{Software}
-
-R, Stata, SPSS, Git, \LaTeX, Markdown, Tableau, Excel
 
 
 %
@@ -467,21 +510,21 @@ German --- intermediate
 
 \section{Community \\ Activities}
 
-
+Member, Speaker \emph{R Users Group Denver}, since 2018 \\
 Co-founder \emph{RLadies} Denver, 2019 \\
 Choir member \emph{The Spirituals Project} of Denver, 2018 \\
 English language tutor \emph{Nachhilfe GBZ Emmaus} Dresden, 2018 \\
 Soloist, Small Ensemble Organizer/Performer \emph{First Mennonite Church of Urbana} 2012 - 2016\\
 Vocals, \emph{Bate Calado} Musica Popular Brasiliera, 2009-2012\\
 
-\section{References}
-\href{https://www.ramapo.edu/college-leadership/}{Dr. Michael Yankovich}, Vice President for Operational and Administrative Integration, +1-201-684-7765, myankovi@ramapo.edu\\
-\href{https://www.westpoint.edu/deans-staff/profile/susan_richardson-carter}{Dr. Susan Richardson (Carter)} Vice Dean for Academic Affairs \& Associate Professor, Susan.Richardson@westpoint.edu \\
-\href{https://korbel.du.edu/about/directory/rachel-epstein}{Dr. Rachel Epstein} Professor \& Faculty
-Josef Korbel School of International Studies, rachel.epstein@du.edu
-+1-303-871-3843\\
-\href{http://www.pol.illinois.edu/people/bjgaines}{Professor Brian Gaines}, Professor of Political Science, +1-217-333-4367, bjgaines@illinois.edu\\
-\href{http://www.pol.illinois.edu/people/mwinters}{Professor Matthew Winters}, Associate Professor of Political Science, +1-217-333-3881, mwinters@illinois.edu\\
+% \section{References}
+% \href{https://www.ramapo.edu/college-leadership/}{Dr. Michael Yankovich}, Vice President for Operational and Administrative Integration, +1-201-684-7765, myankovi@ramapo.edu\\
+% \href{https://www.westpoint.edu/deans-staff/profile/susan_richardson-carter}{Dr. Susan Richardson (Carter)} Vice Dean for Academic Affairs \& Associate Professor, Susan.Richardson@westpoint.edu \\
+% \href{https://korbel.du.edu/about/directory/rachel-epstein}{Dr. Rachel Epstein} Professor \& Faculty
+% Josef Korbel School of International Studies, rachel.epstein@du.edu
+% +1-303-871-3843\\
+% \href{http://www.pol.illinois.edu/people/bjgaines}{Professor Brian Gaines}, Professor of Political Science, +1-217-333-4367, bjgaines@illinois.edu\\
+% \href{http://www.pol.illinois.edu/people/mwinters}{Professor Matthew Winters}, Associate Professor of Political Science, +1-217-333-3881, mwinters@illinois.edu\\
 % \href{https://health.ucdavis.edu/vprp/ourteam/index.html}{Dr. Rose Kagawa}, Assistant Professor Ph.D, M.P.H., UC Davis, rkagawa@ucdavis.edu\\
 % %----------------------------------------------------------------------------------------
 \end{resume}

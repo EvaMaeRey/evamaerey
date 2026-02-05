@@ -151,4 +151,614 @@ my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to
 create the note package (a lightly rewritten version of what Jim Hester
 presented) from within a README.
 
-<!-- Some projects that I'm especially excited about at the moment are: -->
+Some work projects that are especially motivating:
+
+1.  [{ggdims}](https://github.com/EvaMaeRey/ggdims): a framework for
+    dimension reduction in the ggplot2 grammar.
+
+This project breaks new ground in the ggplot2 ecosystem so that
+‘aggregation’ can be as easily handled across *features* (columns) as it
+is to aggregegate across samples (rows).
+
+``` r
+library(ggplot2)
+library(ggdims)
+
+pca <- penguins_normalized |>
+  ggplot() + 
+  aes(dims = dims(bill_len:body_mass),
+      fill = species) +
+  geom_pca() 
+
+tsne <- penguins_normalized |>
+  ggplot() + 
+  aes(dims = dims(bill_len:body_mass),
+      fill = species) +
+  geom_tsne() 
+
+umap <- penguins_normalized |>
+  ggplot() + 
+  aes(dims = dims(bill_len:body_mass),
+      fill = species) +
+  geom_umap() 
+  
+library(patchwork)
+pca + labs(title = "PCA") + 
+  tsne + labs(title = "t-SNE") + 
+  umap + labs(title = "UMAP") + 
+  plot_layout(guides = "collect") + 
+  plot_annotation(title = "Dimension reduction techniques with 'Palmer Penguins' data")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+2.  [{ggregions}](https://github.com/EvaMaeRey/ggregions)
+
+The ggregions changes how analysts can interact with sf data.
+Specifically it provides utilities that allow package authors to quickly
+and cleanly create region-aware `geom_*()` functions.
+
+Writing a new region-aware geom with ggregions:
+
+``` r
+us_states_ref <- usmapdata::us_map() |> 
+  select(state_name = full, 
+         state_fips = fips, 
+         state_abb = abbr, 
+         geometry = geom)
+
+geom_state <- ggregions::write_geom_region_locale(ref_data = us_states_ref)
+```
+
+User experience: Use geo-referenced in an intuitive way with smart layer
+— borders are added under the hood!
+
+``` r
+# geo data without boarder info
+head(us_rent_income) 
+```
+
+    ## # A tibble: 6 × 5
+    ##   GEOID NAME    variable estimate   moe
+    ##   <chr> <chr>   <chr>       <dbl> <dbl>
+    ## 1 01    Alabama income      24476   136
+    ## 2 01    Alabama rent          747     3
+    ## 3 02    Alaska  income      32940   508
+    ## 4 02    Alaska  rent         1200    13
+    ## 5 04    Arizona income      27517   148
+    ## 6 04    Arizona rent          972     4
+
+``` r
+# plot
+us_rent_income |> 
+  filter(variable == "rent") |> 
+  ggplot() + 
+  aes(state_name = NAME, 
+      fill = estimate) + 
+  geom_state() +  
+  scale_fill_viridis_c()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+Notably, this framework may also be used with other atlas types, for
+example anatomical atlases.
+
+<details>
+
+<details>
+
+<details>
+
+``` r
+library(tidyverse)
+state_ref <- usmapdata::us_map() |> 
+  select(state = full, 
+         state_fips = fips, 
+         state_abb = abbr, 
+         geometry = geom)
+
+head(state_ref)
+```
+
+    ## Simple feature collection with 6 features and 3 fields
+    ## Geometry type: MULTIPOLYGON
+    ## Dimension:     XY
+    ## Bounding box:  xmin: -2584074 ymin: -2602555 xmax: 1431301 ymax: -39590.54
+    ## Projected CRS: NAD27 / US National Atlas Equal Area
+    ##        state state_fips state_abb                       geometry
+    ## 1     Alaska         02        AK MULTIPOLYGON (((-2390688 -2...
+    ## 2    Alabama         01        AL MULTIPOLYGON (((1091785 -13...
+    ## 3   Arkansas         05        AR MULTIPOLYGON (((482022.2 -9...
+    ## 4    Arizona         04        AZ MULTIPOLYGON (((-1386064 -1...
+    ## 5 California         06        CA MULTIPOLYGON (((-1716581 -1...
+    ## 6   Colorado         08        CO MULTIPOLYGON (((-787705.6 -...
+
+``` r
+geom_state <- ggregions::write_geom_region_locale(state_ref)
+stamp_state <- ggregions::write_stamp_region_locale(state_ref)
+```
+
+</details>
+
+### us states target api
+
+``` r
+USArrests |>
+  rownames_to_column(var = "state") |> 
+  head()
+```
+
+    ##        state Murder Assault UrbanPop Rape
+    ## 1    Alabama   13.2     236       58 21.2
+    ## 2     Alaska   10.0     263       48 44.5
+    ## 3    Arizona    8.1     294       80 31.0
+    ## 4   Arkansas    8.8     190       50 19.5
+    ## 5 California    9.0     276       91 40.6
+    ## 6   Colorado    7.9     204       78 38.7
+
+``` r
+USArrests |>
+  rownames_to_column(var = "state") |>
+  ggplot() + 
+  aes(state = state,
+      fill = Assault) + 
+  geom_state()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+
+## teethr’s data experiment
+
+<https://github.com/bbartholdy/teethr>
+
+<details>
+
+``` r
+library(tidyverse)
+library(teethr)
+teeth_ref_data <- dental_arcade_mapping |> 
+  as_tibble() |> 
+  left_join(tooth_notation |> 
+  select(tooth = text, fdi = FDI, standard = standards) 
+  )
+
+caries_ratios <- mb11_caries %>% 
+  dental_longer(-id) %>%
+  dental_join() %>% 
+  count_caries(caries = score, no_lesion = "none") %>% # convert location to lesion count
+  group_by(tooth) %>% 
+  dental_ratio(count = caries_count) %>%
+  dental_recode(tooth, "FDI", "text") 
+```
+
+``` r
+head(teeth_ref_data)  # are there other ids?  like just number of tooth?
+```
+
+    ## # A tibble: 6 × 4
+    ##   tooth                                                  geometry fdi   standard
+    ##   <chr>                                                 <POLYGON> <chr> <chr>   
+    ## 1 URM2  ((65.18537 293.3849, 65.71057 295.1088, 66.38935 296.496… 17    2       
+    ## 2 URM1  ((74.4591 325.7847, 75.55431 326.5688, 76.88258 327.0586… 16    3       
+    ## 3 URP2  ((76.59484 342.573, 77.43558 343.7596, 78.59217 344.6295… 15    4       
+    ## 4 URP1  ((86.86233 359.6018, 86.86725 360.529, 87.02025 360.8659… 14    5       
+    ## 5 URC1  ((101.1985 370.3966, 101.3456 371.2152, 101.6861 371.999… 13    6       
+    ## 6 URI2  ((123.4955 387.3634, 123.4955 387.3634, 124.5163 387.779… 12    7
+
+``` r
+library(ggregions)
+geom_tooth <- ggregions::write_geom_region_locale(teeth_ref_data)
+geom_tooth_text <- write_geom_region_text_locale(teeth_ref_data)
+stamp_tooth <- write_stamp_region_locale(teeth_ref_data)
+stamp_tooth_text <- write_stamp_region_text_locale(teeth_ref_data)
+```
+
+</details>
+
+### teethrXggregions resultant API
+
+``` r
+ggplot() + 
+  stamp_tooth() + 
+  stamp_tooth_text(size = 2)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+
+``` r
+head(caries_ratios)
+```
+
+    ## # A tibble: 6 × 4
+    ##   tooth     n count  ratio
+    ##   <chr> <int> <dbl>  <dbl>
+    ## 1 URI1     35     4 0.114 
+    ## 2 URI2     31     4 0.129 
+    ## 3 URC1     35     7 0.2   
+    ## 4 URP1     34     3 0.0882
+    ## 5 URP2     23     5 0.217 
+    ## 6 URM1     32     7 0.219
+
+``` r
+caries_ratios |> 
+  ggplot() + 
+  stamp_tooth() + 
+  aes(tooth = tooth, 
+      fill = ratio) + 
+  geom_tooth()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+
+``` r
+last_plot() + 
+  geom_tooth(keep = c("LLM1", "URM3")) |> 
+    ggfx::with_outer_glow("red") + 
+  geom_tooth_text(keep = c("LLM1", "URM3"),
+                  label = "😬",
+                  hjust = -0.5) 
+```
+
+![](README_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->
+
+### more ids are joined under the hood
+
+``` r
+ggplot() + 
+  stamp_tooth() + 
+  stamp_tooth_text(size = 2,
+                   aes(label = after_stat(fdi)))
+```
+
+![](README_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+
+``` r
+ggplot() + 
+  stamp_tooth() + 
+  stamp_tooth_text(size = 2,
+                   aes(label = after_stat(standard)))
+```
+
+![](README_files/figure-gfm/unnamed-chunk-21-2.png)<!-- -->
+
+# gganatogram’s data experiment
+
+<https://github.com/jespermaag/gganatogram>
+
+<details>
+
+``` r
+library(tidyverse)
+library(gganatogram)
+
+
+
+gganatogram::mmFemale_list |> 
+  bind_rows() |>
+  remove_missing() |>
+  ggplot() + 
+  aes(x, -y, group = group, color = id) + 
+  geom_polygon(show.legend = F) + 
+  coord_equal()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+
+``` r
+to_sf_routine <- function(data){
+  
+  data |>
+  mutate(y = -y) |>
+  sf::st_as_sf(coords = c("x", "y"), agr = "constant") |>
+  group_by(id, group) |>
+  summarize(do_union = F) |> 
+  ungroup() |> 
+  group_by(id, group) |>
+  summarise() |>
+  mutate(geometry = geometry |> sf::st_cast("POLYGON")) |> 
+  mutate(geometry = geometry |> sf::st_cast("MULTIPOLYGON")) |> 
+  ungroup() 
+  
+}
+
+mm_female_sf <- gganatogram::mmFemale_list |> 
+  bind_rows() |>
+  # filter(x != 0, y != 0, y < -2) |>
+  remove_missing() |>
+  to_sf_routine() |> 
+  rename(organ = id)
+
+
+
+
+mm_female_sf |> 
+  ggplot()  + 
+  geom_sf(aes(geometry = geometry)) + 
+  coord_sf()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+
+``` r
+geom_organ <- ggregions::write_geom_region_locale(mm_female_sf)
+stamp_organ <- ggregions::write_stamp_region_locale(mm_female_sf)
+
+mm_female_sf$organ |> sample(20)
+```
+
+    ##  [1] "peripheral_nervous_system" "skin"                     
+    ##  [3] "peripheral_nervous_system" "peripheral_nervous_system"
+    ##  [5] "LAYER_OUTLINE"             "peripheral_nervous_system"
+    ##  [7] "peripheral_nervous_system" "UBERON_0000947"           
+    ##  [9] "UBERON_0000947"            "peripheral_nervous_system"
+    ## [11] "peripheral_nervous_system" "lymph_node"               
+    ## [13] "peripheral_nervous_system" "peripheral_nervous_system"
+    ## [15] "uterus"                    "UBERON_0000947"           
+    ## [17] "UBERON_0000947"            "peripheral_nervous_system"
+    ## [19] "spinal_cord"               "peripheral_nervous_system"
+
+</details>
+
+``` r
+ggplot() + 
+  stamp_organ() + 
+  stamp_organ(keep = "aorta", fill = "darkred") +
+  stamp_organ(keep = "brain", fill = "darkseagreen") + 
+  stamp_organ(keep = "blood_vessel", fill = "orange")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+
+# original mouse gganatogram api
+
+<details>
+
+``` r
+# original api
+gganatogram(data = mmFemale_key, 
+            outline = T, 
+            fillOutline='#440154FF', 
+            organism = 'mouse', 
+            sex='female', 
+            fill="value")  + 
+  theme_void()   +  
+  scale_fill_viridis_c() +
+  coord_equal()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+
+``` r
+cell_sf <- gganatogram::cell_list[[1]] |> 
+  bind_rows() |>
+  # filter(x != 0, y != 0, y < -2) |>
+  remove_missing() |>
+  to_sf_routine() |> 
+  rename(organelle = id)
+
+
+cell_sf |> 
+  ggplot()  + 
+  geom_sf(aes(geometry = geometry), alpha = .2) + 
+  coord_sf()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+
+``` r
+geom_organelle <- ggregions::write_geom_region_locale(cell_sf)
+stamp_organelle <- ggregions::write_stamp_region_locale(cell_sf)
+
+cell_sf
+```
+
+    ## Simple feature collection with 1088 features and 2 fields
+    ## Geometry type: MULTIPOLYGON
+    ## Dimension:     XY
+    ## Bounding box:  xmin: 5.4 ymin: -483.4 xmax: 606.7 ymax: -8.4
+    ## CRS:           NA
+    ## # A tibble: 1,088 × 3
+    ##    organelle       group                                                geometry
+    ##    <chr>           <chr>                                          <MULTIPOLYGON>
+    ##  1 actin_filaments 6_10  (((43.4 -268.8, 52.5 -250.1, 62.4 -231.9, 74.4 -214.6,…
+    ##  2 actin_filaments 6_11  (((111 -398.1, 113.7 -400.7, 116.4 -403.2, 96.6 -396.2…
+    ##  3 actin_filaments 6_12  (((112.1 -396.9, 112.6 -397.1, 113.2 -397.3, 121 -400.…
+    ##  4 actin_filaments 6_13  (((170.7 -422.4, 175.3 -423.8, 179.9 -425.2, 184.8 -42…
+    ##  5 actin_filaments 6_14  (((197.2 -430.3, 203.4 -432.1, 209.7 -433.9, 206.5 -43…
+    ##  6 actin_filaments 6_15  (((554.9 -230.1, 554.3 -238.9, 553.9 -247.6, 537.5 -17…
+    ##  7 actin_filaments 6_16  (((554.6 -192.2, 556.1 -196.3, 557.6 -200.4, 557.1 -20…
+    ##  8 actin_filaments 6_17  (((557.9 -245.2, 559.4 -261.7, 560.9 -278.7, 559 -269.…
+    ##  9 actin_filaments 6_18  (((523 -91.4, 531 -97, 537.9 -102.8, 543.2 -128.5, 547…
+    ## 10 actin_filaments 6_19  (((512.7 -82.2, 512 -80.5, 511.3 -78.8, 519.4 -82.2, 5…
+    ## # ℹ 1,078 more rows
+
+</details>
+
+``` r
+ggplot() + 
+  stamp_organelle(alpha = .2) + 
+  stamp_organelle(keep = "actin_filaments", fill = "orange", alpha = .1) +
+  stamp_organelle(keep = "endoplasmic_reticulum", fill = "darkred") 
+```
+
+![](README_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
+
+# Trying female human anatomy with same routine
+
+<details>
+
+``` r
+length(gganatogram::hgFemale_list)
+```
+
+    ## [1] 204
+
+``` r
+# fix so that all data frames can be combined with bind_rows
+# the groups are numeric and character so using bind_rows fails
+female_sf <- gganatogram::hgFemale_list[c(1:156, 180:195)] |> # return to this!!
+  bind_rows() |>
+  remove_missing() |>
+  to_sf_routine() 
+  
+stamp_organ <- ggregions::write_stamp_region_locale(female_sf)
+
+ggplot(female_sf) + 
+  aes(geometry = geometry) +
+  geom_sf(alpha = .2)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+
+``` r
+male_sf <- gganatogram::hgMale_list[2:155] |>  
+  bind_rows() |>
+  # filter(x != 0, y != 0, y < -2) |>
+  remove_missing() |>
+  to_sf_routine() 
+
+
+
+ggplot(male_sf) + 
+  aes(geometry = geometry) +
+  geom_sf(alpha = .2)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-30-2.png)<!-- -->
+
+</details>
+
+### target api…
+
+``` r
+ggplot() + 
+  stamp_organ(alpha = .2) + 
+  stamp_organ(keep = "lung", 
+              fill = "plum3") + 
+  stamp_organ(keep = "stomach",
+              fill = "cornsilk") + 
+  stamp_organ(keep = "heart", 
+              fill = "coral") + 
+  stamp_organ(keep = "brain", 
+              fill = "pink3")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
+
+# aseg X data
+
+``` r
+library(ggseg)
+
+coronal_ref_data <- ggseg::aseg$data |> 
+  filter(side == "coronal") |>     # just look at coronal for the nuttiness.
+  group_by(region) |> 
+  summarise(geometry = sf::st_combine(geometry)) |> 
+  select(region = region, everything())
+  
+coronal_ref_data |> pull(region)
+```
+
+    ## [1] "amygdala"          "caudate"           "hippocampus"      
+    ## [4] "lateral ventricle" "pallidum"          "putamen"          
+    ## [7] "thalamus proper"   "ventral DC"        NA
+
+``` r
+library(ggregions)
+geom_region <- write_geom_region_locale(ref_data = coronal_ref_data)
+stamp_region <- write_stamp_region_locale(ref_data = coronal_ref_data)
+geom_region_text <- write_geom_region_text_locale(ref_data = coronal_ref_data)
+stamp_region_text <- write_stamp_region_text_locale(ref_data = coronal_ref_data)
+
+
+ggplot() + 
+  stamp_region() + 
+  stamp_region(keep = "hippocampus", fill = "blue")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+
+``` r
+ggplot() + 
+  stamp_region() + 
+  stamp_region_text(check_overlap = T)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-32-2.png)<!-- -->
+
+``` r
+tribble(~activity, ~segment,
+       .2, "hippocampus",
+       .5, "amygdala",
+       .7, "thalamus proper") |>
+ggplot() + 
+  stamp_region() + 
+  aes(region = segment,
+      fill = activity) + 
+  geom_region() 
+```
+
+![](README_files/figure-gfm/unnamed-chunk-32-3.png)<!-- -->
+
+``` r
+new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",
+                                            paper_color = "cornsilk1" |> alpha(.4), highlight_colors = c("grey90" |> alpha(.4), "orange" |> alpha(.3) ))
+
+'library(ggdims)
+
+iris |> 
+  ggplot() + 
+  aes(dims = #<<
+        dims( #<<
+        Sepal.Length:Petal.Width #<<
+        ), #<<
+      fill = Species) + 
+  geom_tsne()  #<<' |>
+ggram::ggram(code = _ , "ggdims API EvaMaeRey/ggdims", widths = c(2, 1.5), code_style_args = new_style,
+             caption = "github.com/EvaMaeRey/ggdims")
+```
+
+``` r
+library(ggplot2)
+# panel_gray_gradient <- 
+  
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scales::pal_grey()(10) |> 
+  grid::linearGradient() |> 
+  theme(panel.background = _)
+
+gray_gradient <- grid::linearGradient(scales::pal_grey()(10))
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  theme(panel.background = element_rect(fill = gray_gradient))
+
+
+library(ggplot2)
+
+my_gradient <- c("lightblue", #<<
+                 "pink") |> #<<
+  grid::linearGradient() #<<
+
+ggplot(cars) +
+  aes(speed, dist) + 
+  geom_point(shape = "🎈",
+             size =7) +
+  theme(
+    panel.background = 
+      element_rect(
+        fill = my_gradient) #<<
+        )
+
+ggram::ggram("The sky's the limit!", subtitle = "R 4.1.0 started supporting patterns and gradients which meant new possibilities for using ggplot2\nincluding fill gradients")
+
+
+ggplot(cars) +
+  aes(speed, dist) + 
+  geom_point(shape = "🎈",
+             size =7) +
+  theme_panel.background()
+```

@@ -48,7 +48,7 @@ Stuff I do:
 
 ```{r, include = F}
 library(tidyverse)
-knitr::opts_chunk$set(warning = F, message = F, echo = F)
+knitr::opts_chunk$set(warning = F, message = F, echo = T)
 
 ```
 
@@ -126,7 +126,96 @@ Previously, I had a greater focus on illuminating the grammar of *base* ggplot2,
 
 I am also especially interested in entry points to R package writing, working on resources like a ['companion guide](https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes) to to Jim Hester's talk how to write and R package in 20 minutes' (2000) I have also looked comparatively at literate package writing tools of [{fusen}](https://thinkr-open.github.io/fusen/), [{litr}](https://jacobbien.github.io/litr-project/), and my own 'readme-to-package' approach, including via an coordinating a virtual meeting with the authors at RLadies Denver, [March 2024 meeting](meetup.com/rladies-denver/events/299879858/?eventOrigin=group_past_events). The [note package (2025)](https://github.com/musician-tools/note) uses my [{knitrExtra}](https://github.com/EvaMaeRey/knitrExtra) package to create the note package (a lightly rewritten version of what Jim Hester presented) from within a README.
 
-<!-- Some projects that I'm especially excited about at the moment are: -->
+Some work projects that are especially motivating:
+
+1. [{ggdims}](https://github.com/EvaMaeRey/ggdims): a framework for dimension reduction in the ggplot2 grammar.  
+
+This project breaks new ground in the ggplot2 ecosystem so that 'aggregation' can be as easily handled across *features* (columns) as it is to aggregegate across samples (rows).
+
+```{r, echo = F, message = F, warning=F}
+library(tidyverse)
+penguins_normalized <- penguins |> 
+  remove_missing() |> 
+  mutate(bill_len = bill_len/ max(bill_len)) |>
+  mutate(bill_dep = bill_dep/ max(bill_dep)) |> 
+  mutate(flipper_len = flipper_len/max(flipper_len)) |> 
+  mutate(body_mass = body_mass/max(body_mass)) 
+```
+
+
+```{r, fig.height=3}
+library(ggplot2)
+library(ggdims)
+
+pca <- penguins_normalized |>
+  ggplot() + 
+  aes(dims = dims(bill_len:body_mass),
+      fill = species) +
+  geom_pca() 
+
+tsne <- penguins_normalized |>
+  ggplot() + 
+  aes(dims = dims(bill_len:body_mass),
+      fill = species) +
+  geom_tsne() 
+
+umap <- penguins_normalized |>
+  ggplot() + 
+  aes(dims = dims(bill_len:body_mass),
+      fill = species) +
+  geom_umap() 
+  
+library(patchwork)
+pca + labs(title = "PCA") + 
+  tsne + labs(title = "t-SNE") + 
+  umap + labs(title = "UMAP") + 
+  plot_layout(guides = "collect") + 
+  plot_annotation(title = "Dimension reduction techniques with 'Palmer Penguins' data")
+
+```
+
+2. [{ggregions}](https://github.com/EvaMaeRey/ggregions)
+
+The ggregions changes how analysts can interact with sf data.  Specifically it provides utilities that allow package authors to quickly and cleanly create region-aware `geom_*()` functions. 
+
+Writing a new region-aware geom with ggregions:
+
+```{r}
+us_states_ref <- usmapdata::us_map() |> 
+  select(state_name = full, 
+         state_fips = fips, 
+         state_abb = abbr, 
+         geometry = geom)
+
+geom_state <- ggregions::write_geom_region_locale(ref_data = us_states_ref)
+```
+
+User experience: Use geo-referenced in an intuitive way with smart layer --- borders are added under the hood! 
+
+```{r}
+# geo data without boarder info
+head(us_rent_income) 
+
+# plot
+us_rent_income |> 
+  filter(variable == "rent") |> 
+  ggplot() + 
+  aes(state_name = NAME, 
+      fill = estimate) + 
+  geom_state() +  
+  scale_fill_viridis_c()
+```
+
+Notably, this framework may also be used with other atlas types, for example anatomical atlases.
+
+<details>
+
+
+<details>
+
+
+```{r, child = "../mytidytuesday/2026-01-21-gganatogram-x-ggregions/gganatogram-x-ggregions.Rmd"}
+```
 
 
 
