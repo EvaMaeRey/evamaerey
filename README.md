@@ -192,7 +192,21 @@ pca + labs(title = "PCA") +
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-2.  [{ggregions}](https://github.com/EvaMaeRey/ggregions)
+2.  The packaging assistance tool {knitrExtra} that allow R packages to
+    be quickly sketched out inside the context of the narrative that
+    motivates their creation. This allows for a faster iteration and
+    feedback - ensuring package end-user requirements are met and that
+    API concerns can be addressed early on.
+
+From a README.Rmd or .qmd file or similar, one can write out a package
+narrative alongside package code. Then code can be copied to a file in
+the appropriate directory to satisfy packaging requirements.
+
+``` r
+knitrExtra::chunk_to_dir("my_function", dir = "R")
+```
+
+3.  [{ggregions}](https://github.com/EvaMaeRey/ggregions)
 
 The ggregions changes how analysts can interact with [simple
 features](https://en.wikipedia.org/wiki/Simple_Features) (sf) data.
@@ -241,12 +255,12 @@ us_rent_income |>
   scale_fill_viridis_c()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 Notably, this framework may also be used with other atlas types, for
 example anatomical atlases.
 
-## teethr’s data experiment
+### ggregions with teethr::dental_arcade_mapping
 
 <https://github.com/bbartholdy/teethr>
 
@@ -294,7 +308,7 @@ stamp_tooth_text <- write_stamp_region_text_locale(teeth_ref_data)
 
 </details>
 
-### teethrXggregions resultant API
+### yields user-friendly API
 
 ``` r
 head(caries_ratios)
@@ -319,11 +333,9 @@ caries_ratios |>
   stamp_tooth_text(size = 2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
-# gganatogram’s data experiment
-
-<https://github.com/jespermaag/gganatogram>
+### ggregions with gganatogram::cell_list
 
 <details>
 
@@ -382,6 +394,8 @@ cell_sf
 
 </details>
 
+#### yields user-friendly API
+
 ``` r
 ggplot() + 
   stamp_organelle(alpha = .2) + 
@@ -391,9 +405,9 @@ ggplot() +
                   fill = "darkred") 
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
-# Trying female human anatomy with same routine
+### ggregions and gganatogram::hgFemale_list
 
 <details>
 
@@ -419,7 +433,7 @@ ggplot(female_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ``` r
 male_sf <- gganatogram::hgMale_list[2:155] |>  
@@ -435,11 +449,11 @@ ggplot(male_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
 
 </details>
 
-### target api…
+#### yields user-friendly API
 
 ``` r
 ggplot() + 
@@ -451,9 +465,9 @@ ggplot() +
     )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
 
-# aseg X data
+### ggregions and ggseg::aseg\$data
 
 <details developer facing>
 
@@ -483,6 +497,8 @@ stamp_region_text <- write_stamp_region_text_locale(ref_data = coronal_ref_data)
 
 </details>
 
+#### yields user-friendly API
+
 ``` r
 tribble(~activity, ~segment,
         .2,        "hippocampus",
@@ -497,68 +513,131 @@ ggplot() +
   scale_fill_viridis_c(option = "magma")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
 
 ------------------------------------------------------------------------
 
+4.  Flipbookr’s new `reveal_live` capabilities
+
+Now, flipbookr can reanimate pipelines with an API similar to the
+popular package ‘reprex’ using the then `reveal_live` capabilities.
+
+First, the user should copy some code that they would like ‘animated’ to
+their clipboard.
+
+Then they can execute the code `reveal_live()`, which will create a
+code-output movie based the code on the clipboard and any objects that
+are in memory.
+
+------------------------------------------------------------------------
+
+5.  Routines that link physical phenomena with statistical models
+
+ggsprings (with Dr. Michael Friendly) helps instructors/students note
+the commonality between OLS and a spring system, where the spring system
+will minimize the potential energy of the system and the OLS model is
+the line that minimizes the sum of the squared residuals.
+
 ``` r
-new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",
-                                            paper_color = "cornsilk1" |> alpha(.4), highlight_colors = c("grey90" |> alpha(.4), "orange" |> alpha(.3) ))
+library(ggsprings)
 
-'library(ggdims)
+ggplot(anscombe) +
+  aes(x2, y2) + 
+  geom_point() + 
+  geom_smooth(method = lm) + 
+  ggsprings:::geom_residual_springs(method = lm)
+```
 
-iris |> 
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+ggprop.test helps educators/students understand the proportion as a
+balancing point, and the distribution that’s consistent with the null
+hypothesis as a distribution that lies along that balance.
+
+``` r
+head(donor)
+```
+
+    ## # A tibble: 6 × 3
+    ##   Default Choice decision 
+    ##   <chr>   <chr>  <fct>    
+    ## 1 opt-in  donor  donor (1)
+    ## 2 opt-in  donor  donor (1)
+    ## 3 opt-in  donor  donor (1)
+    ## 4 opt-in  donor  donor (1)
+    ## 5 opt-in  donor  donor (1)
+    ## 6 opt-in  donor  donor (1)
+
+``` r
+snapshot <- function(...){ggplyr::intercept(...)}
+
+library(ggprop.test)
+donor |>
   ggplot() + 
-  aes(dims = #<<
-        dims( #<<
-        Sepal.Length:Petal.Width #<<
-        ), #<<
-      fill = Species) + 
-  geom_tsne()  #<<' |>
-ggram::ggram(code = _ , "ggdims API EvaMaeRey/ggdims", widths = c(2, 1.5), code_style_args = new_style,
-             caption = "github.com/EvaMaeRey/ggdims")
+  aes(x = decision) +
+  geom_stack() + 
+  geom_stack_label() + snapshot("p1") +
+  geom_support() + snapshot("p2") +
+  geom_prop() + 
+  geom_prop_label() + snapshot("p3") +
+  stamp_prop() + 
+  stamp_prop_label() + snapshot("p4") +
+  stamp_eq_norm_prop() +
+  geom_normal_prop_null() + snapshot("p5") +
+  geom_normal_prop_null_sds() + snapshot("p6")
 ```
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+If we discuss each of the snapshot points, we could write something like
+this:
 
 ``` r
-library(ggplot2)
-# panel_gray_gradient <- 
-  
-
-ggplot(mpg, aes(displ, hwy)) +
-  geom_point() +
-  scales::pal_grey()(10) |> 
-  grid::linearGradient() |> 
-  theme(panel.background = _)
-
-gray_gradient <- grid::linearGradient(scales::pal_grey()(10))
-
-ggplot(mpg, aes(displ, hwy)) +
-  geom_point() +
-  theme(panel.background = element_rect(fill = gray_gradient))
-
-
-library(ggplot2)
-
-my_gradient <- c("lightblue", #<<
-                 "pink") |> #<<
-  grid::linearGradient() #<<
-
-ggplot(cars) +
-  aes(speed, dist) + 
-  geom_point(shape = "🎈",
-             size =7) +
-  theme(
-    panel.background = 
-      element_rect(
-        fill = my_gradient) #<<
-        )
-
-ggram::ggram("The sky's the limit!", subtitle = "R 4.1.0 started supporting patterns and gradients which meant new possibilities for using ggplot2\nincluding fill gradients")
-
-
-ggplot(cars) +
-  aes(speed, dist) + 
-  geom_point(shape = "🎈",
-             size =7) +
-  theme_panel.background()
+library(patchwork)
+(p1 + p2) / 
+(p3 + p4) /
+(p5 + p6)  + 
+  patchwork::plot_annotation(
+    tag_levels = 1,
+    title = "A {ggprop.test} 'graphical poem' addressing the question: 
+    
+        For survey of 161 individuals on willingness to serve as 
+        organ doners in the case of an accident, is there evidence
+        that responses rate differs from a 50/50 split, 
+        when 53 individuals respond 'no' and 108 individuals respond 'yes'?
+      ",
+    subtitle = "1. Draw bar chart (stacks) for each category.
+2. Draw theoretical limits for proportion (0 to 1).
+3. Calculate proportion and place (also the balancing point for stacks!).
+4. Place null (look at the initial question, 'differs from 50/50' in this case)
+5. Draw distribution for NULL, where SD = sqrt((p * (1-p))/n)
+6. Calc z-score - where does observed prop fit into NULL distributions 
+   (i.e. how many standard deviations fit between .5 and .67)"
+                             ) &
+  ggchalkboard:::theme_blackboard(base_size = 14) 
 ```
+
+<img src="README_files/figure-gfm/unnamed-chunk-11-1.png" width="60%" />
+
+------------------------------------------------------------------------
+
+6.  Educational work in the ggplot2 extension space,
+
+Testimonials:
+
+> I was never a “ggextender” myself until \[going through the recipes\]!
+> … Easy geom recipes \[are\] a series of tutorials on creating ggplot2
+> extensions. Following “recipes”, you methodically create three
+> extensions. Each time, certain key knowledge points are reinforced and
+> new variations are introduced. ‘R Works’ Isabella Velazqués
+
+> Just wanted to share that I’m spending some of my weekend reading your
+> brilliant resource here. This is so well written and delightful as a
+> resource; wish I had had it years ago and thrilled to know it now.
+> Thank you for writing! - Emily Riederer
+
+> The format works for me. I’ve read tutorials about creating extensions
+> before, but this one made it look easier and more intuitive. I want to
+> try again writing my own! - Georgios Karamanis
+
+------------------------------------------------------------------------
