@@ -158,7 +158,7 @@ Some work projects that are especially motivating:
 
 This project breaks new ground in the ggplot2 ecosystem so that
 ‘aggregation’ can be as easily handled across *features* (columns) as it
-is to aggregegate across samples (rows).
+is to aggregate across samples (rows).
 
 ``` r
 library(ggplot2)
@@ -194,11 +194,12 @@ pca + labs(title = "PCA") +
 
 2.  [{ggregions}](https://github.com/EvaMaeRey/ggregions)
 
-The ggregions changes how analysts can interact with sf data.
+The ggregions changes how analysts can interact with [simple
+features](https://en.wikipedia.org/wiki/Simple_Features) (sf) data.
 Specifically it provides utilities that allow package authors to quickly
-and cleanly create region-aware `geom_*()` functions.
+and cleanly create region-aware `geom_*()` functions (smart layers).
 
-Writing a new region-aware geom with ggregions:
+Writing a new region-aware geom with ggregions is simple:
 
 ``` r
 us_states_ref <- usmapdata::us_map() |> 
@@ -210,8 +211,9 @@ us_states_ref <- usmapdata::us_map() |>
 geom_state <- ggregions::write_geom_region_locale(ref_data = us_states_ref)
 ```
 
-User experience: Use geo-referenced in an intuitive way with smart layer
-— borders are added under the hood!
+Then, user experience is very intuitive. The user can graph
+geo-referenced data in an intuitive way with smart layers like
+geom_state() — borders are added under the hood!
 
 ``` r
 # geo data without boarder info
@@ -243,10 +245,6 @@ us_rent_income |>
 
 Notably, this framework may also be used with other atlas types, for
 example anatomical atlases.
-
-<details>
-
-<details>
 
 <details>
 
@@ -359,14 +357,6 @@ stamp_tooth_text <- write_stamp_region_text_locale(teeth_ref_data)
 ### teethrXggregions resultant API
 
 ``` r
-ggplot() + 
-  stamp_tooth() + 
-  stamp_tooth_text(size = 2)
-```
-
-![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
-
-``` r
 head(caries_ratios)
 ```
 
@@ -383,67 +373,19 @@ head(caries_ratios)
 ``` r
 caries_ratios |> 
   ggplot() + 
-  stamp_tooth() + 
   aes(tooth = tooth, 
       fill = ratio) + 
-  geom_tooth()
+  geom_tooth(alpha = .2) + 
+  stamp_tooth_text(size = 2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
-
-``` r
-last_plot() + 
-  geom_tooth(keep = c("LLM1", "URM3")) |> 
-    ggfx::with_outer_glow("red") + 
-  geom_tooth_text(keep = c("LLM1", "URM3"),
-                  label = "😬",
-                  hjust = -0.5) 
-```
-
-![](README_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->
-
-### more ids are joined under the hood
-
-``` r
-ggplot() + 
-  stamp_tooth() + 
-  stamp_tooth_text(size = 2,
-                   aes(label = after_stat(fdi)))
-```
-
-![](README_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
-
-``` r
-ggplot() + 
-  stamp_tooth() + 
-  stamp_tooth_text(size = 2,
-                   aes(label = after_stat(standard)))
-```
-
-![](README_files/figure-gfm/unnamed-chunk-21-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 # gganatogram’s data experiment
 
 <https://github.com/jespermaag/gganatogram>
 
 <details>
-
-``` r
-library(tidyverse)
-library(gganatogram)
-
-
-
-gganatogram::mmFemale_list |> 
-  bind_rows() |>
-  remove_missing() |>
-  ggplot() + 
-  aes(x, -y, group = group, color = id) + 
-  geom_polygon(show.legend = F) + 
-  coord_equal()
-```
-
-![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ``` r
 to_sf_routine <- function(data){
@@ -461,90 +403,15 @@ to_sf_routine <- function(data){
   ungroup() 
   
 }
-
-mm_female_sf <- gganatogram::mmFemale_list |> 
-  bind_rows() |>
-  # filter(x != 0, y != 0, y < -2) |>
-  remove_missing() |>
-  to_sf_routine() |> 
-  rename(organ = id)
-
-
-
-
-mm_female_sf |> 
-  ggplot()  + 
-  geom_sf(aes(geometry = geometry)) + 
-  coord_sf()
 ```
-
-![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
-
-``` r
-geom_organ <- ggregions::write_geom_region_locale(mm_female_sf)
-stamp_organ <- ggregions::write_stamp_region_locale(mm_female_sf)
-
-mm_female_sf$organ |> sample(20)
-```
-
-    ##  [1] "peripheral_nervous_system" "skin"                     
-    ##  [3] "peripheral_nervous_system" "peripheral_nervous_system"
-    ##  [5] "LAYER_OUTLINE"             "peripheral_nervous_system"
-    ##  [7] "peripheral_nervous_system" "UBERON_0000947"           
-    ##  [9] "UBERON_0000947"            "peripheral_nervous_system"
-    ## [11] "peripheral_nervous_system" "lymph_node"               
-    ## [13] "peripheral_nervous_system" "peripheral_nervous_system"
-    ## [15] "uterus"                    "UBERON_0000947"           
-    ## [17] "UBERON_0000947"            "peripheral_nervous_system"
-    ## [19] "spinal_cord"               "peripheral_nervous_system"
-
-</details>
-
-``` r
-ggplot() + 
-  stamp_organ() + 
-  stamp_organ(keep = "aorta", fill = "darkred") +
-  stamp_organ(keep = "brain", fill = "darkseagreen") + 
-  stamp_organ(keep = "blood_vessel", fill = "orange")
-```
-
-![](README_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
-
-# original mouse gganatogram api
-
-<details>
-
-``` r
-# original api
-gganatogram(data = mmFemale_key, 
-            outline = T, 
-            fillOutline='#440154FF', 
-            organism = 'mouse', 
-            sex='female', 
-            fill="value")  + 
-  theme_void()   +  
-  scale_fill_viridis_c() +
-  coord_equal()
-```
-
-![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ``` r
 cell_sf <- gganatogram::cell_list[[1]] |> 
   bind_rows() |>
-  # filter(x != 0, y != 0, y < -2) |>
   remove_missing() |>
   to_sf_routine() |> 
   rename(organelle = id)
-
-
-cell_sf |> 
-  ggplot()  + 
-  geom_sf(aes(geometry = geometry), alpha = .2) + 
-  coord_sf()
 ```
-
-![](README_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ``` r
 geom_organelle <- ggregions::write_geom_region_locale(cell_sf)
@@ -582,7 +449,7 @@ ggplot() +
   stamp_organelle(keep = "endoplasmic_reticulum", fill = "darkred") 
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 # Trying female human anatomy with same routine
 
@@ -600,7 +467,8 @@ length(gganatogram::hgFemale_list)
 female_sf <- gganatogram::hgFemale_list[c(1:156, 180:195)] |> # return to this!!
   bind_rows() |>
   remove_missing() |>
-  to_sf_routine() 
+  to_sf_routine() |> 
+  rename(organ = id)
   
 stamp_organ <- ggregions::write_stamp_region_locale(female_sf)
 
@@ -609,7 +477,7 @@ ggplot(female_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 ``` r
 male_sf <- gganatogram::hgMale_list[2:155] |>  
@@ -625,7 +493,7 @@ ggplot(male_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-30-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-2.png)<!-- -->
 
 </details>
 
@@ -634,19 +502,18 @@ ggplot(male_sf) +
 ``` r
 ggplot() + 
   stamp_organ(alpha = .2) + 
-  stamp_organ(keep = "lung", 
-              fill = "plum3") + 
-  stamp_organ(keep = "stomach",
-              fill = "cornsilk") + 
-  stamp_organ(keep = "heart", 
-              fill = "coral") + 
-  stamp_organ(keep = "brain", 
-              fill = "pink3")
+  stamp_organ(
+    keep = c("lung", "stomach", 
+             "heart", "brain", "trachea"),
+    aes(fill = after_stat(organ))
+    )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
 # aseg X data
+
+<details developer facing>
 
 ``` r
 library(ggseg)
@@ -670,36 +537,35 @@ geom_region <- write_geom_region_locale(ref_data = coronal_ref_data)
 stamp_region <- write_stamp_region_locale(ref_data = coronal_ref_data)
 geom_region_text <- write_geom_region_text_locale(ref_data = coronal_ref_data)
 stamp_region_text <- write_stamp_region_text_locale(ref_data = coronal_ref_data)
-
-
-ggplot() + 
-  stamp_region() + 
-  stamp_region(keep = "hippocampus", fill = "blue")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+</details>
 
 ``` r
 ggplot() + 
   stamp_region() + 
-  stamp_region_text(check_overlap = T)
+  stamp_region(keep = c("hippocampus", "amygdala"), 
+               fill = c("blue", "orange"))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-32-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ``` r
 tribble(~activity, ~segment,
-       .2, "hippocampus",
-       .5, "amygdala",
-       .7, "thalamus proper") |>
+        .2,        "hippocampus",
+        .5,        "amygdala",
+        .7,        "thalamus proper") |>
 ggplot() + 
   stamp_region() + 
   aes(region = segment,
       fill = activity) + 
-  geom_region() 
+  geom_region() + 
+  scale_color_viridis_c()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-32-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
+
+------------------------------------------------------------------------
 
 ``` r
 new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",

@@ -130,16 +130,16 @@ Some work projects that are especially motivating:
 
 1. [{ggdims}](https://github.com/EvaMaeRey/ggdims): a framework for dimension reduction in the ggplot2 grammar.  
 
-This project breaks new ground in the ggplot2 ecosystem so that 'aggregation' can be as easily handled across *features* (columns) as it is to aggregegate across samples (rows).
+This project breaks new ground in the ggplot2 ecosystem so that 'aggregation' can be as easily handled across *features* (columns) as it is to aggregate across samples (rows).
 
 ```{r, echo = F, message = F, warning=F}
 library(tidyverse)
 penguins_normalized <- penguins |> 
   remove_missing() |> 
-  mutate(bill_len = bill_len/ max(bill_len)) |>
-  mutate(bill_dep = bill_dep/ max(bill_dep)) |> 
-  mutate(flipper_len = flipper_len/max(flipper_len)) |> 
-  mutate(body_mass = body_mass/max(body_mass)) 
+  mutate(bill_len = bill_len/ sd(bill_len) - mean(bill_len)) |>
+  mutate(bill_dep = bill_dep/ sd(bill_dep) - mean(bill_dep)) |> 
+  mutate(flipper_len = flipper_len/sd(flipper_len) - mean(flipper_len)) |> 
+  mutate(body_mass = body_mass/sd(body_mass) - mean(body_mass)) 
 ```
 
 
@@ -176,9 +176,9 @@ pca + labs(title = "PCA") +
 
 2. [{ggregions}](https://github.com/EvaMaeRey/ggregions)
 
-The ggregions changes how analysts can interact with sf data.  Specifically it provides utilities that allow package authors to quickly and cleanly create region-aware `geom_*()` functions. 
+The ggregions changes how analysts can interact with [simple features](https://en.wikipedia.org/wiki/Simple_Features) (sf) data.  Specifically it provides utilities that allow package authors to quickly and cleanly create region-aware `geom_*()` functions (smart layers). 
 
-Writing a new region-aware geom with ggregions:
+Writing a new region-aware geom with ggregions is simple:
 
 ```{r}
 us_states_ref <- usmapdata::us_map() |> 
@@ -190,7 +190,7 @@ us_states_ref <- usmapdata::us_map() |>
 geom_state <- ggregions::write_geom_region_locale(ref_data = us_states_ref)
 ```
 
-User experience: Use geo-referenced in an intuitive way with smart layer --- borders are added under the hood! 
+Then, user experience is very intuitive. The user can graph geo-referenced data in an intuitive way with smart layers like geom_state() --- borders are added under the hood! 
 
 ```{r}
 # geo data without boarder info
@@ -208,16 +208,13 @@ us_rent_income |>
 
 Notably, this framework may also be used with other atlas types, for example anatomical atlases.
 
-<details>
 
 
-<details>
 
-
-```{r, child = "../mytidytuesday/2026-01-21-gganatogram-x-ggregions/gganatogram-x-ggregions.Rmd"}
+```{r, child = "../mytidytuesday/2026-01-21-gganatogram-x-ggregions/gganatogram-x-ggregions-public.Rmd"}
 ```
 
-
+---
 
 ```{r, fig.width=10, fig.height=6, dpi = 300, eval = F}
 new_style = ggram:::specify_code_plot_style(vline_color = "transparent", accent = NULL, hline_color = "grey90",
