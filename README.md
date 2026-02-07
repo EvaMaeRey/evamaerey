@@ -246,66 +246,6 @@ us_rent_income |>
 Notably, this framework may also be used with other atlas types, for
 example anatomical atlases.
 
-<details>
-
-``` r
-library(tidyverse)
-state_ref <- usmapdata::us_map() |> 
-  select(state = full, 
-         state_fips = fips, 
-         state_abb = abbr, 
-         geometry = geom)
-
-head(state_ref)
-```
-
-    ## Simple feature collection with 6 features and 3 fields
-    ## Geometry type: MULTIPOLYGON
-    ## Dimension:     XY
-    ## Bounding box:  xmin: -2584074 ymin: -2602555 xmax: 1431301 ymax: -39590.54
-    ## Projected CRS: NAD27 / US National Atlas Equal Area
-    ##        state state_fips state_abb                       geometry
-    ## 1     Alaska         02        AK MULTIPOLYGON (((-2390688 -2...
-    ## 2    Alabama         01        AL MULTIPOLYGON (((1091785 -13...
-    ## 3   Arkansas         05        AR MULTIPOLYGON (((482022.2 -9...
-    ## 4    Arizona         04        AZ MULTIPOLYGON (((-1386064 -1...
-    ## 5 California         06        CA MULTIPOLYGON (((-1716581 -1...
-    ## 6   Colorado         08        CO MULTIPOLYGON (((-787705.6 -...
-
-``` r
-geom_state <- ggregions::write_geom_region_locale(state_ref)
-stamp_state <- ggregions::write_stamp_region_locale(state_ref)
-```
-
-</details>
-
-### us states target api
-
-``` r
-USArrests |>
-  rownames_to_column(var = "state") |> 
-  head()
-```
-
-    ##        state Murder Assault UrbanPop Rape
-    ## 1    Alabama   13.2     236       58 21.2
-    ## 2     Alaska   10.0     263       48 44.5
-    ## 3    Arizona    8.1     294       80 31.0
-    ## 4   Arkansas    8.8     190       50 19.5
-    ## 5 California    9.0     276       91 40.6
-    ## 6   Colorado    7.9     204       78 38.7
-
-``` r
-USArrests |>
-  rownames_to_column(var = "state") |>
-  ggplot() + 
-  aes(state = state,
-      fill = Assault) + 
-  geom_state()
-```
-
-![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
-
 ## teethr’s data experiment
 
 <https://github.com/bbartholdy/teethr>
@@ -379,7 +319,7 @@ caries_ratios |>
   stamp_tooth_text(size = 2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 # gganatogram’s data experiment
 
@@ -445,11 +385,13 @@ cell_sf
 ``` r
 ggplot() + 
   stamp_organelle(alpha = .2) + 
-  stamp_organelle(keep = "actin_filaments", fill = "orange", alpha = .1) +
-  stamp_organelle(keep = "endoplasmic_reticulum", fill = "darkred") 
+  stamp_organelle(keep = "actin_filaments", 
+                  fill = "orange" |> alpha(.1)) +
+  stamp_organelle(keep = "endoplasmic_reticulum", 
+                  fill = "darkred") 
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 # Trying female human anatomy with same routine
 
@@ -477,7 +419,7 @@ ggplot(female_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 ``` r
 male_sf <- gganatogram::hgMale_list[2:155] |>  
@@ -493,7 +435,7 @@ ggplot(male_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-24-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
 
 </details>
 
@@ -509,7 +451,7 @@ ggplot() +
     )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 # aseg X data
 
@@ -542,28 +484,20 @@ stamp_region_text <- write_stamp_region_text_locale(ref_data = coronal_ref_data)
 </details>
 
 ``` r
-ggplot() + 
-  stamp_region() + 
-  stamp_region(keep = c("hippocampus", "amygdala"), 
-               fill = c("blue", "orange"))
-```
-
-![](README_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
-
-``` r
 tribble(~activity, ~segment,
         .2,        "hippocampus",
         .5,        "amygdala",
-        .7,        "thalamus proper") |>
+        .7,        "thalamus proper",
+        .5,        "caudate") |>
 ggplot() + 
   stamp_region() + 
   aes(region = segment,
       fill = activity) + 
   geom_region() + 
-  scale_color_viridis_c()
+  scale_fill_viridis_c(option = "magma")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ------------------------------------------------------------------------
 
