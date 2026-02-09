@@ -44,9 +44,9 @@ Stuff I do:
 
 <!-- - [x]  Reproducible computing environments, containerization -->
 
-I work on tools that make data analytics more fluid and intuitive and on
-tools which expose this fluidity and elegance. These tools also allow us
-to better record ‘conversations’ with data and workflows.
+I work on tools that make data analytics more fluid and intuitive — and
+on tools which expose this fluidity! These tools also allow us to better
+record ‘conversations’ with data and workflows.
 
 <!-- ```{r} -->
 
