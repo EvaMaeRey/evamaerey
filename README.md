@@ -108,9 +108,8 @@ elegant and intuitive grammar of graphics visualization frameworks.
 My technical expertise is in ggplot2 and my current focus is on
 extension and supporting extenders. I co-founded and organize the
 [ggplot2 extenders
-club](https://ggplot2-extenders.github.io/ggplot-extension-club/)…
-
-, have created [‘easy geom
+club](https://ggplot2-extenders.github.io/ggplot-extension-club/), have
+created [‘easy geom
 recipes’](https://evamaerey.github.io/easy-geom-recipes/), am writing
 [ggplot2 extension
 cookbook](https://github.com/EvaMaeRey/ggplot2-extension-cookbook), and
@@ -684,14 +683,11 @@ Testimonials:
 > before, but this one made it look easier and more intuitive. I want to
 > try again writing my own! - Georgios Karamanis
 
-``` r
-file.copy("../posit-consulting/report2_easy_geom_recipes.pdf", "report2_easy_geom_recipes.pdf")
-```
-
-See the [report](hello) to Posit evaluating the resources based on a
-survey and focus group. Feedback was collected was from two software
-engineers; four university level Statistics and Data Science educators,
-a Data Visualization Professional; and a data science product
-professional.
+See the
+[report](https://evamaerey.github.io/evamaerey/report2_easy_geom_recipes.pdf)
+to Posit evaluating the resources based on a survey and focus group.
+Feedback was collected was from two software engineers; four university
+level Statistics and Data Science educators, a Data Visualization
+Professional; and a data science product professional.
 
 ------------------------------------------------------------------------
