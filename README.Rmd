@@ -186,22 +186,24 @@ knitrExtra::chunk_to_dir("my_function", dir = "R")
 
 The ggregions changes how analysts can interact with [simple features](https://en.wikipedia.org/wiki/Simple_Features) (sf) data.  Specifically it provides utilities that allow package authors to quickly and cleanly create region-aware `geom_*()` functions (smart layers). 
 
-Writing a new region-aware geom with ggregions is simple:
+Writing a new region-aware geom with ggregions is simple. First reference data is prepared which contain region identifiers as well as a column (geometry), containing boundary information.  Then a region-aware user-facing layer function can be defined using the ggregions utility. 
 
 ```{r}
+# 1. prepare reference data
 us_states_ref <- usmapdata::us_map() |> 
   select(state_name = full, 
          state_fips = fips, 
          state_abb = abbr, 
          geometry = geom)
 
+# 2. define user-facing `geom_*` function with ggregions utility
 geom_state <- ggregions::write_geom_region_locale(ref_data = us_states_ref)
 ```
 
-Then, user experience is very intuitive. The user can graph geo-referenced data in an intuitive way with smart layers like geom_state() --- borders are added under the hood! 
+Then, user experience is very intuitive. The user can graph geo-referenced data in an intuitive way with smart layers like geom_state() --- border information is merged on under the hood. 
 
 ```{r}
-# geo data without boarder info
+# data without boarder info, but which references geographic regions
 head(us_rent_income) 
 
 # plot
@@ -217,7 +219,27 @@ us_rent_income |>
 Notably, this framework may also be used with other atlas types, for example anatomical atlases.
 
 
-```{r, child = "../mytidytuesday/2026-01-21-gganatogram-x-ggregions/gganatogram-x-ggregions-public.Rmd"}
+```{r anatogram, child = "../mytidytuesday/2026-01-21-gganatogram-x-ggregions/gganatogram-x-ggregions-public.Rmd"}
+```
+---
+
+See [{ggswitzerland}](https://github.com/EvaMaeRey/ggswitzerland) for a demonstration package created with the ggregions utility and framework.  ggswitzerland allows users to intuitively and concisely replicate the stunning work of Timo Grossenbacher and Angelo Zehr:
+
+```{r swiss}
+library(tidyverse)
+library(ggswitzerland)
+theme_map() |> theme_set()
+
+head(muni_income_data)
+
+muni_income_data |>
+  ggplot() + 
+  stamp_mountains() + 
+  aes(muni_name = municipality) +
+  geom_muni() + 
+  aes(fill = mean_quantiles) +
+  stamp_canton(fill = "transparent") + 
+  stamp_lake(fill = "#D6F1FF")
 ```
 
 
@@ -225,7 +247,7 @@ Notably, this framework may also be used with other atlas types, for example ana
 
 4. Flipbookr's new `reveal_live` capabilities
 
-Now, flipbookr can reanimate pipelines with an API similar to the popular package 'reprex' using the then `reveal_live` capabilities.
+Now, flipbookr can reanimate pipelines with an API similar to the popular package 'reprex', making `reveal_live` available to users.
 
 First, the user should copy some code that they would like 'animated' to their clipboard. 
 
@@ -235,9 +257,9 @@ Then they can execute the code `reveal_live()`, which will create a code-output 
 
 5. Routines that link physical phenomena with statistical models
 
-ggsprings (with Dr. Michael Friendly) helps instructors/students note the commonality between OLS and a spring system, where the spring system will minimize the potential energy of the system and the OLS model is the line that minimizes the sum of the squared residuals.  
+[ggsprings](https://github.com/EvaMaeRey/ggsprings) (with Dr. Michael Friendly) helps instructors/students note the commonality between OLS and a spring system, where the spring system will minimize the potential energy of the system and the OLS model is the line that minimizes the sum of the squared residuals.  
 
-```{r}
+```{r springs}
 library(ggsprings)
 
 ggplot(anscombe) +
@@ -247,9 +269,12 @@ ggplot(anscombe) +
   ggsprings:::geom_residual_springs(method = lm)
 ```
 
-ggprop.test helps educators/students understand the proportion as a balancing point, and the distribution that's consistent with the null hypothesis as a distribution that lies along that balance.
 
-```{r, echo  = F, message=F, warning=F}
+---
+
+See also, [ggprop.test](https://github.com/EvaMaeRey/ggprop.test) which helps educators/students understand the prop test.  The functionality encourages students to notice that the proportion is also the balancing point of the data (TRUE = 1 and FALSE = 0 cases).  
+
+```{r prop.test.prep, echo  = F, message=F, warning=F}
 library(tidyverse)
 
 isi_donor_url <- "https://www.isi-stats.com/isi/data/prelim/OrganDonor.txt"
@@ -258,12 +283,13 @@ donor <- read_delim(isi_donor_url) %>%
   select(Default, Choice) %>% 
   dplyr::mutate(decision = ifelse(Choice == "donor", "donor (1)", "not (0)")) %>% 
   dplyr::mutate(decision = fct_rev(decision)) 
+
+ggchalkboard:::theme_blackboard(base_size = 14) |> theme_set()
+snapshot <- function(...){ggplyr::intercept(...)}
 ```
 
-```{r}
+```{r prop.test}
 head(donor)
-
-snapshot <- function(...){ggplyr::intercept(...)}
 
 library(ggprop.test)
 donor |>
@@ -284,7 +310,8 @@ donor |>
 
 If we discuss each of the snapshot points, we could write something like this:
 
-```{r, fig.height=11, fig.width = 8, out.width="60%"}
+```{r patchproptest, fig.height=11, fig.width = 8, out.width="60%"}
+
 
 library(patchwork)
 (p1 + p2) / 
@@ -306,8 +333,7 @@ library(patchwork)
 5. Draw distribution for NULL, where SD = sqrt((p * (1-p))/n)
 6. Calc z-score - where does observed prop fit into NULL distributions 
    (i.e. how many standard deviations fit between .5 and .67)"
-                             ) &
-  ggchalkboard:::theme_blackboard(base_size = 14) 
+                             )
 ```
 
 ---
@@ -321,6 +347,12 @@ Testimonials:
 > Just wanted to share that I'm spending some of my weekend reading your brilliant resource here. This is so well written and delightful as a resource; wish I had had it years ago and thrilled to know it now. Thank you for writing! - Emily Riederer
 
 > The format works for me. I've read tutorials about creating extensions before, but this one made it look easier and more intuitive. I want to try again writing my own! - Georgios Karamanis
+
+```{r, eval = F}
+file.copy("../posit-consulting/report2_easy_geom_recipes.pdf", "report2_easy_geom_recipes.pdf")
+```
+
+See the [report](hello) to Posit evaluating the resources based on a survey and focus group. Feedback was collected was from two software engineers; four university level Statistics and Data Science educators, a Data Visualization Professional; and a data science product professional. 
 
 ---
 

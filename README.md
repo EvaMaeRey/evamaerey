@@ -213,24 +213,29 @@ features](https://en.wikipedia.org/wiki/Simple_Features) (sf) data.
 Specifically it provides utilities that allow package authors to quickly
 and cleanly create region-aware `geom_*()` functions (smart layers).
 
-Writing a new region-aware geom with ggregions is simple:
+Writing a new region-aware geom with ggregions is simple. First
+reference data is prepared which contain region identifiers as well as a
+column (geometry), containing boundary information. Then a region-aware
+user-facing layer function can be defined using the ggregions utility.
 
 ``` r
+# 1. prepare reference data
 us_states_ref <- usmapdata::us_map() |> 
   select(state_name = full, 
          state_fips = fips, 
          state_abb = abbr, 
          geometry = geom)
 
+# 2. define user-facing `geom_*` function with ggregions utility
 geom_state <- ggregions::write_geom_region_locale(ref_data = us_states_ref)
 ```
 
 Then, user experience is very intuitive. The user can graph
 geo-referenced data in an intuitive way with smart layers like
-geom_state() — borders are added under the hood!
+geom_state() — border information is merged on under the hood.
 
 ``` r
-# geo data without boarder info
+# data without boarder info, but which references geographic regions
 head(us_rent_income) 
 ```
 
@@ -333,7 +338,7 @@ caries_ratios |>
   stamp_tooth_text(size = 2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ### ggregions with gganatogram::cell_list
 
@@ -405,7 +410,7 @@ ggplot() +
                   fill = "darkred") 
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ### ggregions and gganatogram::hgFemale_list
 
@@ -433,7 +438,7 @@ ggplot(female_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 ``` r
 male_sf <- gganatogram::hgMale_list[2:155] |>  
@@ -449,7 +454,7 @@ ggplot(male_sf) +
   geom_sf(alpha = .2)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
 
 </details>
 
@@ -465,7 +470,7 @@ ggplot() +
     )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 ### ggregions and ggseg::aseg\$data
 
@@ -513,14 +518,52 @@ ggplot() +
   scale_fill_viridis_c(option = "magma")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+
+------------------------------------------------------------------------
+
+See [{ggswitzerland}](https://github.com/EvaMaeRey/ggswitzerland) for a
+demonstration package created with the ggregions utility and framework.
+ggswitzerland allows users to intuitively and concisely replicate the
+stunning work of Timo Grossenbacher and Angelo Zehr:
+
+``` r
+library(tidyverse)
+library(ggswitzerland)
+theme_map() |> theme_set()
+
+head(muni_income_data)
+```
+
+    ## # A tibble: 6 × 5
+    ##   municipality       bfs_id  mean  gini mean_quantiles
+    ##   <chr>               <dbl> <dbl> <dbl> <chr>         
+    ## 1 Aeugst am Albis         1 56077 0.523 47k – 478k    
+    ## 2 Affoltern am Albis      2 40365 0.434 38k – 41k     
+    ## 3 Bonstetten              3 50364 0.415 47k – 478k    
+    ## 4 Hausen am Albis         4 47717 0.47  47k – 478k    
+    ## 5 Hedingen                5 50436 0.453 47k – 478k    
+    ## 6 Kappel am Albis         6 48833 0.484 47k – 478k
+
+``` r
+muni_income_data |>
+  ggplot() + 
+  stamp_mountains() + 
+  aes(muni_name = municipality) +
+  geom_muni() + 
+  aes(fill = mean_quantiles) +
+  stamp_canton(fill = "transparent") + 
+  stamp_lake(fill = "#D6F1FF")
+```
+
+![](README_files/figure-gfm/swiss-1.png)<!-- -->
 
 ------------------------------------------------------------------------
 
 4.  Flipbookr’s new `reveal_live` capabilities
 
 Now, flipbookr can reanimate pipelines with an API similar to the
-popular package ‘reprex’ using the then `reveal_live` capabilities.
+popular package ‘reprex’, making `reveal_live` available to users.
 
 First, the user should copy some code that they would like ‘animated’ to
 their clipboard.
@@ -533,10 +576,11 @@ are in memory.
 
 5.  Routines that link physical phenomena with statistical models
 
-ggsprings (with Dr. Michael Friendly) helps instructors/students note
-the commonality between OLS and a spring system, where the spring system
-will minimize the potential energy of the system and the OLS model is
-the line that minimizes the sum of the squared residuals.
+[ggsprings](https://github.com/EvaMaeRey/ggsprings) (with Dr. Michael
+Friendly) helps instructors/students note the commonality between OLS
+and a spring system, where the spring system will minimize the potential
+energy of the system and the OLS model is the line that minimizes the
+sum of the squared residuals.
 
 ``` r
 library(ggsprings)
@@ -548,11 +592,14 @@ ggplot(anscombe) +
   ggsprings:::geom_residual_springs(method = lm)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/springs-1.png)<!-- -->
 
-ggprop.test helps educators/students understand the proportion as a
-balancing point, and the distribution that’s consistent with the null
-hypothesis as a distribution that lies along that balance.
+------------------------------------------------------------------------
+
+See also, [ggprop.test](https://github.com/EvaMaeRey/ggprop.test) which
+helps educators/students understand the prop test. The functionality
+encourages students to notice that the proportion is also the balancing
+point of the data (TRUE = 1 and FALSE = 0 cases).
 
 ``` r
 head(donor)
@@ -569,8 +616,6 @@ head(donor)
     ## 6 opt-in  donor  donor (1)
 
 ``` r
-snapshot <- function(...){ggplyr::intercept(...)}
-
 library(ggprop.test)
 donor |>
   ggplot() + 
@@ -587,7 +632,7 @@ donor |>
   geom_normal_prop_null_sds() + snapshot("p6")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](README_files/figure-gfm/prop.test-1.png)<!-- -->
 
 If we discuss each of the snapshot points, we could write something like
 this:
@@ -613,11 +658,10 @@ library(patchwork)
 5. Draw distribution for NULL, where SD = sqrt((p * (1-p))/n)
 6. Calc z-score - where does observed prop fit into NULL distributions 
    (i.e. how many standard deviations fit between .5 and .67)"
-                             ) &
-  ggchalkboard:::theme_blackboard(base_size = 14) 
+                             )
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-11-1.png" width="60%" />
+<img src="README_files/figure-gfm/patchproptest-1.png" width="60%" />
 
 ------------------------------------------------------------------------
 
@@ -639,5 +683,15 @@ Testimonials:
 > The format works for me. I’ve read tutorials about creating extensions
 > before, but this one made it look easier and more intuitive. I want to
 > try again writing my own! - Georgios Karamanis
+
+``` r
+file.copy("../posit-consulting/report2_easy_geom_recipes.pdf", "report2_easy_geom_recipes.pdf")
+```
+
+See the [report](hello) to Posit evaluating the resources based on a
+survey and focus group. Feedback was collected was from two software
+engineers; four university level Statistics and Data Science educators,
+a Data Visualization Professional; and a data science product
+professional.
 
 ------------------------------------------------------------------------
